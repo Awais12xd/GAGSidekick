@@ -1,0 +1,15 @@
+{
+  "watch": ["Server.js", "Funcs"],
+  "ext": "js,json",
+  "ignore": [
+    "Funcs/Calc/FruitDatabase.mjs", 
+    "**/FruitDatabase.mjs",         
+    "**/*.mjs",                     
+    "*.log",
+    "node_modules",
+    "frontend", 
+    ".git",
+    "public",
+    "dist"
+  ]
+}
