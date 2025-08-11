@@ -187,9 +187,16 @@ const Home = () => {
     }
   };
 
-  useEffect(() => {
-    fetchAllData();
-  }, [searchParams.get("refresh")]);
+ useEffect(() => {
+  if (!searchParams.get("refresh")) return;
+
+  fetchAllData();
+
+  // Remove ?refresh=... from URL without reloading
+  const url = new URL(window.location);
+  url.searchParams.delete("refresh");
+  window.history.replaceState({}, "", url);
+}, [searchParams.get("refresh")]);
 
   // When any hook yields data (first non-null), mark wsReady
   useEffect(() => {
