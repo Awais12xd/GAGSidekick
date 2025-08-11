@@ -2,8 +2,29 @@
 // Singleton bridge client that connects to the local bridge WS and emits events.
 // Configure via REACT_APP_BRIDGE_WS (default ws://localhost:8000)
 
-const DEFAULT_WS = `ws://${import.meta.env.VITE_STOCK_SOCKET}/alldata`;
+// src/lib/bridgeClient.js
+// --- top of file ---
+const envSocket = import.meta.env.VITE_STOCK_SOCKET || ""; // e.g. "gagsidekick-backend-stockserver-rtx5y.ondigitalocean.app" or "https://domain"
+function buildDefaultWs() {
+  if (!envSocket) return "ws://localhost:8000/alldata";
+
+  // if envSocket already has protocol (http(s) or ws(s)), normalize
+  let s = envSocket.trim();
+  if (/^https?:\/\//i.test(s)) s = s.replace(/^https?:\/\//i, "");
+  if (/^wss?:\/\//i.test(s)) s = s.replace(/^wss?:\/\//i, "");
+
+  // choose proto depending on page protocol
+  const pageIsSecure = (typeof window !== "undefined") && window.location && window.location.protocol === "https:";
+  const proto = pageIsSecure ? "wss" : "ws";
+
+  // include the path (use /alldata by default)
+  return `${proto}://${s.replace(/\/$/, "")}/alldata`;
+}
+
+const DEFAULT_WS = buildDefaultWs();
 const WS_URL = typeof window !== "undefined" && window.__BRIDGE_WS_URL ? window.__BRIDGE_WS_URL : DEFAULT_WS;
+// --- rest of file unchanged ---
+
 
 class BridgeClient extends EventTarget {
   constructor() {

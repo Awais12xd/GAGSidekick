@@ -186,6 +186,11 @@ const Home = () => {
       setTimersLoading(false);
     }
   };
+  useEffect(() => {
+  // initial call (so timersReadyRef becomes true after successful fetch)
+  fetchAllData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
 
  useEffect(() => {
   if (!searchParams.get("refresh")) return;
