@@ -14,7 +14,7 @@ const DISCORD_USER_ID = process.env.DISCORD_USER_ID || "";
 const JSTUDIO_KEY = process.env.JSTUDIO_KEY || "";
 const PORT = Number(process.env.PORT || 8000);
 const UPSTREAM_BASE = "wss://websocket.joshlei.com/growagarden";
-
+const app = express();
 const ALLOWED_ORIGINS = [
   "http://localhost:5173",
   "http://127.0.0.1:5173",
