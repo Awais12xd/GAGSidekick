@@ -1,29 +1,50 @@
-// src/lib/bridgeClient.js
-// Singleton bridge client that connects to the local bridge WS and emits events.
-// Configure via REACT_APP_BRIDGE_WS (default ws://localhost:8000)
+// src/lib/bridgeClient.js (top)
+const envServer = import.meta.env.VITE_STOCK_SERVER || ""; // e.g. "https://..."
 
-// src/lib/bridgeClient.js
-// --- top of file ---
-const envSocket = import.meta.env.VITE_STOCK_SOCKET || ""; // e.g. "gagsidekick-backend-stockserver-rtx5y.ondigitalocean.app" or "https://domain"
+// Build WS url deterministically from VITE_STOCK_SERVER (if available), else fall back to VITE_STOCK_SOCKET or localhost.
 function buildDefaultWs() {
-  if (!envSocket) return "ws://localhost:8000/alldata";
+  // 1) If VITE_STOCK_SERVER is set and valid, use it:
+  if (envServer) {
+    try {
+      const u = new URL(envServer);
+      // choose wss for https and ws for http
+      const proto = u.protocol === "https:" ? "wss" : "ws";
+      return `${proto}://${u.host.replace(/\/$/, "")}/alldata`;
+    } catch (e) {
+      // fall back to other logic
+      console.warn("[bridgeClient] invalid VITE_STOCK_SERVER:", envServer, e);
+    }
+  }
 
-  // if envSocket already has protocol (http(s) or ws(s)), normalize
-  let s = envSocket.trim();
-  if (/^https?:\/\//i.test(s)) s = s.replace(/^https?:\/\//i, "");
-  if (/^wss?:\/\//i.test(s)) s = s.replace(/^wss?:\/\//i, "");
+  // 2) Next fallback: the older VITE_STOCK_SOCKET (domain only or with protocol)
+  const envSocket = import.meta.env.VITE_STOCK_SOCKET || "";
+  if (envSocket) {
+    let s = envSocket.trim();
+    // strip any protocol if present
+    s = s.replace(/^https?:\/\//i, "").replace(/^wss?:\/\//i, "");
+    // if host empty -> fallback
+    if (s) {
+      const pageIsSecure =
+        typeof window !== "undefined" && window.location?.protocol === "https:";
+      const proto = pageIsSecure ? "wss" : "ws";
+      return `${proto}://${s.replace(/\/$/, "")}/alldata`;
+    }
+  }
 
-  // choose proto depending on page protocol
-  const pageIsSecure = (typeof window !== "undefined") && window.location && window.location.protocol === "https:";
+  // 3) final fallback: localhost (dev)
+  const pageIsSecure =
+    typeof window !== "undefined" && window.location?.protocol === "https:";
   const proto = pageIsSecure ? "wss" : "ws";
-
-  // include the path (use /alldata by default)
-  return `${proto}://${s.replace(/\/$/, "")}/alldata`;
+  return `${proto}://localhost:8000/alldata`;
 }
 
 const DEFAULT_WS = buildDefaultWs();
-const WS_URL = typeof window !== "undefined" && window.__BRIDGE_WS_URL ? window.__BRIDGE_WS_URL : DEFAULT_WS;
-// --- rest of file unchanged ---
+console.debug("[bridgeClient] DEFAULT_WS =", DEFAULT_WS);
+
+const WS_URL =
+  typeof window !== "undefined" && window.__BRIDGE_WS_URL
+    ? window.__BRIDGE_WS_URL
+    : DEFAULT_WS;
 
 
 class BridgeClient extends EventTarget {
