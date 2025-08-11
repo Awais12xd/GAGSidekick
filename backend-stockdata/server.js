@@ -15,15 +15,29 @@ const JSTUDIO_KEY = process.env.JSTUDIO_KEY || "";
 const PORT = Number(process.env.PORT || 8000);
 const UPSTREAM_BASE = "wss://websocket.joshlei.com/growagarden";
 
-const app = express();
-const allowed = (process.env.CORS_ORIGINS || "").split(",").map(s => s.trim()).filter(Boolean);
-app.use(cors({
+const ALLOWED_ORIGINS = [
+  "http://localhost:5173",
+  "http://127.0.0.1:5173",
+  "https://your-vercel-site.vercel.app",   // add prod frontends here
+];
+
+// cors options
+const corsOptions = {
   origin: (origin, cb) => {
+    // allow no-origin (curl, Postman) or allowed origins
     if (!origin) return cb(null, true);
-    if (allowed.length === 0 || allowed.includes(origin)) return cb(null, true);
-    cb(new Error("CORS not allowed"));
+    if (ALLOWED_ORIGINS.includes(origin)) return cb(null, true);
+    return cb(new Error("Not allowed by CORS"));
   },
-}));
+  methods: ["GET", "POST", "OPTIONS", "HEAD"],
+  allowedHeaders: ["Content-Type", "Authorization", "Cache-Control"],
+  credentials: false, // set true only if you need cookies/auth
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
+// also ensure express handles OPTIONS preflight for all routes:
+// app.options("*", cors(corsOptions));
 app.use(express.json());
 app.set("trust proxy", 1);
 

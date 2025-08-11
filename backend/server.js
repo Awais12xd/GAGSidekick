@@ -17,21 +17,29 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.set('trust proxy', 1);
-const raw = process.env.CORS_ORIGINS || '';
-const allowedOrigins = raw.split(',').map(s => s.trim()).filter(Boolean);
+const ALLOWED_ORIGINS = [
+  "http://localhost:5173",
+  "http://127.0.0.1:5173",
+  "https://your-vercel-site.vercel.app",   // add prod frontends here
+];
 
+// cors options
 const corsOptions = {
-  origin: (origin, callback) => {
-    // allow non-browser (curl/postman) requests (origin === undefined)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) return callback(null, true);
-    callback(new Error('CORS not allowed by server'));
+  origin: (origin, cb) => {
+    // allow no-origin (curl, Postman) or allowed origins
+    if (!origin) return cb(null, true);
+    if (ALLOWED_ORIGINS.includes(origin)) return cb(null, true);
+    return cb(new Error("Not allowed by CORS"));
   },
-  credentials: true,
-  optionsSuccessStatus: 200,
+  methods: ["GET", "POST", "OPTIONS", "HEAD"],
+  allowedHeaders: ["Content-Type", "Authorization", "Cache-Control"],
+  credentials: false, // set true only if you need cookies/auth
+  optionsSuccessStatus: 204,
 };
 
 app.use(cors(corsOptions));
+// also ensure express handles OPTIONS preflight for all routes:
+app.options("*", cors(corsOptions));
 app.use(helmet());
 app.use(compression());
 
