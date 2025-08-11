@@ -34,6 +34,7 @@ const PORT = config.Port;
 const ALLOWED_ORIGINS = [
   "http://localhost:5173",
   "http://127.0.0.1:5173",
+  "https://gag-sidekick-mhfiwf3uo-awais12xds-projects.vercel.app/",
   "https://gag-sidekick.vercel.app/",   // add prod frontends here
 ];
 
