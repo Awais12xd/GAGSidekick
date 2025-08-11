@@ -360,6 +360,30 @@ const fruits = [
       }
     },
     {
+      "name": "Burning Bud",
+      "category": "Fruits",
+      "rarity": "Prismatic",
+      "value": "N/A",
+      "demand": 0,
+      "image": "https://i.postimg.cc/2Syt3f35/image.png",
+      "updatedAt": "2025-05-13T11:23:16.000Z",
+      "itemId": "5",
+      "history": [],
+      "createdAt": "2025-05-28T05:43:54.425Z",
+      "metadata": {
+        "eggs": "N/A",
+        "tier": "Prismatic",
+        "type": "Crop",
+        "rarity": "0.010",
+        "buyPrice": "100000",
+        "sellValue": "6500",
+        "tradeable": true,
+        "amountInShop": "1-2",
+        "multiHarvest": true,
+        "eggs_hatch_chance": "N/A"
+      }
+    },
+    {
       "name": "Grape",
       "category": "Fruits",
       "rarity": "Divine",
@@ -1130,17 +1154,17 @@ const fruits = [
     {
       "name": "Beanstalk",
       "category": "Fruits",
-      "rarity": "Divine",
+      "rarity": "Prismatic",
       "value": "N/A",
       "demand": 0,
-      "image": "https://i.postimg.cc/dVL0hP8R/image.png",
+      "image": "https://api.joshlei.com/v2/growagarden/image/beanstalk",
       "updatedAt": "2025-05-17T15:17:23.000Z",
       "itemId": "95",
       "history": [],
       "createdAt": "2025-05-28T05:43:54.563Z",
       "metadata": {
         "eggs": "N/A",
-        "tier": "Divine",
+        "tier": "Prismatic",
         "type": "Crop",
         "rarity": "N/A",
         "buyPrice": "10000000",
@@ -1213,6 +1237,31 @@ const fruits = [
       "metadata": {
         "eggs": "N/A",
         "tier": "Mythical",
+        "type": "Crop",
+        "rarity": "N/A",
+        "buyPrice": " 15000000",
+        "sellValue": "N/A",
+        "tradeable": true,
+        "amountInShop": "N/A",
+        "multiHarvest": true,
+        "eggs_hatch_chance": "N/A"
+      }
+    },
+    
+    {
+      "name": "Giant Pinecone",
+      "category": "Fruits",
+      "rarity": "Prismatic",
+      "value": "N/A",
+      "demand": 0,
+      "image": "https://api.joshlei.com/v2/growagarden/image/giant_pinecone",
+      "updatedAt": "2025-05-26T07:21:18.000Z",
+      "itemId": "109",
+      "history": [],
+      "createdAt": "2025-05-28T05:43:54.575Z",
+      "metadata": {
+        "eggs": "N/A",
+        "tier": "Prismatic",
         "type": "Crop",
         "rarity": "N/A",
         "buyPrice": " 15000000",

@@ -1,26 +1,66 @@
+// RestockTimer.jsx
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 /**
  * RestockTimer
- * Props:
- *   - timestamp: target unix ms (server-provided)
- *   - serverNow (optional): server's Date.now() in ms when the API response was produced.
  *
- * If you pass serverNow, the component will compute a clockOffset = serverNow - Date.now()
- * and use it to correct local clock differences so timer lines up with server/game time.
+ * Props:
+ *  - timestamp: (number|string) target unix time (ms) OR last-restock time (ms/seconds) — normalized automatically
+ *  - serverNow: optional server time (ms/seconds) when the API response was produced (for clock sync)
+ *  - name: optional string (e.g. "cosmetics") — when "cosmetics" we assume cyclical period default 4 hours
+ *  - periodHours: optional number; when using cyclical "since" mode this is the refresh period (hours)
+ *  - timestampMode: "absolute" | "since" — if "since", timestamp is treated as last-restock time. Default: "absolute"
+ *
+ * Behavior:
+ *  - Default: timestampMode="absolute" (timestamp is the future target)
+ *  - If name === "cosmetics" and timestampMode not provided -> timestampMode="since" and periodHours default to 4.
+ *  - Normalizes seconds -> milliseconds automatically.
  */
-const RestockTimer = ({ timestamp, serverNow = null }) => {
-  // timeLeft in ms
-  const [timeLeft, setTimeLeft] = useState(() => Math.max(0, timestamp - Date.now()));
-  const timerRef = useRef(null);
-  const navigatedRef = useRef(false);
-  const mountedRef = useRef(true);
+const RestockTimer = ({
+  timestamp: rawTimestamp,
+  serverNow: rawServerNow = null,
+  name = "",
+  periodHours = null,
+  timestampMode = "absolute",
+}) => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
-  // compute clock offset (serverNow - clientNow)
+  // refs
+  const timerRef = useRef(null);
+  const navigatedRef = useRef(false);
+  const mountedRef = useRef(true);
   const clockOffsetRef = useRef(0);
+
+  // --- normalize numeric times to milliseconds ---
+  const toMs = (v) => {
+    if (v == null) return v;
+    if (typeof v === "number") {
+      return v < 1e12 ? v * 1000 : v; // < 1e12 likely seconds, convert
+    }
+    if (typeof v === "string") {
+      const n = Number(v);
+      if (!Number.isNaN(n)) return n < 1e12 ? n * 1000 : n;
+    }
+    return v;
+  };
+
+  const timestamp = toMs(rawTimestamp);
+  const serverNow = toMs(rawServerNow);
+
+  // If resource is cosmetics and no explicit timestampMode passed, assume cyclical "since" mode
+  let effectiveTimestampMode = timestampMode;
+  let effectivePeriodHours = periodHours;
+  if (String(name).toLowerCase() === "cosmetics" && !timestampMode) {
+    effectiveTimestampMode = "since";
+    if (!periodHours) effectivePeriodHours = 4; // cosmetics refresh period = 4 hours (default)
+  }
+
+  // period in ms if using "since" mode
+  const periodMs = typeof effectivePeriodHours === "number" ? Math.max(0, effectivePeriodHours * 3600 * 1000) : null;
+
+  // compute corrected "now" using server offset if present
   useEffect(() => {
     if (typeof serverNow === "number") {
       clockOffsetRef.current = serverNow - Date.now();
@@ -29,54 +69,73 @@ const RestockTimer = ({ timestamp, serverNow = null }) => {
     }
   }, [serverNow]);
 
+  const getNowWithOffset = () => Date.now() + clockOffsetRef.current;
+
+  // initial timeLeft computed using serverNow if available to avoid flash-of-wrong-time
+  const initialTimeLeft = (() => {
+    const now = getNowWithOffset();
+    if (effectiveTimestampMode === "absolute") {
+      if (typeof timestamp !== "number") return 0;
+      return Math.max(0, timestamp - now);
+    } else if (effectiveTimestampMode === "since" && typeof timestamp === "number" && typeof periodMs === "number" && periodMs > 0) {
+      // timestamp = lastRestock (ms). compute elapsed since last restock:
+      const elapsed = Math.max(0, now - timestamp);
+      const rem = periodMs - (elapsed % periodMs);
+      // if rem === periodMs then treat as 0 (just at boundary)
+      return rem === periodMs ? 0 : rem;
+    } else {
+      // fallback: if timestamp present treat as absolute
+      if (typeof timestamp === "number") return Math.max(0, timestamp - now);
+      return 0;
+    }
+  })();
+
+  const [timeLeft, setTimeLeft] = useState(initialTimeLeft);
+
+  // update scheduling
   useEffect(() => {
     mountedRef.current = true;
-
-    // Clear existing timer if any
     if (timerRef.current) {
       clearTimeout(timerRef.current);
       timerRef.current = null;
     }
     navigatedRef.current = false;
 
-    const getNow = () => Date.now() + clockOffsetRef.current;
-
     const updateAndSchedule = () => {
       if (!mountedRef.current) return;
+      const now = getNowWithOffset();
 
-      const now = getNow();
-      let diff = timestamp - now;
+      let diff = 0;
+      if (effectiveTimestampMode === "absolute") {
+        diff = typeof timestamp === "number" ? timestamp - now : 0;
+      } else if (effectiveTimestampMode === "since" && typeof timestamp === "number" && typeof periodMs === "number" && periodMs > 0) {
+        const elapsed = Math.max(0, now - timestamp);
+        let rem = periodMs - (elapsed % periodMs);
+        if (rem === periodMs) rem = 0;
+        diff = rem;
+      } else {
+        diff = typeof timestamp === "number" ? timestamp - now : 0;
+      }
+
       if (diff <= 0) {
-        // reached or passed target
         setTimeLeft(0);
-
-        // trigger navigate once
         if (!navigatedRef.current) {
           navigatedRef.current = true;
           const refreshed = parseInt(searchParams.get("refresh") || "0", 10);
-          // use replace so history doesn't fill with refresh query
           navigate(`?refresh=${refreshed + 1}`, { replace: true });
         }
-        return; // no further scheduling
+        return;
       }
 
-      // Update displayed ms
       setTimeLeft(diff);
 
-      // compute when next displayed second change will happen:
-      // we are showing seconds with floor(ms/1000), so schedule next update
-      // exactly when ms crosses the next lower second boundary.
       const msToNextSecond = diff % 1000;
-      // if msToNextSecond is 0, schedule in ~1000ms (next second)
       const delay = msToNextSecond === 0 ? 1000 : msToNextSecond;
-
-      // Add a tiny safety clamp so we don't schedule 0ms repeatedly
       const safeDelay = Math.max(10, Math.floor(delay));
-
       timerRef.current = setTimeout(updateAndSchedule, safeDelay);
     };
 
-    // Initial immediate tick (aligns to exact second quickly)
+    // initial tick
     updateAndSchedule();
 
     return () => {
@@ -86,9 +145,10 @@ const RestockTimer = ({ timestamp, serverNow = null }) => {
         timerRef.current = null;
       }
     };
-  }, [timestamp, navigate, searchParams]);
+    // re-run if timestamp, serverNow, mode or period changes
+  }, [timestamp, serverNow, effectiveTimestampMode, periodMs, navigate, searchParams]);
 
-  // formatting (same as yours, kept readable)
+  // Formatting same as before
   const formatTime = (ms) => {
     const totalSeconds = Math.max(0, Math.floor(ms / 1000));
     const hours = Math.floor(totalSeconds / 3600);
@@ -96,9 +156,7 @@ const RestockTimer = ({ timestamp, serverNow = null }) => {
     const seconds = totalSeconds % 60;
 
     if (hours > 0) {
-      return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(
-        seconds
-      ).padStart(2, "0")}`;
+      return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
     } else if (minutes > 0) {
       return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
     } else {

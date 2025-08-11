@@ -1,197 +1,147 @@
-import React, { useEffect, useRef, useState } from "react";
+// src/pages/Home.jsx
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import axios from "axios";
-import StockCard from "./components/StockCard.jsx";
+import StockCard from "./components/StockCard.jsx"
 import "./App.css";
 import { useSearchParams } from "react-router-dom";
-import { cosmetics, eggs, fruits, gears } from "./database.js";
+import { cosmetics as DB_COSMETICS, eggs as DB_EGGS, fruits as DB_FRUITS, gears as DB_GEARS } from "./database.js";
 
-/* ... LoadingSkeleton, ErrorBanner, Header, WeatherGrid same as before ... */
-/* For brevity I'm including them unchanged. Keep your existing helper components. */
+// NEW: per-route hooks (you said these exist in ../hooks/index.js)
+import { useWeather, useSeeds, useGear, useEggs, useCosmetics } from "./hooks/index.js";
 
-const LoadingSkeleton = ({ rows = 4 }) => {
-  return (
-    <div className="grid gap-4 md:grid-cols-2 2xl:grid-cols-4">
-      {Array.from({ length: rows }).map((_, i) => (
-        <div
-          key={i}
-          className="rounded-xl bg-gradient-to-br from-green-50 to-white/60 border border-green-200 p-4 animate-pulse min-h-[120px]"
-        >
-          <div className="w-3/5 h-6 bg-green-200 rounded mb-3"></div>
-          <div className="h-8 bg-green-100 rounded mb-2"></div>
-          <div className="flex gap-2 mt-3">
-            <div className="w-10 h-10 bg-green-100 rounded" />
-            <div className="w-10 h-10 bg-green-100 rounded" />
-            <div className="w-10 h-10 bg-green-100 rounded" />
-          </div>
+import BridgeDashboard from "./components/TestCard.jsx";
+import TestNewLogic from "./components/TestNewLogic.jsx";
+
+/* ---------- Small UI pieces (kept simple / same as your originals) ---------- */
+
+const LoadingSkeleton = ({ rows = 4 }) => (
+  <div className="grid gap-4 md:grid-cols-2 2xl:grid-cols-4">
+    {Array.from({ length: rows }).map((_, i) => (
+      <div key={i} className="rounded-xl bg-gradient-to-br from-green-50 to-white/60 border border-green-200 p-4 animate-pulse min-h-[120px]">
+        <div className="w-3/5 h-6 bg-green-200 rounded mb-3" />
+        <div className="h-8 bg-green-100 rounded mb-2" />
+        <div className="flex gap-2 mt-3">
+          <div className="w-10 h-10 bg-green-100 rounded" />
+          <div className="w-10 h-10 bg-green-100 rounded" />
+          <div className="w-10 h-10 bg-green-100 rounded" />
         </div>
-      ))}
-    </div>
-  );
-};
+      </div>
+    ))}
+  </div>
+);
 
-const ErrorBanner = ({ message, onRetry }) => {
-  return (
-    <div className="bg-red-50 border border-red-200 text-red-800 rounded-xl p-4 mb-4 shadow-sm">
-      <div className="flex items-start justify-between gap-4">
+const Header = ({ wsConnected, lastUpdated }) => (
+  <header className="w-full bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-500 text-white py-6 px-6 rounded-b-2xl shadow-lg mb-6">
+    <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
+      <div className="flex items-center gap-4">
+        <div className="text-3xl">🌱</div>
         <div>
-          <h4 className="font-semibold">Something went wrong</h4>
-          <p className="text-sm mt-1">{message}</p>
+          <h1 className="text-2xl font-extrabold leading-tight">GAG Sidekick — Live Stock</h1>
+          <p className="text-sm opacity-90">Real-time stock and restock timers</p>
         </div>
+      </div>
+
+      <div className="flex items-center gap-4 text-sm">
         <div className="flex items-center gap-2">
-          <button
-            onClick={onRetry}
-            className="px-3 py-1 rounded-md bg-red-600 text-white font-medium hover:bg-red-700 transition"
-          >
-            Retry
-          </button>
+          <span className={`w-3 h-3 rounded-full ${wsConnected ? "bg-green-300" : "bg-rose-400"}`} title={wsConnected ? "Live" : "Disconnected"} />
+          <span>{wsConnected ? "Live" : "Offline"}</span>
+        </div>
+
+        <div className="text-xs text-white/90 bg-white/10 px-3 py-1 rounded-md">
+          {lastUpdated ? `Updated: ${new Date(lastUpdated).toLocaleTimeString()}` : "No updates yet"}
         </div>
       </div>
     </div>
-  );
-};
+  </header>
+);
 
-const Header = ({ wsConnected, lastUpdated }) => {
-  return (
-    <header className="w-full bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-500 text-white py-6 px-6 rounded-b-2xl shadow-lg mb-6">
-      <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
-        <div className="flex items-center gap-4">
-          <div className="text-3xl">🌱</div>
-          <div>
-            <h1 className="text-2xl font-extrabold leading-tight">
-              GAG Sidekick — Live Stock
-            </h1>
-            <p className="text-sm opacity-90">
-              Real-time stock and restock timers
-            </p>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-4 text-sm">
-          <div className="flex items-center gap-2">
-            <span
-              className={`w-3 h-3 rounded-full ${
-                wsConnected ? "bg-green-300" : "bg-rose-400"
-              }`}
-              title={wsConnected ? "Live" : "Disconnected"}
-            />
-            <span>{wsConnected ? "Live" : "Offline"}</span>
-          </div>
-
-          <div className="text-xs text-white/90 bg-white/10 px-3 py-1 rounded-md">
-            {lastUpdated
-              ? `Updated: ${new Date(lastUpdated).toLocaleTimeString()}`
-              : "No updates yet"}
-          </div>
-        </div>
-      </div>
-    </header>
-  );
-};
-
-const WeatherGrid = ({ currentWeathers }) => {
-  return (
-    <div className="max-w-6xl mx-auto p-4">
-      {currentWeathers && currentWeathers.length > 0 ? (
-        <div className="grid gap-4 sm:gr id-cols-2 lg:grid-cols-4">
-          {currentWeathers.map((w, i) => (
-            <div
-              key={i}
-              className="bg-white/80 backdrop-blur-sm border border-green-200 rounded-xl p-4 flex items-center gap-4 shadow-sm hover:scale-[1.01] transition-transform"
-            >
-              {/* <div className="text-4xl">{w.emoji}</div> */}
-              <div>
-                <div className="font-bold text-lg text-emerald-800">
-                  {w.type}
-                </div>
-                <div className="text-xs text-emerald-700 mt-1">
-                  Active Weather
-                </div>
-              </div>
+const WeatherGrid = ({ currentWeathers }) => (
+  <div className="max-w-6xl mx-auto p-4">
+    {currentWeathers && currentWeathers.length > 0 ? (
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {currentWeathers.map((w, i) => (
+          <div key={i} className="bg-white/80 backdrop-blur-sm border border-green-200 rounded-xl p-4 flex items-center gap-4 shadow-sm hover:scale-[1.01] transition-transform">
+            <div className="flex gap-4 items-center">
+              <img className="w-7 h-7 shadow-xl" src={w.icon} alt="" />
+             <div className="flex flex-col gap-1">
+               <div className="font-bold text-lg text-emerald-800">{w.type ?? w.weather_name ?? w.weather_id ?? w.name}</div>
+              <div className="text-xs text-emerald-700 mt-1">Active Weather</div>
+             </div>
             </div>
-          ))}
-        </div>
-      ) : (
-        <div className="bg-white/80 border border-gray-200 rounded-xl p-4 text-center text-gray-700 shadow-sm">
-          Working on weather updates! (It will come soon)
-        </div>
-      )}
-    </div>
-  );
+          </div>
+        ))}
+      </div>
+    ) : (
+      <div className="bg-white/80 border border-gray-200 rounded-xl p-4 text-center text-gray-700 shadow-sm">No active weather right now!</div>
+    )}
+  </div>
+);
+
+/* ---------- Home component (uses per-route hooks) ---------- */
+
+const deepEqual = (a, b) => {
+  try {
+    return JSON.stringify(a) === JSON.stringify(b);
+  } catch {
+    return false;
+  }
+};
+
+const enrichItems = (items = [], db = []) => {
+  if (!Array.isArray(items)) return [];
+  return items.map((item) => {
+    const name = item.display_name ?? item.name ?? item.item_id ?? item.id;
+    const match = db.find((d) => d.name === name);
+    return match ? { ...item, image: match.image, rarity: match.metadata?.tier } : item;
+  });
 };
 
 const Home = () => {
-  // timers only
-  const [data, setData] = useState({ restockTimers: null });
-
-  // initial loading (true until we have both timers AND the first WS snapshot)
-  const [initialLoading, setInitialLoading] = useState(true);
-  // timersLoading is used for subsequent refreshes only (small spinner)
+  // timers (kept)
+  const [timersData, setTimersData] = useState({ restockTimers: null });
   const [timersLoading, setTimersLoading] = useState(false);
-
+  const [initialLoading, setInitialLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // new server live data (source-of-truth for stock + weather)
-  const [newServerData, setNewServerData] = useState(null);
-  const newServerTsRef = useRef(0);
-
-  // enriched arrays for UI (images/rarity)
+  // enriched arrays for UI (local state per route)
   const [seedData, setSeedData] = useState([]);
   const [eggData, setEggData] = useState([]);
   const [gearData, setGearData] = useState([]);
   const [cosmeticData, setCosmeticData] = useState([]);
-  const [weatherWsConnected, setWeatherWsConnected] = useState(false);
-  // signature refs to avoid no-op updates
-  const lastPayloadSigRef = useRef(null); // used by main WS (if you add the sig check there)
-  const lastWeatherSigRef = useRef(null);
-   const makeSig = (payload) => {
-    try {
-      const ts = payload?.timestamp ?? (payload?.lastGlobalUpdate ? Date.parse(payload.lastGlobalUpdate) : null);
-      if (ts) return `ts:${ts}`;
-      return JSON.stringify(payload);
-    } catch (e) {
-      return String(Date.now());
-    }
-  };
-  // ws status
-  const [wsConnected, setWsConnected] = useState(false);
-  const [lastUpdated, setLastUpdated] = useState(null);
 
-  const [searchParams] = useSearchParams();
+  const newServerTsRef = useRef(0);
 
-  // refs to coordinate initial load: we mark each source as ready
+  // ---------- Per-route hooks (your new hooks) ----------
+  const { data: seeds, loading: seedsLoading } = useSeeds(); // array or null
+  const { data: gear, loading: gearLoading } = useGear();
+  const { data: eggs, loading: eggsLoading } = useEggs();
+  const { data: cosmetics, loading: cosmeticsLoading } = useCosmetics();
+  const { data: weather, loading: weatherLoading } = useWeather();
+
+  // initial-load coordination: we consider "wsReady" true when any of the hooks provides non-null data
   const timersReadyRef = useRef(false);
   const wsReadyRef = useRef(false);
 
-  // fetch restock timers only (no full-page loading on subsequent calls)
+  const [searchParams] = useSearchParams();
+
+  // fetch restock timers only (unchanged)
   const fetchAllData = async () => {
-    // if initial load hasn't finished yet, show initialLoading,
-    // otherwise show only timersLoading for a small spinner.
     if (!initialLoading) setTimersLoading(true);
     setError(null);
     try {
       const timestamp = Date.now();
-      const timerRes = await axios.get(
-        `http://localhost:3000/api/stock/restock-time?ts=${timestamp}`,
-        {
-          headers: { "Cache-Control": "no-cache" },
-        }
-      );
-
-      setData({ restockTimers: timerRes.data });
+      const timerRes = await axios.get(`http://localhost:3000/api/stock/restock-time?ts=${timestamp}`, {
+        headers: { "Cache-Control": "no-cache" },
+      });
+      console.log(timerRes)
+      setTimersData({ restockTimers: timerRes.data });
       timersReadyRef.current = true;
 
-      // if WS already provided data, we can turn off initialLoading
-      if (wsReadyRef.current && initialLoading) {
-        setInitialLoading(false);
-      }
-      setError(null);
+      if (wsReadyRef.current && initialLoading) setInitialLoading(false);
     } catch (err) {
       console.error("Error fetching restock timers:", err);
       setError("Could not load restock timers. Try retrying.");
-      // If it's initial load and WS is present, allow UI to show data anyway
-      if (wsReadyRef.current && initialLoading) {
-        setInitialLoading(false);
-      }
+      if (wsReadyRef.current && initialLoading) setInitialLoading(false);
     } finally {
       setTimersLoading(false);
     }
@@ -199,307 +149,72 @@ const Home = () => {
 
   useEffect(() => {
     fetchAllData();
-    // refetch when refresh param changes
   }, [searchParams.get("refresh")]);
 
-  // ----------------------------
-  // NEW BACKEND WS (ws://localhost:5000)
-  // ----------------------------
+  // When any hook yields data (first non-null), mark wsReady
   useEffect(() => {
-    let mounted = true;
-    let ws = null;
-    let reconnectTimer = null;
-    let attempts = 0;
+    const anyData =
+      (Array.isArray(seeds) && seeds.length > 0) ||
+      (Array.isArray(gear) && gear.length > 0) ||
+      (Array.isArray(eggs) && eggs.length > 0) ||
+      (Array.isArray(cosmetics) && cosmetics.length > 0) ||
+      (Array.isArray(weather) && weather.length > 0);
 
-    const connect = () => {
-      if (!mounted) return;
-      try {
-        ws = new WebSocket("ws://localhost:5000");
-      } catch (err) {
-        console.error("[NEW BACKEND WS] constructor failed:", err);
-        scheduleReconnect();
-        return;
-      }
+    if (anyData) {
+      wsReadyRef.current = true;
+      if (timersReadyRef.current && initialLoading) setInitialLoading(false);
+    }
+  }, [seeds, gear, eggs, cosmetics, weather]);
 
-      ws.onopen = () => {
-        if (!mounted) return;
-        console.log("[NEW BACKEND WS] connected to ws://localhost:5000");
-        attempts = 0;
-        setWsConnected(true);
-      };
-
-      ws.onmessage = (e) => {
-        if (!mounted) return;
-        try {
-          const msg = JSON.parse(e.data);
-          const payload = msg.data ?? msg;
-          // console the payload so you can inspect it
-          console.log("[NEW BACKEND WS] message received:", msg);
-
-          // update source-of-truth
-          setNewServerData(payload);
-          setLastUpdated(Date.now());
-
-          // mark ws ready for initial loading if not already
-          wsReadyRef.current = true;
-          if (timersReadyRef.current && initialLoading) {
-            setInitialLoading(false);
-          }
-
-          // timestamp handling
-          const ts =
-            payload.timestamp ??
-            (payload.lastGlobalUpdate
-              ? Date.parse(payload.lastGlobalUpdate)
-              : null);
-          if (ts && ts !== newServerTsRef.current) {
-            newServerTsRef.current = ts;
-            console.log(
-              "[NEW BACKEND WS] new timestamp:",
-              new Date(ts).toISOString()
-            );
-          }
-        } catch (err) {
-          console.error("[NEW BACKEND WS] parse error:", err);
-        }
-      };
-
-      ws.onerror = (err) => {
-        console.error("[NEW BACKEND WS] socket error:", err);
-      };
-
-      ws.onclose = (ev) => {
-        if (!mounted) return;
-        console.warn(
-          "[NEW BACKEND WS] connection closed",
-          ev?.code,
-          ev?.reason
-        );
-        setWsConnected(false);
-        scheduleReconnect();
-      };
-    };
-
-    const scheduleReconnect = () => {
-      if (!mounted) return;
-      attempts = Math.min(12, attempts + 1);
-      const delay = Math.min(30000, 1000 * 2 ** attempts);
-      console.log(
-        `[NEW BACKEND WS] reconnecting in ${delay}ms (attempt ${attempts})`
-      );
-      if (reconnectTimer) clearTimeout(reconnectTimer);
-      reconnectTimer = setTimeout(connect, delay);
-    };
-
-    connect();
-
-    return () => {
-      mounted = false;
-      if (reconnectTimer) clearTimeout(reconnectTimer);
-      try {
-        if (ws) ws.close();
-      } catch (e) {}
-    };
-  }, []);
-   
-  //weather
-    // ----------------------------
-  // WEATHER-ONLY WS (ws://localhost:5000/weather)
-  // ----------------------------
+  // Per-route effects: only update that specific card when new data arrives.
   useEffect(() => {
-    let mounted = true;
-    let ws = null;
-    let reconnectTimer = null;
-    let attempts = 0;
+    if (!Array.isArray(seeds)) return; // don't clobber when undefined/null
+    const enriched = enrichItems(seeds, DB_FRUITS);
+    if (!deepEqual(enriched, seedData)) setSeedData(enriched);
+  }, [seeds]); // run only when seeds hook changes
 
-    const connectWeather = () => {
-      if (!mounted) return;
-
-      // build ws url (override with env if needed)
-    //   const PROTO = window.location.protocol === "https:" ? "wss" : "ws";
-    //   const baseHost = import.meta.env.REACT_APP_WS_BASE || `${PROTO}://${window.location.hostname}:${process.env.REACT_APP_WS_PORT || 5000}`;
-    //   const weatherPath = process.env.REACT_APP_WS_WEATHER_PATH || "/weather";
-    //   const url = `${baseHost.replace(/\/$/, "")}${weatherPath}`;
-
-      try {
-        ws = new WebSocket("ws://localhost:5000/weather");
-      } catch (err) {
-        console.error("[WEATHER WS] constructor failed:", err);
-        scheduleWeatherReconnect();
-        return;
-      }
-
-      ws.onopen = () => {
-        if (!mounted) return;
-        console.log("[WEATHER WS] connected to ws://localhost:5000");
-        attempts = 0;
-        setWeatherWsConnected(true);
-      };
-
-      ws.onmessage = (e) => {
-        if (!mounted) return;
-        try {
-          const msg = JSON.parse(e.data);
-          // payload may be msg.data or msg itself; normalize
-          const payload = msg.data ?? msg;
-
-          // signature check to avoid no-op updates
-          const sig = makeSig(payload);
-          if (sig === lastWeatherSigRef.current) {
-            // no actual change
-            return;
-          }
-          lastWeatherSigRef.current = sig;
-
-          // Merge weather into the existing newServerData without wiping other fields:
-          setNewServerData((prev) => {
-            // defensive copy
-            const next = prev ? { ...prev } : {};
-            // support messages that are either { weather: [...] } or the raw weather array/object
-            if (payload.weather !== undefined) {
-              next.weather = payload.weather;
-            } else {
-              // payload is weather itself (array or object)
-              next.weather = payload;
-            }
-            // update a timestamp for UI freshness
-            next.timestamp = Date.now();
-            return next;
-          });
-
-          // update lastUpdated and a small debug ts
-          setLastUpdated(Date.now());
-          const tsFromPayload = payload.timestamp ?? (payload.lastGlobalUpdate ? Date.parse(payload.lastGlobalUpdate) : null);
-          if (tsFromPayload && tsFromPayload !== newServerTsRef.current) {
-            newServerTsRef.current = tsFromPayload;
-            console.log("[WEATHER WS] new weather timestamp:", new Date(tsFromPayload).toISOString());
-          } else {
-            console.log("[WEATHER WS] weather message merged");
-          }
-        } catch (err) {
-          console.error("[WEATHER WS] parse error:", err);
-        }
-      };
-
-      ws.onerror = (err) => {
-        console.error("[WEATHER WS] socket error:", err);
-      };
-
-      ws.onclose = (ev) => {
-        if (!mounted) return;
-        console.warn("[WEATHER WS] connection closed", ev?.code, ev?.reason);
-        setWeatherWsConnected(false);
-        scheduleWeatherReconnect();
-      };
-    };
-
-    const scheduleWeatherReconnect = () => {
-      if (!mounted) return;
-      attempts = Math.min(12, attempts + 1);
-      const baseDelay = Math.min(30000, 1000 * 2 ** attempts);
-      const jitter = Math.floor(Math.random() * 400) - 200; // ±200ms jitter
-      const delay = Math.max(0, baseDelay + jitter);
-      console.log(`[WEATHER WS] reconnecting in ${delay}ms (attempt ${attempts})`);
-      if (reconnectTimer) clearTimeout(reconnectTimer);
-      reconnectTimer = setTimeout(connectWeather, delay);
-    };
-
-    connectWeather();
-
-    return () => {
-      mounted = false;
-      if (reconnectTimer) clearTimeout(reconnectTimer);
-      try {
-        if (ws) ws.close();
-      } catch (e) {}
-      setWeatherWsConnected(false);
-    };
-  }, []); // run once
-
-
-  // Merge newServerData into enriched arrays (images, rarity)
   useEffect(() => {
-    if (!newServerData) return;
+    if (!Array.isArray(eggs)) return;
+    const enriched = enrichItems(eggs, DB_EGGS);
+    if (!deepEqual(enriched, eggData)) setEggData(enriched);
+  }, [eggs]);
 
-    const seedsArr = newServerData.seeds ?? newServerData.seed?.items ?? [];
-    const eggsArr = newServerData.eggs ?? newServerData.egg?.items ?? [];
-    const gearsArr =
-      newServerData.gear ??
-      newServerData.gear?.items ??
-      newServerData.gear ??
-      [];
-    const cosmeticsArr =
-      newServerData.cosmetics ?? newServerData.cosmetics?.items ?? [];
+  useEffect(() => {
+    if (!Array.isArray(gear)) return;
+    const enriched = enrichItems(gear, DB_GEARS);
+    if (!deepEqual(enriched, gearData)) setGearData(enriched);
+  }, [gear]);
 
-    if (Array.isArray(seedsArr)) {
-      const updatedSeeds = seedsArr.map((item) => {
-        const match = fruits.find((f) => f.name === item.name);
-        return match
-          ? { ...item, image: match.image, rarity: match.metadata?.tier }
-          : item;
-      });
-      setSeedData(updatedSeeds);
-    }
+  useEffect(() => {
+    if (!Array.isArray(cosmetics)) return;
+    const enriched = enrichItems(cosmetics, DB_COSMETICS);
+    if (!deepEqual(enriched, cosmeticData)) setCosmeticData(enriched);
+  }, [cosmetics]);
 
-    if (Array.isArray(eggsArr)) {
-      const updatedEggs = eggsArr.map((item) => {
-        const match = eggs.find((f) => f.name === item.name);
-        return match
-          ? { ...item, image: match.image, rarity: match.metadata?.tier }
-          : item;
-      });
-      setEggData(updatedEggs);
-    }
+  // If you want to display weather, we can use the weather hook directly
+  const currentWeathers = useMemo(() => {
+    const w = weather ?? [];
+    return Array.isArray(w) ? w.filter((i) => i.active) : [];
+  }, [weather]);
 
-    if (Array.isArray(gearsArr)) {
-      const updatedGears = gearsArr.map((item) => {
-        const match = gears.find((g) => g.name === item.name);
-        return match
-          ? { ...item, image: match.image, rarity: match.metadata?.tier }
-          : item;
-      });
-      setGearData(updatedGears);
-    }
+  // Simple WS-connected indicator: true if at least one route is *not* loading
+  const anyRouteConnected = !(
+    seedsLoading &&
+    gearLoading &&
+    eggsLoading &&
+    cosmeticsLoading &&
+    weatherLoading
+  );
 
-    if (Array.isArray(cosmeticsArr)) {
-      const updatedCos = cosmeticsArr.map((item) => {
-        const match = cosmetics.find((c) => c.name === item.name);
-        return match
-          ? { ...item, image: match.image, rarity: match.metadata?.tier }
-          : item;
-      });
-      setCosmeticData(updatedCos);
-    }
-
-    if (newServerData.weather) {
-      console.log("[NEW BACKEND WS] weather payload:", newServerData.weather);
-    }
-  }, [newServerData]);
-
-  // Derived display arrays
-  const displaySeeds = seedData;
-  const displayGears = gearData;
-  const displayEggs = eggData;
-  const displayCosmetics = cosmeticData;
-
-  const currentWeathers = (() => {
-    const weathers = newServerData?.weather ?? [];
-    return Array.isArray(weathers) ? weathers.filter((i) => i.isActive) : [];
-  })();
-
-  // UI: initial full-screen loading while we wait for both sources
+  // UI: initial full-screen loading while we wait for both timers AND at least one route snapshot
   if (initialLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-emerald-50 to-white py-8">
-        <Header wsConnected={wsConnected} lastUpdated={lastUpdated} />
+        <Header wsConnected={anyRouteConnected} lastUpdated={newServerTsRef.current || null} />
         <main className="max-w-[1500px] mx-auto px-4">
           <div className="mb-6">
-            <div className="text-center text-2xl font-bold text-emerald-800 mb-2">
-              Live Garden Stocks
-            </div>
-            <p className="text-center text-sm text-gray-600">
-              Connecting to live feeds — please wait
-            </p>
+            <div className="text-center text-2xl font-bold text-emerald-800 mb-2">Live Garden Stocks</div>
+            <p className="text-center text-sm text-gray-600">Connecting to live feeds — please wait</p>
           </div>
 
           <div className="space-y-4">
@@ -510,22 +225,17 @@ const Home = () => {
     );
   }
 
-  // If we got here initialLoading=false -> show normal UI. timersLoading will show a small spinner instead of full-screen loading.
+  // Main UI
   return (
     <div className="min-h-screen bg-gradient-to-b from-emerald-50 to-white pb-8">
-      <Header wsConnected={wsConnected} lastUpdated={lastUpdated} />
+      <Header wsConnected={anyRouteConnected} lastUpdated={new Date().toLocaleTimeString()} />
 
       <main className="max-w-[1700px] mx-auto px-4 space-y-6">
-        {/* Weather */}
         <WeatherGrid currentWeathers={currentWeathers} />
 
-        {/* Controls & meta */}
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <button
-              onClick={fetchAllData}
-              className="px-3 py-2 bg-emerald-600 text-white rounded-lg shadow hover:bg-emerald-700 transition flex items-center"
-            >
+            <button onClick={fetchAllData} className="px-3 py-2 bg-emerald-600 text-white rounded-lg shadow hover:bg-emerald-700 transition flex items-center">
               {timersLoading ? (
                 <>
                   <span className="inline-block w-3 h-3 rounded-full bg-yellow-300 animate-pulse mr-2" />
@@ -535,53 +245,26 @@ const Home = () => {
                 "Refresh Timers"
               )}
             </button>
-            {/* small debug/info */}
-            <div className="text-xs text-gray-600 ml-2">
-              {newServerTsRef.current
-                ? `Last snapshot: ${new Date(
-                    newServerTsRef.current
-                  ).toLocaleTimeString()}`
-                : "No snapshot yet"}
-            </div>
+
+            <div className="text-xs text-gray-600 ml-2">{/* you can show last snapshot ts here if you maintain one */}</div>
           </div>
 
           <div className="text-sm text-gray-600">
-            <span className="font-medium">Made By:</span> Awais Ali (Here is my roblox id "awais_ali5" lets play GAG)
+            <span className="font-medium">Made By:</span> Awais Ali (roblox id "awais_ali5")
           </div>
         </div>
 
-        {/* Stocks grid */}
         <div className="sm:grid gap-y-10 sm:gap-4 flex flex-col items-center sm:items-start mx-auto sm:justify-items-center md:grid-cols-2 2xl:grid-cols-4 ">
-          <StockCard
-            title="🌱 Seeds Stock"
-            items={displaySeeds}
-            name="seeds"
-            restockTimers={data.restockTimers}
-          />
-          <StockCard
-            title="⚙️ Gear Stock"
-            items={displayGears}
-            name="gears"
-            restockTimers={data.restockTimers}
-          />
-          <StockCard
-            title="🥚 Egg Stock"
-            items={displayEggs}
-            name="eggs"
-            restockTimers={data.restockTimers}
-          />
-          <StockCard
-            title="🎨 Cosmetics Stock"
-            items={displayCosmetics}
-            name="cosmetics"
-            restockTimers={data.restockTimers}
-          />
+          <StockCard title="🌱 Seeds Stock" items={seedData} name="seeds" restockTimers={timersData.restockTimers} />
+          <StockCard title="⚙️ Gear Stock" items={gearData} name="gears" restockTimers={timersData.restockTimers} />
+          <StockCard title="🥚 Egg Stock" items={eggData} name="eggs" restockTimers={timersData.restockTimers} />
+          <StockCard title="🎨 Cosmetics Stock" items={cosmeticData} name="cosmetics" restockTimers={timersData.restockTimers} />
         </div>
 
-        {/* Footer */}
+        
+
         <div className="text-center text-xs text-gray-500 mt-8 pb-6">
-          Built for Grow A Garden players — data is proxied through your
-          backend. Live updates powered by WebSocket.
+          Built for Grow A Garden players — data is proxied through your backend. Live updates powered by WebSocket.
         </div>
       </main>
     </div>

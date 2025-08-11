@@ -78,7 +78,13 @@ const StockCard = ({ title, items = [], name, restockTimers }) => {
           <div className="text-xs opacity-90">New Stock in</div>
           {timer ? (
             <div className="mt-1">
-              <RestockTimer timestamp={timer} />
+              {
+                name === "cosmetics" ? (
+                  <RestockTimer timestamp={timer} name="cosmetics"/>
+                ) : (
+                  <RestockTimer timestamp={timer} />
+                )
+              }
             </div>
           ) : (
             <div className="mt-1 text-sm font-medium">—</div>
@@ -115,7 +121,7 @@ const StockCard = ({ title, items = [], name, restockTimers }) => {
                     <div className="pr-2">
                       {/* Name - big and bold for instant recognition */}
                       <p className="text-lg font-extrabold text-emerald-900 truncate">
-                        {item.name}
+                        {item.display_name}
                       </p>
 
                       {/* Sub info (value, last seen) */}

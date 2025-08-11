@@ -34,41 +34,8 @@
 .text-outline {
   color: white;
   -webkit-text-stroke: 0.004rem black; /* for most modern browsers */
-  text-shadow: 0.004rem black;         /* fallback */
+  text-shadow: 0.004rem rgb(50, 50, 50);         /* fallback */
 }
 
 
-/* Fallback outer-outline badge via pseudo-element */
-.outline-badge {
-  position: relative;
-  display: inline-block;
-  font-weight: 700;
-  color: #fff; /* top text */
-  line-height: 1;
-  z-index: 2;
-}
-
-/* The pseudo-element holds the outline color */
-.outline-badge::before {
-  content: attr(data-text);
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  color: transparent;
-  -webkit-text-stroke: 0px transparent;
-  /* stroke simulated by multiple small shadows but offset a bit outward */
-  text-shadow:
-    0 1px 0 rgba(0,0,0,0.9),
-    0 -1px 0 rgba(0,0,0,0.9),
-    1px 0 0 rgba(0,0,0,0.9),
-    -1px 0 0 rgba(0,0,0,0.9),
-    1px 1px 0 rgba(0,0,0,0.9),
-    -1px 1px 0 rgba(0,0,0,0.9),
-    1px -1px 0 rgba(0,0,0,0.9),
-    -1px -1px 0 rgba(0,0,0,0.9);
-  transform: translateZ(0) scale(1.06); /* nudge outward */
-  filter: blur(0.2px); /* softens edges a bit */
-  white-space: nowrap;
-  pointer-events: none;
-}
 
