@@ -18,7 +18,7 @@ const app = express();
 const ALLOWED_ORIGINS = [
   "http://localhost:5173",
   "http://127.0.0.1:5173",
-  "https://gag-sidekick-b69bq4s2t-awais12xds-projects.vercel.app/",   // add prod frontends here
+  "https://gag-sidekick.vercel.app/",   // add prod frontends here
 ];
 
 // cors options
