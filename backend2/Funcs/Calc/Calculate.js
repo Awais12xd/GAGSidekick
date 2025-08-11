@@ -3,8 +3,6 @@ import https from "https";
 import path from "path";
 import { fileURLToPath, pathToFileURL } from "url";
 import { dirname } from "path";
-import { cache } from "react";
-cache
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -141,9 +139,23 @@ function calculateFruit(tool) {
     await loadFruitDatabase();
     console.log(`✅ Loaded FruitDatabase with ${ItemData.length} items.`);
   } catch (e) {
-    console.error("❌ Error initializing FruitDatabase:", e);
-    process.exit(1);
+    console.error("❌ Error initializing FruitDatabase from remote:", e.message);
+    // Attempt to load local cached DB file instead (if available)
+    try {
+      const cached = await fs.readFile(path.resolve(__dirname, "./FruitDatabaseLocal.json"), "utf8");
+      const parsed = JSON.parse(cached);
+      ItemData = parsed.ItemData || [];
+      Rarity = parsed.Rarity || [];
+      Mutations = parsed.Mutations || {};
+      console.log(`✅ Loaded cached FruitDatabase with ${ItemData.length} items.`);
+    } catch (err) {
+      console.warn("⚠️ Could not load cached fruit DB either. Falling back to empty database.");
+      ItemData = [];
+      Rarity = [];
+      Mutations = {};
+    }
   }
 })();
+
 
 export { calculateFruit };
