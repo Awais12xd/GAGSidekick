@@ -96,7 +96,7 @@ const StockCard = ({ title, items = [], name, restockTimers }) => {
       <div className="p-4">
         <div className="grid gap-3">
           {items.map((item, idx) => {
-            const imageSrc = item.image || "/src/assets/question.jpeg"; // place fallback in public/assets
+            const imageSrc = item.image || "https://i.postimg.cc/gJB01rn9/question.jpg"; // place fallback in public/assets
             const rarity = item.rarity ?? item.tier ?? item.metadata?.tier;
             return (
               <div
