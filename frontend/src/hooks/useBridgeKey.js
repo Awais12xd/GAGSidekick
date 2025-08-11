@@ -48,6 +48,7 @@ export default function useBridgeKey({
     })();
 
     /**
+     * skjdh
      * Normalize incoming payloads to a 'body' that likely contains the resource.
      * Common shapes:
      *  - { weather: [...] }
