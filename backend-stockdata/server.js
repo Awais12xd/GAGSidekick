@@ -291,7 +291,7 @@ function connectUpstream() {
   });
 
   upstream.on("close", (code, reasonBuf) => {
-    const reason = reasonBuf && reason.toString ? reasonBuf.toString() : String(reasonBuf || "");
+const reason = reasonBuf && reasonBuf.toString ? reasonBuf.toString() : String(reasonBuf || "");
     console.warn(`[UPSTREAM] closed code=${code} reason=${reason}`);
     const rl = (reason || "").toLowerCase();
     if (code === 4000 || /auth/i.test(rl) || /token/i.test(rl) || /no token/i.test(rl)) {
