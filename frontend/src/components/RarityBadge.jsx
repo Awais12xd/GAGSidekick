@@ -43,14 +43,26 @@ const RarityBadge = ({
   variant = "common",
   strokeWidth = 2.4,
   fontSize = 12,
+  res = "",
   className = "",
 }) => {
   const text = String(label || "");
   // compute approximate width for viewBox (simple heuristic)
   const approxCharWidth = fontSize * 0.6;
-  const padding = 12;
-  const width = Math.max(80, text.length * approxCharWidth + padding * 2);
-  const height = Math.max(28, fontSize + padding);
+  let padding, width, height;
+  if (res === "sm") {
+    padding = 2;
+    width = Math.max(30, text.length * approxCharWidth + padding * 2);
+    height = Math.max(20, fontSize + padding);
+  } else if (res === "lg") {
+    padding = 12;
+    width = Math.max(80, text.length * approxCharWidth + padding * 2);
+    height = Math.max(80, fontSize + padding);
+  } else {
+    padding = 12;
+    width = Math.max(80, text.length * approxCharWidth + padding * 2);
+    height = Math.max(28, fontSize + padding);
+  }
 
   // choose stroke color (dark) — you can tune per-variant if desired
   const strokeColor = "rgb(50, 50, 50)";

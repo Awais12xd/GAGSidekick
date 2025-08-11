@@ -1,6 +1,6 @@
 import React from "react";
 import RestockTimer from "./RestockTimer.jsx";
-import "../App.css"
+import "../App.css";
 import RarityBadge from "./RarityBadge.jsx";
 
 /**
@@ -78,13 +78,11 @@ const StockCard = ({ title, items = [], name, restockTimers }) => {
           <div className="text-xs opacity-90">New Stock in</div>
           {timer ? (
             <div className="mt-1">
-              {
-                name === "cosmetics" ? (
-                  <RestockTimer timestamp={timer} name="cosmetics"/>
-                ) : (
-                  <RestockTimer timestamp={timer} />
-                )
-              }
+              {name === "cosmetics" ? (
+                <RestockTimer timestamp={timer} name="cosmetics" />
+              ) : (
+                <RestockTimer timestamp={timer} />
+              )}
             </div>
           ) : (
             <div className="mt-1 text-sm font-medium">—</div>
@@ -93,15 +91,16 @@ const StockCard = ({ title, items = [], name, restockTimers }) => {
       </div>
 
       {/* Body */}
-      <div className="p-1 sm:p-4">
+      <div className="px-1 py-4 sm:p-4">
         <div className="grid gap-3">
           {items.map((item, idx) => {
-            const imageSrc = item.image || "https://i.postimg.cc/gJB01rn9/question.jpg"; // place fallback in public/assets
+            const imageSrc =
+              item.image || "https://i.postimg.cc/gJB01rn9/question.jpg"; // place fallback in public/assets
             const rarity = item.rarity ?? item.tier ?? item.metadata?.tier;
             return (
               <div
                 key={`${item.name}-${idx}`}
-                className="flex items-center gap-3 py-3 px-1 sm:p-3 rounded-lg border border-green-50 bg-white shadow-sm hover:shadow-md transition transform hover:-translate-y-0.5"
+                className="flex items-center gap-3 p-3 rounded-lg border border-green-50 bg-white shadow-sm hover:shadow-md transition transform hover:-translate-y-0.5"
               >
                 {/* Image */}
                 <div className="w-16 h-16 flex-shrink-0 rounded-md bg-emerald-50 border border-green-100 flex items-center justify-center overflow-hidden">
@@ -117,10 +116,10 @@ const StockCard = ({ title, items = [], name, restockTimers }) => {
 
                 {/* Main info */}
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-start justify-between gap-2">
+                  <div className="flex items-start justify-between gap-1 sm:gap-2">
                     <div className="pr-2">
                       {/* Name - big and bold for instant recognition */}
-                      <p className="text-lg font-extrabold text-emerald-900 truncate">
+                      <p className="text-md sm:text-lg font-extrabold text-emerald-900 truncate">
                         {item.display_name}
                       </p>
 
@@ -147,10 +146,26 @@ const StockCard = ({ title, items = [], name, restockTimers }) => {
 
                     {/* Right column: rarity badge and big quantity */}
                     <div className="flex flex-col items-end gap-2">
-                     <RarityBadge label={rarity || "COMMON"} className="prismatic-badge" strokeWidth={4} fontSize={15} />
+                      <div className="sm:block hidden">
+                        <RarityBadge
+                          label={rarity || "COMMON"}
+                          className="prismatic-badge"
+                          strokeWidth={4}
+                          fontSize={14}
+                          res="lg"
+                        />
+                      </div>
+                      <div className="sm:hidden block">
+                        <RarityBadge
+                          label={rarity || "COMMON"}
+                          className="prismatic-badge"
+                          strokeWidth={4}
+                          fontSize={10}
+                          res="sm"
+                        />
+                      </div>
 
-
-                      <div className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-emerald-600 text-white font-extrabold text-lg shadow">
+                      <div className="inline-flex items-center justify-center px-2 sm:px-3 py-1 rounded-full bg-emerald-600 text-white font-extrabold text-sm sm:text-lg shadow">
                         x{item.quantity ?? 0}
                       </div>
                     </div>

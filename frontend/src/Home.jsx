@@ -47,7 +47,7 @@ const LoadingSkeleton = ({ rows = 4 }) => (
 
 const Header = ({ wsConnected, lastUpdated }) => (
   <header className="w-full bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-500 text-white py-6 px-6 rounded-b-2xl shadow-lg mb-6">
-    <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
+    <div className="max-w-6xl mx-auto flex flex-col  sm:flex-row  items-center justify-between gap-4">
       <div className="flex items-center gap-4">
         <div className="text-3xl">🌱</div>
         <div>
@@ -55,7 +55,7 @@ const Header = ({ wsConnected, lastUpdated }) => (
             GAG Sidekick — Live Stock
           </h1>
           <p className="text-sm opacity-90">
-            Real-time stock and restock timers
+            Real-time stock , weather updates and restock timers
           </p>
         </div>
       </div>
@@ -286,13 +286,13 @@ const Home = () => {
 
   // Main UI
   return (
-    <div className="min-h-screen bg-gradient-to-b from-emerald-50 to-white pb-8">
+    <div className="min-h-screen bg-gradient-to-b w-full from-emerald-50 to-white pb-8">
       <Header
         wsConnected={anyRouteConnected}
         lastUpdated={new Date().toLocaleTimeString()}
       />
 
-      <main className="max-w-[1700px] mx-auto px-4 space-y-6">
+      <main className="max-w-[1700px] mx-auto px-1 sm:px-4 space-y-6 ">
         <WeatherGrid currentWeathers={currentWeathers} />
 
         <div className="flex items-center justify-between gap-4">
@@ -350,8 +350,7 @@ const Home = () => {
         </div>
 
         <div className="text-center text-xs text-gray-500 mt-8 pb-6">
-          Built for Grow A Garden players — data is proxied through your
-          backend. Live updates powered by WebSocket.
+          Built for Grow A Garden players — data is proxied . Live updates powered by WebSocket.
         </div>
       </main>
     </div>
