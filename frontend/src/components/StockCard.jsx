@@ -108,9 +108,7 @@ const StockCard = ({ title, items = [], name, restockTimers }) => {
                     src={imageSrc}
                     alt={item.name}
                     className="w-full h-full object-contain"
-                    onError={(e) => {
-                      e.currentTarget.src = "/src/assets/question.jpeg";
-                    }}
+                   
                   />
                 </div>
 
