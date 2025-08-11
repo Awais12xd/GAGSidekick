@@ -93,7 +93,7 @@ const StockCard = ({ title, items = [], name, restockTimers }) => {
       </div>
 
       {/* Body */}
-      <div className="p-4">
+      <div className="p-1 sm:p-4">
         <div className="grid gap-3">
           {items.map((item, idx) => {
             const imageSrc = item.image || "https://i.postimg.cc/gJB01rn9/question.jpg"; // place fallback in public/assets
@@ -101,7 +101,7 @@ const StockCard = ({ title, items = [], name, restockTimers }) => {
             return (
               <div
                 key={`${item.name}-${idx}`}
-                className="flex items-center gap-3 p-3 rounded-lg border border-green-50 bg-white shadow-sm hover:shadow-md transition transform hover:-translate-y-0.5"
+                className="flex items-center gap-3 py-3 px-1 sm:p-3 rounded-lg border border-green-50 bg-white shadow-sm hover:shadow-md transition transform hover:-translate-y-0.5"
               >
                 {/* Image */}
                 <div className="w-16 h-16 flex-shrink-0 rounded-md bg-emerald-50 border border-green-100 flex items-center justify-center overflow-hidden">
