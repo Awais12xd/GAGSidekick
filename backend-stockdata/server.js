@@ -15,21 +15,17 @@ const JSTUDIO_KEY = process.env.JSTUDIO_KEY || "";
 const PORT = Number(process.env.PORT || 8000);
 const UPSTREAM_BASE = "wss://websocket.joshlei.com/growagarden";
 
-// allowed frontend origins (dev)
-const ALLOWED_ORIGINS = ["http://localhost:5173", "http://127.0.0.1:5173"];
-
 const app = express();
-app.use(
-  cors({
-    origin: (origin, cb) => {
-      // allow no-origin (curl, Postman) or allowed dev origins
-      if (!origin || ALLOWED_ORIGINS.includes(origin)) return cb(null, true);
-      return cb(null, false);
-    },
-    methods: ["GET", "OPTIONS", "HEAD"],
-    allowedHeaders: ["Content-Type", "Authorization", "Cache-Control"],
-  })
-);
+const allowed = (process.env.CORS_ORIGINS || "").split(",").map(s => s.trim()).filter(Boolean);
+app.use(cors({
+  origin: (origin, cb) => {
+    if (!origin) return cb(null, true);
+    if (allowed.length === 0 || allowed.includes(origin)) return cb(null, true);
+    cb(new Error("CORS not allowed"));
+  },
+}));
+app.use(express.json());
+app.set("trust proxy", 1);
 
 // Shutdown helpers
 let shuttingDown = false;
