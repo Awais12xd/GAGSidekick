@@ -2,7 +2,7 @@
 // Singleton bridge client that connects to the local bridge WS and emits events.
 // Configure via REACT_APP_BRIDGE_WS (default ws://localhost:8000)
 
-const DEFAULT_WS = "ws://localhost:8000/alldata";
+const DEFAULT_WS = `ws://${import.meta.env.VITE_STOCK_SOCKET}/alldata`;
 const WS_URL = typeof window !== "undefined" && window.__BRIDGE_WS_URL ? window.__BRIDGE_WS_URL : DEFAULT_WS;
 
 class BridgeClient extends EventTarget {

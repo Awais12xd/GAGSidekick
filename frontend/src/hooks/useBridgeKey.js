@@ -15,7 +15,7 @@ export default function useBridgeKey({
   httpBase,
 } = {}) {
   const inferredBase =
-    httpBase ||"http://localhost:8000";
+    import.meta.env.VITE_STOCK_SERVER || "http://localhost:8000";
   const base = inferredBase.replace(/\/$/, "");
   const url = `${base}${path.startsWith("/") ? path : `/${path}`}`;
 
@@ -103,7 +103,11 @@ export default function useBridgeKey({
         }
 
         // Also support message shape where type indicates resource, e.g. { type: 'weather', data: [...] }
-        if (raw?.type && key && String(raw.type).toLowerCase() === String(key).toLowerCase()) {
+        if (
+          raw?.type &&
+          key &&
+          String(raw.type).toLowerCase() === String(key).toLowerCase()
+        ) {
           // raw.data might be the actual payload
           const incoming = raw?.data ?? body;
           updateStateWithIncoming(incoming);

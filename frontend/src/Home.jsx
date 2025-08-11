@@ -10,7 +10,7 @@ import {
   fruits as DB_FRUITS,
   gears as DB_GEARS,
 } from "./database.js";
-
+console
 // NEW: per-route hooks (you said these exist in ../hooks/index.js)
 import {
   useWeather,
@@ -171,11 +171,9 @@ const Home = () => {
       const endpoint = API_BASE
         ? `${API_BASE.replace(/\/$/, "")}/api/stock/restock-time`
         : "/api/stock/restock-time";
-      console.log("fetching", endpoint);
       const timerRes = await api.get(`/api/stock/restock-time`, {
         params: { ts: Date.now() },
       });
-      console.log(timerRes);
       setTimersData({ restockTimers: timerRes.data });
       timersReadyRef.current = true;
 
