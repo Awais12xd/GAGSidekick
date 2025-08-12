@@ -312,6 +312,30 @@ const fruits = [
       }
     },
     {
+      "name": "Ember Lily",
+      "category": "Fruits",
+      "rarity": "Prismatic",
+      "value": "N/A",
+      "demand": 0,
+      "image": "https://api.joshlei.com/v2/growagarden/image/ember_lily",
+      "updatedAt": "2025-05-13T11:54:13.000Z",
+      "itemId": "28",
+      "history": [],
+      "createdAt": "2025-05-28T05:43:54.414Z",
+      "metadata": {
+        "eggs": "N/A",
+        "tier": "Prismatic",
+        "type": "Crop",
+        "rarity": "0.35",
+        "buyPrice": "6000",
+        "sellValue": "400",
+        "tradeable": true,
+        "amountInShop": "1-2",
+        "multiHarvest": true,
+        "eggs_hatch_chance": "N/A"
+      }
+    },
+    {
       "name": "Cactus",
       "category": "Fruits",
       "rarity": "Mythical",
