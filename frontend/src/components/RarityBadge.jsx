@@ -57,7 +57,7 @@ const RarityBadge = ({
   } else if (res === "lg") {
     padding = 12;
     width = Math.max(80, text.length * approxCharWidth + padding * 2);
-    height = Math.max(80, fontSize + padding);
+    height = Math.max(28, fontSize + padding);
   } else {
     padding = 12;
     width = Math.max(80, text.length * approxCharWidth + padding * 2);
