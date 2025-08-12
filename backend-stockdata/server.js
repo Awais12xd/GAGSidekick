@@ -8,6 +8,7 @@ import WebSocket, { WebSocketServer } from "ws";
 import process from "process";
 import dotenv from "dotenv";
 dotenv.config();
+latestData.timestamp = Date.now();
 
 const DISCORD_USER_ID = process.env.DISCORD_USER_ID || "";
 const JSTUDIO_KEY = process.env.JSTUDIO_KEY || "";
@@ -57,7 +58,14 @@ const latestData = {
 // helper: map route -> accepted upstream keys (incoming keys mapped to routes)
 const routeKeyMap = {
   weather: ["weather", "WEATHER"],
-  seeds: ["seed_stock", "seedStock", "seeds", "SEED_STOCK", "seed", "seed_stock"],
+  seeds: [
+    "seed_stock",
+    "seedStock",
+    "seeds",
+    "SEED_STOCK",
+    "seed",
+    "seed_stock",
+  ],
   gear: ["gear_stock", "gear", "GEAR_STOCK"],
   eggs: ["egg_stock", "eggs", "EGG_STOCK", "egg", "egg_stock"],
   cosmetics: ["cosmetic_stock", "cosmetics", "COSMETIC_STOCK"],
@@ -66,7 +74,7 @@ const routeKeyMap = {
     "traveling_merchant_stock",
     "travelingmerchant",
     "traveling_merchant",
-    "traveling_merchant_stock_v2"
+    "traveling_merchant_stock_v2",
   ],
   alldata: [], // special
 };
@@ -191,7 +199,8 @@ function broadcastForRoute(route, payloadObj) {
       } catch (e) {}
     }
   }
-  if (sent > 0) console.log(`[LOCAL WSS] broadcast /${route} -> ${sent} client(s)`);
+  if (sent > 0)
+    console.log(`[LOCAL WSS] broadcast /${route} -> ${sent} client(s)`);
   return sent;
 }
 
@@ -226,7 +235,9 @@ function connectUpstream() {
 
   const url = buildUpstreamUrl();
   upstreamReconnectAttempts++;
-  console.log(`[UPSTREAM] Connecting to ${url} (attempt ${upstreamReconnectAttempts})`);
+  console.log(
+    `[UPSTREAM] Connecting to ${url} (attempt ${upstreamReconnectAttempts})`
+  );
 
   try {
     upstream = new WebSocket(url, { handshakeTimeout: 10000 });
@@ -241,6 +252,22 @@ function connectUpstream() {
     console.log("[UPSTREAM] connected");
   });
 
+  function normalizeToMs(v) {
+    if (v == null) return null;
+    // numbers: seconds vs ms
+    if (typeof v === "number") return v < 1e12 ? v * 1000 : v;
+    // numeric string
+    if (typeof v === "string") {
+      // try numeric parse first
+      const n = Number(v);
+      if (!Number.isNaN(n)) return n < 1e12 ? n * 1000 : n;
+      // try Date.parse for ISO strings
+      const p = Date.parse(v);
+      if (!Number.isNaN(p)) return p;
+    }
+    return null;
+  }
+
   upstream.on("message", (raw) => {
     const text = raw.toString();
     let parsed;
@@ -251,17 +278,51 @@ function connectUpstream() {
       return;
     }
 
-    // dedupe identical messages
+    // ... your dedupe + payload parsing ...
     const sig = safeSig(parsed);
-    if (sig === lastPayloadSignature) {
-      return;
-    }
+    if (sig === lastPayloadSignature) return;
     lastPayloadSignature = sig;
 
     const payload = parsed.data ?? parsed;
     if (!payload || typeof payload !== "object") return;
 
-    // We'll shallow-merge top-level keys into latestData and broadcast only updated routes
+    // --- NEW: pick an authoritative upstream timestamp (ms) if supplied ---
+    let incomingTsMs = null;
+
+    // Common candidates:
+    //  - parsed.timestamp
+    //  - payload.timestamp
+    //  - payload.lastGlobalUpdate (ISO)
+    //  - payload.last_global_update
+    //  - parsed.serverNow or payload.serverNow (if any)
+    incomingTsMs = incomingTsMs || normalizeToMs(parsed.timestamp);
+    incomingTsMs = incomingTsMs || normalizeToMs(payload.timestamp);
+    incomingTsMs = incomingTsMs || normalizeToMs(payload.lastGlobalUpdate);
+    incomingTsMs = incomingTsMs || normalizeToMs(payload.last_global_update);
+    incomingTsMs = incomingTsMs || normalizeToMs(parsed.serverNow);
+    incomingTsMs = incomingTsMs || normalizeToMs(payload.serverNow);
+
+    // Fallback to Date.now() only if none found
+    const chosenTs = incomingTsMs || Date.now();
+    latestData.timestamp = chosenTs;
+
+    // Helpful debug log so you can see where the timestamp came from
+    if (incomingTsMs) {
+      console.log(
+        `[UPSTREAM] using upstream timestamp: ${new Date(
+          chosenTs
+        ).toISOString()} (ms=${chosenTs})`
+      );
+    } else {
+      console.log(
+        `[UPSTREAM] no upstream timestamp found, using bridge time: ${new Date(
+          chosenTs
+        ).toISOString()} (ms=${chosenTs})`
+      );
+    }
+
+    // --- then continue with your existing merging & broadcast logic ---
+    // (assign payload keys into latestData, compute updatedRoutes etc)
     const updatedRoutes = new Set();
     const incomingKeys = Object.keys(payload);
 
@@ -272,19 +333,15 @@ function connectUpstream() {
       const value = payload[k];
 
       if (route) {
-        // assign under route name (e.g., payload.seed_stock => latestData.seeds)
         latestData[route] = value;
         updatedRoutes.add(route);
       } else {
-        // unknown top-level key -> attach raw
         latestData[k] = value;
       }
     }
 
-    latestData.timestamp = Date.now();
     prettyLog(payload);
 
-    // Broadcast updates
     if (updatedRoutes.size === 0) {
       broadcastAlldata();
     } else {
@@ -296,17 +353,26 @@ function connectUpstream() {
           timestamp: latestData.timestamp,
         });
       }
-      // refresh alldata viewers too
       broadcastAlldata();
     }
   });
 
   upstream.on("close", (code, reasonBuf) => {
-const reason = reasonBuf && reasonBuf.toString ? reasonBuf.toString() : String(reasonBuf || "");
+    const reason =
+      reasonBuf && reasonBuf.toString
+        ? reasonBuf.toString()
+        : String(reasonBuf || "");
     console.warn(`[UPSTREAM] closed code=${code} reason=${reason}`);
     const rl = (reason || "").toLowerCase();
-    if (code === 4000 || /auth/i.test(rl) || /token/i.test(rl) || /no token/i.test(rl)) {
-      console.error("[UPSTREAM] Authentication failure. Not reconnecting until token fixed.");
+    if (
+      code === 4000 ||
+      /auth/i.test(rl) ||
+      /token/i.test(rl) ||
+      /no token/i.test(rl)
+    ) {
+      console.error(
+        "[UPSTREAM] Authentication failure. Not reconnecting until token fixed."
+      );
       authFailed = true;
       return;
     }
@@ -320,7 +386,10 @@ const reason = reasonBuf && reasonBuf.toString ? reasonBuf.toString() : String(r
 
 let upstreamReconnectTimer = null;
 function scheduleUpstreamReconnect() {
-  upstreamReconnectAttempts = Math.min(12, Math.max(1, upstreamReconnectAttempts || 1));
+  upstreamReconnectAttempts = Math.min(
+    12,
+    Math.max(1, upstreamReconnectAttempts || 1)
+  );
   const delay = Math.min(30000, 1000 * 2 ** upstreamReconnectAttempts);
   console.log(`[UPSTREAM] will reconnect in ${delay}ms`);
   if (upstreamReconnectTimer) clearTimeout(upstreamReconnectTimer);
