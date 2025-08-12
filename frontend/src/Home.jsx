@@ -73,7 +73,7 @@ const Header = ({ wsConnected, lastUpdated }) => (
 
         <div className="text-xs text-white/90 bg-white/10 px-3 py-1 rounded-md">
           {lastUpdated
-            ? `Updated: ${new Date(lastUpdated).toLocaleTimeString()}`
+            ? `Updated: ${lastUpdated}`
             : "No updates yet"}
         </div>
       </div>
