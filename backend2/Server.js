@@ -32,9 +32,10 @@ if (existsSync(configPath)) {
 const app = express();
 const PORT = config.Port;
 const ALLOWED_ORIGINS = [
-  "http://localhost:5173",
-  "https://gardenside.app/",   // add prod frontends here
-  "https://www.gardenside.app/",   // add prod frontends here
+  "http://localhost:5173",   // add prod frontends here
+  "http://127.0.0.1:5173",
+  "https://gardenside.app",
+  "https://www.gardenside.app",
 ];
 
 // cors options
