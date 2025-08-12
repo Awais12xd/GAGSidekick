@@ -8,7 +8,6 @@ import WebSocket, { WebSocketServer } from "ws";
 import process from "process";
 import dotenv from "dotenv";
 dotenv.config();
-latestData.timestamp = Date.now();
 
 const DISCORD_USER_ID = process.env.DISCORD_USER_ID || "";
 const JSTUDIO_KEY = process.env.JSTUDIO_KEY || "";
