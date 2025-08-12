@@ -52,7 +52,7 @@ const Header = ({ wsConnected, lastUpdated }) => (
         <div className="text-3xl">🌱</div>
         <div>
           <h1 className="text-2xl font-extrabold leading-tight">
-            GAG Sidekick — Live Stock
+            Garden Side — Live Stock
           </h1>
           <p className="text-sm opacity-90">
             Real-time stock , weather updates and restock timers
