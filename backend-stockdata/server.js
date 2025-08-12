@@ -17,10 +17,8 @@ const UPSTREAM_BASE = "wss://websocket.joshlei.com/growagarden";
 const app = express();
 const ALLOWED_ORIGINS = [
   "http://localhost:5173",
-  "http://127.0.0.1:5173",
-  "https://gag-sidekick-mhfiwf3uo-awais12xds-projects.vercel.app",
-  "https://gardenside.app/",   // add prod frontends here
-  "https://www.gardenside.app/",   // add prod frontends here
+  "https://gardenside.app/",   // add prod frontends hre
+  "https://www.gardenside.app/",   // add prod frontend here
 ];
 
 // cors options
