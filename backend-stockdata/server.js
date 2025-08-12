@@ -99,7 +99,7 @@ app.get("/eggs", (req, res) => {
 app.get("/cosmetics", (req, res) => {
   res.json(latestData.cosmetics ?? []);
 });
-app.get("/travelingmerchant_stock", (req, res) => {
+app.get("/travelingmerchant", (req, res) => {
   res.json(latestData.travelingmerchant ?? {});
 });
 
