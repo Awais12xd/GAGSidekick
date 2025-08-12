@@ -7,7 +7,6 @@ import http from "http";
 import WebSocket, { WebSocketServer } from "ws";
 import process from "process";
 import dotenv from "dotenv";
-
 dotenv.config();
 
 const DISCORD_USER_ID = process.env.DISCORD_USER_ID || "";
@@ -62,6 +61,13 @@ const routeKeyMap = {
   gear: ["gear_stock", "gear", "GEAR_STOCK"],
   eggs: ["egg_stock", "eggs", "EGG_STOCK", "egg", "egg_stock"],
   cosmetics: ["cosmetic_stock", "cosmetics", "COSMETIC_STOCK"],
+  travelingmerchant: [
+    "travelingmerchant_stock",
+    "traveling_merchant_stock",
+    "travelingmerchant",
+    "traveling_merchant",
+    "traveling_merchant_stock_v2"
+  ],
   alldata: [], // special
 };
 
@@ -93,6 +99,9 @@ app.get("/eggs", (req, res) => {
 app.get("/cosmetics", (req, res) => {
   res.json(latestData.cosmetics ?? []);
 });
+app.get("/travelingmerchant_stock", (req, res) => {
+  res.json(latestData.travelingmerchant ?? {});
+});
 
 // ----------------- HTTP server + upgrade handling -----------------
 const server = http.createServer(app);
@@ -104,6 +113,7 @@ const routeClients = {
   gear: new Set(),
   eggs: new Set(),
   cosmetics: new Set(),
+  travelingmerchant: new Set(),
   alldata: new Set(),
 };
 
