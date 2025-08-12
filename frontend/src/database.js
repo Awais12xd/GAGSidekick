@@ -1959,7 +1959,7 @@ const eggs = [
       "rarity": "Divine",
       "value": "N/A",
       "demand": 0,
-      "image": "https://i.postimg.cc/j2gYCgDM/image.png",
+      "image": "https://api.joshlei.com/v2/growagarden/image/paradise_egg",
       "updatedAt": "2025-05-17T15:27:42.000Z",
       "itemId": "101",
       "history": [],
