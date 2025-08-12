@@ -14,6 +14,8 @@ const JSTUDIO_KEY = process.env.JSTUDIO_KEY || "";
 const PORT = Number(process.env.PORT || 8000);
 const UPSTREAM_BASE = "wss://websocket.joshlei.com/growagarden";
 const app = express();
+
+// allowed origins for CORS (adjust as needed)
 const ALLOWED_ORIGINS = [
   "http://localhost:5173",
   "http://127.0.0.1:5173",
@@ -21,40 +23,37 @@ const ALLOWED_ORIGINS = [
   "https://www.gardenside.app",
 ];
 
-// cors options
 const corsOptions = {
   origin: (origin, cb) => {
-    // allow no-origin (curl, Postman) or allowed origins
-    if (!origin) return cb(null, true);
+    if (!origin) return cb(null, true); // allow curl/Postman
     if (ALLOWED_ORIGINS.includes(origin)) return cb(null, true);
     return cb(new Error("Not allowed by CORS"));
   },
   methods: ["GET", "POST", "OPTIONS", "HEAD"],
   allowedHeaders: ["Content-Type", "Authorization", "Cache-Control"],
-  credentials: false, // set true only if you need cookies/auth
+  credentials: false,
   optionsSuccessStatus: 204,
 };
 
 app.use(cors(corsOptions));
-// also ensure express handles OPTIONS preflight for all routes:
-// app.options("*", cors(corsOptions));
 app.use(express.json());
 app.set("trust proxy", 1);
 
-// Shutdown helpers
+// Shutdown flag
 let shuttingDown = false;
 
-// In-memory aggregated snapshot
+// aggregated snapshot
 const latestData = {
   weather: [],
   seeds: [],
   gear: [],
   eggs: [],
   cosmetics: [],
+  travelingmerchant: {}, // canonical place for traveling merchant snapshot
   timestamp: 0,
 };
 
-// helper: map route -> accepted upstream keys (incoming keys mapped to routes)
+// routeKeyMap: canonical route -> list of upstream key variants
 const routeKeyMap = {
   weather: ["weather", "WEATHER"],
   seeds: [
@@ -68,6 +67,7 @@ const routeKeyMap = {
   gear: ["gear_stock", "gear", "GEAR_STOCK"],
   eggs: ["egg_stock", "eggs", "EGG_STOCK", "egg", "egg_stock"],
   cosmetics: ["cosmetic_stock", "cosmetics", "COSMETIC_STOCK"],
+  // canonical route = travelingmerchant
   travelingmerchant: [
     "travelingmerchant_stock",
     "traveling_merchant_stock",
@@ -78,42 +78,45 @@ const routeKeyMap = {
   alldata: [], // special
 };
 
-// reverse lookup key -> route (lowercased)
+// build reverse lookup: lowercased key -> canonical route
 const keyToRoute = {};
 for (const [route, keys] of Object.entries(routeKeyMap)) {
   for (const k of keys) keyToRoute[String(k).toLowerCase()] = route;
 }
 
-// ----------------- HTTP endpoints (snapshots) -----------------
+// route aliases for WS upgrade pathnames -> canonical route
+// ensures clients using /travelingmerchant_stock or /travelingmerchant both work
+const pathAliasToRoute = {
+  travelingmerchant: "travelingmerchant",
+  travelingmerchant_stock: "travelingmerchant",
+  "traveling_merchant_stock": "travelingmerchant",
+  "traveling_merchant": "travelingmerchant",
+  alldata: "alldata",
+  weather: "weather",
+  seeds: "seeds",
+  gear: "gear",
+  eggs: "eggs",
+  cosmetics: "cosmetics",
+};
+
+// ----------------- HTTP endpoints -----------------
 app.get("/", (req, res) => res.json({ status: 200 }));
 
-app.get("/alldata", (req, res) => {
-  res.json(latestData);
-});
+app.get("/alldata", (req, res) => res.json(latestData));
+app.get("/weather", (req, res) => res.json(latestData.weather ?? []));
+app.get("/seeds", (req, res) => res.json(latestData.seeds ?? []));
+app.get("/gear", (req, res) => res.json(latestData.gear ?? []));
+app.get("/eggs", (req, res) => res.json(latestData.eggs ?? []));
+app.get("/cosmetics", (req, res) => res.json(latestData.cosmetics ?? []));
 
-app.get("/weather", (req, res) => {
-  res.json(latestData.weather ?? []);
-});
-app.get("/seeds", (req, res) => {
-  res.json(latestData.seeds ?? []);
-});
-app.get("/gear", (req, res) => {
-  res.json(latestData.gear ?? []);
-});
-app.get("/eggs", (req, res) => {
-  res.json(latestData.eggs ?? []);
-});
-app.get("/cosmetics", (req, res) => {
-  res.json(latestData.cosmetics ?? []);
-});
-app.get("/travelingmerchant", (req, res) => {
-  res.json(latestData.travelingmerchant ?? {});
-});
+// Expose both canonical and common alias endpoints for traveling merchant snapshot
+app.get("/travelingmerchant", (req, res) => res.json(latestData.travelingmerchant ?? {}));
+app.get("/travelingmerchant_stock", (req, res) => res.json(latestData.travelingmerchant ?? {}));
+app.get("/traveling_merchant_stock", (req, res) => res.json(latestData.travelingmerchant ?? {}));
 
-// ----------------- HTTP server + upgrade handling -----------------
+// ----------------- HTTP server + WS upgrade handling -----------------
 const server = http.createServer(app);
 
-// We'll accept WS upgrades ourselves and attach sockets to route-specific sets.
 const routeClients = {
   weather: new Set(),
   seeds: new Set(),
@@ -124,7 +127,6 @@ const routeClients = {
   alldata: new Set(),
 };
 
-// Accept upgrade and attach connection to a route (by pathname)
 server.on("upgrade", (request, socket, head) => {
   if (shuttingDown) {
     socket.destroy();
@@ -133,8 +135,14 @@ server.on("upgrade", (request, socket, head) => {
 
   try {
     const url = new URL(request.url, `http://${request.headers.host}`);
-    const pathname = url.pathname.replace(/^\/+/, "").split("/")[0]; // first segment
-    const route = pathname || "alldata";
+    const rawPath = url.pathname.replace(/^\/+/, "").split("/")[0]; // first segment
+    let route = rawPath || "alldata";
+
+    // map alias to canonical route
+    if (!Object.prototype.hasOwnProperty.call(routeClients, route)) {
+      const mapped = pathAliasToRoute[route];
+      if (mapped) route = mapped;
+    }
 
     if (!Object.prototype.hasOwnProperty.call(routeClients, route)) {
       socket.write("HTTP/1.1 404 Not Found\r\n\r\n");
@@ -142,7 +150,6 @@ server.on("upgrade", (request, socket, head) => {
       return;
     }
 
-    // Use a noServer WebSocketServer to perform the upgrade
     const wss = new WebSocketServer({ noServer: true });
     wss.handleUpgrade(request, socket, head, (ws) => {
       ws.__route = route;
@@ -165,7 +172,7 @@ server.on("upgrade", (request, socket, head) => {
         if (route === "alldata") {
           ws.send(JSON.stringify({ type: "alldata", data: latestData }));
         } else {
-          const keyData = latestData[route] ?? [];
+          const keyData = latestData[route] ?? (route === "travelingmerchant" ? {} : []);
           ws.send(
             JSON.stringify({
               type: "update",
@@ -184,7 +191,7 @@ server.on("upgrade", (request, socket, head) => {
   }
 });
 
-// helper to broadcast only for a specific route (route = seeds, weather, etc)
+// ----------------- broadcasting helpers -----------------
 function broadcastForRoute(route, payloadObj) {
   const clients = routeClients[route];
   if (!clients || clients.size === 0) return 0;
@@ -198,12 +205,10 @@ function broadcastForRoute(route, payloadObj) {
       } catch (e) {}
     }
   }
-  if (sent > 0)
-    console.log(`[LOCAL WSS] broadcast /${route} -> ${sent} client(s)`);
+  if (sent > 0) console.log(`[LOCAL WSS] broadcast /${route} -> ${sent} client(s)`);
   return sent;
 }
 
-// Broadcast alldata to alldata clients
 function broadcastAlldata() {
   broadcastForRoute("alldata", { type: "alldata", data: latestData });
 }
@@ -229,14 +234,95 @@ function safeSig(obj) {
   }
 }
 
+// Normalize many timestamp representations to ms (number)
+function normalizeToMs(v) {
+  if (v == null) return null;
+  if (typeof v === "number") return v < 1e12 ? v * 1000 : v;
+  if (typeof v === "string") {
+    const n = Number(v);
+    if (!Number.isNaN(n)) return n < 1e12 ? n * 1000 : n;
+    const p = Date.parse(v);
+    if (!Number.isNaN(p)) return p;
+  }
+  return null;
+}
+
+// Normalize traveling merchant payload to consistent shape.
+// Ensures items have start_date_unix (seconds), end_date_unix (seconds),
+// and also adds start_ms/end_ms for convenience.
+function normalizeTravelingMerchant(raw) {
+  if (!raw || typeof raw !== "object") return raw;
+  const out = { ...raw };
+
+  if (Array.isArray(out.stock)) {
+    out.stock = out.stock.map((it) => {
+      const item = { ...it };
+
+      // If we have Date_Start / Date_End ISO strings use them
+      if (item.Date_Start && !item.start_date_unix) {
+        const sMs = normalizeToMs(item.Date_Start);
+        if (sMs) item.start_date_unix = Math.floor(sMs / 1000);
+      }
+      if (item.Date_End && !item.end_date_unix) {
+        const eMs = normalizeToMs(item.Date_End);
+        if (eMs) item.end_date_unix = Math.floor(eMs / 1000);
+      }
+
+      // If timestamps provided as ms accidentally, convert to seconds fields consistently.
+      if (item.start_date_unix && typeof item.start_date_unix === "number" && item.start_date_unix > 1e12) {
+        // looks like ms — convert to seconds
+        item.start_date_unix = Math.floor(item.start_date_unix / 1000);
+      }
+      if (item.end_date_unix && typeof item.end_date_unix === "number" && item.end_date_unix > 1e12) {
+        item.end_date_unix = Math.floor(item.end_date_unix / 1000);
+      }
+
+      // If still missing start/end but ISO fields exist in different names, try parsing generically:
+      if (!item.start_date_unix) {
+        // try fields like start_date, date_start, StartDate
+        for (const k of ["start_date", "date_start", "StartDate"]) {
+          if (item[k]) {
+            const vMs = normalizeToMs(item[k]);
+            if (vMs) {
+              item.start_date_unix = Math.floor(vMs / 1000);
+              break;
+            }
+          }
+        }
+      }
+      if (!item.end_date_unix) {
+        for (const k of ["end_date", "date_end", "EndDate"]) {
+          if (item[k]) {
+            const vMs = normalizeToMs(item[k]);
+            if (vMs) {
+              item.end_date_unix = Math.floor(vMs / 1000);
+              break;
+            }
+          }
+        }
+      }
+
+      // Add convenience ms fields (may be useful for consumers)
+      item.start_ms = item.start_date_unix ? item.start_date_unix * 1000 : (item.Date_Start ? normalizeToMs(item.Date_Start) : null);
+      item.end_ms = item.end_date_unix ? item.end_date_unix * 1000 : (item.Date_End ? normalizeToMs(item.Date_End) : null);
+
+      // Keep Date_Start/Date_End if provided, and ensure they are ISO strings when possible
+      if (!item.Date_Start && item.start_ms) item.Date_Start = new Date(item.start_ms).toISOString();
+      if (!item.Date_End && item.end_ms) item.Date_End = new Date(item.end_ms).toISOString();
+
+      return item;
+    });
+  }
+
+  return out;
+}
+
 function connectUpstream() {
   if (authFailed || shuttingDown) return;
 
   const url = buildUpstreamUrl();
   upstreamReconnectAttempts++;
-  console.log(
-    `[UPSTREAM] Connecting to ${url} (attempt ${upstreamReconnectAttempts})`
-  );
+  console.log(`[UPSTREAM] Connecting to ${url} (attempt ${upstreamReconnectAttempts})`);
 
   try {
     upstream = new WebSocket(url, { handshakeTimeout: 10000 });
@@ -251,22 +337,6 @@ function connectUpstream() {
     console.log("[UPSTREAM] connected");
   });
 
-  function normalizeToMs(v) {
-    if (v == null) return null;
-    // numbers: seconds vs ms
-    if (typeof v === "number") return v < 1e12 ? v * 1000 : v;
-    // numeric string
-    if (typeof v === "string") {
-      // try numeric parse first
-      const n = Number(v);
-      if (!Number.isNaN(n)) return n < 1e12 ? n * 1000 : n;
-      // try Date.parse for ISO strings
-      const p = Date.parse(v);
-      if (!Number.isNaN(p)) return p;
-    }
-    return null;
-  }
-
   upstream.on("message", (raw) => {
     const text = raw.toString();
     let parsed;
@@ -277,23 +347,20 @@ function connectUpstream() {
       return;
     }
 
-    // ... your dedupe + payload parsing ...
+    // dedupe identical messages
     const sig = safeSig(parsed);
-    if (sig === lastPayloadSignature) return;
+    if (sig === lastPayloadSignature) {
+      return;
+    }
     lastPayloadSignature = sig;
 
+    // payload might be in parsed.data or parsed directly
     const payload = parsed.data ?? parsed;
     if (!payload || typeof payload !== "object") return;
 
-    // --- NEW: pick an authoritative upstream timestamp (ms) if supplied ---
+    // Pick an authoritative upstream timestamp (ms) if supplied.
+    // Check a few common fields; fall back to bridge time only if none present.
     let incomingTsMs = null;
-
-    // Common candidates:
-    //  - parsed.timestamp
-    //  - payload.timestamp
-    //  - payload.lastGlobalUpdate (ISO)
-    //  - payload.last_global_update
-    //  - parsed.serverNow or payload.serverNow (if any)
     incomingTsMs = incomingTsMs || normalizeToMs(parsed.timestamp);
     incomingTsMs = incomingTsMs || normalizeToMs(payload.timestamp);
     incomingTsMs = incomingTsMs || normalizeToMs(payload.lastGlobalUpdate);
@@ -301,46 +368,48 @@ function connectUpstream() {
     incomingTsMs = incomingTsMs || normalizeToMs(parsed.serverNow);
     incomingTsMs = incomingTsMs || normalizeToMs(payload.serverNow);
 
-    // Fallback to Date.now() only if none found
     const chosenTs = incomingTsMs || Date.now();
     latestData.timestamp = chosenTs;
 
-    // Helpful debug log so you can see where the timestamp came from
     if (incomingTsMs) {
-      console.log(
-        `[UPSTREAM] using upstream timestamp: ${new Date(
-          chosenTs
-        ).toISOString()} (ms=${chosenTs})`
-      );
+      console.log(`[UPSTREAM] using upstream timestamp: ${new Date(chosenTs).toISOString()} (ms=${chosenTs})`);
     } else {
-      console.log(
-        `[UPSTREAM] no upstream timestamp found, using bridge time: ${new Date(
-          chosenTs
-        ).toISOString()} (ms=${chosenTs})`
-      );
+      console.log(`[UPSTREAM] no upstream timestamp found, using bridge time: ${new Date(chosenTs).toISOString()} (ms=${chosenTs})`);
     }
 
-    // --- then continue with your existing merging & broadcast logic ---
-    // (assign payload keys into latestData, compute updatedRoutes etc)
+    // Merge top-level keys into latestData; collect which canonical routes were updated.
     const updatedRoutes = new Set();
     const incomingKeys = Object.keys(payload);
 
     for (const k of incomingKeys) {
       const lower = String(k).toLowerCase();
-      const route = keyToRoute[lower] ?? (routeClients[k] ? k : null);
+      const route = keyToRoute[lower] ?? null; // maps known upstream keys to canonical route
 
       const value = payload[k];
 
       if (route) {
-        latestData[route] = value;
-        updatedRoutes.add(route);
+        // Special-case normalization for traveling merchant:
+        if (route === "travelingmerchant") {
+          try {
+            latestData.travelingmerchant = normalizeTravelingMerchant(value);
+          } catch (e) {
+            console.warn("[UPSTREAM] travelingmerchant normalization failed:", e);
+            latestData.travelingmerchant = value;
+          }
+          updatedRoutes.add("travelingmerchant");
+        } else {
+          latestData[route] = value;
+          updatedRoutes.add(route);
+        }
       } else {
+        // unknown top-level key -> attach raw, preserving original key name
         latestData[k] = value;
       }
     }
 
     prettyLog(payload);
 
+    // Broadcast changed routes (route-specific WS) and refresh alldata viewers too
     if (updatedRoutes.size === 0) {
       broadcastAlldata();
     } else {
@@ -357,21 +426,11 @@ function connectUpstream() {
   });
 
   upstream.on("close", (code, reasonBuf) => {
-    const reason =
-      reasonBuf && reasonBuf.toString
-        ? reasonBuf.toString()
-        : String(reasonBuf || "");
+    const reason = reasonBuf && reasonBuf.toString ? reasonBuf.toString() : String(reasonBuf || "");
     console.warn(`[UPSTREAM] closed code=${code} reason=${reason}`);
     const rl = (reason || "").toLowerCase();
-    if (
-      code === 4000 ||
-      /auth/i.test(rl) ||
-      /token/i.test(rl) ||
-      /no token/i.test(rl)
-    ) {
-      console.error(
-        "[UPSTREAM] Authentication failure. Not reconnecting until token fixed."
-      );
+    if (code === 4000 || /auth/i.test(rl) || /token/i.test(rl) || /no token/i.test(rl)) {
+      console.error("[UPSTREAM] Authentication failure. Not reconnecting until token fixed.");
       authFailed = true;
       return;
     }
@@ -385,17 +444,14 @@ function connectUpstream() {
 
 let upstreamReconnectTimer = null;
 function scheduleUpstreamReconnect() {
-  upstreamReconnectAttempts = Math.min(
-    12,
-    Math.max(1, upstreamReconnectAttempts || 1)
-  );
+  upstreamReconnectAttempts = Math.min(12, Math.max(1, upstreamReconnectAttempts || 1));
   const delay = Math.min(30000, 1000 * 2 ** upstreamReconnectAttempts);
   console.log(`[UPSTREAM] will reconnect in ${delay}ms`);
   if (upstreamReconnectTimer) clearTimeout(upstreamReconnectTimer);
   upstreamReconnectTimer = setTimeout(connectUpstream, delay);
 }
 
-// small pretty logger for incoming keys
+// pretty logger
 function prettyLog(payload) {
   try {
     const keys = Object.keys(payload || {});
@@ -415,7 +471,7 @@ function prettyLog(payload) {
   }
 }
 
-// start upstream and HTTP server
+// start
 server.listen(PORT, () => {
   console.log(`Bridge listening HTTP + WS on http://localhost:${PORT}`);
   connectUpstream();
@@ -425,12 +481,6 @@ server.listen(PORT, () => {
 process.on("SIGINT", () => {
   console.log("Shutting down...");
   shuttingDown = true;
-  try {
-    if (upstream) upstream.close();
-  } catch {}
-  try {
-    server.close(() => process.exit(0));
-  } catch {
-    process.exit(0);
-  }
+  try { if (upstream) upstream.close(); } catch {}
+  try { server.close(() => process.exit(0)); } catch { process.exit(0); }
 });
