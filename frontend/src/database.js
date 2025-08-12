@@ -288,6 +288,30 @@ const fruits = [
       }
     },
     {
+      "name": "Sugar Apple",
+      "category": "Fruits",
+      "rarity": "Prismatic",
+      "value": "N/A",
+      "demand": 0,
+      "image": "https://api.joshlei.com/v2/growagarden/image/sugar_apple",
+      "updatedAt": "2025-05-13T11:54:13.000Z",
+      "itemId": "28",
+      "history": [],
+      "createdAt": "2025-05-28T05:43:54.414Z",
+      "metadata": {
+        "eggs": "N/A",
+        "tier": "Prismatic",
+        "type": "Crop",
+        "rarity": "0.35",
+        "buyPrice": "6000",
+        "sellValue": "400",
+        "tradeable": true,
+        "amountInShop": "1-2",
+        "multiHarvest": true,
+        "eggs_hatch_chance": "N/A"
+      }
+    },
+    {
       "name": "Cactus",
       "category": "Fruits",
       "rarity": "Mythical",
@@ -1199,6 +1223,7 @@ const fruits = [
         "eggs_hatch_chance": "N/A"
       }
     },
+    
     {
       "name": "Moon Mango",
       "category": "Fruits",
@@ -1255,6 +1280,30 @@ const fruits = [
       "value": "N/A",
       "demand": 0,
       "image": "https://api.joshlei.com/v2/growagarden/image/giant_pinecone",
+      "updatedAt": "2025-05-26T07:21:18.000Z",
+      "itemId": "109",
+      "history": [],
+      "createdAt": "2025-05-28T05:43:54.575Z",
+      "metadata": {
+        "eggs": "N/A",
+        "tier": "Prismatic",
+        "type": "Crop",
+        "rarity": "N/A",
+        "buyPrice": " 15000000",
+        "sellValue": "N/A",
+        "tradeable": true,
+        "amountInShop": "N/A",
+        "multiHarvest": true,
+        "eggs_hatch_chance": "N/A"
+      }
+    },
+    {
+      "name": "Elder Strawberry",
+      "category": "Fruits",
+      "rarity": "Prismatic",
+      "value": "N/A",
+      "demand": 0,
+      "image": "https://api.joshlei.com/v2/growagarden/image/elder_strawberry",
       "updatedAt": "2025-05-26T07:21:18.000Z",
       "itemId": "109",
       "history": [],
@@ -1690,7 +1739,7 @@ const gears = [
       "rarity": "Prismatic",
       "value": "N/A",
       "demand": 0,
-      "image": "https://i.postimg.cc/3wsYMCB9/image.png",
+      "image": "https://api.joshlei.com/v2/growagarden/image/grandmaster_sprinkler",
       "updatedAt": "2025-05-27T13:28:22.000Z",
       "itemId": "112",
       "history": [],
@@ -1714,7 +1763,7 @@ const gears = [
       "rarity": "Prismatic",
       "value": "N/A",
       "demand": 0,
-      "image": "https://i.postimg.cc/3wsYMCB9/image.png",
+      "image": "https://api.joshlei.com/v2/growagarden/image/levelup_lollipop",
       "updatedAt": "2025-05-27T13:28:22.000Z",
       "itemId": "112",
       "history": [],
