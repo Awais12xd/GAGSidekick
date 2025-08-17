@@ -10,15 +10,37 @@ import { items as importedItems } from "/src/data/info.js";
 
 /* ---------- Utilities ---------- */
 const formatBig = (n) => {
-  if (n == null || isNaN(n)) return "—";
-  const abs = Math.abs(n);
-  if (abs >= 1e15) return `${(n / 1e15).toFixed(2)}Q`;
-  if (abs >= 1e12) return `${(n / 1e12).toFixed(2)}T`;
-  if (abs >= 1e9) return `${(n / 1e9).toFixed(2)}B`;
-  if (abs >= 1e6) return `${(n / 1e6).toFixed(2)}M`;
-  if (abs >= 1e3) return `${(n / 1e3).toFixed(2)}K`;
-  return String(n);
+  if (n == null || n === "") return "—";
+  const num = Number(n);
+  if (Number.isNaN(num)) return String(n);
+
+  const abs = Math.abs(num);
+  const sign = num < 0 ? "-" : "";
+
+  const fmt = (v) =>
+    // up to 2 decimals; trim trailing .00 and trailing zero in .X0
+    v.toFixed(2).replace(/\.00$/, "").replace(/(\.\d)0$/, "$1");
+
+  // >= 1e24 -> Sp (septillion)
+  if (abs >= 1e24) return `${sign}${fmt(num / 1e24)}Sp`;
+  // >= 1e21 -> Sx (sextillion)
+  if (abs >= 1e21) return `${sign}${fmt(num / 1e21)}Sx`;
+  // >= 1e18 -> Qi (quintillion)
+  if (abs >= 1e18) return `${sign}${fmt(num / 1e18)}Qi`;
+  // >= 1e15 -> Q (quadrillion)
+  if (abs >= 1e15) return `${sign}${fmt(num / 1e15)}Q`;
+  // >= 1e12 -> T (trillion)
+  if (abs >= 1e12) return `${sign}${fmt(num / 1e12)}T`;
+  // >= 1e9  -> B (billion)
+  if (abs >= 1e9) return `${sign}${fmt(num / 1e9)}B`;
+  // >= 1e6  -> M (million)
+  if (abs >= 1e6) return `${sign}${fmt(num / 1e6)}M`;
+  // >= 1e3  -> K (thousand)
+  if (abs >= 1e3) return `${sign}${fmt(num / 1e3)}K`;
+
+  return String(num);
 };
+
 const clamp = (v, min = 0, max = Infinity) => Math.max(min, Math.min(max, v));
 const makeSlug = (s) =>
   String(s ?? "")
@@ -238,7 +260,7 @@ function PlusTile({ onClick }) {
       onKeyDown={(e) => {
         if (e.key === "Enter") onClick();
       }}
-      className="relative group rounded-lg md:p-2 p-1 flex items-center justify-center cursor-pointer transition-shadow duration-200 h-23"
+      className="relative group rounded-lg md:p-2 p-1 flex items-center justify-center cursor-pointer transition-shadow duration-200 h-23 border border-[#64ffda]"
       title="Add a pet"
       aria-label="Add a pet"
     >
@@ -346,9 +368,12 @@ const OfferGrid = React.memo(function OfferGrid({
         <div>
           <div className="md:text-md text-xs font-extrabold text-white">Player {label}</div>
         </div>
+        
 
         {!presentMode ? (
+
           <div className="flex items-center gap-2">
+            
             <div className="text-xs text-slate-300 mr-2">Sheckles</div>
             <input
               value={shekInput}
@@ -378,7 +403,16 @@ const OfferGrid = React.memo(function OfferGrid({
           <div />
         )}
       </div>
-
+      <div className="mb-3 flex items-center justify-between text-xs text-slate-300">
+        <div className="md:pl-3">
+          {Number(shekNum || 0) > 0 && (
+            <div className="inline-flex items-center gap-2 px-1 md:px-2 py-1 rounded-full bg-[#f59e0b]/10 text-amber-200 border border-[#f59e0b]/20 text-[8px] md:text-xs font-semibold">
+              <span className="text-amber-300 font-bold">₪</span>
+              <span>{formatBig(shekNum)} added</span>
+            </div>
+          )}
+        </div>
+      </div>
       <div
         ref={gridRef}
         className={`grid w-full ${gridColsClass} md:gap-3`}
@@ -411,16 +445,7 @@ const OfferGrid = React.memo(function OfferGrid({
         <PlusTile onClick={() => onOpenPicker(null)} />
       </div>
 
-      <div className="mt-3 flex items-center justify-between text-xs text-slate-300">
-        <div className="md:pl-3">
-          {Number(shekNum || 0) > 0 && (
-            <div className="inline-flex items-center gap-2 px-1 md:px-2 py-1 rounded-full bg-[#f59e0b]/10 text-amber-200 border border-[#f59e0b]/20 text-[8px] md:text-xs font-semibold">
-              <span className="text-amber-300 font-bold">₪</span>
-              <span>{formatBig(shekNum)} added</span>
-            </div>
-          )}
-        </div>
-      </div>
+     
     </div>
   );
 });
@@ -562,7 +587,6 @@ export default function TradeCalculator({ pets: petsProp = null }) {
     },
     [lookup]
   );
-
   // totals
   const totalA = useMemo(
     () =>
