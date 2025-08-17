@@ -1,0 +1,65 @@
+{
+  "fetchedAt": "2025-08-13T17:23:37.786Z",
+  "items": [
+    {
+      "petName": "kappa",
+      "slug": "kappa",
+      "url": "https://www.game.guide/kappa-value-in-grow-a-garden",
+      "fetchedAt": "2025-08-13T17:23:11.737Z",
+      "title": "Kappa Value in Grow a Garden",
+      "description": "Posted on Last updated: 12 August 2025",
+      "minValue": 300000000000000,
+      "maxValue": 400000000000000,
+      "avgValue": 350000000000000,
+      "demandRating": "7/10",
+      "rarity": "Mythical",
+      "lastUpdated": "12 August 2025",
+      "image": "https://www.game.guide/wp-content/uploads/2025/07/Kappa-Value-Grow-a-Garden.png"
+    },
+    {
+      "petName": "Mochi Mouse",
+      "slug": "mochi-mouse",
+      "url": "https://www.game.guide/mochi-mouse-value-in-grow-a-garden",
+      "fetchedAt": "2025-08-13T17:23:21.631Z",
+      "title": "Mochi Mouse Value in Grow a Garden",
+      "description": "Posted on Last updated: 12 August 2025",
+      "minValue": 100000000000000,
+      "maxValue": 200000000000000,
+      "avgValue": 150000000000000,
+      "demandRating": "6/10",
+      "rarity": "Mythical",
+      "lastUpdated": "12 August 2025",
+      "image": "https://www.game.guide/wp-content/uploads/2025/08/Mochi-Mouse-Value-Grow-a-Garden.png"
+    },
+    {
+      "petName": "Sushi Bear",
+      "slug": "sushi-bear",
+      "url": "https://www.game.guide/sushi-bear-value-in-grow-a-garden",
+      "fetchedAt": "2025-08-13T17:23:27.510Z",
+      "title": "Sushi Bear Value in Grow a Garden",
+      "description": "Posted on Last updated: 12 August 2025",
+      "minValue": 400000000000000,
+      "maxValue": 500000000000000,
+      "avgValue": 450000000000000,
+      "demandRating": "5/10",
+      "rarity": "Legendary",
+      "lastUpdated": "12 August 2025",
+      "image": "https://www.game.guide/wp-content/uploads/2025/08/Sushi-Bear-Value-Grow-a-Garden.png"
+    },
+    {
+      "petName": "Wasp",
+      "slug": "wasp",
+      "url": "https://www.game.guide/wasp-value-in-grow-a-garden",
+      "fetchedAt": "2025-08-13T17:23:31.551Z",
+      "title": "Wasp Value in Grow a Garden",
+      "description": "Posted on Last updated: 12 August 2025",
+      "minValue": 70000000000000,
+      "maxValue": 80000000000000,
+      "avgValue": 75000000000000,
+      "demandRating": "4/10",
+      "rarity": "Legendary",
+      "lastUpdated": "12 August 2025",
+      "image": "https://www.game.guide/wp-content/uploads/2025/06/Wasp-Value-in-Grow-a-Garden.png"
+    }
+  ]
+}

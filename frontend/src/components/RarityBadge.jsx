@@ -20,21 +20,21 @@ const rarityClass = (name) => {
   const n = name.toString().toLowerCase();
   switch (n) {
     case "common":
-      return "bg-gray-300 text-white border-gray-200";
+      return "bg-gray-400 text-white border-gray-200";
     case "uncommon":
-      return "bg-green-300 text-white border-green-300";
+      return "bg-green-500 text-white border-green-300";
     case "rare":
       return "bg-sky-500 text-white border-sky-400";
     case "legendary":
-      return "bg-yellow-400 text-white border-amber-500";
+      return "bg-yellow-500 text-white border-amber-500";
     case "mythical":
-      return "bg-violet-400 text-white border-violet-500";
+      return "bg-violet-600 text-white border-violet-500";
     case "divine":
-      return "bg-orange-500 text-white border-teal-500";
+      return "bg-orange-600 text-white border-teal-500";
     case "prismatic":
       return "bg-gradient-to-r from-pink-500 via-yellow-400 to-indigo-500 text-white border-transparent shadow-md ring-1 ring-white/20";
     default:
-      return "bg-gray-300 text-white border-gray-300";
+      return "bg-gray-400 text-white border-gray-300";
   }
 };
 
@@ -51,9 +51,9 @@ const RarityBadge = ({
   const approxCharWidth = fontSize * 0.6;
   let padding, width, height;
   if (res === "sm") {
-    padding = 2;
-    width = Math.max(30, text.length * approxCharWidth + padding * 2);
-    height = Math.max(20, fontSize + padding);
+    padding = 0;
+    width = Math.max(40, text.length * approxCharWidth + padding * 2);
+    height = Math.max(9, fontSize + padding);
   } else if (res === "lg") {
     padding = 12;
     width = Math.max(80, text.length * approxCharWidth + padding * 2);
@@ -65,9 +65,9 @@ const RarityBadge = ({
   }
 
   // choose stroke color (dark) — you can tune per-variant if desired
-  const strokeColor = "rgb(50, 50, 50)";
+  const strokeColor = "#4b4b4b";
 
-  const wrapperClasses = `inline-flex items-center p-1 rounded-md ${rarityClass(
+  const wrapperClasses = `inline-flex items-center p-1 rounded-xs ${rarityClass(
     label
   )} ${variant === "prismatic" ? "prismatic-badge" : ""} ${className}`;
 
@@ -88,7 +88,7 @@ const RarityBadge = ({
           dominantBaseline="middle"
           textAnchor="middle"
           fontFamily="Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial"
-          fontWeight="700"
+          fontWeight="400"
           fontSize={fontSize}
           fill="none"
           stroke={strokeColor}
@@ -107,7 +107,7 @@ const RarityBadge = ({
           dominantBaseline="middle"
           textAnchor="middle"
           fontFamily="Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial"
-          fontWeight="700"
+          fontWeight="600"
           fontSize={fontSize}
           fill="white"
           paintOrder="fill"

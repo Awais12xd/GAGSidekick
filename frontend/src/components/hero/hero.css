@@ -1,0 +1,386 @@
+/* hero.css - floating hero + responsive behaviour */
+
+/* Base palette helpers (copy from your garden-palette if desired) */
+:root {
+  --midnight: #071223;
+  --deepbark: #0f1724;
+  --mossshadow: #0f3b2e;
+  --leaf: #18b28a;
+  --moss: #0fb27a;
+  --olive: #7aa46b;
+  --bloom: #ffb86b;
+  --sun: #ffd454;
+  --prune: #6b3a59;
+  --rose: #ef6b6b;
+  --text: #e6eef3;
+  --muted: #94a3b8;
+  --shadow-accent-lg: 0 10px 30px rgba(24, 178, 138, 0.12);
+}
+/* Floating animations */
+@keyframes float-bob {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-2deg) scale(1);
+  }
+  40% {
+    transform: translate3d(-6px, -10px, 0) rotate(2deg) scale(1.02);
+  }
+  70% {
+    transform: translate3d(6px, -6px, 0) rotate(-1deg) scale(1.01);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-2deg) scale(1);
+  }
+}
+@keyframes halo {
+  0% {
+    opacity: 0.16;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.32;
+    transform: scale(1.06);
+  }
+  100% {
+    opacity: 0.16;
+    transform: scale(0.95);
+  }
+}
+
+/* Collage canvas */
+.floating-canvas {
+  position: relative;
+  /* background: radial-gradient(
+      1200px 500px at 10% 10%,
+      rgba(24, 178, 138, 0.06),
+      transparent 12%
+    ),
+    radial-gradient(
+      800px 300px at 90% 70%,
+      rgba(122, 164, 107, 0.04),
+      transparent 12%
+    ),
+    linear-gradient(180deg, rgba(7, 18, 35, 0.8), rgba(15, 23, 36, 0.85));
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3); */
+  filter: blur(200px);
+  border-radius: 18px;
+  padding: 28px;
+  overflow: visible;
+  min-height: 320px;
+}
+
+/* blobs */
+.blob {
+  position: absolute;
+  filter: blur(28px) saturate(120%);
+  opacity: 0.55;
+  pointer-events: none;
+}
+.blob-1 {
+  width: 240px;
+  height: 240px;
+  left: -6%;
+  top: 6%;
+  /* background: rgba(24, 178, 138, 0.08); */
+  border-radius: 40% 60% 50% 50%;
+}
+.blob-2 {
+  width: 180px;
+  height: 160px;
+  right: 4%;
+  top: 24%;
+  /* background: rgba(15, 178, 122, 0.06); */
+  border-radius: 55% 45% 60% 40%;
+}
+.blob-3 {
+  width: 300px;
+  height: 140px;
+  left: 28%;
+  bottom: 4%;
+  /* background: rgba(122, 164, 107, 0.04); */
+  border-radius: 50% 60% 40% 50%;
+}
+
+/* anchors (very subtle) */
+.anchor-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.02;
+}
+.anchor {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  border: 1px dashed rgba(255, 255, 255, 0.02);
+}
+.anchor.a1 {
+  left: 6%;
+  top: 14%;
+}
+.anchor.a2 {
+  right: 10%;
+  top: 18%;
+}
+.anchor.a3 {
+  left: 12%;
+  bottom: 18%;
+}
+.anchor.a4 {
+  right: 18%;
+  bottom: 22%;
+}
+
+/* floating items */
+.floating-item {
+  position: absolute;
+  display: block;
+  transform-origin: center;
+  z-index: 6;
+  will-change: transform, opacity;
+  animation-name: float-bob;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  backface-visibility: hidden;
+}
+.floating-item img {
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 14px 40px rgba(8, 10, 12, 0.5);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+}
+.floating-item .item-halo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(24, 178, 138, 0.12),
+    rgba(24, 178, 138, 0.02)
+  );
+  pointer-events: none;
+  z-index: -1;
+  animation: halo 4.8s ease-in-out infinite;
+}
+
+.foreground-vignette {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  box-shadow: inset 0 80px 120px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  opacity: 0.7;
+}
+
+/* subtle responsiveness: keep items inside canvas on smaller screens (override inline sizes if needed) */
+@media (max-width: 900px) {
+  .floating-canvas {
+    padding: 18px;
+    min-height: 260px;
+  }
+  .blob-1,
+  .blob-2,
+  .blob-3 {
+    opacity: 0.45;
+    filter: blur(20px);
+  }
+  .floating-item {
+    animation-duration: 5.2s !important;
+  }
+}
+
+/* === MOBILE: push collage visually behind text, blur it, center the text ===
+   At md and below we make the collage sit behind the hero text with a blur + dim.
+   The hero text (.hero-text) has higher z-index so it remains readable.
+*/
+@media (max-width: 768px) {
+  .hero-text {
+    position: relative;
+    z-index: 80;
+  }
+
+  .floating-canvas {
+    position: absolute !important;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transform: none; /* no offset */
+    margin: 0;
+    padding: 28px;
+    opacity: 0.8;
+    filter: blur(6px) saturate(0.85) contrast(0.9);
+    pointer-events: none;
+    z-index: 10;
+    border-radius: 14px;
+  }
+
+  /* soften blobs & floating items behind text */
+  .blob {
+    opacity: 0.28 !important;
+    filter: blur(24px);
+  }
+  .floating-item {
+    opacity: 0.95;
+    transform-origin: center;
+  }
+  .floating-item img {
+    filter: saturate(0.95) contrast(0.92);
+  }
+  .foreground-vignette {
+    opacity: 0.5;
+    box-shadow: inset 0 120px 200px rgba(0, 0, 0, 0.6);
+  }
+}
+hero-text-block
+/* --- centered canvas overlay for large screens --- */
+.hero-stage {
+  position: relative;
+}
+
+/* canvas that expands behind/around the centered text */
+.floating-canvas-centered{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  /* tall stage so images can be above/below text */
+  height: 200%;
+  pointer-events: none;
+  border-radius: 20px;
+  overflow: visible;
+  display: block;
+  z-index: 10; /* default low so text sits above; per-item z overrides this */
+  background: #0a192f; /* keep background subtle (blobs provide color) */
+  /* filter:blur(2px); */
+}
+
+/* reduce canvas size and keep it tidy on smaller screens */
+@media (max-width: 1280px) {
+  .floating-canvas-centered {
+    width: 110%;
+    height: 200%;
+  }
+}
+@media (max-width: 900px) {
+  .floating-canvas-centered {
+    width: 110%;
+    height: 200%;
+    top: 52%;
+    transform: translate(-50%, -48%);
+}
+}
+@media (max-width: 640px) {
+    .floating-canvas-centered {
+        width: 120%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1.02);
+    filter: blur(6px) saturate(0.9);
+    opacity: 0.95;
+    height: 200%;
+  }
+}
+
+/* ensure hero text remains readable above floating items */
+.hero-text {
+  position: relative;
+  z-index: 60;
+}
+
+/* slightly stronger halo for front-layer items */
+.floating-item {
+  will-change: transform, opacity;
+}
+.floating-item .item-halo {
+  opacity: 0.18;
+}
+.floating-item[style*="z-index: 80"] .item-halo {
+  opacity: 0.36;
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+/* ==== hero.css additions ==== */
+
+:root {
+  --accent: #64ffda; /* primary accent for gradient */
+}
+
+.hero-text-block {
+  background: linear-gradient(180deg, rgba(10,25,47,0.62), rgba(10,25,47,0.42));
+  padding: clamp(16px, 3.6vw, 28px);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+  backdrop-filter: blur(6px) opacity(0.9);
+  -webkit-backdrop-filter: blur(6px);
+  margin: 0 auto 18px auto;
+  transition: background-color .24s ease, transform .28s ease;
+}
+
+.hero-pretitle {
+  color: rgba(237, 237, 237, 0.9);
+  letter-spacing: 0.18em;
+  font-weight: 700;
+}
+
+.gradient-title {
+  /* gradient text using the requested color */
+  font-weight: 800;
+  display: inline-block;
+  background: linear-gradient(90deg, var(--accent) 0%, #9effe0 45%, rgba(255,255,255,0.85) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1.02;
+  text-shadow: 0 6px 24px rgba(6,11,22,0.55);
+  /* responsive sizing — clamp keeps it readable on small screens and bold on large */
+  font-size: clamp(1.9rem, 6.4vw, 3.6rem);
+}
+
+.hero-description {
+  color: rgba(255,255,255,0.9);
+  margin-top: 14px;
+  font-size: clamp(0.9rem, 2.2vw, 1rem);
+  line-height: 1.5;
+}
+
+/* ensure buttons remain visible above the backdrop */
+.hero-text-block .btn, .hero-text-block button {
+  z-index: 60;
+}
+
+/* tweak for smaller screens */
+@media (max-width: 520px) {
+  .hero-text-block {
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 14px;
+  }
+  .gradient-title {
+    font-size: clamp(1.6rem, 8.4vw, 2.4rem);
+    text-shadow: 0 6px 18px rgba(6,11,22,0.6);
+    letter-spacing: -0.01em;
+  }
+  .floating-canvas-centered {
+    height: 200%;
+
+  }
+}
+
+/* Accessibility: if prefers-reduced-motion, reduce animations & backdrops */
+@media (prefers-reduced-motion: reduce) {
+  .hero-text-block { transition: none; }
+  .gradient-title { text-shadow: none; }
+}
+
+/* End of additions */

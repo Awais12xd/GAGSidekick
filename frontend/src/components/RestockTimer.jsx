@@ -164,7 +164,7 @@ const RestockTimer = ({
     }
   };
 
-  return <div className="text-white ml-1 text-lg font-bold">{timeLeft <= 0 ? "Restocked" : formatTime(timeLeft)}</div>;
+  return <div className="text-white ml-1 text-[10px] sm:text-sm md:text-lg font-bold">{timeLeft <= 0 ? "Restocked" : formatTime(timeLeft)}</div>;
 };
 
 export default RestockTimer;

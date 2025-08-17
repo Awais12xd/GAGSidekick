@@ -1,0 +1,131 @@
+/* garden-palette.css
+   Simple color utilities & variables inspired by your palette.
+   Usage examples (JSX):
+     <div class="bg-deepbark text-text">...</div>
+     <span class="text-leaf">Hello</span>
+     <div class="bg-leaf-60 border-leaf">...</div>
+     <button class="shadow-accent-lg">Click</button>
+*/
+
+:root{
+  /* hex + rgb variables (rgb used for easy alpha helpers) */
+  --midnight: #071223;   --midnight-rgb: 7,18,35;
+  --deepbark: #0f1724;   --deepbark-rgb: 15,23,36;
+  --mossshadow:#0f3b2e;  --mossshadow-rgb: 15,59,46;
+  --leaf: #18b28a;       --leaf-rgb: 24,178,138;
+  --moss: #0fb27a;       --moss-rgb: 15,178,122;
+  --olive: #7aa46b;      --olive-rgb: 122,164,107;
+  --bloom: #ffb86b;      --bloom-rgb: 255,184,107;
+  --sun: #ffd454;        --sun-rgb: 255,212,84;
+  --prune: #6b3a59;      --prune-rgb: 107,58,89;
+  --rose: #ef6b6b;       --rose-rgb: 239,107,107;
+  --text: #e6eef3;       --text-rgb: 230,238,243;
+  --muted: #94a3b8;      --muted-rgb: 148,163,184;
+
+  /* shadow */
+  --shadow-accent-lg: 0 10px 30px rgba(24,178,138,0.12);
+}
+
+/* ---- Background utilities ---- */
+.bg-midnight{ background-color: var(--midnight); }
+.bg-deepbark{ background-color: var(--deepbark); }
+.bg-mossshadow{ background-color: var(--mossshadow); }
+.bg-leaf{ background-color: var(--leaf); }
+.bg-moss{ background-color: var(--moss); }
+.bg-olive{ background-color: var(--olive); }
+.bg-bloom{ background-color: var(--bloom); }
+.bg-sun{ background-color: var(--sun); }
+.bg-prune{ background-color: var(--prune); }
+.bg-rose{ background-color: var(--rose); }
+.bg-text{ background-color: var(--text); }
+.bg-muted{ background-color: var(--muted); }
+
+/* semi-transparent bg at ~60% (useful for overlays) */
+.bg-midnight-60{ background-color: rgba(var(--midnight-rgb),0.6); }
+.bg-deepbark-60{ background-color: rgba(var(--deepbark-rgb),0.6); }
+.bg-mossshadow-60{ background-color: rgba(var(--mossshadow-rgb),0.6); }
+.bg-leaf-60{ background-color: rgba(var(--leaf-rgb),0.6); }
+.bg-moss-60{ background-color: rgba(var(--moss-rgb),0.6); }
+.bg-olive-60{ background-color: rgba(var(--olive-rgb),0.6); }
+.bg-bloom-60{ background-color: rgba(var(--bloom-rgb),0.6); }
+.bg-sun-60{ background-color: rgba(var(--sun-rgb),0.6); }
+.bg-prune-60{ background-color: rgba(var(--prune-rgb),0.6); }
+.bg-rose-60{ background-color: rgba(var(--rose-rgb),0.6); }
+.bg-text-60{ background-color: rgba(var(--text-rgb),0.6); }
+.bg-muted-60{ background-color: rgba(var(--muted-rgb),0.6); }
+
+/* ---- Text color utilities ---- */
+.text-midnight{ color: var(--midnight); }
+.text-deepbark{ color: var(--deepbark); }
+.text-mossshadow{ color: var(--mossshadow); }
+.text-leaf{ color: var(--leaf); }
+.text-moss{ color: var(--moss); }
+.text-olive{ color: var(--olive); }
+.text-bloom{ color: var(--bloom); }
+.text-sun{ color: var(--sun); }
+.text-prune{ color: var(--prune); }
+.text-rose{ color: var(--rose); }
+.text-text{ color: var(--text); }
+.text-muted{ color: var(--muted); }
+
+/* ---- Border utilities ---- */
+.border-midnight{ border-color: var(--midnight); }
+.border-deepbark{ border-color: var(--deepbark); }
+.border-mossshadow{ border-color: var(--mossshadow); }
+.border-leaf{ border-color: var(--leaf); }
+.border-moss{ border-color: var(--moss); }
+.border-olive{ border-color: var(--olive); }
+.border-bloom{ border-color: var(--bloom); }
+.border-sun{ border-color: var(--sun); }
+.border-prune{ border-color: var(--prune); }
+.border-rose{ border-color: var(--rose); }
+.border-text{ border-color: var(--text); }
+.border-muted{ border-color: var(--muted); }
+
+/* handy thin border shorthand if you want it */
+.border-1{ border-width: 1px; border-style: solid; }
+
+/* ---- Accent shadow ---- */
+.shadow-accent-lg{ box-shadow: var(--shadow-accent-lg); }
+
+/* ---- Small helpers ---- */
+.rounded-surface{ border-radius: 12px; } /* slight rounded look */
+.surface-elev{ background-color: rgba(var(--deepbark-rgb),0.42); border: 1px solid rgba(255,255,255,0.04); box-shadow: var(--shadow-accent-lg); color: var(--text); }
+
+/* ---- Example composite classes (optional conveniences) ---- */
+/* .card-dark : a ready-to-use card surface */
+.card-dark{
+  background: linear-gradient(180deg, rgba(var(--deepbark-rgb),0.7), rgba(var(--midnight-rgb),0.85));
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+/* small responsive tweak: keep utilities friendly when pasted into JSX */
+@media (prefers-color-scheme: light){
+  /* if user is in light mode, you might still prefer the dark palette - leave empty or tweak */
+}
+
+/* garden-dark.css */
+:root {
+  --forest-green: #2B3A28;
+  --moss-green: #4A6A41;
+  --sunlit-fern: #8FBF7F;
+  --earth-brown: #3A2F2A;
+  --bloom-pink: #C27A84;
+  --garden-gold: #D4AF37;
+  --text-light: #E6EEF3;
+}
+
+/* Backgrounds */
+.bg-forest { background-color: var(--forest-green); }
+.bg-moss   { background-color: var(--moss-green); }
+.bg-fern   { background-color: var(--sunlit-fern); }
+.bg-brown  { background-color: var(--earth-brown); }
+.bg-pink   { background-color: var(--bloom-pink); }
+.bg-gold   { background-color: var(--garden-gold); }
+
+/* Text */
+.text-light { color: var(--text-light); }
+.text-gold  { color: var(--garden-gold); }

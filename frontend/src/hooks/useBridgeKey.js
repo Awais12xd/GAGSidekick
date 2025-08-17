@@ -38,6 +38,7 @@ export default function useBridgeKey({
         });
         if (!mounted) return;
         setData(res.data ?? null);
+        console.log(res.data)
       } catch (err) {
         if (!mounted) return;
         setError(err?.message || "Failed to fetch initial data");
@@ -82,9 +83,10 @@ export default function useBridgeKey({
     }
 
     function onMessage(ev) {
+      console.log("hello")
       const raw = ev?.detail ?? ev;
       // Uncomment to debug raw incoming messages
-      // console.debug("[useBridgeKey] raw payload:", raw);
+      console.debug("[useBridgeKey] raw payload:", raw);
 
       // 1) quick guard - sometimes bridge sends simple heartbeat or non-json; handle gracefully
       if (raw === undefined || raw === null) return;

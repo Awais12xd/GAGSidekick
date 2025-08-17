@@ -2,8 +2,12 @@
 * {
   font-family: 'Comic Neue', sans-serif;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+  scroll-margin-top: 20px;
 }
-
+body{
+  background: #0a192f;
+}
 /* Optional: Center your content and limit width */
 /* #root {
   max-width: 1280px;
