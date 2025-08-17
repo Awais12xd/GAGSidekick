@@ -6,7 +6,7 @@ import React from "react";
  */
 export default function Heading({ headingText }) {
   return (
-    <div className="flex items-center gap-4 w-full">
+    <div className="flex items-center gap-4 w-full px-2">
       {/* gradient dot */}
       <span
         aria-hidden
