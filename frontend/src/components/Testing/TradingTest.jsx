@@ -250,7 +250,7 @@ const GridTile = React.memo(function GridTile({
   );
 });
 
-/* ---------- PlusTile ---------- */
+// /* ---------- PlusTile ---------- */
 function PlusTile({ onClick }) {
   return (
     <div
@@ -260,9 +260,9 @@ function PlusTile({ onClick }) {
       onKeyDown={(e) => {
         if (e.key === "Enter") onClick();
       }}
-      className="relative group rounded-lg  flex items-center justify-center cursor-pointer transition-shadow duration-200  h-[92%] min-h-[60px] sm:min-h-[80px] border border-[#64ffda]"
+      className="relative group rounded-lg  flex items-center justify-center cursor-pointer transition-shadow duration-200  h-[92%] min-h-[45px] sm:min-h-[80px] border border-[#64ffda]"
       title="Add a pet"
-      aria-label="Add a pet"
+      aria-label="Add a pet "
     >
       <div className="w-full h-full  rounded-full bg-slate-900/60 flex items-center justify-center text-xl md:text-3xl text-[#64ffda] font-extrabold shadow-md">
         +
@@ -271,7 +271,7 @@ function PlusTile({ onClick }) {
   );
 }
 
-/* ---------- OfferGrid (accepts presentMode, passes centralized handlers) ---------- */
+/* ---------- OfferGrid (accepts presentMode,  centralized handlers) ---------- */
 const OfferGrid = React.memo(function OfferGrid({
   label,
   offerState,
