@@ -260,11 +260,11 @@ function PlusTile({ onClick }) {
       onKeyDown={(e) => {
         if (e.key === "Enter") onClick();
       }}
-      className="relative group rounded-lg md:p-2 p-1 flex items-center justify-center cursor-pointer transition-shadow duration-200 h-23 border border-[#64ffda]"
+      className="relative group rounded-lg  flex items-center justify-center cursor-pointer transition-shadow duration-200  h-[92%] min-h-[60px] sm:min-h-[80px] border border-[#64ffda]"
       title="Add a pet"
       aria-label="Add a pet"
     >
-      <div className="w-14 h-8 rounded-full bg-slate-900/60 flex items-center justify-center text-xl md:text-3xl text-[#64ffda] font-extrabold shadow-md">
+      <div className="w-full h-full  rounded-full bg-slate-900/60 flex items-center justify-center text-xl md:text-3xl text-[#64ffda] font-extrabold shadow-md">
         +
       </div>
     </div>
@@ -405,7 +405,7 @@ const OfferGrid = React.memo(function OfferGrid({
       </div>
       <div className="mb-3 flex items-center justify-between text-xs text-slate-300">
         <div className="md:pl-3">
-          {Number(shekNum || 0) > 0 && (
+          {(shekNum || 0) > 0 && (
             <div className="inline-flex items-center gap-2 px-1 md:px-2 py-1 rounded-full bg-[#f59e0b]/10 text-amber-200 border border-[#f59e0b]/20 text-[8px] md:text-xs font-semibold">
               <span className="text-amber-300 font-bold">₪</span>
               <span>{formatBig(shekNum)} added</span>
@@ -768,25 +768,63 @@ export default function TradeCalculator({ pets: petsProp = null }) {
     setShekBInput(String(shekBNum));
   }, []); // run once
 
-  const finalizeShekA = useCallback(() => {
-    const n = clamp(
-      Number((shekAInput || "0").replace(/[^\d.-]/g, "") || 0),
-      0
-    );
-    setShekANum(n);
-    setShekAInput(String(n));
-    flashBanner("Updated sheckles for A");
-  }, [shekAInput, flashBanner]);
+/* put near the top of the file with your other helpers */
+function sanitizeNumericInput(input, maxDigits = 30) {
+  // keep only digits and at most one decimal point
+  let s = String(input ?? "");
+  s = s.replace(/[^\d.]/g, ""); // remove anything except digits and dot
 
-  const finalizeShekB = useCallback(() => {
-    const n = clamp(
-      Number((shekBInput || "0").replace(/[^\d.-]/g, "") || 0),
-      0
-    );
-    setShekBNum(n);
-    setShekBInput(String(n));
-    flashBanner("Updated sheckles for B");
-  }, [shekBInput, flashBanner]);
+  // allow only first dot (if any); remove subsequent dots
+  const parts = s.split('.');
+  if (parts.length > 1) {
+    s = parts.shift() + '.' + parts.join('');
+  }
+
+  // preserve "0.xxx" numbers; otherwise strip leading zeros
+  if (!s.includes('.')) {
+    s = s.replace(/^0+/, '') || '0';
+  } else {
+    // if starts with leading zeros but is like "000.12", normalize to "0.12"
+    s = s.replace(/^0+(?=\.)/, '0');
+    // but collapse multiple leading zeros before a non-zero integer part: "000123" -> "123" handled above
+  }
+
+  // limit integer part length so UI remains stable (user asked for up to ~100 septillion)
+  const [intPart = '', decPart = ''] = s.split('.');
+  if (intPart.length > maxDigits) {
+    const newInt = intPart.slice(0, maxDigits);
+    s = decPart ? `${newInt}.${decPart}` : newInt;
+  }
+
+  return s;
+}
+
+/* Replace your finalize handlers with these */
+const finalizeShekA = useCallback(() => {
+  // sanitize & preserve the user's typed string (keeps trailing zeros)
+  const cleaned = sanitizeNumericInput(shekAInput || "0", 30);
+  setShekAInput(cleaned);
+
+  // convert to Number for calculations. This may lose precision for >15 digits,
+  // but it won't change the displayed input (we keep the raw string).
+  const numeric = Number(cleaned || "0");
+  const n = Number.isFinite(numeric) ? clamp(numeric, 0) : 0;
+  setShekANum(n);
+
+  flashBanner("Updated sheckles for A");
+}, [shekAInput, flashBanner]);
+
+const finalizeShekB = useCallback(() => {
+  const cleaned = sanitizeNumericInput(shekBInput || "0", 30);
+  setShekBInput(cleaned);
+
+  const numeric = Number(cleaned || "0");
+  const n = Number.isFinite(numeric) ? clamp(numeric, 0) : 0;
+  setShekBNum(n);
+
+  flashBanner("Updated sheckles for B");
+}, [shekBInput, flashBanner]);
+
 
   // quick-edit (now includes age,sizeKg,mutation)
   const openQuickEdit = useCallback(
@@ -876,18 +914,32 @@ export default function TradeCalculator({ pets: petsProp = null }) {
             style={leftBadgeStyle}
           >
             <div className="text-[6px] sm:text-[10px] uppercase opacity-90">Player A</div>
-            <div className="text-xs sm:text-lg font-extrabold tracking-tight -mt-1">
+            <div className="text-md px-2 sm:text-lg font-extrabold tracking-tight -mt-1">
               {formatBig(totalA)}
             </div>
           </div>
         </div>
 
-        <div className="flex-1 text-center min-w-0">
+        {/* <div className="flex-1 text-center min-w-0">
           <div className="flex items-center justify-center gap-4">
             <h1 className="text-sm sm:text-xl md:text-2xl font-extrabold text-center tracking-tight ">
               Trading Calculator
             </h1>
           </div>
+        </div> */}
+         <div
+          className={`sm:px-4 sm:py-2 px-2 py-1 rounded-lg text-center text-xs sm:text-sm font-semibold`}
+          style={{
+            background:
+              verdict.kind === "fair"
+                ? "#7dd3fc"
+                : verdict.kind === "lose"
+                ? "#fecaca"
+                : "#bbf7d0",
+            color: verdict.kind === "fair" ? "#052e3f" : "#541114",
+          }}
+        >
+          {verdict.text}
         </div>
 
         <div className="flex items-center gap-4">
@@ -898,7 +950,7 @@ export default function TradeCalculator({ pets: petsProp = null }) {
             style={rightBadgeStyle}
           >
             <div className="text-[6px] sm:text-[10px] uppercase opacity-90">Player B</div>
-            <div className="text-xs sm:text-lg font-extrabold tracking-tight -mt-1">
+            <div className="text-md px-2 sm:text-lg font-extrabold tracking-tight -mt-1">
               {formatBig(totalB)}
             </div>
           </div>
@@ -906,21 +958,7 @@ export default function TradeCalculator({ pets: petsProp = null }) {
       </div>
 
       {/* Top control row: displayMode selector (bar | meter) placed above the visualization for clarity */}
-    {
-      !presentMode && (
-          <div className="mt-3 flex items-center justify-end gap-3">
-        <label className="text-xs text-[#cfeee4] mr-2">Visualization</label>
-        <select
-          value={displayMode}
-          onChange={(e) => setDisplayMode(e.target.value)}
-          className="rounded-md px-2 py-1 bg-[#0f172a] text-white text-xs border border-white/6"
-        >
-          <option value="meter">Meter</option>
-          <option value="bar">Bar</option>
-        </select>
-      </div>
-      )
-    }
+    
 
       {/* replaced status bar with either gauge (meter) or a horizontal bar depending on displayMode */}
       <div className="mt-4 w-full">
@@ -1085,19 +1123,24 @@ export default function TradeCalculator({ pets: petsProp = null }) {
       </div>
 
       <div className="mt-4 flex items-center justify-between gap-3">
-        <div
-          className={`sm:px-4 sm:py-2 px-2 py-1 rounded-lg text-center text-xs sm:text-sm font-semibold`}
-          style={{
-            background:
-              verdict.kind === "fair"
-                ? "#7dd3fc"
-                : verdict.kind === "lose"
-                ? "#fecaca"
-                : "#bbf7d0",
-            color: verdict.kind === "fair" ? "#052e3f" : "#541114",
-          }}
+       
+        <div className="flex">
+          <span className="text-[5px]">.</span>
+          {
+      !presentMode && (
+          <div className="mt-3 flex items-center justify-end gap-3">
+        <label className="text-xs text-[#cfeee4] mr-2">Visualization</label>
+        <select
+          value={displayMode}
+          onChange={(e) => setDisplayMode(e.target.value)}
+          className="rounded-md px-2 py-1 bg-[#0f172a] text-white text-xs border border-white/6"
         >
-          {verdict.text}
+          <option value="meter">Meter</option>
+          <option value="bar">Bar</option>
+        </select>
+      </div>
+      )
+    }
         </div>
 
         <div className="flex items-center gap-2">

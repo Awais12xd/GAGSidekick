@@ -161,7 +161,7 @@ const StockCard = ({ title, items = [], name, restockTimers }) => {
                       
 
                       {/* quantity badge uses leaf accent (bright green) with light text */}
-                      <div className="inline-flex items-center justify-center sm:px-2 sm:py-1 px-1 py-[2px] rounded-full bg-leaf  font-extrabold text-[8px] sm:text-xs shadow-accent-lg">
+                      <div className="inline-flex items-center justify-center sm:px-2 sm:py-1 px-1 py-[2px] rounded-full bg-gray-200 text-[#0a192f]  font-extrabold text-[8px] sm:text-xs shadow-accent-lg">
                         x{item.quantity ?? 0}
                       </div>
                     </div>

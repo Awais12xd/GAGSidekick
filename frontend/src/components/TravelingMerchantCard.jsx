@@ -16,11 +16,22 @@ const toMs = (v) => {
   return null;
 };
 
+// Human-friendly with hour+minute (fallback)
 const fmtTime = (tsMs) =>
   tsMs
     ? new Date(tsMs).toLocaleTimeString(undefined, {
         hour: "2-digit",
         minute: "2-digit",
+        hour12: true,
+      })
+    : "—";
+
+// Short hour-only like "9 AM" (used for next-arrival display per request)
+const fmtHour = (tsMs) =>
+  tsMs
+    ? new Date(tsMs).toLocaleTimeString(undefined, {
+        hour: "numeric",
+        hour12: true,
       })
     : "—";
 
@@ -39,7 +50,27 @@ const relative = (targetMs, nowMs = Date.now()) => {
 };
 
 const ACTIVE_DURATION_MS = 30 * 60 * 1000; // 30 minutes
-const INTERVAL_MS = 3.5 * 60 * 60 * 1000; // 3 hours 30 minutes (next spawn interval)
+const SPAWN_INTERVAL_MS = 4 * 60 * 60 * 1000; // 4 hours (advance even if no websocket response)
+
+/**
+ * Compute the next scheduled spawn after `nowMs`.
+ * Start from `baseMs` (start or end) and keep adding SPAWN_INTERVAL_MS until > nowMs.
+ * Protect against pathological loops by limiting iterations.
+ */
+function computeNextArrivalAfter(baseMs, nowMs) {
+  if (!baseMs) return null;
+  const MAX_LOOPS = 10000; // safety cap (should never hit this)
+  let next = baseMs;
+  // If baseMs is in the past, step it forward until future
+  let loops = 0;
+  // If baseMs is the start time, the next arrival should be start if start is in future.
+  // But the calling code will decide when to use start vs next.
+  while (next <= nowMs && loops < MAX_LOOPS) {
+    next += SPAWN_INTERVAL_MS;
+    loops += 1;
+  }
+  return loops >= MAX_LOOPS ? null : next;
+}
 
 /**
  * TravelingMerchantCard
@@ -86,9 +117,26 @@ export default function TravelingMerchantCard({ merchant, serverNow = null }) {
     else state = "left";
   }
 
-  // next arrival = end + INTERVAL_MS (when left) OR start (if start upcoming)
-  const nextArrivalMs =
-    state === "upcoming" && startMs ? startMs : endMs ? endMs + INTERVAL_MS : null;
+  // nextArrival logic:
+  // - If upcoming -> nextArrival = startMs
+  // - If active -> nextArrival = computeNextArrivalAfter(endMs, nowMs) (i.e. end + 4h then step forward if needed)
+  // - If left -> nextArrival = computeNextArrivalAfter(startMs ?? endMs, nowMs)
+  const nextArrivalMs = useMemo(() => {
+    if (!startMs && !endMs) return null;
+
+    if (state === "upcoming" && startMs) {
+      return startMs;
+    }
+
+    // prefer startMs base if available, otherwise use endMs as a base anchor
+    const base = startMs ?? endMs;
+    if (!base) return null;
+
+    // compute the first scheduled time AFTER now
+    const next = computeNextArrivalAfter(base, nowMs);
+
+    return next;
+  }, [startMs, endMs, nowMs, state]);
 
   const [open, setOpen] = useState(false);
 
@@ -145,19 +193,9 @@ export default function TravelingMerchantCard({ merchant, serverNow = null }) {
             </div>
 
             <div className="flex items-center justify-end sm:justify-center gap-3">
-              {/* next arrival quick highlight when left */}
-              {/* {state === "left" && nextArrivalMs ? (
-                <div className="hidden sm:flex flex-col items-end mr-2">
-                  <div className="text-xs text-[#9fb0c8]">Next</div>
-                  <div className="text-sm font-bold text-[#ffb4b4]">{fmtTime(nextArrivalMs)}</div>
-                </div>
-              ) : null} */}
-
               <div className={`sm:px-3 px-2 py-1 rounded-full text-[10px] whitespace-nowrap sm:text-sm font-semibold ${statusPillClass}`}>
                 {state === "active" ? "Active now" : state === "upcoming" ? `Starts ${relative(startMs, nowMs)}` : "Left"}
               </div>
-
-             
             </div>
           </div>
         </button>
@@ -191,7 +229,7 @@ export default function TravelingMerchantCard({ merchant, serverNow = null }) {
                     key={id}
                     className="flex items-center gap-3 p-2 sm:p-3 bg-[#112240] rounded-lg border border-white/6"
                   >
-                    <div className="sm:w-14 sm:h-14 w-10 h-10  rounded-md bg-white/6 flex items-center justify-center overflow-hidden shadow-sm">
+                    <div className="sm:w-14 sm:h-14 w-10 h-10 rounded-md bg-white/6 flex items-center justify-center overflow-hidden shadow-sm">
                       {image ? (
                         <img src={image} alt={name} className="sm:w-11 sm:h-11 w-8 h-8 object-contain" />
                       ) : (
@@ -219,14 +257,15 @@ export default function TravelingMerchantCard({ merchant, serverNow = null }) {
                 );
               })}
             </div>
+
             {/* footer */}
             <div className="mt-4 flex sm:flex-row flex-col items-center justify-between gap-3">
-              <div className="text-[8px] text-center sm:text-xs text-[#9fb0c8]">Merchant has a chance to  spawns every 4 hours • Stays for 30 minutes</div>
+              <div className="text-[8px] text-center sm:text-xs text-[#9fb0c8]">Merchant has a chance to spawns every 4 hours • Stays for 30 minutes</div>
 
-              {state === "left" && nextArrivalMs ? (
+              {nextArrivalMs ? (
                 <div className="text-right flex items-center gap-3">
                   <div className="text-[9px] sm:text-xs text-[#9fb0c8]">Next arrival</div>
-                  <div className="text-sm sm:text-lg font-extrabold text-[#64ffda]">{fmtTime(nextArrivalMs)}</div>
+                  <div className="text-sm sm:text-lg font-extrabold text-[#64ffda]">{fmtHour(nextArrivalMs)}</div>
                 </div>
               ) : null}
             </div>
