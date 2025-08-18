@@ -1566,7 +1566,7 @@ export const items = [
     rarity: "Divine",
     lastUpdated: "12 August 2025",
     image:
-      "https://api.joshlei.com/v2/growagarden/image/t_rex",
+      "https://api.joshlei.com/v2/growagarden/image/t-rex",
   },
   {
     petName: "Tanchozuru",
