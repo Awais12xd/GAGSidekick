@@ -8,6 +8,66 @@ import React, {
 } from "react";
 import { items as importedItems } from "/src/data/info.js";
 
+/* ---------- images speed boost helpers ---------- */
+
+/* ---------- Image preloader + cache (throttled) ---------- */
+const imagePreloadCache = new Map(); // url -> Promise of load
+const preloadQueue = [];
+let activePreloads = 0;
+const MAX_CONCURRENT_PRELOADS = 6;
+
+function _startNextPreload() {
+  if (activePreloads >= MAX_CONCURRENT_PRELOADS) return;
+  const next = preloadQueue.shift();
+  if (!next) return;
+  activePreloads++;
+  const { url, resolve, reject } = next;
+  const img = new Image();
+  img.crossOrigin = "anonymous";
+  img.referrerPolicy = "no-referrer";
+  img.decoding = "async";
+  img.onload = () => {
+    activePreloads--;
+    imagePreloadCache.set(url, Promise.resolve(true));
+    resolve(true);
+    _startNextPreload();
+  };
+  img.onerror = () => {
+    activePreloads--;
+    // keep a rejected promise so repeated attempts won't spam network; allow re-preload by deleting
+    imagePreloadCache.set(
+      url,
+      Promise.reject(new Error("image preload failed"))
+    );
+    reject(new Error("image preload failed"));
+    _startNextPreload();
+  };
+  img.src = url;
+}
+
+function preloadImage(url) {
+  if (!url) return Promise.resolve(false);
+  // if cached promise exists, return it
+  const existing = imagePreloadCache.get(url);
+  if (existing) return existing;
+
+  // create a promise and queue it
+  const p = new Promise((resolve, reject) => {
+    preloadQueue.push({ url, resolve, reject });
+    // try to start immediately
+    _startNextPreload();
+  });
+  // store a pending promise in cache immediately to dedupe
+  imagePreloadCache.set(url, p);
+  return p;
+}
+
+function preloadImages(urls = [], limit = 40) {
+  if (!Array.isArray(urls) || urls.length === 0) return Promise.resolve([]);
+  const slice = urls.slice(0, limit);
+  return Promise.allSettled(slice.map((u) => preloadImage(u)));
+}
+
 /* ---------- Utilities ---------- */
 const formatBig = (n) => {
   if (n == null || n === "") return "—";
@@ -19,7 +79,10 @@ const formatBig = (n) => {
 
   const fmt = (v) =>
     // up to 2 decimals; trim trailing .00 and trailing zero in .X0
-    v.toFixed(2).replace(/\.00$/, "").replace(/(\.\d)0$/, "$1");
+    v
+      .toFixed(2)
+      .replace(/\.00$/, "")
+      .replace(/(\.\d)0$/, "$1");
 
   // >= 1e24 -> Sp (septillion)
   if (abs >= 1e24) return `${sign}${fmt(num / 1e24)}Sp`;
@@ -145,16 +208,21 @@ const GridTile = React.memo(function GridTile({
     if (!presentMode) return;
     if (!supportsHover) {
       // toggle centralized detail slot id (ensures only one open)
-      setOpenDetailSlotId((cur) => (cur === slot?.slotId ? null : slot?.slotId));
+      setOpenDetailSlotId((cur) =>
+        cur === slot?.slotId ? null : slot?.slotId
+      );
     } else {
       // on hover-capable devices, also open details when clicking
-      setOpenDetailSlotId((cur) => (cur === slot?.slotId ? null : slot?.slotId));
+      setOpenDetailSlotId((cur) =>
+        cur === slot?.slotId ? null : slot?.slotId
+      );
     }
   };
 
   const { age, sizeKg, mutation } = slot || {};
   const isOpen = openDetailSlotId === slot?.slotId;
-  const showDetails = presentMode && (supportsHover ? (hovering || isOpen) : isOpen);
+  const showDetails =
+    presentMode && (supportsHover ? hovering || isOpen : isOpen);
 
   // gradient background for image area
   const rarityBg = rarityToGradient(pet?.rarity);
@@ -164,9 +232,9 @@ const GridTile = React.memo(function GridTile({
     <div
       data-tile="true"
       className="relative rounded-lg shadow-md"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onClick={handleClick}
+      // onMouseEnter={handleMouseEnter}
+      // onMouseLeave={handleMouseLeave}
+      // onClick={handleClick}
     >
       <div className="w-full flex items-center justify-center">
         <div
@@ -293,7 +361,11 @@ const OfferGrid = React.memo(function OfferGrid({
   const filled = offerState || [];
 
   const gridColsClass =
-    totalSlots <= 9 ? "grid-cols-3" : totalSlots <= 15 ? "grid-cols-3" : "grid-cols-4";
+    totalSlots <= 9
+      ? "grid-cols-3"
+      : totalSlots <= 15
+      ? "grid-cols-3"
+      : "grid-cols-4";
 
   const approxTileHeight = 96; // fallback
   const gap = 12;
@@ -366,14 +438,13 @@ const OfferGrid = React.memo(function OfferGrid({
     <div className="py-2 px-1 md:p-4 rounded-2xl bg-[#071226]/60 border border-white/6 shadow-lg">
       <div className="flex md:flex-row flex-col items-center md:justify-between gap-y-1 justify-center mb-3">
         <div>
-          <div className="md:text-md text-xs font-extrabold text-white">Player {label}</div>
+          <div className="md:text-md text-xs font-extrabold text-white">
+            Player {label}
+          </div>
         </div>
-        
 
         {!presentMode ? (
-
           <div className="flex items-center gap-2">
-            
             <div className="text-xs text-slate-300 mr-2">Sheckles</div>
             <input
               value={shekInput}
@@ -444,8 +515,6 @@ const OfferGrid = React.memo(function OfferGrid({
 
         <PlusTile onClick={() => onOpenPicker(null)} />
       </div>
-
-     
     </div>
   );
 });
@@ -579,8 +648,7 @@ export default function TradeCalculator({ pets: petsProp = null }) {
       if (!entry || !entry.slug) return 0;
       const pet = lookup[entry.slug];
       if (!pet) return 0;
-      const base =
-        Number(pet.avgValue ?? pet.minValue ?? pet.maxValue ?? 0) || 0;
+      const base = Number(pet.price ?? 0) || 0;
       const qty = Number(entry.qty || 0);
       const mult = Number(entry.mult || 1);
       return base * qty * mult;
@@ -645,7 +713,15 @@ export default function TradeCalculator({ pets: petsProp = null }) {
   const nextSlotIdRef = useRef(1);
   const makeSlot = useCallback((slug = "", qty = 1, mult = 1) => {
     const id = `s-${Date.now()}-${nextSlotIdRef.current++}`;
-    return { slotId: id, slug, qty, mult, age: null, sizeKg: null, mutation: "None" };
+    return {
+      slotId: id,
+      slug,
+      qty,
+      mult,
+      age: null,
+      sizeKg: null,
+      mutation: "None",
+    };
   }, []);
 
   // CRUD helpers
@@ -759,8 +835,49 @@ export default function TradeCalculator({ pets: petsProp = null }) {
           .toLowerCase()
           .includes(q)
       )
-      .slice(0, 80);
+      .slice(0, 121);
   }, [pets, searchQuery]);
+
+  //some setting for image boost
+
+// replace your existing "Preload images when picker opens" useEffect with this
+useEffect(() => {
+  // regex to match the image domain/prefix we care about
+  const IMG_DOMAIN_RE = /^https?:\/\/api\.joshlei\.com\/v2\/growagarden\/image\//i;
+
+  // remove any existing <link rel="preload"> or <link rel="prefetch"> for this domain
+  // (this stops Chrome's "preload not used" and "credentials mode" warnings)
+  try {
+    const links = Array.from(document.querySelectorAll('link[rel="preload"], link[rel="prefetch"]'));
+    links.forEach((l) => {
+      try {
+        if (l.href && IMG_DOMAIN_RE.test(l.href)) {
+          l.parentNode && l.parentNode.removeChild(l);
+        }
+      } catch (e) {
+        /* ignore removal errors */
+      }
+    });
+  } catch (e) {
+    /* ignore DOM query errors (SSR safety) */
+  }
+
+  if (!picker) return; // only preload when picker opened
+
+  const candidates = (filteredPetsMemo && filteredPetsMemo.length ? filteredPetsMemo : (pets || [])).slice(0, 80);
+  const urls = candidates.map((p) =>
+    p?.image || `https://api.joshlei.com/v2/growagarden/image/${makeSlug(p.petName || p.name || p.slug || "")}`
+  );
+
+  // start throttled preloads (Image with crossOrigin already used in preloadImage)
+  preloadImages(urls, 80).catch(() => {});
+
+  // no link tags added — Image() preloader is enough and avoids preload warnings
+  return () => {
+    // nothing to cleanup here (we removed link tags proactively)
+  };
+}, [picker, filteredPetsMemo, pets]);
+
 
   // Shek finalize handlers
   useEffect(() => {
@@ -768,63 +885,62 @@ export default function TradeCalculator({ pets: petsProp = null }) {
     setShekBInput(String(shekBNum));
   }, []); // run once
 
-/* put near the top of the file with your other helpers */
-function sanitizeNumericInput(input, maxDigits = 30) {
-  // keep only digits and at most one decimal point
-  let s = String(input ?? "");
-  s = s.replace(/[^\d.]/g, ""); // remove anything except digits and dot
+  /* put near the top of the file with your other helpers */
+  function sanitizeNumericInput(input, maxDigits = 30) {
+    // keep only digits and at most one decimal point
+    let s = String(input ?? "");
+    s = s.replace(/[^\d.]/g, ""); // remove anything except digits and dot
 
-  // allow only first dot (if any); remove subsequent dots
-  const parts = s.split('.');
-  if (parts.length > 1) {
-    s = parts.shift() + '.' + parts.join('');
+    // allow only first dot (if any); remove subsequent dots
+    const parts = s.split(".");
+    if (parts.length > 1) {
+      s = parts.shift() + "." + parts.join("");
+    }
+
+    // preserve "0.xxx" numbers; otherwise strip leading zeros
+    if (!s.includes(".")) {
+      s = s.replace(/^0+/, "") || "0";
+    } else {
+      // if starts with leading zeros but is like "000.12", normalize to "0.12"
+      s = s.replace(/^0+(?=\.)/, "0");
+      // but collapse multiple leading zeros before a non-zero integer part: "000123" -> "123" handled above
+    }
+
+    // limit integer part length so UI remains stable (user asked for up to ~100 septillion)
+    const [intPart = "", decPart = ""] = s.split(".");
+    if (intPart.length > maxDigits) {
+      const newInt = intPart.slice(0, maxDigits);
+      s = decPart ? `${newInt}.${decPart}` : newInt;
+    }
+
+    return s;
   }
 
-  // preserve "0.xxx" numbers; otherwise strip leading zeros
-  if (!s.includes('.')) {
-    s = s.replace(/^0+/, '') || '0';
-  } else {
-    // if starts with leading zeros but is like "000.12", normalize to "0.12"
-    s = s.replace(/^0+(?=\.)/, '0');
-    // but collapse multiple leading zeros before a non-zero integer part: "000123" -> "123" handled above
-  }
+  /* Replace your finalize handlers with these */
+  const finalizeShekA = useCallback(() => {
+    // sanitize & preserve the user's typed string (keeps trailing zeros)
+    const cleaned = sanitizeNumericInput(shekAInput || "0", 30);
+    setShekAInput(cleaned);
 
-  // limit integer part length so UI remains stable (user asked for up to ~100 septillion)
-  const [intPart = '', decPart = ''] = s.split('.');
-  if (intPart.length > maxDigits) {
-    const newInt = intPart.slice(0, maxDigits);
-    s = decPart ? `${newInt}.${decPart}` : newInt;
-  }
+    // convert to Number for calculations. This may lose precision for >15 digits,
+    // but it won't change the displayed input (we keep the raw string).
+    const numeric = Number(cleaned || "0");
+    const n = Number.isFinite(numeric) ? clamp(numeric, 0) : 0;
+    setShekANum(n);
 
-  return s;
-}
+    flashBanner("Updated sheckles for A");
+  }, [shekAInput, flashBanner]);
 
-/* Replace your finalize handlers with these */
-const finalizeShekA = useCallback(() => {
-  // sanitize & preserve the user's typed string (keeps trailing zeros)
-  const cleaned = sanitizeNumericInput(shekAInput || "0", 30);
-  setShekAInput(cleaned);
+  const finalizeShekB = useCallback(() => {
+    const cleaned = sanitizeNumericInput(shekBInput || "0", 30);
+    setShekBInput(cleaned);
 
-  // convert to Number for calculations. This may lose precision for >15 digits,
-  // but it won't change the displayed input (we keep the raw string).
-  const numeric = Number(cleaned || "0");
-  const n = Number.isFinite(numeric) ? clamp(numeric, 0) : 0;
-  setShekANum(n);
+    const numeric = Number(cleaned || "0");
+    const n = Number.isFinite(numeric) ? clamp(numeric, 0) : 0;
+    setShekBNum(n);
 
-  flashBanner("Updated sheckles for A");
-}, [shekAInput, flashBanner]);
-
-const finalizeShekB = useCallback(() => {
-  const cleaned = sanitizeNumericInput(shekBInput || "0", 30);
-  setShekBInput(cleaned);
-
-  const numeric = Number(cleaned || "0");
-  const n = Number.isFinite(numeric) ? clamp(numeric, 0) : 0;
-  setShekBNum(n);
-
-  flashBanner("Updated sheckles for B");
-}, [shekBInput, flashBanner]);
-
+    flashBanner("Updated sheckles for B");
+  }, [shekBInput, flashBanner]);
 
   // quick-edit (now includes age,sizeKg,mutation)
   const openQuickEdit = useCallback(
@@ -885,17 +1001,41 @@ const finalizeShekB = useCallback(() => {
   // badge styles (inline style to ensure palette colors)
   const leftBadgeStyle =
     totalA > totalB
-      ? { background: "#ff6b6b", color: "#fff", boxShadow: "0 6px 18px rgba(255,107,107,0.08)" }
+      ? {
+          background: "#ff6b6b",
+          color: "#fff",
+          boxShadow: "0 6px 18px rgba(255,107,107,0.08)",
+        }
       : totalA < totalB
-      ? { background: "#064d3e", color: "#fff", boxShadow: "0 6px 18px rgba(6,77,62,0.08)" }
-      : { background: "#0f172a", color: "#fff", boxShadow: "0 6px 18px rgba(2,6,23,0.07)" };
+      ? {
+          background: "#064d3e",
+          color: "#fff",
+          boxShadow: "0 6px 18px rgba(6,77,62,0.08)",
+        }
+      : {
+          background: "#0f172a",
+          color: "#fff",
+          boxShadow: "0 6px 18px rgba(2,6,23,0.07)",
+        };
 
   const rightBadgeStyle =
     totalB > totalA
-      ? { background: "#ff6b6b", color: "#fff", boxShadow: "0 6px 18px rgba(255,107,107,0.08)" }
+      ? {
+          background: "#ff6b6b",
+          color: "#fff",
+          boxShadow: "0 6px 18px rgba(255,107,107,0.08)",
+        }
       : totalB < totalA
-      ? { background: "#064d3e", color: "#fff", boxShadow: "0 6px 18px rgba(6,77,62,0.08)" }
-      : { background: "#0f172a", color: "#fff", boxShadow: "0 6px 18px rgba(2,6,23,0.07)" };
+      ? {
+          background: "#064d3e",
+          color: "#fff",
+          boxShadow: "0 6px 18px rgba(6,77,62,0.08)",
+        }
+      : {
+          background: "#0f172a",
+          color: "#fff",
+          boxShadow: "0 6px 18px rgba(2,6,23,0.07)",
+        };
 
   /* Result banner - uses displayMode to pick visualization (meter or bar) */
   const ResultBanner = (
@@ -908,12 +1048,16 @@ const finalizeShekB = useCallback(() => {
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <div
-            className={`sm:px-2 py-1 rounded-lg min-w-[50px] text-center transform transition-all duration-500 ${pulse ? "scale-105" : "scale-100"}`}
+            className={`sm:px-2 py-1 rounded-lg min-w-[50px] text-center transform transition-all duration-500 ${
+              pulse ? "scale-105" : "scale-100"
+            }`}
             aria-hidden
             role="status"
             style={leftBadgeStyle}
           >
-            <div className="text-[6px] sm:text-[10px] uppercase opacity-90">Player A</div>
+            <div className="text-[6px] sm:text-[10px] uppercase opacity-90">
+              Player A
+            </div>
             <div className="text-md px-2 sm:text-lg font-extrabold tracking-tight -mt-1">
               {formatBig(totalA)}
             </div>
@@ -927,7 +1071,7 @@ const finalizeShekB = useCallback(() => {
             </h1>
           </div>
         </div> */}
-         <div
+        <div
           className={`sm:px-4 sm:py-2 px-2 py-1 rounded-lg text-center text-xs sm:text-sm font-semibold`}
           style={{
             background:
@@ -944,12 +1088,16 @@ const finalizeShekB = useCallback(() => {
 
         <div className="flex items-center gap-4">
           <div
-            className={`sm:px-2 py-1 rounded-md min-w-[50px] text-center transform transition-all duration-500 ${pulse ? "scale-105" : "scale-100"}`}
+            className={`sm:px-2 py-1 rounded-md min-w-[50px] text-center transform transition-all duration-500 ${
+              pulse ? "scale-105" : "scale-100"
+            }`}
             aria-hidden
             role="status"
             style={rightBadgeStyle}
           >
-            <div className="text-[6px] sm:text-[10px] uppercase opacity-90">Player B</div>
+            <div className="text-[6px] sm:text-[10px] uppercase opacity-90">
+              Player B
+            </div>
             <div className="text-md px-2 sm:text-lg font-extrabold tracking-tight -mt-1">
               {formatBig(totalB)}
             </div>
@@ -958,189 +1106,233 @@ const finalizeShekB = useCallback(() => {
       </div>
 
       {/* Top control row: displayMode selector (bar | meter) placed above the visualization for clarity */}
-    
 
       {/* replaced status bar with either gauge (meter) or a horizontal bar depending on displayMode */}
       <div className="mt-4 w-full">
-        {displayMode === "meter" ? (
-          (() => {
-            const sumAbs = Math.abs(totalA) + Math.abs(totalB);
-            const normalized = sumAbs === 0 ? 0 : (totalA - totalB) / sumAbs;
-            const maxAngle = 60; // degrees to each side
-            const angle = Math.max(-maxAngle, Math.min(maxAngle, normalized * maxAngle));
+        {displayMode === "meter"
+          ? (() => {
+              const sumAbs = Math.abs(totalA) + Math.abs(totalB);
+              const normalized = sumAbs === 0 ? 0 : (totalA - totalB) / sumAbs;
+              const maxAngle = 60; // degrees to each side
+              const angle = Math.max(
+                -maxAngle,
+                Math.min(maxAngle, normalized * maxAngle)
+              );
 
-            // SVG geometry (kept identical, but colors tuned to palette)
-            const cx = 100;
-            const cy = 80;
-            const radius = 70;
-            const needleLen = 60;
+              // SVG geometry (kept identical, but colors tuned to palette)
+              const cx = 100;
+              const cy = 80;
+              const radius = 70;
+              const needleLen = 60;
 
-            const ticks = [-60, -30, 0, 30, 60];
+              const ticks = [-60, -30, 0, 30, 60];
 
-            return (
-              <div className="w-full flex flex-col items-center">
-                <svg
-                  width="100%"
-                  height="100"
-                  viewBox="0 0 200 100"
-                  aria-hidden={false}
-                  role="img"
-                >
-                  {/* arc */}
-                  <path
-                    d={`M ${cx - radius} ${cy} A ${radius} ${radius} 0 0 1 ${cx + radius} ${cy}`}
-                    stroke="rgba(255,255,255,0.08)"
-                    strokeWidth="8"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
+              return (
+                <div className="w-full flex flex-col items-center">
+                  <svg
+                    width="100%"
+                    height="100"
+                    viewBox="0 0 200 100"
+                    aria-hidden={false}
+                    role="img"
+                  >
+                    {/* arc */}
+                    <path
+                      d={`M ${cx - radius} ${cy} A ${radius} ${radius} 0 0 1 ${
+                        cx + radius
+                      } ${cy}`}
+                      stroke="rgba(255,255,255,0.08)"
+                      strokeWidth="8"
+                      fill="none"
+                      strokeLinecap="round"
+                    />
 
-                  {/* colored arc segments: left (A) -> right (B) using site palette */}
-                  <path
-                    d={`M ${cx - radius} ${cy} A ${radius} ${radius} 0 0 1 ${cx} ${cy}`}
-                    stroke="rgba(6,77,62,0.28)" // dark-green left
-                    strokeWidth="8"
-                    fill="none"
-                  />
-                   <path
-                    d={`M ${cx} ${cy} A ${radius} ${radius} 0 0 1 ${cx + radius} ${cy}`}
-                    stroke="rgba(100,159,250,0.22)" // bluish right
-                    strokeWidth="8"
-                    fill="none"
-                  />
+                    {/* colored arc segments: left (A) -> right (B) using site palette */}
+                    <path
+                      d={`M ${
+                        cx - radius
+                      } ${cy} A ${radius} ${radius} 0 0 1 ${cx} ${cy}`}
+                      stroke="rgba(6,77,62,0.28)" // dark-green left
+                      strokeWidth="8"
+                      fill="none"
+                    />
+                    <path
+                      d={`M ${cx} ${cy} A ${radius} ${radius} 0 0 1 ${
+                        cx + radius
+                      } ${cy}`}
+                      stroke="rgba(100,159,250,0.22)" // bluish right
+                      strokeWidth="8"
+                      fill="none"
+                    />
 
-                  {/* ticks */}
-                  {ticks.map((t, i) => {
-                    const rad = (t * Math.PI) / 180;
-                    const outerX = cx + radius * Math.sin(rad);
-                    const outerY = cy - radius * Math.cos(rad);
-                    const innerX = cx + (radius - 8) * Math.sin(rad);
-                    const innerY = cy - (radius - 8) * Math.cos(rad);
-                    return (
+                    {/* ticks */}
+                    {ticks.map((t, i) => {
+                      const rad = (t * Math.PI) / 180;
+                      const outerX = cx + radius * Math.sin(rad);
+                      const outerY = cy - radius * Math.cos(rad);
+                      const innerX = cx + (radius - 8) * Math.sin(rad);
+                      const innerY = cy - (radius - 8) * Math.cos(rad);
+                      return (
+                        <line
+                          key={i}
+                          x1={innerX}
+                          y1={innerY}
+                          x2={outerX}
+                          y2={outerY}
+                          stroke="rgba(255,255,255,0.08)"
+                          strokeWidth="2"
+                        />
+                      );
+                    })}
+
+                    {/* labels A / B */}
+                    <text
+                      x={cx - radius + 6}
+                      y={cy + 18}
+                      fontSize="10"
+                      fill="#ffffff"
+                      opacity="0.85"
+                    >
+                      A
+                    </text>
+                    <text
+                      x={cx + radius - 12}
+                      y={cy + 18}
+                      fontSize="10"
+                      fill="#ffffff"
+                      opacity="0.85"
+                    >
+                      B
+                    </text>
+
+                    {/* needle group rotated around pivot (cx,cy) */}
+                    <g
+                      transform={`rotate(${angle} ${cx} ${cy})`}
+                      style={{
+                        transition: "transform 600ms cubic-bezier(.2,.9,.2,1)",
+                      }}
+                    >
                       <line
-                        key={i}
-                        x1={innerX}
-                        y1={innerY}
-                        x2={outerX}
-                        y2={outerY}
-                        stroke="rgba(255,255,255,0.08)"
-                        strokeWidth="2"
+                        x1={cx}
+                        y1={cy}
+                        x2={cx}
+                        y2={cy - needleLen}
+                        stroke="#fffbeb"
+                        strokeWidth="3"
+                        strokeLinecap="round"
                       />
-                    );
-                  })}
+                      <line
+                        x1={cx}
+                        y1={cy}
+                        x2={cx}
+                        y2={cy - Math.round(needleLen * 0.6)}
+                        stroke="#f97316"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                      />
+                    </g>
 
-                  {/* labels A / B */}
-                  <text x={cx - radius + 6} y={cy + 18} fontSize="10" fill="#ffffff" opacity="0.85">
-                    A
-                  </text>
-                  <text x={cx + radius - 12} y={cy + 18} fontSize="10" fill="#ffffff" opacity="0.85">
-                    B
-                  </text>
-
-                  {/* needle group rotated around pivot (cx,cy) */}
-                  <g transform={`rotate(${angle} ${cx} ${cy})`} style={{ transition: "transform 600ms cubic-bezier(.2,.9,.2,1)" }}>
-                    <line
-                      x1={cx}
-                      y1={cy}
-                      x2={cx}
-                      y2={cy - needleLen}
-                      stroke="#fffbeb"
-                      strokeWidth="3"
-                      strokeLinecap="round"
+                    {/* pivot */}
+                    <circle
+                      cx={cx}
+                      cy={cy}
+                      r="5"
+                      fill="#071226"
+                      stroke="#fff"
+                      strokeWidth="1"
                     />
-                    <line
-                      x1={cx}
-                      y1={cy}
-                      x2={cx}
-                      y2={cy - Math.round(needleLen * 0.6)}
-                      stroke="#f97316"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                  </g>
+                  </svg>
 
-                  {/* pivot */}
-                  <circle cx={cx} cy={cy} r="5" fill="#071226" stroke="#fff" strokeWidth="1" />
-                </svg>
-
-                {/* numeric/text readout below the gauge */}
-                <div className="mt-2 w-full flex items-center justify-between text-[10px] sm:text-xs text-slate-200 max-w-3xl">
-                  <div className="font-semibold">
-                    Difference: <span className="ml-2 text-white">{formatBig(diff)}</span>
-                  </div>
-                  <div className="font-semibold text-[10px] sm:text-xs ">
-                    Relative: <span className="ml-2 text-white">{pct.toFixed(1)}%</span>
-                  </div>
-                </div>
-              </div>
-            );
-          })()
-        ) : (
-          /* BAR mode: a horizontal segmented bar that visually represents fairness */
-          (() => {
-            const leftPct = Math.max(0, Math.min(100, fairnessLeftPct));
-            const rightPct = Math.max(0, 100 - leftPct);
-            // colors: left uses green if A is lower (A wins), red if A is higher (A loses) — keep intuitive
-            const leftColor = totalA <= totalB ? "#064d3e" : "#ff6b6b";
-            const rightColor = totalB <= totalA ? "#064d3e" : "#ff6b6b";
-
-            return (
-              <div className="w-full ">
-                <div className="relative h-4 rounded-full overflow-hidden bg-[#06202b] border border-white/6">
-                  <div
-                    className="absolute left-0 top-0 bottom-0 transition-all"
-                    style={{ width: `${leftPct}%`, background: `linear-gradient(90deg, ${leftColor})` }}
-                    aria-hidden
-                  />
-                  <div
-                    className="absolute right-0 top-0 bottom-0 transition-all"
-                    style={{ width: `${rightPct}%`, background: `linear-gradient(90deg, ${rightColor})` }}
-                    aria-hidden
-                  />
-                  {/* center overlay text */}
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div className="text-[10px] text-white font-semibold">
-                      {verdict.text} • Diff {formatBig(diff)} • {pct.toFixed(1)}%
+                  {/* numeric/text readout below the gauge */}
+                  <div className="mt-2 w-full flex items-center justify-between text-[10px] sm:text-xs text-slate-200 max-w-3xl">
+                    <div className="font-semibold">
+                      Difference:{" "}
+                      <span className="ml-2 text-white">{formatBig(diff)}</span>
+                    </div>
+                    <div className="font-semibold text-[10px] sm:text-xs ">
+                      Relative:{" "}
+                      <span className="ml-2 text-white">{pct.toFixed(1)}%</span>
                     </div>
                   </div>
                 </div>
+              );
+            })()
+          : /* BAR mode: a horizontal segmented bar that visually represents fairness */
+            (() => {
+              const leftPct = Math.max(0, Math.min(100, fairnessLeftPct));
+              const rightPct = Math.max(0, 100 - leftPct);
+              // colors: left uses green if A is lower (A wins), red if A is higher (A loses) — keep intuitive
+              const leftColor = totalA <= totalB ? "#064d3e" : "#ff6b6b";
+              const rightColor = totalB <= totalA ? "#064d3e" : "#ff6b6b";
 
-                {/* legend */}
-                <div className="mt-2 flex items-center justify-between text-xs text-slate-200">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full" style={{ background: leftColor }} />
-                    <span className="text-[10px]">A • {leftPct}%</span>
+              return (
+                <div className="w-full ">
+                  <div className="relative h-4 rounded-full overflow-hidden bg-[#06202b] border border-white/6">
+                    <div
+                      className="absolute left-0 top-0 bottom-0 transition-all"
+                      style={{
+                        width: `${leftPct}%`,
+                        background: `linear-gradient(90deg, ${leftColor})`,
+                      }}
+                      aria-hidden
+                    />
+                    <div
+                      className="absolute right-0 top-0 bottom-0 transition-all"
+                      style={{
+                        width: `${rightPct}%`,
+                        background: `linear-gradient(90deg, ${rightColor})`,
+                      }}
+                      aria-hidden
+                    />
+                    {/* center overlay text */}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div className="text-[10px] text-white font-semibold">
+                        {verdict.text} • Diff {formatBig(diff)} •{" "}
+                        {pct.toFixed(1)}%
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full" style={{ background: rightColor }} />
-                    <span className="text-[10px]">B • {rightPct}%</span>
+
+                  {/* legend */}
+                  <div className="mt-2 flex items-center justify-between text-xs text-slate-200">
+                    <div className="flex items-center gap-2">
+                      <span
+                        className="w-2 h-2 rounded-full"
+                        style={{ background: leftColor }}
+                      />
+                      <span className="text-[10px]">A • {leftPct}%</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span
+                        className="w-2 h-2 rounded-full"
+                        style={{ background: rightColor }}
+                      />
+                      <span className="text-[10px]">B • {rightPct}%</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })()
-        )}
+              );
+            })()}
       </div>
 
       <div className="mt-4 flex items-center justify-between gap-3">
-       
         <div className="flex">
           <span className="text-[5px]">.</span>
-          {
-      !presentMode && (
-          <div className="mt-3 flex items-center justify-end gap-3">
-        <label className="text-xs text-[#cfeee4] mr-2">Visualization</label>
-        <select
-          value={displayMode}
-          onChange={(e) => setDisplayMode(e.target.value)}
-          className="rounded-md px-2 py-1 bg-[#0f172a] text-white text-xs border border-white/6"
-        >
-          <option value="meter">Meter</option>
-          <option value="bar">Bar</option>
-        </select>
-      </div>
-      )
-    }
+          {!presentMode && (
+            <div className="mt-3 flex items-center justify-end gap-3">
+              <label className="text-xs text-[#cfeee4] mr-2">
+                Visualization
+              </label>
+              <select
+                value={displayMode}
+                onChange={(e) => setDisplayMode(e.target.value)}
+                className="rounded-md px-2 py-1 bg-[#0f172a] text-white text-xs border border-white/6"
+              >
+                <option value="meter">Meter</option>
+                <option value="bar">Bar</option>
+              </select>
+            </div>
+          )}
         </div>
 
         <div className="flex items-center gap-2">
@@ -1217,7 +1409,7 @@ const finalizeShekB = useCallback(() => {
               //   color: verdict.kind === "fair" ? "#052e3f" : "#541114",
               // }}
             >
-             ~
+              ~
             </div>
           </div>
 
@@ -1246,14 +1438,12 @@ const finalizeShekB = useCallback(() => {
         {/* Controls row: hidden entirely in present mode */}
         {!presentMode && (
           <div className="mt-6 flex flex-wrap items-center gap-3">
-           
             <button
               onClick={resetOffers}
               className="px-2 py-1 text-sm rounded-md bg-[#ff6b6b] hover:bg-[#ff7b7b] text-white font-semibold"
             >
               Reset
             </button>
-           
           </div>
         )}
 
@@ -1328,17 +1518,24 @@ const finalizeShekB = useCallback(() => {
                           e.currentTarget.onerror = null;
                           e.currentTarget.src = PLACEHOLDER;
                         }}
-                        loading="lazy"
+                        // when modal (picker) is open we want those images to load immediately
+                        loading={picker ? "eager" : "lazy"}
                         decoding="async"
                         referrerPolicy="no-referrer"
                         crossOrigin="anonymous"
+                        width={52}
+                        height={52}
                       />
                     </div>
                     <div className="text-[10px] md:text-sm text-white font-semibold mt-2">
                       {p.petName}
                     </div>
-                    <div className="text-[9px] md:text-xs text-slate-400">{p.rarity}</div>
-                    <div className="text-[10px] md:text-xs text-[#43d8c9] font-bold">{formatBig(p.avgValue)}</div>
+                    <div className="text-[9px] md:text-xs text-slate-400">
+                      {p.rarity}
+                    </div>
+                    <div className="text-[10px] md:text-xs text-[#43d8c9] font-bold">
+                      {formatBig(p.price)}
+                    </div>
                   </button>
                 ))
               )}
@@ -1358,7 +1555,8 @@ const finalizeShekB = useCallback(() => {
             <div className="mb-3">
               <div className="text-lg font-bold text-white">Quick edit</div>
               <div className="text-xs text-slate-400">
-                Set quantity, multiplier — and optional pet details (age, size, mutation). These details don't affect price.
+                Set quantity, multiplier — and optional pet details (age, size,
+                mutation). These details don't affect price.
               </div>
             </div>
 
@@ -1434,11 +1632,16 @@ const finalizeShekB = useCallback(() => {
               </button>
               <button
                 onClick={() => {
-                  const qtyV = Number(document.getElementById("qe-qty")?.value || 1);
-                  const multV = Number(document.getElementById("qe-mult")?.value || 1);
+                  const qtyV = Number(
+                    document.getElementById("qe-qty")?.value || 1
+                  );
+                  const multV = Number(
+                    document.getElementById("qe-mult")?.value || 1
+                  );
                   const ageV = document.getElementById("qe-age")?.value;
                   const sizeV = document.getElementById("qe-size")?.value;
-                  const mutationV = document.getElementById("qe-mutation")?.value || "None";
+                  const mutationV =
+                    document.getElementById("qe-mutation")?.value || "None";
 
                   const patch = {
                     qty: clamp(qtyV, 1),

@@ -39,7 +39,10 @@ const relative = (targetMs, nowMs = Date.now()) => {
   if (!targetMs) return "";
   const diff = Math.floor((targetMs - nowMs) / 1000);
   if (diff > 0) {
-    if (diff >= 3600) return `in ${Math.floor(diff / 3600)}h ${Math.floor((diff % 3600) / 60)}m`;
+    if (diff >= 3600)
+      return `in ${Math.floor(diff / 3600)}h ${Math.floor(
+        (diff % 3600) / 60
+      )}m`;
     if (diff >= 60) return `in ${Math.floor(diff / 60)}m`;
     return `in ${diff}s`;
   }
@@ -99,10 +102,14 @@ export default function TravelingMerchantCard({ merchant, serverNow = null }) {
   const startMs = useMemo(() => {
     return (
       toMs(merchant.start_ms) ||
-      (merchant.start_date_unix ? Number(merchant.start_date_unix) * 1000 : null) ||
+      (merchant.start_date_unix
+        ? Number(merchant.start_date_unix) * 1000
+        : null) ||
       toMs(merchant.Date_Start) ||
       toMs(items[0]?.start_ms) ||
-      (items[0]?.start_date_unix ? Number(items[0].start_date_unix) * 1000 : null) ||
+      (items[0]?.start_date_unix
+        ? Number(items[0].start_date_unix) * 1000
+        : null) ||
       toMs(items[0]?.Date_Start) ||
       null
     );
@@ -157,19 +164,30 @@ export default function TravelingMerchantCard({ merchant, serverNow = null }) {
           className="w-full sm:px-4 sm:py-4 p-2 text-left cursor-pointer select-none"
           onClick={() => setOpen((s) => !s)}
           aria-expanded={open}
-          aria-controls={`merchant-${merchant.merchantId ?? merchant.id ?? "card"}`}
+          aria-controls={`merchant-${
+            merchant.merchantId ?? merchant.id ?? "card"
+          }`}
         >
           <div className="flex items-center justify-between gap-4 py-3">
             <div className="flex items-center gap-4">
               <div
                 className="sm:w-14 sm:h-14 w-10 h-10 rounded-lg flex items-center justify-center"
                 style={{
-                  background: "linear-gradient(135deg, rgba(48,149,125,0.08), rgba(6,95,70,0.04))",
+                  background:
+                    "linear-gradient(135deg, rgba(48,149,125,0.08), rgba(6,95,70,0.04))",
                 }}
               >
                 {/* merchant icon */}
-                <svg className="sm:w-8 sm:h-8 w-5 h-5 text-[#64ffda]" viewBox="0 0 24 24" fill="none" aria-hidden>
-                  <path d="M12 2l3 6 6 .5-4.5 4 1.5 6L12 16l-6 3 1.5-6L3 8.5 9 8 12 2z" fill="currentColor" />
+                <svg
+                  className="sm:w-8 sm:h-8 w-5 h-5 text-[#64ffda]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden
+                >
+                  <path
+                    d="M12 2l3 6 6 .5-4.5 4 1.5 6L12 16l-6 3 1.5-6L3 8.5 9 8 12 2z"
+                    fill="currentColor"
+                  />
                 </svg>
               </div>
 
@@ -181,9 +199,13 @@ export default function TravelingMerchantCard({ merchant, serverNow = null }) {
                 <div className="text-[10px] sm:text-xs text-[#9fb0c8] mt-0.5">
                   {startMs && endMs ? (
                     <>
-                      <span className="font-semibold text-[#cfeee4]">{fmtTime(startMs)}</span>{" "}
+                      <span className="font-semibold text-[#cfeee4]">
+                        {fmtTime(startMs)}
+                      </span>{" "}
                       <span className="text-[#7ea3b2]">→</span>{" "}
-                      <span className="font-semibold text-[#cfeee4]">{fmtTime(endMs)}</span>
+                      <span className="font-semibold text-[#cfeee4]">
+                        {fmtTime(endMs)}
+                      </span>
                     </>
                   ) : (
                     <span>Schedule unavailable</span>
@@ -193,8 +215,14 @@ export default function TravelingMerchantCard({ merchant, serverNow = null }) {
             </div>
 
             <div className="flex items-center justify-end sm:justify-center gap-3">
-              <div className={`sm:px-3 px-2 py-1 rounded-full text-[10px] whitespace-nowrap sm:text-sm font-semibold ${statusPillClass}`}>
-                {state === "active" ? "Active now" : state === "upcoming" ? `Starts ${relative(startMs, nowMs)}` : "Left"}
+              <div
+                className={`sm:px-3 px-2 py-1 rounded-full text-[10px] whitespace-nowrap sm:text-sm font-semibold ${statusPillClass}`}
+              >
+                {state === "active"
+                  ? "Active now"
+                  : state === "upcoming"
+                  ? `Starts ${relative(startMs, nowMs)}`
+                  : "Left"}
               </div>
             </div>
           </div>
@@ -208,21 +236,33 @@ export default function TravelingMerchantCard({ merchant, serverNow = null }) {
           <div className="bg-[#0a192f] px-3 sm:px-5 pb-5 pt-2">
             <div className="flex items-center justify-between mb-3">
               <div className="text-[10px] sm:text-sm font-semibold text-[#cfeee4]">
-                {state === "active" ? "Merchant is available — grab items!" : state === "upcoming" ? "Arriving soon" : "Last merchant (waiting for next)"}
+                {state === "active"
+                  ? "Merchant is available — grab items!"
+                  : state === "upcoming"
+                  ? "Arriving soon"
+                  : "Last merchant (waiting for next)"}
               </div>
               <div className="text-xs text-[#9fb0c8]">
-                {state === "active" && endMs ? <>Ends {relative(endMs, nowMs)}</> : state === "upcoming" && startMs ? <>Starts {relative(startMs, nowMs)}</> : null}
+                {state === "active" && endMs ? (
+                  <>Ends {relative(endMs, nowMs)}</>
+                ) : state === "upcoming" && startMs ? (
+                  <>Starts {relative(startMs, nowMs)}</>
+                ) : null}
               </div>
             </div>
 
             {/* items grid */}
             <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {items.map((it, idx) => {
-                const id = it.item_id ?? it.id ?? `${it.display_name ?? "item"}-${idx}`;
+                const id =
+                  it.item_id ?? it.id ?? `${it.display_name ?? "item"}-${idx}`;
                 const image = it.icon ?? it.image ?? "";
                 const name = it.display_name ?? it.displayName ?? it.name ?? id;
                 const qty = it.quantity ?? it.qty ?? 1;
-                const itemBadgeClass = state === "active" ? "bg-emerald-100 text-emerald-800" : "bg-gray-100 text-gray-700";
+                const itemBadgeClass =
+                  state === "active"
+                    ? "bg-emerald-100 text-emerald-800"
+                    : "bg-gray-100 text-gray-700";
 
                 return (
                   <div
@@ -231,19 +271,29 @@ export default function TravelingMerchantCard({ merchant, serverNow = null }) {
                   >
                     <div className="sm:w-14 sm:h-14 w-10 h-10 rounded-md bg-white/6 flex items-center justify-center overflow-hidden shadow-sm">
                       {image ? (
-                        <img src={image} alt={name} className="sm:w-11 sm:h-11 w-8 h-8 object-contain" />
+                        <img
+                          src={image}
+                          alt={name}
+                          className="sm:w-11 sm:h-11 w-8 h-8 object-contain"
+                        />
                       ) : (
                         <div className="text-xs text-[#9fb0c8]">No image</div>
                       )}
                     </div>
 
                     <div className="flex-1 min-w-0">
-                      <div className="text-[10px] sm:text-sm font-bold text-[#cfeee4] leading-5 truncate">{name}</div>
-                      <div className="text-[9px] sm:text-xs text-[#9fb0c8] mt-1">Qty: {qty}</div>
+                      <div className="text-[10px] sm:text-sm font-bold text-[#cfeee4] leading-5 truncate">
+                        {name}
+                      </div>
+                      <div className="text-[9px] sm:text-xs text-[#9fb0c8] mt-1">
+                        Qty: {qty}
+                      </div>
                     </div>
 
                     <div className="flex flex-col items-end gap-1">
-                      <div className={`px-2 py-0.5 rounded-full text-[9px] sm:text-xs font-semibold ${itemBadgeClass}`}>
+                      <div
+                        className={`px-2 py-0.5 rounded-full text-[9px] sm:text-xs font-semibold ${itemBadgeClass}`}
+                      >
                         {state === "active" ? "Available" : "Ended"}
                       </div>
 
@@ -260,12 +310,19 @@ export default function TravelingMerchantCard({ merchant, serverNow = null }) {
 
             {/* footer */}
             <div className="mt-4 flex sm:flex-row flex-col items-center justify-between gap-3">
-              <div className="text-[8px] text-center sm:text-xs text-[#9fb0c8]">Merchant has a chance to spawns every 4 hours • Stays for 30 minutes</div>
+              <div className="text-[8px] text-center sm:text-xs text-[#9fb0c8]">
+                Merchant has a chance to spawns every 4 hours • Stays for 30
+                minutes
+              </div>
 
               {nextArrivalMs ? (
                 <div className="text-right flex items-center gap-3">
-                  <div className="text-[9px] sm:text-xs text-[#9fb0c8]">Next arrival</div>
-                  <div className="text-sm sm:text-lg font-extrabold text-[#64ffda]">{fmtHour(nextArrivalMs)}</div>
+                  <div className="text-[9px] sm:text-xs text-[#9fb0c8]">
+                    Next arrival
+                  </div>
+                  <div className="text-sm sm:text-lg font-extrabold text-[#64ffda]">
+                    {fmtHour(nextArrivalMs)}
+                  </div>
                 </div>
               ) : null}
             </div>

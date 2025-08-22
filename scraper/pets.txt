@@ -1,4 +1,119 @@
-kappa
+Ankylosaurus
+Axolotl
+Bacon Pig
+Bagel Bunny
+Bald Eagle
+Bear Bee
+Bee
+Black Bunny
+Blood Hedgehog
+Blood Kiwi
+Blood Owl
+Brontosaurus
+Brown Mouse
+Bunny
+Butterfly
+Capybara
+Cat
+Caterpillar
+Chicken
+Chicken Zombie
+Cooked Owl
+Corrupted Kitsune
+Corrupted Kodama
+Cow
+Crab
+Deer
+Dilophosaurus
+Disco Bee
+Dog
+Dragonfly
+Echo Frog
+Fennec Fox
+Flamingo
+Football
+French Fry Ferret
+Frog
+Giant Ant
+Golden Bee
+Golden Lab
+Gorilla Chef
+Grey Mouse
+Hamster
+Hedgehog
+Honey Bee
+Hotdog Daschund
+Hyacinth Macaw
+Iguanodon
+Junkbot
+Kappa
+Kitsune
+Kiwi
+Kodama
+Koi
+Lobster Thermidor
+Maneki-neko
+Meerkat
+Mimic Octopus
+Mizuchi
 Mochi Mouse
+Mole
+Monkey
+Moon Cat
+Moth
+Night Owl
+Nihonzaru
+Orange Tabby
+Orangutan
+Ostrich
+Owl
+Pachycephalosaurus
+Pack Bee
+Pancake Mole
+Panda
+Parasaurolophus
+Peacock
+Petal Bee
+Pig
+Polar Bear
+Praying Mantis
+Pterodactyl
+Queen Bee
+Raccoon
+Raiju
+Raptor
+Red Fox
+Red Giant Ant
+Rooster
+Sand Snake
+Scarlet Macaw
+Sea Otter
+Sea Turtle
+Seagull
+Seal
+Shiba Inu
+Silver Monkey
+Snail
+Spaghetti Sloth
+Spinosaurus
+Spotted Deer
+Squirrel
+Starfish
+Stegosaurus
+Sunny-Side Chicken
 Sushi Bear
+T-Rex
+Tanchozuru
+Tanuki
+Tarantula Hawk
+Toucan
+Triceratops
+Tsuchinoko
+Turtle
 Wasp
+Dairy Cow
+Seedling
+Jackalope
+Spriggan
+Golem
+Golden Goose

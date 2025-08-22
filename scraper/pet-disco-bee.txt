@@ -5,12 +5,15 @@ maneki neko have null
  
  Sushi Bear
  Wasp
-
-
-
-
-
-
+..
+Golden bee
+Mizuchi
+Tsuchinoko//
+Dairy Cow
+Seedling
+Jackalope
+Spriggan
+Golem
 
 
 
@@ -138,3 +141,9 @@ Triceratops
 Tsuchinoko
 Turtle
 Wasp
+Dairy Cow
+Seedling
+Jackalope
+Spriggan
+Golem
+Golden Goose

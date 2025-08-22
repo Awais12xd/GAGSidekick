@@ -1,6 +1,27 @@
-{
-  "fetchedAt": "2025-08-22T01:07:42.720Z",
-  "items": [
+// updatePets.js
+// Node.js script: transforms each pet.image to the required URL format
+// and writes the updated array to pets-info.json
+
+const fs = require('fs');
+const path = require('path');
+
+/**
+ * Helper: build image URL from pet name
+ * - trims whitespace
+ * - replaces runs of whitespace with underscore
+ * - lowercases the result
+ */
+function buildImageUrlFromName(name) {
+  if (!name) return '';
+  const formatted = name.trim().replace(/\s+/g, '_').toLowerCase();
+  return `https://api.joshlei.com/v2/growagarden/image/${formatted}`;
+}
+
+/**
+ * Example input array. Replace this with your actual array or load from a file.
+ * This object is the example you provided.
+ */
+const pets = [
     {
       "petName": "Ankylosaurus",
       "slug": "ankylosaurus",
@@ -2977,4 +2998,30 @@
       "fetchError": null
     }
   ]
+
+/**
+ * Transform array: update each object's image field.
+ * If you prefer to keep the original image in a new field, you can store it as originalImage.
+ */
+const updatedPets = pets.map(p => {
+  const petName = p.petName ?? p.name ?? '';
+  const newImageUrl = buildImageUrlFromName(petName);
+  return {
+    ...p,
+    // preserve original if you want:
+    // originalImage: p.image,
+    image: newImageUrl
+  };
+});
+
+/**
+ * Write to pets-info.json in the same directory
+ */
+const outPath = path.join(__dirname, 'pets-info.json');
+
+try {
+  fs.writeFileSync(outPath, JSON.stringify(updatedPets, null, 2), 'utf8');
+  console.log(`Successfully wrote ${updatedPets.length} pets to ${outPath}`);
+} catch (err) {
+  console.error('Error writing file:', err);
 }

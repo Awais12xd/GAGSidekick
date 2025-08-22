@@ -276,10 +276,10 @@ const deepEqual = (a, b) => {
 const enrichItems = (items = [], db = []) => {
   if (!Array.isArray(items)) return [];
   return items.map((item) => {
-    const name = item.display_name ?? item.name ?? item.item_id ?? item.id;
-    const match = db.find((d) => d.name === name);
+    const name =  item.item_id ?? item.id;
+    const match = db.find((d) => d.item_id === name);
     return match
-      ? { ...item, image: match.image, rarity: match.metadata?.tier }
+      ? { ...item, image: match?.icon, rarity: match?.rarity}
       : item;
   });
 };
@@ -379,7 +379,7 @@ const Home = () => {
     const enriched = enrichItems(seeds, DB_FRUITS);
     if (!deepEqual(enriched, seedData)) setSeedData(enriched);
   }, [seeds]); // run only when seeds hook changes
-
+  
   useEffect(() => {
     if (!Array.isArray(eggs)) return;
     const enriched = enrichItems(eggs, DB_EGGS);
