@@ -10,7 +10,6 @@ import {
   fruits as DB_FRUITS,
   gears as DB_GEARS,
 } from "../database.js";
-
 // NEW: per-route hooks (you said these exist in ../hooks/index.js)
 import {
   useWeather,
