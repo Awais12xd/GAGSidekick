@@ -10,7 +10,7 @@ import {
   fruits as DB_FRUITS,
   gears as DB_GEARS,
 } from "../database.js";
-console;
+
 // NEW: per-route hooks (you said these exist in ../hooks/index.js)
 import {
   useWeather,
@@ -308,8 +308,8 @@ const Home = () => {
   const { data: alldata, loading: alldataLoading } = useAllData();
   const { data: travelingMerchant, loading: travelingMerchantLoading } =
     useTravelingMerchant();
-  console.log(alldata);
-  console.log(travelingMerchant);
+  // console.log(alldata);
+  // console.log(travelingMerchant);
   // initial-load coordination: we consider "wsReady" true when any of the hooks provides non-null data
   const timersReadyRef = useRef(false);
   const wsReadyRef = useRef(false);
