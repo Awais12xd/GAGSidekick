@@ -37,13 +37,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T00:59:48.813Z",
+      "fetchedAt": "2025-08-28T14:08:17.286Z",
       "title": "Ankylosaurus Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 300000000000000000,
       "demandRating": "3/10",
       "rarity": "Mythical",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Ankylosaurus-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -62,13 +62,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T00:59:54.350Z",
+      "fetchedAt": "2025-08-28T14:08:25.379Z",
       "title": "Axolotl Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 400000000000000000,
       "demandRating": "3/10",
       "rarity": "Mythical",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/axolotl-value-grow-a-garden.png",
       "fetchError": null
     },
@@ -87,13 +87,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T00:59:58.201Z",
+      "fetchedAt": "2025-08-28T14:08:39.534Z",
       "title": "Bacon Pig Value in Grow a Garden – What’s it worth?",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 25 August 2025",
       "price": 100000000000000000,
       "demandRating": "2/10",
       "rarity": "Uncommon",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "25 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/08/bacon-pig-value-grow-a-garden.png",
       "fetchError": null
     },
@@ -112,13 +112,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:00:02.303Z",
+      "fetchedAt": "2025-08-28T14:08:45.190Z",
       "title": "Bagel Bunny Value in Grow a Garden",
-      "description": "Posted on Last updated: 20 August 2025",
-      "price": 1000000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 5000000000000000,
       "demandRating": "1/10",
       "rarity": "Common",
-      "lastUpdated": "20 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/08/Bagel-Bunny-Value-Grow-a-Garden-1.png",
       "fetchError": null
     },
@@ -137,13 +137,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:00:06.260Z",
+      "fetchedAt": "2025-08-28T14:08:53.990Z",
       "title": "Bald Eagle Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 1e+21,
-      "demandRating": "8/10",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 2e+21,
+      "demandRating": "3/10",
       "rarity": "Legendary",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Bald-Eagle-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -167,13 +167,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:00:10.178Z",
+      "fetchedAt": "2025-08-28T14:09:06.530Z",
       "title": "Bear Bee in Grow a Garden",
-      "description": "Posted on Last updated: 15 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 500000000000000000,
       "demandRating": "6/10",
       "rarity": "Mythical",
-      "lastUpdated": "15 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Bear-Bee-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -192,13 +192,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:00:14.926Z",
+      "fetchedAt": "2025-08-28T14:09:15.206Z",
       "title": "Bee Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 500000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 5000000000000000,
       "demandRating": "2/10",
       "rarity": "Common",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Bee-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -217,13 +217,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:00:19.045Z",
+      "fetchedAt": "2025-08-28T14:09:21.052Z",
       "title": "Black Bunny Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 50000000,
-      "demandRating": "0/10",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 5000000000000000,
+      "demandRating": "1/10",
       "rarity": "Uncommon",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Black-Bunny-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -242,13 +242,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:00:22.985Z",
+      "fetchedAt": "2025-08-28T14:09:26.997Z",
       "title": "Blood Hedgehog Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 1e+21,
-      "demandRating": "8/10",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 3e+21,
+      "demandRating": "6/10",
       "rarity": "Legendary",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Blood-Hedgehog-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -267,13 +267,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:00:26.957Z",
+      "fetchedAt": "2025-08-28T14:09:37.596Z",
       "title": "Blood Kiwi Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 1e+21,
-      "demandRating": "8/10",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 3e+21,
+      "demandRating": "6/10",
       "rarity": "Legendary",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Blood-Kiwi-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -292,13 +292,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:00:30.780Z",
+      "fetchedAt": "2025-08-28T14:09:47.829Z",
       "title": "Blood Owl Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 1e+21,
-      "demandRating": "8/10",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 5e+21,
+      "demandRating": "6/10",
       "rarity": "Divine",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Blood-Owl-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -317,13 +317,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:00:34.948Z",
+      "fetchedAt": "2025-08-28T14:09:56.368Z",
       "title": "Brontosaurus Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 3e+21,
-      "demandRating": "8/10",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 1e+22,
+      "demandRating": "7/10",
       "rarity": "Mythical",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Brontosaurus-Value-Grow-a-Garde.png",
       "fetchError": null
     },
@@ -342,13 +342,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:00:38.769Z",
+      "fetchedAt": "2025-08-28T14:10:04.869Z",
       "title": "Brown Mouse Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 500000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 5000000000000000,
       "demandRating": "2/10",
       "rarity": "Mythical",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Brown-Mouse-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -367,13 +367,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:00:42.629Z",
+      "fetchedAt": "2025-08-28T14:10:12.136Z",
       "title": "Bunny Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 250000,
-      "demandRating": "0/10",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 500000000000000000,
+      "demandRating": "1/10",
       "rarity": "Common",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Bunny-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -392,13 +392,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:00:46.451Z",
+      "fetchedAt": "2025-08-28T14:10:27.901Z",
       "title": "Butterfly Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 4.5e+22,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 1.5e+23,
       "demandRating": "8/10",
       "rarity": "Mythical",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Butterfly-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -417,13 +417,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:00:50.429Z",
+      "fetchedAt": "2025-08-28T14:10:44.405Z",
       "title": "Capybara Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 250000000000000000,
       "demandRating": "5/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Capybara-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -442,13 +442,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:00:54.279Z",
+      "fetchedAt": "2025-08-28T14:10:53.402Z",
       "title": "Cat Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 50000000,
-      "demandRating": "0/10",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 5000000000000000,
+      "demandRating": "1/10",
       "rarity": "Uncommon",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Cat-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -467,13 +467,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:00:58.158Z",
+      "fetchedAt": "2025-08-28T14:11:01.498Z",
       "title": "Caterpillar Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 2500000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 20000000000000000,
       "demandRating": "3/10",
       "rarity": "Mythical",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Caterpillar-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -492,13 +492,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:01:02.188Z",
+      "fetchedAt": "2025-08-28T14:11:08.183Z",
       "title": "Chicken Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 50000000,
-      "demandRating": "0/10",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 5000000000000000,
+      "demandRating": "1/10",
       "rarity": "Uncommon",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Chicken-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -517,13 +517,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:01:06.056Z",
+      "fetchedAt": "2025-08-28T14:11:24.426Z",
       "title": "Chicken Zombie Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 6e+21,
+      "description": "Posted on Last updated: 25 August 2025",
+      "price": 3e+21,
       "demandRating": "5/10",
       "rarity": "Mythical",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "25 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Chicken-Zombie-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -542,13 +542,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:01:09.709Z",
+      "fetchedAt": "2025-08-28T14:11:45.916Z",
       "title": "Cooked Owl Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 1e+21,
-      "demandRating": "8/10",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 2e+21,
+      "demandRating": "5/10",
       "rarity": "Mythical",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Cooked-Owl-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -567,13 +567,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:01:13.778Z",
+      "fetchedAt": "2025-08-28T14:11:52.575Z",
       "title": "Corrupted Kitsune Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 5e+21,
+      "description": "Posted on Last updated: 25 August 2025",
+      "price": 1e+22,
       "demandRating": "7/10",
       "rarity": "Prismatic",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "25 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Corrupted-Kitsune-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -592,13 +592,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:01:17.823Z",
+      "fetchedAt": "2025-08-28T14:12:04.389Z",
       "title": "Corrupted Kodama Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 300000000000000000,
       "demandRating": "3/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/08/Corrupt-Kodama-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -617,13 +617,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:01:22.019Z",
+      "fetchedAt": "2025-08-28T14:12:10.986Z",
       "title": "Cow Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 100000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 10000000000000000,
       "demandRating": "1/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Cow-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -642,13 +642,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:01:25.843Z",
+      "fetchedAt": "2025-08-28T14:12:22.803Z",
       "title": "Crab Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 250000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 5000000000000000,
       "demandRating": "2/10",
       "rarity": "Common",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Crab-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -667,13 +667,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:01:29.637Z",
+      "fetchedAt": "2025-08-28T14:12:29.258Z",
       "title": "Deer Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 50000000,
-      "demandRating": "0/10",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 5000000000000000,
+      "demandRating": "1/10",
       "rarity": "Uncommon",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Deer-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -692,13 +692,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:01:33.872Z",
+      "fetchedAt": "2025-08-28T14:12:41.137Z",
       "title": "Dilophosaurus Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 1e+21,
-      "demandRating": "8/10",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 5e+21,
+      "demandRating": "6/10",
       "rarity": "Mythical",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Dilophosaurus-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -717,13 +717,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:01:37.690Z",
+      "fetchedAt": "2025-08-28T14:12:46.871Z",
       "title": "Disco Bee Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 9e+22,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 3e+23,
       "demandRating": "9/10",
       "rarity": "Divine",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Disco-Bee-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -742,13 +742,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:01:41.468Z",
+      "fetchedAt": "2025-08-28T14:12:52.725Z",
       "title": "Dog Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 250000,
-      "demandRating": "0/10",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 500000000000000000,
+      "demandRating": "1/10",
       "rarity": "Common",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Dog-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -762,13 +762,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:01:45.288Z",
+      "fetchedAt": "2025-08-28T14:12:58.509Z",
       "title": "Dragonfly Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 1.5e+22,
+      "description": "Posted on Last updated: 24 August 2025",
+      "price": 5e+22,
       "demandRating": "8/10",
       "rarity": "Divine",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Dragonfly-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -787,13 +787,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:01:48.195Z",
+      "fetchedAt": "2025-08-28T14:13:02.858Z",
       "title": "Echo Frog Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 1e+21,
-      "demandRating": "8/10",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 2e+21,
+      "demandRating": "6/10",
       "rarity": "Mythical",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Echo-Frog-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -812,13 +812,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:01:52.389Z",
+      "fetchedAt": "2025-08-28T14:13:28.383Z",
       "title": "Fennec Fox Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 4.5e+22,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 1.5e+23,
       "demandRating": "6/10",
       "rarity": "Divine",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/fennec-fox-value-grow-a-garden.png",
       "fetchError": null
     },
@@ -837,13 +837,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:01:56.367Z",
+      "fetchedAt": "2025-08-28T14:13:35.667Z",
       "title": "Flamingo Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 2000000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 10000000000000000,
       "demandRating": "3/10",
       "rarity": "Rare",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Flamingo-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -862,13 +862,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:02:00.240Z",
+      "fetchedAt": "2025-08-28T14:13:44.554Z",
       "title": "Football Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 250000000000000000,
       "demandRating": "1/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Football-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -887,13 +887,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:02:04.214Z",
+      "fetchedAt": "2025-08-28T14:13:49.541Z",
       "title": "French Fry Ferret Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 5e+21,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 8e+21,
       "demandRating": "7/10",
       "rarity": "Divine",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/08/French-Fry-Ferret-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -912,13 +912,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:02:08.000Z",
+      "fetchedAt": "2025-08-28T14:13:55.528Z",
       "title": "Frog Value in Grow a Garden",
-      "description": "Posted on Last updated: 15 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 15000000000000000,
       "demandRating": "5/10",
       "rarity": "Legendary",
-      "lastUpdated": "15 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Frog-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -937,20 +937,20 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:02:11.727Z",
+      "fetchedAt": "2025-08-28T14:14:03.893Z",
       "title": "Giant Ant Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 2500000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 20000000000000000,
       "demandRating": "5/10",
       "rarity": "Mythical",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Giant-Ant-Value-Grow-a-Garden.png",
       "fetchError": null
     },
     {
       "petName": "Golden Bee",
       "slug": "golden-bee",
-      "url": "https://www.game.guide/seedling-value-in-grow-a-garden-whats-it-worth",
+      "url": "https://www.game.guide/golden-bee-value-in-grow-a-garden",
       "triedUrls": [
         {
           "url": "https://www.game.guide/golden-bee-value-in-grow-a-garden",
@@ -968,19 +968,25 @@ const pets = [
           "error": "404 Not Found"
         },
         {
-          "url": "https://www.game.guide/seedling-value-in-grow-a-garden-whats-it-worth",
-          "ok": true
+          "url": "https://www.game.guide/golden-bee-value-in-grow-a-garden-whats-it-worth",
+          "ok": false,
+          "error": "404 Not Found"
+        },
+        {
+          "url": "https://www.game.guide/golden-bee-pet-value-grow-a-garden",
+          "ok": false,
+          "error": "404 Not Found"
         }
       ],
-      "fetchedAt": "2025-08-22T01:02:15.371Z",
-      "title": "Seedling Value in Grow a Garden – What’s it worth?",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 0,
-      "demandRating": "0/10",
-      "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
-      "image": "https://www.game.guide/wp-content/uploads/2025/08/Seedling-Value-Grow-a-Garden.png",
-      "fetchError": null
+      "fetchedAt": "2025-08-28T14:14:09.670Z",
+      "title": null,
+      "description": null,
+      "price": null,
+      "demandRating": null,
+      "rarity": null,
+      "lastUpdated": null,
+      "image": null,
+      "fetchError": "Failed to fetch any of the candidate URLs for slug \"golden-bee\"."
     },
     {
       "petName": "Golden Lab",
@@ -997,13 +1003,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:02:20.956Z",
+      "fetchedAt": "2025-08-28T14:14:27.731Z",
       "title": "Golden Lab Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 250000,
-      "demandRating": "0/10",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 500000000000000000,
+      "demandRating": "1/10",
       "rarity": "Common",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Golden-Lab-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1022,13 +1028,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:02:24.843Z",
+      "fetchedAt": "2025-08-28T14:14:33.675Z",
       "title": "Gorilla Chef Value in Grow a Garden – What’s it worth",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 25 August 2025",
       "price": 50000000000000000,
       "demandRating": "2/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "25 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/08/gorilla-chef-value-grow-a-garden.png",
       "fetchError": null
     },
@@ -1047,13 +1053,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:02:28.602Z",
+      "fetchedAt": "2025-08-28T14:14:45.244Z",
       "title": "Grey Mouse Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 500000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 5000000000000000,
       "demandRating": "2/10",
       "rarity": "Mythical",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Grey-Mouse-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1072,13 +1078,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:02:32.400Z",
+      "fetchedAt": "2025-08-28T14:14:52.587Z",
       "title": "Hamster Value in Grow a Garden",
-      "description": "Posted on Last updated: 15 August 2025",
+      "description": "Posted on Last updated: 27 August 2025",
       "price": 700000000000000000,
-      "demandRating": "4/10",
+      "demandRating": "3/10",
       "rarity": "Mythical",
-      "lastUpdated": "15 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/08/Hamster-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1097,13 +1103,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:02:36.199Z",
+      "fetchedAt": "2025-08-28T14:15:01.552Z",
       "title": "Hedgehog Value in Grow a Garden",
-      "description": "Posted on Last updated: 15 August 2025",
-      "price": 6000000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 10000000000000000,
       "demandRating": "5/10",
       "rarity": "Rare",
-      "lastUpdated": "15 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Hedgehog-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1122,13 +1128,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:02:40.026Z",
+      "fetchedAt": "2025-08-28T14:15:17.648Z",
       "title": "Honey Bee Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 2500000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 10000000000000000,
       "demandRating": "3/10",
       "rarity": "Rare",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Honey-Bee-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1147,13 +1153,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:02:43.829Z",
+      "fetchedAt": "2025-08-28T14:15:25.015Z",
       "title": "Hotdog Daschund Value in Grow a Garden – What’s it worth?",
-      "description": "Posted on Last updated: 15 August 2025",
+      "description": "Posted on Last updated: 25 August 2025",
       "price": 500000000000000000,
       "demandRating": "5/10",
       "rarity": "Legendary",
-      "lastUpdated": "15 August 2025",
+      "lastUpdated": "25 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/08/hotdog-daschund-value-grow-a-garden.png",
       "fetchError": null
     },
@@ -1172,13 +1178,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:02:47.666Z",
+      "fetchedAt": "2025-08-28T14:15:36.851Z",
       "title": "Hyacinth Macaw Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 500000000000000000,
       "demandRating": "5/10",
       "rarity": "Mythical",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/hyacinth-macaw-value-grow-a-garden.png",
       "fetchError": null
     },
@@ -1197,13 +1203,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:02:51.559Z",
+      "fetchedAt": "2025-08-28T14:15:59.246Z",
       "title": "Iguanodon Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 30000000000000000,
       "demandRating": "3/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Iguanodon-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1222,13 +1228,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:02:55.558Z",
+      "fetchedAt": "2025-08-28T14:16:12.596Z",
       "title": "Junkbot Value in Grow a Garden – What’s it worth?",
-      "description": "Posted on Last updated: 15 August 2025",
-      "price": 400000000000000000,
+      "description": "Posted on Last updated: 25 August 2025",
+      "price": 1e+21,
       "demandRating": "2/10",
       "rarity": "Mythical",
-      "lastUpdated": "15 August 2025",
+      "lastUpdated": "25 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/08/Junkbot-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1242,13 +1248,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:02:59.721Z",
+      "fetchedAt": "2025-08-28T14:16:27.458Z",
       "title": "Kappa Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 300000000000000000,
       "demandRating": "3/10",
       "rarity": "Mythical",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Kappa-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1267,13 +1273,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:03:02.658Z",
+      "fetchedAt": "2025-08-28T14:16:36.221Z",
       "title": "Kitsune Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 2.65e+23,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 1,
       "demandRating": "10/10",
       "rarity": "Prismatic",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Kitsune-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1292,13 +1298,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:03:06.445Z",
+      "fetchedAt": "2025-08-28T14:16:44.150Z",
       "title": "Kiwi Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 20000000000000000,
       "demandRating": "5/10",
       "rarity": "Rare",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Kiwi-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1317,13 +1323,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:03:10.309Z",
+      "fetchedAt": "2025-08-28T14:16:53.415Z",
       "title": "Kodama Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 10000000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 15000000000000000,
       "demandRating": "5/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Kodama-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1342,13 +1348,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:03:14.429Z",
+      "fetchedAt": "2025-08-28T14:17:04.894Z",
       "title": "Koi Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
+      "description": "Posted on Last updated: 27 August 2025",
       "price": 2e+21,
       "demandRating": "8/10",
       "rarity": "Mythical",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Koi-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1367,13 +1373,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:03:18.625Z",
+      "fetchedAt": "2025-08-28T14:17:18.101Z",
       "title": "Lobster Thermidor Value in Grow a Garden – What’s it worth?",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 5e+21,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 1e+22,
       "demandRating": "7/10",
       "rarity": "Divine",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/08/lobster-thermidor-value-grow-a-garden.png",
       "fetchError": null
     },
@@ -1392,13 +1398,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:03:22.462Z",
+      "fetchedAt": "2025-08-28T14:17:25.727Z",
       "title": "Maneki-neko Value in Grow a Garden",
-      "description": "Posted on Last updated: 15 August 2025",
-      "price": 1000000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 5000000000000000,
       "demandRating": "1/10",
       "rarity": "Uncommon",
-      "lastUpdated": "15 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Maneki-neko-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1417,13 +1423,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:03:26.239Z",
+      "fetchedAt": "2025-08-28T14:17:36.553Z",
       "title": "Meerkat Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 10000000000000000,
       "demandRating": "2/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Meerkat-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1442,20 +1448,20 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:03:30.043Z",
+      "fetchedAt": "2025-08-28T14:17:49.010Z",
       "title": "Mimic Octopus Value in Grow a Garden",
-      "description": "Posted on Last updated: 16 August 2025",
-      "price": 1e+22,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 4.5e+22,
       "demandRating": "7/10",
       "rarity": "Divine",
-      "lastUpdated": "16 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Mimic-Octopus-Value-Grow-a-Garden.png",
       "fetchError": null
     },
     {
       "petName": "Mizuchi",
       "slug": "mizuchi",
-      "url": "https://www.game.guide/seedling-value-in-grow-a-garden-whats-it-worth",
+      "url": "https://www.game.guide/mizuchi-value-grow-a-garden",
       "triedUrls": [
         {
           "url": "https://www.game.guide/mizuchi-value-in-grow-a-garden",
@@ -1464,27 +1470,17 @@ const pets = [
         },
         {
           "url": "https://www.game.guide/mizuchi-value-grow-a-garden",
-          "ok": false,
-          "error": "404 Not Found"
-        },
-        {
-          "url": "https://www.game.guide/mizuchi-grow-a-garden",
-          "ok": false,
-          "error": "404 Not Found"
-        },
-        {
-          "url": "https://www.game.guide/seedling-value-in-grow-a-garden-whats-it-worth",
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:03:33.905Z",
-      "title": "Seedling Value in Grow a Garden – What’s it worth?",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 0,
-      "demandRating": "0/10",
-      "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
-      "image": "https://www.game.guide/wp-content/uploads/2025/08/Seedling-Value-Grow-a-Garden.png",
+      "fetchedAt": "2025-08-28T14:17:57.458Z",
+      "title": "Game Guide",
+      "description": "Your ultimate source for game codes and value lists",
+      "price": 9333,
+      "demandRating": null,
+      "rarity": "event",
+      "lastUpdated": null,
+      "image": "https://www.game.guide/wp-content/uploads/2024/05/Game-Guide-Main-Logo.png",
       "fetchError": null
     },
     {
@@ -1497,13 +1493,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:03:45.306Z",
+      "fetchedAt": "2025-08-28T14:18:06.173Z",
       "title": "Mochi Mouse Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 25 August 2025",
       "price": 100000000000000000,
       "demandRating": "2/10",
       "rarity": "Mythical",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "25 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/08/Mochi-Mouse-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1522,13 +1518,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:03:48.260Z",
+      "fetchedAt": "2025-08-28T14:18:09.933Z",
       "title": "Mole Value in Grow a Garden",
-      "description": "Posted on Last updated: 15 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 200000000000000000,
       "demandRating": "5/10",
       "rarity": "Legendary",
-      "lastUpdated": "15 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Mole-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1547,13 +1543,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:03:52.168Z",
+      "fetchedAt": "2025-08-28T14:18:15.474Z",
       "title": "Monkey Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 150000000,
-      "demandRating": "0/10",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 10000000000000000,
+      "demandRating": "1/10",
       "rarity": "Rare",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Monkey-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1572,13 +1568,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:03:56.094Z",
+      "fetchedAt": "2025-08-28T14:18:20.286Z",
       "title": "Moon Cat Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 1e+21,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 2e+21,
       "demandRating": "8/10",
       "rarity": "Legendary",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Moon-Cat-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1597,13 +1593,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:04:00.026Z",
+      "fetchedAt": "2025-08-28T14:18:25.099Z",
       "title": "Moth Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 600000000000000000,
       "demandRating": "3/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Moth-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1622,13 +1618,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:04:03.946Z",
+      "fetchedAt": "2025-08-28T14:18:30.547Z",
       "title": "Night Owl Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 400000000000000000,
       "demandRating": "5/10",
       "rarity": "Divine",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Night-Owl-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1647,13 +1643,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:04:07.938Z",
+      "fetchedAt": "2025-08-28T14:18:35.131Z",
       "title": "Nihonzaru Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 1e+21,
+      "description": "Posted on Last updated: 25 August 2025",
+      "price": 100000000000000000,
       "demandRating": "8/10",
       "rarity": "Rare",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "25 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Nihonzaru-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1672,13 +1668,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:04:12.064Z",
+      "fetchedAt": "2025-08-28T14:18:39.895Z",
       "title": "Orange Tabby Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 10000000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 90000000000000000,
       "demandRating": "5/10",
       "rarity": "Rare",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Orange-Tabby-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1697,13 +1693,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:04:16.173Z",
+      "fetchedAt": "2025-08-28T14:18:44.983Z",
       "title": "Orangutan Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 7000000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 10000000000000000,
       "demandRating": "3/10",
       "rarity": "Rare",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Orangutan-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1722,13 +1718,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:04:19.974Z",
+      "fetchedAt": "2025-08-28T14:18:49.978Z",
       "title": "Ostrich Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 1e+21,
-      "demandRating": "8/10",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 500000000000000000,
+      "demandRating": "5/10",
       "rarity": "Legendary",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Ostrich-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1747,13 +1743,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:04:23.974Z",
+      "fetchedAt": "2025-08-28T14:18:54.895Z",
       "title": "Owl Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 25000000000000000,
       "demandRating": "6/10",
       "rarity": "Mythical",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Owl-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1772,13 +1768,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:04:28.237Z",
+      "fetchedAt": "2025-08-28T14:18:59.667Z",
       "title": "Pachycephalosaurus Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 15000000000000000,
       "demandRating": "1/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Pachycephalosaurus-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1797,13 +1793,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:04:32.105Z",
+      "fetchedAt": "2025-08-28T14:19:04.567Z",
       "title": "Pack Bee Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 27 August 2025",
       "price": 700000000000000000,
-      "demandRating": "4/10",
+      "demandRating": "5/10",
       "rarity": "Mythical",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Pack-Bee-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1822,13 +1818,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:04:35.889Z",
+      "fetchedAt": "2025-08-28T14:19:09.716Z",
       "title": "Pancake Mole Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 25 August 2025",
       "price": 20000000000000000,
       "demandRating": "2/10",
       "rarity": "Rare",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "25 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/08/Pancake-Mole-Value-in-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1847,13 +1843,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:04:39.866Z",
+      "fetchedAt": "2025-08-28T14:19:14.863Z",
       "title": "Panda Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 2e+22,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 3e+22,
       "demandRating": "3/10",
       "rarity": "Legendary",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Panda-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1872,13 +1868,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:04:43.879Z",
+      "fetchedAt": "2025-08-28T14:19:19.898Z",
       "title": "Parasaurolophus Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 15000000000000000,
       "demandRating": "1/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Parasaurolophus-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1897,13 +1893,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:04:47.718Z",
+      "fetchedAt": "2025-08-28T14:19:24.906Z",
       "title": "Peacock Value in Grow a Garden",
-      "description": "Posted on Last updated: 15 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 15000000000000000,
       "demandRating": "5/10",
       "rarity": "Legendary",
-      "lastUpdated": "15 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Peacock-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1922,13 +1918,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:04:51.524Z",
+      "fetchedAt": "2025-08-28T14:19:30.096Z",
       "title": "Petal Bee Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 450000000000000000,
       "demandRating": "3/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Petal-Bee-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1947,13 +1943,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:04:55.344Z",
+      "fetchedAt": "2025-08-28T14:19:35.029Z",
       "title": "Pig Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 100000000,
-      "demandRating": "0/10",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 5000000000000000,
+      "demandRating": "1/10",
       "rarity": "Rare",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Pig-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1972,13 +1968,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:04:59.224Z",
+      "fetchedAt": "2025-08-28T14:19:39.911Z",
       "title": "Polar Bear Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 500000000000000000,
       "demandRating": "4/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Polar-Bear-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -1997,13 +1993,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:05:03.418Z",
+      "fetchedAt": "2025-08-28T14:19:44.600Z",
       "title": "Praying Mantis Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 2500000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 100000000000000000,
       "demandRating": "3/10",
       "rarity": "Mythical",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Praying-Mantis-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2022,13 +2018,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:05:07.466Z",
+      "fetchedAt": "2025-08-28T14:19:49.191Z",
       "title": "Pterodactyl Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 50000000000000000,
       "demandRating": "2/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Pterodactyl-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2047,13 +2043,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:05:11.314Z",
+      "fetchedAt": "2025-08-28T14:19:53.800Z",
       "title": "Queen Bee Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 8e+21,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 3e+22,
       "demandRating": "6/10",
       "rarity": "Divine",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Queen-Bee-Value-Grow-A-Garden.png",
       "fetchError": null
     },
@@ -2072,13 +2068,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:05:15.121Z",
+      "fetchedAt": "2025-08-28T14:19:58.948Z",
       "title": "Raccoon Value in Grow a Garden",
-      "description": "Posted on Last updated: 16 August 2025",
-      "price": 1.25e+23,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 4e+23,
       "demandRating": "10/10",
       "rarity": "Divine",
-      "lastUpdated": "16 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Raccoon-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2097,13 +2093,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:05:18.945Z",
+      "fetchedAt": "2025-08-28T14:20:03.255Z",
       "title": "Raiju Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
+      "description": "Posted on Last updated: 27 August 2025",
       "price": 1e+21,
-      "demandRating": "8/10",
+      "demandRating": "4/10",
       "rarity": "Divine",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Raiju-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2122,13 +2118,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:05:23.214Z",
+      "fetchedAt": "2025-08-28T14:20:07.692Z",
       "title": "Raptor Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 15000000000000000,
       "demandRating": "3/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Raptor-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2147,13 +2143,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:05:27.297Z",
+      "fetchedAt": "2025-08-28T14:20:12.088Z",
       "title": "Red Fox Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 1e+21,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 5e+21,
       "demandRating": "8/10",
       "rarity": "Mythical",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Red-Fox-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2172,13 +2168,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:05:31.169Z",
+      "fetchedAt": "2025-08-28T14:20:16.693Z",
       "title": "Red Giant Ant Value in Grow a Garden",
-      "description": "Posted on Last updated: 15 August 2025",
-      "price": 3500000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 50000000000000000,
       "demandRating": "5/10",
       "rarity": "Mythical",
-      "lastUpdated": "15 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Red-Giant-Ant-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2197,13 +2193,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:05:35.012Z",
+      "fetchedAt": "2025-08-28T14:20:21.087Z",
       "title": "Rooster Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 150000000,
-      "demandRating": "0/10",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 10000000000000000,
+      "demandRating": "1/10",
       "rarity": "Rare",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Rooster-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2222,13 +2218,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:05:38.793Z",
+      "fetchedAt": "2025-08-28T14:20:25.470Z",
       "title": "Sand Snake Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 20000000000000000,
       "demandRating": "3/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/sand-snake-value-grow-a-garden.png",
       "fetchError": null
     },
@@ -2247,13 +2243,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:05:42.711Z",
+      "fetchedAt": "2025-08-28T14:20:29.784Z",
       "title": "Scarlet Macaw Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 400000000000000000,
       "demandRating": "4/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Scarlet-Macaw-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2272,13 +2268,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:05:46.743Z",
+      "fetchedAt": "2025-08-28T14:20:34.177Z",
       "title": "Sea Otter Value in Grow a Garden",
-      "description": "Posted on Last updated: 15 August 2025",
-      "price": 1000000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 5000000000000000,
       "demandRating": "3/10",
       "rarity": "Legendary",
-      "lastUpdated": "15 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Sea-Otter-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2297,13 +2293,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:05:50.957Z",
+      "fetchedAt": "2025-08-28T14:20:39.605Z",
       "title": "Sea Turtle Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 100000000000000000,
       "demandRating": "4/10",
       "rarity": "Rare",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Sea-Turtle-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2322,13 +2318,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:05:54.899Z",
+      "fetchedAt": "2025-08-28T14:20:43.981Z",
       "title": "Seagull Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 250000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 5000000000000000,
       "demandRating": "2/10",
       "rarity": "Common",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Seagull-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2347,13 +2343,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:05:58.718Z",
+      "fetchedAt": "2025-08-28T14:20:48.286Z",
       "title": "Seal Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 2e+21,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 1.5e+21,
       "demandRating": "8/10",
       "rarity": "Rare",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Seal-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2372,13 +2368,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:06:02.600Z",
+      "fetchedAt": "2025-08-28T14:20:53.047Z",
       "title": "Shiba Inu Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 1000000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 5000000000000000,
       "demandRating": "1/10",
       "rarity": "Uncommon",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Shiba-Inu-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2397,13 +2393,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:06:06.617Z",
+      "fetchedAt": "2025-08-28T14:20:57.436Z",
       "title": "Silver Monkey Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 250000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 5000000000000000,
       "demandRating": "1/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Silver-Monkey-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2422,13 +2418,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:06:10.460Z",
+      "fetchedAt": "2025-08-28T14:21:06.723Z",
       "title": "Snail Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 1500000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 10000000000000000,
       "demandRating": "3/10",
       "rarity": "Mythical",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Snail-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2447,13 +2443,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:06:14.367Z",
+      "fetchedAt": "2025-08-28T14:21:12.543Z",
       "title": "Spaghetti Sloth Value in Grow a Garden",
-      "description": "Posted on Last updated: 15 August 2025",
+      "description": "Posted on Last updated: 25 August 2025",
       "price": 400000000000000000,
       "demandRating": "6/10",
       "rarity": "Mythical",
-      "lastUpdated": "15 August 2025",
+      "lastUpdated": "25 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/08/Spaghetti-Sloth-Value-in-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2472,13 +2468,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:06:18.318Z",
+      "fetchedAt": "2025-08-28T14:21:17.706Z",
       "title": "Spinosaurus Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 3e+22,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 1e+23,
       "demandRating": "7/10",
       "rarity": "Divine",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Spinosaurus-Value-in-Grow-a-Garden-1.png",
       "fetchError": null
     },
@@ -2497,13 +2493,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:06:22.232Z",
+      "fetchedAt": "2025-08-28T14:21:22.290Z",
       "title": "Spotted Deer Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 100000000,
-      "demandRating": "0/10",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 5000000000000000,
+      "demandRating": "1/10",
       "rarity": "Rare",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Spotted-Deer-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2522,13 +2518,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:06:26.299Z",
+      "fetchedAt": "2025-08-28T14:21:26.667Z",
       "title": "Squirrel Value in Grow a Garden",
-      "description": "Posted on Last updated: 20 August 2025",
-      "price": 15000000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 20000000000000000,
       "demandRating": "5/10",
       "rarity": "Mythical",
-      "lastUpdated": "20 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Squirrel-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2547,13 +2543,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:06:30.312Z",
+      "fetchedAt": "2025-08-28T14:21:30.985Z",
       "title": "Starfish Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 250000000000000,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 5000000000000000,
       "demandRating": "3/10",
       "rarity": "Common",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Starfish-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2572,13 +2568,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:06:34.116Z",
+      "fetchedAt": "2025-08-28T14:21:35.094Z",
       "title": "Stegosaurus Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 30000000000000000,
       "demandRating": "5/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Stegosaurus-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2597,13 +2593,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:06:38.126Z",
+      "fetchedAt": "2025-08-28T14:21:39.404Z",
       "title": "Sunny-Side Chicken Value in Grow a Garden – What’s it worth?",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 25 August 2025",
       "price": 10000000000000000,
       "demandRating": "1/10",
       "rarity": "Uncommon",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "25 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/08/Sunny-Side-Chicken-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2617,13 +2613,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:06:41.993Z",
+      "fetchedAt": "2025-08-28T14:21:43.896Z",
       "title": "Sushi Bear Value in Grow a Garden",
-      "description": "Posted on Last updated: 15 August 2025",
+      "description": "Posted on Last updated: 25 August 2025",
       "price": 300000000000000000,
       "demandRating": "5/10",
       "rarity": "Legendary",
-      "lastUpdated": "15 August 2025",
+      "lastUpdated": "25 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/08/Sushi-Bear-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2642,13 +2638,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:06:44.957Z",
+      "fetchedAt": "2025-08-28T14:21:46.963Z",
       "title": "T-Rex Value in Grow a Garden",
-      "description": "Posted on Last updated: 21 August 2025",
-      "price": 1.5e+22,
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 3.5e+22,
       "demandRating": "7/10",
       "rarity": "Divine",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/T-Rex-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2667,13 +2663,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:06:48.821Z",
+      "fetchedAt": "2025-08-28T14:21:51.157Z",
       "title": "Tanchozuru Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 300000000000000000,
       "demandRating": "3/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Tanchozuru-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2692,13 +2688,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:06:52.629Z",
+      "fetchedAt": "2025-08-28T14:21:55.243Z",
       "title": "Tanuki Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 15000000000000000,
       "demandRating": "2/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Tanuki-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2717,13 +2713,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:06:56.432Z",
+      "fetchedAt": "2025-08-28T14:21:59.256Z",
       "title": "Tarantula Hawk Value in Grow a Garden",
-      "description": "Posted on Last updated: 15 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 500000000000000000,
       "demandRating": "5/10",
       "rarity": "Legendary",
-      "lastUpdated": "15 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Tarantula-Hawk-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2742,13 +2738,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:07:00.333Z",
+      "fetchedAt": "2025-08-28T14:22:03.407Z",
       "title": "Toucan Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 10000000000000000,
       "demandRating": "4/10",
       "rarity": "Rare",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Toucan-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2767,20 +2763,20 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:07:04.295Z",
+      "fetchedAt": "2025-08-28T14:22:07.594Z",
       "title": "Triceratops Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 70000000000000000,
       "demandRating": "5/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/07/Triceratops-Value-Grow-a-Garden.png",
       "fetchError": null
     },
     {
       "petName": "Tsuchinoko",
       "slug": "tsuchinoko",
-      "url": "https://www.game.guide/seedling-value-in-grow-a-garden-whats-it-worth",
+      "url": "https://www.game.guide/tsuchinoko-value-grow-a-garden",
       "triedUrls": [
         {
           "url": "https://www.game.guide/tsuchinoko-value-in-grow-a-garden",
@@ -2789,27 +2785,17 @@ const pets = [
         },
         {
           "url": "https://www.game.guide/tsuchinoko-value-grow-a-garden",
-          "ok": false,
-          "error": "404 Not Found"
-        },
-        {
-          "url": "https://www.game.guide/tsuchinoko-grow-a-garden",
-          "ok": false,
-          "error": "404 Not Found"
-        },
-        {
-          "url": "https://www.game.guide/seedling-value-in-grow-a-garden-whats-it-worth",
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:07:08.279Z",
-      "title": "Seedling Value in Grow a Garden – What’s it worth?",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 0,
-      "demandRating": "0/10",
-      "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
-      "image": "https://www.game.guide/wp-content/uploads/2025/08/Seedling-Value-Grow-a-Garden.png",
+      "fetchedAt": "2025-08-28T14:22:11.764Z",
+      "title": "Game Guide",
+      "description": "Your ultimate source for game codes and value lists",
+      "price": 9333,
+      "demandRating": null,
+      "rarity": "event",
+      "lastUpdated": null,
+      "image": "https://www.game.guide/wp-content/uploads/2024/05/Game-Guide-Main-Logo.png",
       "fetchError": null
     },
     {
@@ -2827,13 +2813,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:07:14.511Z",
+      "fetchedAt": "2025-08-28T14:22:19.218Z",
       "title": "Turtle Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 500000000000000000,
       "demandRating": "4/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Turtle-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2847,13 +2833,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:07:18.289Z",
+      "fetchedAt": "2025-08-28T14:22:25.191Z",
       "title": "Wasp Value in Grow a Garden",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 450000000000000000,
       "demandRating": "3/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/06/Wasp-Value-in-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2872,13 +2858,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:07:21.243Z",
+      "fetchedAt": "2025-08-28T14:22:28.891Z",
       "title": "Dairy Cow Value in Grow a Garden – What’s it worth?",
-      "description": "Posted on Last updated: 16 August 2025",
-      "price": 0,
-      "demandRating": "0/10",
-      "rarity": null,
-      "lastUpdated": "16 August 2025",
+      "description": "Posted on Last updated: 25 August 2025",
+      "price": 1,
+      "demandRating": "1/10",
+      "rarity": "Common",
+      "lastUpdated": "25 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/08/Dairy-Cow-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2892,13 +2878,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:07:25.099Z",
+      "fetchedAt": "2025-08-28T14:22:34.682Z",
       "title": "Seedling Value in Grow a Garden – What’s it worth?",
-      "description": "Posted on Last updated: 18 August 2025",
-      "price": 0,
-      "demandRating": "0/10",
+      "description": "Posted on Last updated: 24 August 2025",
+      "price": 100,
+      "demandRating": "6/10",
       "rarity": "Legendary",
-      "lastUpdated": "18 August 2025",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/08/Seedling-Value-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2917,13 +2903,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:07:29.504Z",
+      "fetchedAt": "2025-08-28T14:22:47.833Z",
       "title": "Jackalope Value in Grow a Garden – What’s it worth?",
-      "description": "Posted on Last updated: 16 August 2025",
-      "price": 0,
-      "demandRating": "0/10",
-      "rarity": null,
-      "lastUpdated": "16 August 2025",
+      "description": "Posted on Last updated: 25 August 2025",
+      "price": 10,
+      "demandRating": "3/10",
+      "rarity": "Uncommon",
+      "lastUpdated": "25 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/08/Jackalope-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2937,13 +2923,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:07:33.303Z",
+      "fetchedAt": "2025-08-28T14:22:54.292Z",
       "title": "Spriggan Value in Grow a Garden – What’s it worth?",
-      "description": "Posted on Last updated: 18 August 2025",
+      "description": "Posted on Last updated: 24 August 2025",
       "price": 15,
-      "demandRating": "0/10",
-      "rarity": null,
-      "lastUpdated": "18 August 2025",
+      "demandRating": "4/10",
+      "rarity": "Mythical",
+      "lastUpdated": "24 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/08/Spriggan-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2962,13 +2948,13 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:07:37.126Z",
+      "fetchedAt": "2025-08-28T14:22:59.463Z",
       "title": "Golem Value in Grow a Garden – What’s it worth?",
-      "description": "Posted on Last updated: 16 August 2025",
-      "price": 0,
-      "demandRating": "0/10",
-      "rarity": null,
-      "lastUpdated": "16 August 2025",
+      "description": "Posted on Last updated: 25 August 2025",
+      "price": 100,
+      "demandRating": "5/10",
+      "rarity": "Mythical",
+      "lastUpdated": "25 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/08/Golem-Grow-a-Garden.png",
       "fetchError": null
     },
@@ -2987,14 +2973,214 @@ const pets = [
           "ok": true
         }
       ],
-      "fetchedAt": "2025-08-22T01:07:40.944Z",
+      "fetchedAt": "2025-08-28T14:23:03.253Z",
       "title": "Golden Goose Value in Grow a Garden – What’s it worth?",
-      "description": "Posted on Last updated: 21 August 2025",
+      "description": "Posted on Last updated: 27 August 2025",
       "price": 7e+21,
-      "demandRating": "7/10",
+      "demandRating": "6/10",
       "rarity": "Divine",
-      "lastUpdated": "21 August 2025",
+      "lastUpdated": "27 August 2025",
       "image": "https://www.game.guide/wp-content/uploads/2025/08/Golden-Goose-Value-Grow-a-Garden.png",
+      "fetchError": null
+    },
+    {
+      "petName": "mandrake",
+      "slug": "mandrake",
+      "url": "https://www.game.guide/mandrake-value-grow-a-garden",
+      "triedUrls": [
+        {
+          "url": "https://www.game.guide/mandrake-value-in-grow-a-garden",
+          "ok": false,
+          "error": "404 Not Found"
+        },
+        {
+          "url": "https://www.game.guide/mandrake-value-grow-a-garden",
+          "ok": true
+        }
+      ],
+      "fetchedAt": "2025-08-28T14:23:07.060Z",
+      "title": "Mandrake Value – Sell Price in Grow a Garden",
+      "description": "Posted on Last updated: 23 August 2025",
+      "price": 50000,
+      "demandRating": null,
+      "rarity": "Rare",
+      "lastUpdated": "23 August 2025",
+      "image": "https://www.game.guide/wp-content/uploads/2025/08/Mandrake-Value-Grow-a-Garden.png",
+      "fetchError": null
+    },
+    {
+      "petName": "elk",
+      "slug": "elk",
+      "url": "https://www.game.guide/elk-value-grow-a-garden",
+      "triedUrls": [
+        {
+          "url": "https://www.game.guide/elk-value-in-grow-a-garden",
+          "ok": false,
+          "error": "404 Not Found"
+        },
+        {
+          "url": "https://www.game.guide/elk-value-grow-a-garden",
+          "ok": true
+        }
+      ],
+      "fetchedAt": "2025-08-28T14:23:10.643Z",
+      "title": "Elk Value in Grow a Garden: What’s it worth?",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 1,
+      "demandRating": "1/10",
+      "rarity": "Uncommon",
+      "lastUpdated": "27 August 2025",
+      "image": "https://www.game.guide/wp-content/uploads/2025/08/Elk-Value-Grow-a-Garden.png",
+      "fetchError": null
+    },
+    {
+      "petName": "Lemon Lion",
+      "slug": "lemon-lion",
+      "url": "https://www.game.guide/lemon-lion-value-grow-a-garden",
+      "triedUrls": [
+        {
+          "url": "https://www.game.guide/lemon-lion-value-in-grow-a-garden",
+          "ok": false,
+          "error": "404 Not Found"
+        },
+        {
+          "url": "https://www.game.guide/lemon-lion-value-grow-a-garden",
+          "ok": true
+        }
+      ],
+      "fetchedAt": "2025-08-28T14:23:14.909Z",
+      "title": "Lemon Lion Value in Grow a Garden: What’s it worth?",
+      "description": "Posted on Last updated: 24 August 2025",
+      "price": 5e+21,
+      "demandRating": "8/10",
+      "rarity": "Mythical",
+      "lastUpdated": "24 August 2025",
+      "image": "https://www.game.guide/wp-content/uploads/2025/08/Lemon-Lion-Value-Grow-a-Garden.png",
+      "fetchError": null
+    },
+    {
+      "petName": "Green Bean",
+      "slug": "green-bean",
+      "url": "https://www.game.guide/green-bean-value-grow-a-garden",
+      "triedUrls": [
+        {
+          "url": "https://www.game.guide/green-bean-value-in-grow-a-garden",
+          "ok": false,
+          "error": "404 Not Found"
+        },
+        {
+          "url": "https://www.game.guide/green-bean-value-grow-a-garden",
+          "ok": true
+        }
+      ],
+      "fetchedAt": "2025-08-28T14:23:18.871Z",
+      "title": "Green Bean Value in Grow a Garden: What’s it worth?",
+      "description": "Posted on Last updated: 25 August 2025",
+      "price": 5e+21,
+      "demandRating": "8/10",
+      "rarity": "Divine",
+      "lastUpdated": "25 August 2025",
+      "image": "https://www.game.guide/wp-content/uploads/2025/08/Green-Bean-Value-Grow-a-Garden.png",
+      "fetchError": null
+    },
+    {
+      "petName": "Apple Gazelle",
+      "slug": "apple-gazelle",
+      "url": "https://www.game.guide/apple-gazelle-value-grow-a-garden",
+      "triedUrls": [
+        {
+          "url": "https://www.game.guide/apple-gazelle-value-in-grow-a-garden",
+          "ok": false,
+          "error": "404 Not Found"
+        },
+        {
+          "url": "https://www.game.guide/apple-gazelle-value-grow-a-garden",
+          "ok": true
+        }
+      ],
+      "fetchedAt": "2025-08-28T14:23:22.852Z",
+      "title": "Apple Gazelle Value in Grow a Garden: What’s it worth?",
+      "description": "Posted on Last updated: 25 August 2025",
+      "price": 3e+21,
+      "demandRating": "6/10",
+      "rarity": "Mythical",
+      "lastUpdated": "25 August 2025",
+      "image": "https://www.game.guide/wp-content/uploads/2025/08/Apple-Gazelle-Value-Grow-a-Garden.png",
+      "fetchError": null
+    },
+    {
+      "petName": "Peach Wasp",
+      "slug": "peach-wasp",
+      "url": "https://www.game.guide/peach-wasp-value-grow-a-garden",
+      "triedUrls": [
+        {
+          "url": "https://www.game.guide/peach-wasp-value-in-grow-a-garden",
+          "ok": false,
+          "error": "404 Not Found"
+        },
+        {
+          "url": "https://www.game.guide/peach-wasp-value-grow-a-garden",
+          "ok": true
+        }
+      ],
+      "fetchedAt": "2025-08-28T14:23:26.665Z",
+      "title": "Peach Wasp Value in Grow a Garden: What’s it worth?",
+      "description": "Posted on Last updated: 25 August 2025",
+      "price": 3e+21,
+      "demandRating": "6/10",
+      "rarity": "Mythical",
+      "lastUpdated": "25 August 2025",
+      "image": "https://www.game.guide/wp-content/uploads/2025/08/Peach-Wasp-Value-Grow-a-Garden.png",
+      "fetchError": null
+    },
+    {
+      "petName": "Griffin",
+      "slug": "griffin",
+      "url": "https://www.game.guide/griffin-value-grow-a-garden",
+      "triedUrls": [
+        {
+          "url": "https://www.game.guide/griffin-value-in-grow-a-garden",
+          "ok": false,
+          "error": "404 Not Found"
+        },
+        {
+          "url": "https://www.game.guide/griffin-value-grow-a-garden",
+          "ok": true
+        }
+      ],
+      "fetchedAt": "2025-08-28T14:23:30.593Z",
+      "title": "Griffin Value in Grow a Garden: What’s it worth?",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 7e+21,
+      "demandRating": "6/10",
+      "rarity": "Divine",
+      "lastUpdated": "27 August 2025",
+      "image": "https://www.game.guide/wp-content/uploads/2025/08/Griffin-Value-Grow-a-Garden.png",
+      "fetchError": null
+    },
+    {
+      "petName": "Gnome",
+      "slug": "gnome",
+      "url": "https://www.game.guide/gnome-value-grow-a-garden",
+      "triedUrls": [
+        {
+          "url": "https://www.game.guide/gnome-value-in-grow-a-garden",
+          "ok": false,
+          "error": "404 Not Found"
+        },
+        {
+          "url": "https://www.game.guide/gnome-value-grow-a-garden",
+          "ok": true
+        }
+      ],
+      "fetchedAt": "2025-08-28T14:23:34.583Z",
+      "title": "Gnome Value in Grow a Garden: What’s it worth?",
+      "description": "Posted on Last updated: 27 August 2025",
+      "price": 1e+21,
+      "demandRating": "5/10",
+      "rarity": "Legendary",
+      "lastUpdated": "27 August 2025",
+      "image": "https://www.game.guide/wp-content/uploads/2025/08/Gnome-Value-Grow-a-Garden.png",
       "fetchError": null
     }
   ]

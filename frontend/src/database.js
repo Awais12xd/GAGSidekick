@@ -1,4 +1,4 @@
-const fruits = [
+const fruits =[
   {
     "item_id": "aloe_vera",
     "display_name": "Aloe Vera",
@@ -44,7 +44,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/apple",
     "description": "",
     "duration": "0",
-    "last_seen": "1755785706",
+    "last_seen": "1756230302",
     "type": "seed"
   },
   {
@@ -72,6 +72,18 @@ const fruits = [
     "type": "seed"
   },
   {
+    "item_id": "aurora_vine",
+    "display_name": "Aurora Vine",
+    "rarity": "Legendary",
+    "currency": "Sheckles",
+    "price": "100000000000000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/aurora_vine",
+    "description": "",
+    "duration": "0",
+    "last_seen": "0",
+    "type": "seed"
+  },
+  {
     "item_id": "avocado",
     "display_name": "Avocado",
     "rarity": "Legendary",
@@ -80,7 +92,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/avocado",
     "description": "",
     "duration": "0",
-    "last_seen": "1755676803",
+    "last_seen": "1756224003",
     "type": "seed"
   },
   {
@@ -104,7 +116,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/bamboo",
     "description": "",
     "duration": "0",
-    "last_seen": "1755786612",
+    "last_seen": "1756230002",
     "type": "seed"
   },
   {
@@ -116,7 +128,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/banana",
     "description": "",
     "duration": "0",
-    "last_seen": "1755691203",
+    "last_seen": "1756224003",
     "type": "seed"
   },
   {
@@ -128,7 +140,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/beanstalk",
     "description": "",
     "duration": "0",
-    "last_seen": "1755710101",
+    "last_seen": "1756085701",
     "type": "seed"
   },
   {
@@ -152,7 +164,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/bell_pepper",
     "description": "",
     "duration": "0",
-    "last_seen": "1755676803",
+    "last_seen": "1756022493",
     "type": "seed"
   },
   {
@@ -200,7 +212,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/blueberry",
     "description": "",
     "duration": "0",
-    "last_seen": "1755788621",
+    "last_seen": "1756230603",
     "type": "seed"
   },
   {
@@ -248,7 +260,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/burning_bud",
     "description": "",
     "duration": "0",
-    "last_seen": "1755731101",
+    "last_seen": "1756218603",
     "type": "seed"
   },
   {
@@ -272,7 +284,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/cacao",
     "description": "",
     "duration": "0",
-    "last_seen": "1755768001",
+    "last_seen": "1756225802",
     "type": "seed"
   },
   {
@@ -284,7 +296,19 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/cactus",
     "description": "",
     "duration": "0",
-    "last_seen": "1755747602",
+    "last_seen": "1756229402",
+    "type": "seed"
+  },
+  {
+    "item_id": "calla_lily",
+    "display_name": "Calla Lily",
+    "rarity": "Legendary",
+    "currency": "Sheckles",
+    "price": "100000000000000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/calla_lily",
+    "description": "",
+    "duration": "0",
+    "last_seen": "0",
     "type": "seed"
   },
   {
@@ -344,7 +368,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/carrot",
     "description": "",
     "duration": "0",
-    "last_seen": "1755788621",
+    "last_seen": "1756230603",
     "type": "seed"
   },
   {
@@ -356,7 +380,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/cauliflower",
     "description": "",
     "duration": "0",
-    "last_seen": "1755691203",
+    "last_seen": "1756224003",
     "type": "seed"
   },
   {
@@ -404,7 +428,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/coconut",
     "description": "",
     "duration": "0",
-    "last_seen": "1755787218",
+    "last_seen": "1756217421",
     "type": "seed"
   },
   {
@@ -420,6 +444,18 @@ const fruits = [
     "type": "seed"
   },
   {
+    "item_id": "coolcool_beanbeanstalk",
+    "display_name": "Coolcool Beanbeanstalk",
+    "rarity": "Prismatic",
+    "currency": "Sheckles",
+    "price": "10000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/coolcool_beanbeanstalk",
+    "description": "",
+    "duration": "0",
+    "last_seen": "0",
+    "type": "seed"
+  },
+  {
     "item_id": "corn",
     "display_name": "Corn",
     "rarity": "Rare",
@@ -428,7 +464,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/corn",
     "description": "",
     "duration": "0",
-    "last_seen": "1755785706",
+    "last_seen": "1756228801",
     "type": "seed"
   },
   {
@@ -480,6 +516,18 @@ const fruits = [
     "type": "seed"
   },
   {
+    "item_id": "crown_of_thorns",
+    "display_name": "Crown of Thorns",
+    "rarity": "Uncommon",
+    "currency": "Sheckles",
+    "price": "100000000000000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/crown_of_thorns",
+    "description": "",
+    "duration": "0",
+    "last_seen": "0",
+    "type": "seed"
+  },
+  {
     "item_id": "cursed_fruit",
     "display_name": "Cursed Fruit",
     "rarity": "Divine",
@@ -494,7 +542,7 @@ const fruits = [
   {
     "item_id": "cyclamen",
     "display_name": "Cyclamen",
-    "rarity": "Rare",
+    "rarity": "Divine",
     "currency": "Sheckles",
     "price": "100000000000000000",
     "icon": "https://api.joshlei.com/v2/growagarden/image/cyclamen",
@@ -512,7 +560,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/daffodil",
     "description": "",
     "duration": "0",
-    "last_seen": "1755786009",
+    "last_seen": "1756230603",
     "type": "seed"
   },
   {
@@ -560,7 +608,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/dragon_fruit",
     "description": "",
     "duration": "0",
-    "last_seen": "1755734702",
+    "last_seen": "1756208702",
     "type": "seed"
   },
   {
@@ -644,7 +692,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/elder_strawberry",
     "description": "",
     "duration": "0",
-    "last_seen": "1755532201",
+    "last_seen": "1756168204",
     "type": "seed"
   },
   {
@@ -668,7 +716,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/ember_lily",
     "description": "",
     "duration": "0",
-    "last_seen": "1755776702",
+    "last_seen": "1756183204",
     "type": "seed"
   },
   {
@@ -732,6 +780,18 @@ const fruits = [
     "type": "seed"
   },
   {
+    "item_id": "flare_melon",
+    "display_name": "Flare Melon",
+    "rarity": "Rare",
+    "currency": "Sheckles",
+    "price": "100000000000000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/flare_melon",
+    "description": "",
+    "duration": "0",
+    "last_seen": "1756213214",
+    "type": "seed"
+  },
+  {
     "item_id": "fossilight",
     "display_name": "Fossilight",
     "rarity": "Divine",
@@ -776,7 +836,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/giant_pinecone",
     "description": "",
     "duration": "0",
-    "last_seen": "1755777603",
+    "last_seen": "1756180803",
     "type": "seed"
   },
   {
@@ -789,6 +849,18 @@ const fruits = [
     "description": "",
     "duration": "0",
     "last_seen": "0",
+    "type": "seed"
+  },
+  {
+    "item_id": "glowpod",
+    "display_name": "Glowpod",
+    "rarity": "Uncommon",
+    "currency": "Sheckles",
+    "price": "100000000000000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/glowpod",
+    "description": "",
+    "duration": "0",
+    "last_seen": "1756227602",
     "type": "seed"
   },
   {
@@ -848,7 +920,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/grape",
     "description": "",
     "duration": "0",
-    "last_seen": "1755777603",
+    "last_seen": "1756219803",
     "type": "seed"
   },
   {
@@ -860,7 +932,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/green_apple",
     "description": "",
     "duration": "0",
-    "last_seen": "1755489601",
+    "last_seen": "1756209603",
     "type": "seed"
   },
   {
@@ -1032,6 +1104,18 @@ const fruits = [
     "type": "seed"
   },
   {
+    "item_id": "lightshoot",
+    "display_name": "Lightshoot",
+    "rarity": "Legendary",
+    "currency": "Sheckles",
+    "price": "100000000000000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/lightshoot",
+    "description": "",
+    "duration": "0",
+    "last_seen": "0",
+    "type": "seed"
+  },
+  {
     "item_id": "lilac",
     "display_name": "Lilac",
     "rarity": "Legendary",
@@ -1100,7 +1184,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/loquat",
     "description": "",
     "duration": "0",
-    "last_seen": "1754438401",
+    "last_seen": "1756224003",
     "type": "seed"
   },
   {
@@ -1160,7 +1244,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/mango",
     "description": "",
     "duration": "0",
-    "last_seen": "1755776702",
+    "last_seen": "1756223702",
     "type": "seed"
   },
   {
@@ -1304,7 +1388,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/mushroom",
     "description": "",
     "duration": "0",
-    "last_seen": "1755684901",
+    "last_seen": "1756198201",
     "type": "seed"
   },
   {
@@ -1400,7 +1484,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/orange_tulip",
     "description": "",
     "duration": "0",
-    "last_seen": "1755788621",
+    "last_seen": "1756230302",
     "type": "seed"
   },
   {
@@ -1496,7 +1580,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/pepper",
     "description": "",
     "duration": "0",
-    "last_seen": "1755750304",
+    "last_seen": "1756205403",
     "type": "seed"
   },
   {
@@ -1508,7 +1592,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/pineapple",
     "description": "",
     "duration": "0",
-    "last_seen": "1755691203",
+    "last_seen": "1756224003",
     "type": "seed"
   },
   {
@@ -1556,7 +1640,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/potato",
     "description": "",
     "duration": "0",
-    "last_seen": "0",
+    "last_seen": "1692828912",
     "type": "seed"
   },
   {
@@ -1580,7 +1664,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/prickly_pear",
     "description": "",
     "duration": "0",
-    "last_seen": "1755691203",
+    "last_seen": "1756224003",
     "type": "seed"
   },
   {
@@ -1604,7 +1688,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/pumpkin",
     "description": "",
     "duration": "0",
-    "last_seen": "1755787218",
+    "last_seen": "1756223702",
     "type": "seed"
   },
   {
@@ -1640,7 +1724,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/rafflesia",
     "description": "",
     "duration": "0",
-    "last_seen": "1755691203",
+    "last_seen": "1756224003",
     "type": "seed"
   },
   {
@@ -1688,7 +1772,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/romanesco",
     "description": "",
     "duration": "0",
-    "last_seen": "1755753077",
+    "last_seen": "1756226401",
     "type": "seed"
   },
   {
@@ -1740,12 +1824,36 @@ const fruits = [
     "type": "seed"
   },
   {
+    "item_id": "shimmersprout",
+    "display_name": "Shimmersprout",
+    "rarity": "Mythical",
+    "currency": "Sheckles",
+    "price": "100000000000000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/shimmersprout",
+    "description": "",
+    "duration": "0",
+    "last_seen": "0",
+    "type": "seed"
+  },
+  {
     "item_id": "sinisterdrip",
     "display_name": "Sinisterdrip",
     "rarity": "Legendary",
     "currency": "Sheckles",
     "price": "100000000000000000",
     "icon": "https://api.joshlei.com/v2/growagarden/image/sinisterdrip",
+    "description": "",
+    "duration": "0",
+    "last_seen": "0",
+    "type": "seed"
+  },
+  {
+    "item_id": "snaparino_beanarini",
+    "display_name": "Snaparino Beanarini",
+    "rarity": "Divine",
+    "currency": "Sheckles",
+    "price": "10000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/snaparino_beanarini",
     "description": "",
     "duration": "0",
     "last_seen": "0",
@@ -1776,6 +1884,18 @@ const fruits = [
     "type": "seed"
   },
   {
+    "item_id": "spectralis",
+    "display_name": "Spectralis",
+    "rarity": "Legendary",
+    "currency": "Sheckles",
+    "price": "100000000000000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/spectralis",
+    "description": "",
+    "duration": "0",
+    "last_seen": "0",
+    "type": "seed"
+  },
+  {
     "item_id": "spiked_mango",
     "display_name": "Spiked Mango",
     "rarity": "Mythical",
@@ -1785,6 +1905,18 @@ const fruits = [
     "description": "",
     "duration": "0",
     "last_seen": "1755234002",
+    "type": "seed"
+  },
+  {
+    "item_id": "spirit_lantern",
+    "display_name": "Spirit Lantern",
+    "rarity": "Legendary",
+    "currency": "Sheckles",
+    "price": "100000000000000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/spirit_lantern",
+    "description": "",
+    "duration": "0",
+    "last_seen": "0",
     "type": "seed"
   },
   {
@@ -1832,7 +1964,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/strawberry",
     "description": "",
     "duration": "0",
-    "last_seen": "1755788621",
+    "last_seen": "1756230603",
     "type": "seed"
   },
   {
@@ -1856,7 +1988,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/sugar_apple",
     "description": "",
     "duration": "0",
-    "last_seen": "1755740101",
+    "last_seen": "1756207201",
     "type": "seed"
   },
   {
@@ -1940,7 +2072,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/tomato",
     "description": "",
     "duration": "0",
-    "last_seen": "1755788621",
+    "last_seen": "1756230603",
     "type": "seed"
   },
   {
@@ -2024,7 +2156,7 @@ const fruits = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/watermelon",
     "description": "",
     "duration": "0",
-    "last_seen": "1755784803",
+    "last_seen": "1756229703",
     "type": "seed"
   },
   {
@@ -2046,6 +2178,18 @@ const fruits = [
     "currency": "Sheckles",
     "price": "100000000000000000",
     "icon": "https://api.joshlei.com/v2/growagarden/image/wild_carrot",
+    "description": "",
+    "duration": "0",
+    "last_seen": "0",
+    "type": "seed"
+  },
+  {
+    "item_id": "willowberry",
+    "display_name": "Willowberry",
+    "rarity": "Legendary",
+    "currency": "Sheckles",
+    "price": "100000000000000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/willowberry",
     "description": "",
     "duration": "0",
     "last_seen": "0",
@@ -2074,9 +2218,7 @@ const fruits = [
     "duration": "0",
     "last_seen": "1755313202",
     "type": "seed"
-  }
-]
-
+  }]
 
 const gears = [
   {
@@ -2088,7 +2230,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/advanced_sprinkler",
     "description": "Increases growth speed and mutation chances. Lasts 5 minutes",
     "duration": "0",
-    "last_seen": "1755786009",
+    "last_seen": "1756229402",
     "type": "gear"
   },
   {
@@ -2100,7 +2242,31 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/basic_sprinkler",
     "description": "Increases growth speed and fruit size. Lasts 5 minutes",
     "duration": "0",
-    "last_seen": "1755788621",
+    "last_seen": "1756230002",
+    "type": "gear"
+  },
+  {
+    "item_id": "bean_speaker",
+    "display_name": "Bean Speaker",
+    "rarity": "Common",
+    "currency": "Sheckles",
+    "price": "10000000000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/bean_speaker",
+    "description": "Bean or leave!",
+    "duration": "0",
+    "last_seen": "0",
+    "type": "gear"
+  },
+  {
+    "item_id": "beanworks",
+    "display_name": "Beanworks",
+    "rarity": "Common",
+    "currency": "Sheckles",
+    "price": "10000000000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/beanworks",
+    "description": "Launches Beanstalk fireworks! 5 Uses",
+    "duration": "0",
+    "last_seen": "0",
     "type": "gear"
   },
   {
@@ -2112,7 +2278,19 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/berry_blusher_sprinkler",
     "description": "Greatly increases size bonus for Grape, Blueberry, Strawberry, Raspberry and Celestiberry. Lasts 1.5 minutes",
     "duration": "0",
-    "last_seen": "0",
+    "last_seen": "1756137602",
+    "type": "gear"
+  },
+  {
+    "item_id": "can_of_beans",
+    "display_name": "Can Of Beans",
+    "rarity": "Common",
+    "currency": "Sheckles",
+    "price": "1",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/can_of_beans",
+    "description": "For when you need a little boost in life...",
+    "duration": "0",
+    "last_seen": "1756227602",
     "type": "gear"
   },
   {
@@ -2136,7 +2314,19 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/cleaning_spray",
     "description": "Cleans mutations off fruit! 10 Uses",
     "duration": "0",
-    "last_seen": "1755788621",
+    "last_seen": "1756230603",
+    "type": "gear"
+  },
+  {
+    "item_id": "cleansing_pet_shard",
+    "display_name": "Cleansing Pet Shard",
+    "rarity": "Divine",
+    "currency": "Sheckles",
+    "price": "30000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/cleansing_pet_shard",
+    "description": "Bring your pet back to normal!",
+    "duration": "0",
+    "last_seen": "1756220111",
     "type": "gear"
   },
   {
@@ -2172,7 +2362,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/favorite_tool",
     "description": "Favorites your fruit to prevent collecting. 20 uses",
     "duration": "0",
-    "last_seen": "1755788621",
+    "last_seen": "1756230603",
     "type": "gear"
   },
   {
@@ -2196,7 +2386,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/flower_froster_sprinkler",
     "description": "Freezes Flower type plants. Lasts 2.5 minutes",
     "duration": "0",
-    "last_seen": "0",
+    "last_seen": "1756137602",
     "type": "gear"
   },
   {
@@ -2244,7 +2434,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/friendship_pot",
     "description": "A flower pot to share with a friend!",
     "duration": "0",
-    "last_seen": "1755788248",
+    "last_seen": "1756229703",
     "type": "gear"
   },
   {
@@ -2268,7 +2458,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/godly_sprinkler",
     "description": "Increases growth speed, mutation chances and fruit size. Lasts 5 minutes",
     "duration": "0",
-    "last_seen": "1755788621",
+    "last_seen": "1756229703",
     "type": "gear"
   },
   {
@@ -2284,6 +2474,18 @@ const gears = [
     "type": "gear"
   },
   {
+    "item_id": "gold_lollipop",
+    "display_name": "Gold Lollipop",
+    "rarity": "Prismatic",
+    "currency": "Sheckles",
+    "price": "10000000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/gold_lollipop",
+    "description": "Increases your pet's age by 10",
+    "duration": "0",
+    "last_seen": "0",
+    "type": "gear"
+  },
+  {
     "item_id": "grandmaster_sprinkler",
     "display_name": "Grandmaster Sprinkler",
     "rarity": "Prismatic",
@@ -2292,7 +2494,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/grandmaster_sprinkler",
     "description": "Massively increases growth speed, mutation chances, fruit size and boosts pets. Lasts 10 minutes",
     "duration": "0",
-    "last_seen": "1755693002",
+    "last_seen": "1756218003",
     "type": "gear"
   },
   {
@@ -2304,7 +2506,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/harvest_tool",
     "description": "Harvest all fruit from a chosen plant. 5 uses",
     "duration": "0",
-    "last_seen": "1755788621",
+    "last_seen": "1756230603",
     "type": "gear"
   },
   {
@@ -2316,7 +2518,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/levelup_lollipop",
     "description": "Increases your pet's age by 1",
     "duration": "0",
-    "last_seen": "1755762902",
+    "last_seen": "1755960612",
     "type": "gear"
   },
   {
@@ -2352,7 +2554,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/magnifying_glass",
     "description": "Inspect plants to reveal the value, without collecting them!",
     "duration": "0",
-    "last_seen": "1755788621",
+    "last_seen": "1756230603",
     "type": "gear"
   },
   {
@@ -2364,7 +2566,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/master_sprinkler",
     "description": "Greatly increases growth speed, mutation chances and fruit size. Lasts 10 minutes",
     "duration": "0",
-    "last_seen": "1755786902",
+    "last_seen": "1756204802",
     "type": "gear"
   },
   {
@@ -2388,7 +2590,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/medium_toy",
     "description": "Give your pet a medium boost to their passive ability",
     "duration": "0",
-    "last_seen": "1755776702",
+    "last_seen": "1756225501",
     "type": "gear"
   },
   {
@@ -2400,7 +2602,19 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/medium_treat",
     "description": "Give your pet a medium boost to their xp over time",
     "duration": "0",
-    "last_seen": "1755771003",
+    "last_seen": "1756185003",
+    "type": "gear"
+  },
+  {
+    "item_id": "mega_lollipop",
+    "display_name": "Mega Lollipop",
+    "rarity": "Prismatic",
+    "currency": "Sheckles",
+    "price": "10000000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/mega_lollipop",
+    "description": "Increases your pet's age by 100!",
+    "duration": "0",
+    "last_seen": "0",
     "type": "gear"
   },
   {
@@ -2592,7 +2806,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/mutation_spray_wet",
     "description": "Wets a fruit!",
     "duration": "0",
-    "last_seen": "1755763201",
+    "last_seen": "1755950401",
     "type": "gear"
   },
   {
@@ -2604,7 +2818,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/mutation_spray_windstruck",
     "description": "Fruits become Windstruck!",
     "duration": "0",
-    "last_seen": "1755763201",
+    "last_seen": "1755950401",
     "type": "gear"
   },
   {
@@ -2616,7 +2830,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/night_staff",
     "description": "",
     "duration": "0",
-    "last_seen": "1755777603",
+    "last_seen": "1756195202",
     "type": "gear"
   },
   {
@@ -2668,6 +2882,66 @@ const gears = [
     "type": "gear"
   },
   {
+    "item_id": "pet_shard_giantbean",
+    "display_name": "Pet Shard GiantBean",
+    "rarity": "Divine",
+    "currency": "Sheckles",
+    "price": "10000000000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/pet_shard_giantbean",
+    "description": "Make your pet turn into a Giant Bean!",
+    "duration": "0",
+    "last_seen": "1756144802",
+    "type": "gear"
+  },
+  {
+    "item_id": "pet_shard_gold",
+    "display_name": "Pet Shard Gold",
+    "rarity": "Divine",
+    "currency": "Sheckles",
+    "price": "10000000000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/pet_shard_gold",
+    "description": "Make your pet shine like the sun!",
+    "duration": "0",
+    "last_seen": "0",
+    "type": "gear"
+  },
+  {
+    "item_id": "pet_shard_mega",
+    "display_name": "Pet Shard Mega",
+    "rarity": "Divine",
+    "currency": "Sheckles",
+    "price": "10000000000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/pet_shard_mega",
+    "description": "Make your pet MEGA like giants!",
+    "duration": "0",
+    "last_seen": "0",
+    "type": "gear"
+  },
+  {
+    "item_id": "pet_shard_rainbow",
+    "display_name": "Pet Shard Rainbow",
+    "rarity": "Divine",
+    "currency": "Sheckles",
+    "price": "10000000000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/pet_shard_rainbow",
+    "description": "Make your pet shine bright in rainbow light!",
+    "duration": "0",
+    "last_seen": "0",
+    "type": "gear"
+  },
+  {
+    "item_id": "pet_shard_silver",
+    "display_name": "Pet Shard Silver",
+    "rarity": "Divine",
+    "currency": "Sheckles",
+    "price": "10000000000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/pet_shard_silver",
+    "description": "Polish up your pet and make it silver!",
+    "duration": "0",
+    "last_seen": "0",
+    "type": "gear"
+  },
+  {
     "item_id": "pet_shard_tranquil",
     "display_name": "Pet Shard Tranquil",
     "rarity": "Divine",
@@ -2712,7 +2986,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/recall_wrench",
     "description": "Teleports to Gear Shop. 5 uses",
     "duration": "0",
-    "last_seen": "1755788621",
+    "last_seen": "1756230603",
     "type": "gear"
   },
   {
@@ -2735,6 +3009,18 @@ const gears = [
     "price": "15000000",
     "icon": "https://api.joshlei.com/v2/growagarden/image/silver_fertilizer",
     "description": "Makes a plant Silver for 2 hours!",
+    "duration": "0",
+    "last_seen": "0",
+    "type": "gear"
+  },
+  {
+    "item_id": "silver_lollipop",
+    "display_name": "Silver Lollipop",
+    "rarity": "Prismatic",
+    "currency": "Sheckles",
+    "price": "10000000000",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/silver_lollipop",
+    "description": "Increases your pet's age by 5",
     "duration": "0",
     "last_seen": "0",
     "type": "gear"
@@ -2784,7 +3070,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/spice_spritzer_sprinkler",
     "description": "Greatly increases variant chance bonus for Pepper, Cacao, Ember Lily and Papaya. Lasts 2.5 minutes",
     "duration": "0",
-    "last_seen": "0",
+    "last_seen": "1756137602",
     "type": "gear"
   },
   {
@@ -2796,7 +3082,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/stalk_sprout_sprinkler",
     "description": "Greatly increases growth speed and wets Beanstalk, Bamboo and Mushroom. Lasts 2 minutes",
     "duration": "0",
-    "last_seen": "0",
+    "last_seen": "1756137602",
     "type": "gear"
   },
   {
@@ -2808,7 +3094,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/star_caller",
     "description": "",
     "duration": "0",
-    "last_seen": "1755662401",
+    "last_seen": "1756195202",
     "type": "gear"
   },
   {
@@ -2820,7 +3106,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/sweet_soaker_sprinkler",
     "description": "Increases size bonus for Watermelon, Pumpkin and Moon Melon. Lasts 5 minutes",
     "duration": "0",
-    "last_seen": "0",
+    "last_seen": "1756137602",
     "type": "gear"
   },
   {
@@ -2844,7 +3130,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/trading_ticket",
     "description": "Allows trading with other players!",
     "duration": "0",
-    "last_seen": "1755788621",
+    "last_seen": "1756230603",
     "type": "gear"
   },
   {
@@ -2868,7 +3154,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/tropical_mist_sprinkler",
     "description": "Increases growth speed and size bonus for Coconut, Dragon Fruit, Mango, Cacao & Watermelon. Lasts 4 minutes",
     "duration": "0",
-    "last_seen": "0",
+    "last_seen": "1756137602",
     "type": "gear"
   },
   {
@@ -2880,7 +3166,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/trowel",
     "description": "Moves plants. 5 uses",
     "duration": "0",
-    "last_seen": "1755788621",
+    "last_seen": "1756230603",
     "type": "gear"
   },
   {
@@ -2892,7 +3178,7 @@ const gears = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/watering_can",
     "description": "Speeds up plant growth. 10 uses",
     "duration": "0",
-    "last_seen": "1755788621",
+    "last_seen": "1756230603",
     "type": "gear"
   }
 ]
@@ -2919,7 +3205,7 @@ const eggs = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/bee_egg",
     "description": "It's a dog",
     "duration": "0",
-    "last_seen": "1755734401",
+    "last_seen": "1756123202",
     "type": "egg"
   },
   {
@@ -2931,7 +3217,7 @@ const eggs = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/bug_egg",
     "description": "It's a dog",
     "duration": "0",
-    "last_seen": "1755649801",
+    "last_seen": "1756090801",
     "type": "egg"
   },
   {
@@ -2943,7 +3229,7 @@ const eggs = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/common_egg",
     "description": "It's a dog",
     "duration": "0",
-    "last_seen": "1755786612",
+    "last_seen": "1756229402",
     "type": "egg"
   },
   {
@@ -2955,7 +3241,7 @@ const eggs = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/common_summer_egg",
     "description": "It's a dog",
     "duration": "0",
-    "last_seen": "1755786612",
+    "last_seen": "1756036803",
     "type": "egg"
   },
   {
@@ -2995,6 +3281,18 @@ const eggs = [
     "type": "egg"
   },
   {
+    "item_id": "legendary_egg",
+    "display_name": "Legendary Egg",
+    "rarity": "",
+    "currency": "Sheckles",
+    "price": "0",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/legendary_egg",
+    "description": "",
+    "duration": "0",
+    "last_seen": "1756211403",
+    "type": "egg"
+  },
+  {
     "item_id": "mythical_egg",
     "display_name": "Mythical Egg",
     "rarity": "Mythical",
@@ -3003,7 +3301,7 @@ const eggs = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/mythical_egg",
     "description": "It's a dog",
     "duration": "0",
-    "last_seen": "1755745201",
+    "last_seen": "1756020602",
     "type": "egg"
   },
   {
@@ -3027,7 +3325,7 @@ const eggs = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/paradise_egg",
     "description": "It's a dog",
     "duration": "0",
-    "last_seen": "1755753077",
+    "last_seen": "1755962347",
     "type": "egg"
   },
   {
@@ -3091,6 +3389,18 @@ const eggs = [
     "type": "egg"
   },
   {
+    "item_id": "rare_egg",
+    "display_name": "Rare Egg",
+    "rarity": "",
+    "currency": "Sheckles",
+    "price": "0",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/rare_egg",
+    "description": "",
+    "duration": "0",
+    "last_seen": "1756215002",
+    "type": "egg"
+  },
+  {
     "item_id": "rare_summer_egg",
     "display_name": "Rare Summer Egg",
     "rarity": "Rare",
@@ -3099,7 +3409,7 @@ const eggs = [
     "icon": "https://api.joshlei.com/v2/growagarden/image/rare_summer_egg",
     "description": "It's a dog",
     "duration": "0",
-    "last_seen": "1755761402",
+    "last_seen": "1756180803",
     "type": "egg"
   },
   {
@@ -3115,6 +3425,18 @@ const eggs = [
     "type": "egg"
   },
   {
+    "item_id": "uncommon_egg",
+    "display_name": "Uncommon Egg",
+    "rarity": "",
+    "currency": "Sheckles",
+    "price": "0",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/uncommon_egg",
+    "description": "",
+    "duration": "0",
+    "last_seen": "1756229402",
+    "type": "egg"
+  },
+  {
     "item_id": "zen_egg",
     "display_name": "Zen Egg",
     "rarity": "",
@@ -3127,7 +3449,6 @@ const eggs = [
     "type": "egg"
   }
 ]
-
 
 const cosmetics =[
   {
@@ -3211,7 +3532,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/axe_stump",
     "description": "Chopped, but never forgotten.",
     "duration": "0",
-    "last_seen": "1755633601",
+    "last_seen": "1756195202",
     "type": "cosmetic"
   },
   {
@@ -3359,6 +3680,42 @@ const cosmetics =[
     "type": "cosmetic"
   },
   {
+    "item_id": "bean_chair",
+    "display_name": "Bean Chair",
+    "rarity": "Common",
+    "currency": "Sheckles",
+    "price": "0",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/bean_chair",
+    "description": "That does not look too comfortable...",
+    "duration": "0",
+    "last_seen": "1756223139",
+    "type": "cosmetic"
+  },
+  {
+    "item_id": "bean_pool_table",
+    "display_name": "Bean Pool Table",
+    "rarity": "Legendary",
+    "currency": "Sheckles",
+    "price": "0",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/bean_pool_table",
+    "description": "The sounds of the pool beans rolling across the bean table doesn't sound too pleasant.",
+    "duration": "0",
+    "last_seen": "0",
+    "type": "cosmetic"
+  },
+  {
+    "item_id": "bean_sprout_float_light",
+    "display_name": "Bean Sprout Float Light",
+    "rarity": "Rare",
+    "currency": "Sheckles",
+    "price": "0",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/bean_sprout_float_light",
+    "description": "Lights out, bean sprout.",
+    "duration": "0",
+    "last_seen": "0",
+    "type": "cosmetic"
+  },
+  {
     "item_id": "bean_vine_pillar",
     "display_name": "Bean Vine Pillar",
     "rarity": "Uncommon",
@@ -3404,6 +3761,18 @@ const cosmetics =[
     "description": "Perfect for a nap high above the clouds, if you’re not scared of heights.",
     "duration": "0",
     "last_seen": "0",
+    "type": "cosmetic"
+  },
+  {
+    "item_id": "beanstalk_painting",
+    "display_name": "Beanstalk Painting",
+    "rarity": "Uncommon",
+    "currency": "Sheckles",
+    "price": "0",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/beanstalk_painting",
+    "description": "As you look at this, it may or may not remind you of that time you climbed up the beanstalk.",
+    "duration": "0",
+    "last_seen": "1756162803",
     "type": "cosmetic"
   },
   {
@@ -3667,7 +4036,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/blue_cooler_chest",
     "description": "Keeps your drinks perfectly chilled for those sunny hangouts with friends!",
     "duration": "0",
-    "last_seen": "1755604801",
+    "last_seen": "1756152001",
     "type": "cosmetic"
   },
   {
@@ -3799,7 +4168,19 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/bookshelf",
     "description": "Grow your mind while your garden grows.",
     "duration": "0",
-    "last_seen": "1755777603",
+    "last_seen": "1756224003",
+    "type": "cosmetic"
+  },
+  {
+    "item_id": "bouncy_mushroom",
+    "display_name": "Bouncy Mushroom",
+    "rarity": "Divine",
+    "currency": "Sheckles",
+    "price": "0",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/bouncy_mushroom",
+    "description": "BEAN BOING!",
+    "duration": "0",
+    "last_seen": "1756223139",
     "type": "cosmetic"
   },
   {
@@ -3811,7 +4192,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/brick_stack",
     "description": "Stacked with brickstar power.",
     "duration": "0",
-    "last_seen": "1755648002",
+    "last_seen": "1756224003",
     "type": "cosmetic"
   },
   {
@@ -3823,7 +4204,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/brown_bench",
     "description": "Sit, stay, bloom.",
     "duration": "0",
-    "last_seen": "1755734401",
+    "last_seen": "1756131086",
     "type": "cosmetic"
   },
   {
@@ -3835,7 +4216,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/brown_stone_pillar",
     "description": "Pillars of rock-solid style.",
     "duration": "0",
-    "last_seen": "1754740801",
+    "last_seen": "1756175787",
     "type": "cosmetic"
   },
   {
@@ -3847,7 +4228,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/brown_well",
     "description": "Make a wish—petals crossed!",
     "duration": "0",
-    "last_seen": "0",
+    "last_seen": "1755935498",
     "type": "cosmetic"
   },
   {
@@ -3979,7 +4360,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/clothesline",
     "description": "Hang your worries out to dry.",
     "duration": "0",
-    "last_seen": "0",
+    "last_seen": "1756110378",
     "type": "cosmetic"
   },
   {
@@ -4003,7 +4384,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/compost_bin",
     "description": "Trash to treasure, garden edition.",
     "duration": "0",
-    "last_seen": "1755705601",
+    "last_seen": "1756195202",
     "type": "cosmetic"
   },
   {
@@ -4111,7 +4492,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/curved_canopy",
     "description": "Shelter with arch-appeal.",
     "duration": "0",
-    "last_seen": "1755676803",
+    "last_seen": "1756186978",
     "type": "cosmetic"
   },
   {
@@ -4135,7 +4516,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/dark_stone_pillar",
     "description": "Pillars of rock-solid style.",
     "duration": "0",
-    "last_seen": "1755755333",
+    "last_seen": "1755964801",
     "type": "cosmetic"
   },
   {
@@ -4259,6 +4640,18 @@ const cosmetics =[
     "type": "cosmetic"
   },
   {
+    "item_id": "egg_incubator",
+    "display_name": "Egg Incubator",
+    "rarity": "Prismatic",
+    "currency": "Sheckles",
+    "price": "0",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/egg_incubator",
+    "description": "Increases Egg Hatch Time",
+    "duration": "0",
+    "last_seen": "0",
+    "type": "cosmetic"
+  },
+  {
     "item_id": "egg_podium",
     "display_name": "Egg Podium",
     "rarity": "Mythical",
@@ -4363,7 +4756,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/frog_fountain",
     "description": "Ribbit and relax.",
     "duration": "0",
-    "last_seen": "1755763201",
+    "last_seen": "1756224003",
     "type": "cosmetic"
   },
   {
@@ -4376,6 +4769,18 @@ const cosmetics =[
     "description": "Perfect for flipping pancakes or chasing garden gnomes.",
     "duration": "0",
     "last_seen": "0",
+    "type": "cosmetic"
+  },
+  {
+    "item_id": "giant_painting",
+    "display_name": "Giant Painting",
+    "rarity": "Uncommon",
+    "currency": "Sheckles",
+    "price": "0",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/giant_painting",
+    "description": "What'll it be, tiny?",
+    "duration": "0",
+    "last_seen": "1756223139",
     "type": "cosmetic"
   },
   {
@@ -4451,6 +4856,18 @@ const cosmetics =[
     "type": "cosmetic"
   },
   {
+    "item_id": "golden_goose_painting",
+    "display_name": "Golden Goose Painting",
+    "rarity": "Uncommon",
+    "currency": "Sheckles",
+    "price": "0",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/golden_goose_painting",
+    "description": "There is only one Golden Goose in the world! (Real)",
+    "duration": "0",
+    "last_seen": "1756206001",
+    "type": "cosmetic"
+  },
+  {
     "item_id": "golden_hotdog_statue",
     "display_name": "Golden Hotdog Statue",
     "rarity": "Mythical",
@@ -4458,6 +4875,18 @@ const cosmetics =[
     "price": "0",
     "icon": "https://api.joshlei.com/v2/growagarden/image/golden_hotdog_statue",
     "description": "The ULTIMATE symbol of status!",
+    "duration": "0",
+    "last_seen": "0",
+    "type": "cosmetic"
+  },
+  {
+    "item_id": "green_bean_memories",
+    "display_name": "Green Bean Memories",
+    "rarity": "Legendary",
+    "currency": "Sheckles",
+    "price": "0",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/green_bean_memories",
+    "description": "Where have you bean? Always green, never leave...",
     "duration": "0",
     "last_seen": "0",
     "type": "cosmetic"
@@ -4483,7 +4912,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/green_tractor",
     "description": "Crop-tastic cruising.",
     "duration": "0",
-    "last_seen": "1755633601",
+    "last_seen": "1756110378",
     "type": "cosmetic"
   },
   {
@@ -4496,6 +4925,18 @@ const cosmetics =[
     "description": "Pillars of rock-solid style.",
     "duration": "0",
     "last_seen": "1755273601",
+    "type": "cosmetic"
+  },
+  {
+    "item_id": "griffin_statue",
+    "display_name": "Griffin Statue",
+    "rarity": "Divine",
+    "currency": "Sheckles",
+    "price": "0",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/griffin_statue",
+    "description": "These glorious creatures create winds strong enough to knock even giants down to defend their nests set up on beanstalk leaves.",
+    "duration": "0",
+    "last_seen": "1756209603",
     "type": "cosmetic"
   },
   {
@@ -4543,7 +4984,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/hay_bale",
     "description": "Bale-out plan for bland gardens.",
     "duration": "0",
-    "last_seen": "1755777603",
+    "last_seen": "1756175787",
     "type": "cosmetic"
   },
   {
@@ -4771,7 +5212,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/lamp_post",
     "description": "Shine bright like a garden diamond.",
     "duration": "0",
-    "last_seen": "1755547205",
+    "last_seen": "1756223139",
     "type": "cosmetic"
   },
   {
@@ -4783,7 +5224,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/large_path_tile",
     "description": "Pave the way to floral fame.",
     "duration": "0",
-    "last_seen": "1755763201",
+    "last_seen": "1756224003",
     "type": "cosmetic"
   },
   {
@@ -4795,7 +5236,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/large_stone_pad",
     "description": "Rock your garden's world.",
     "duration": "0",
-    "last_seen": "1755734401",
+    "last_seen": "1756036803",
     "type": "cosmetic"
   },
   {
@@ -4807,7 +5248,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/large_wood_arbour",
     "description": "Walk this way—blossom that way.",
     "duration": "0",
-    "last_seen": "1755504001",
+    "last_seen": "1756080002",
     "type": "cosmetic"
   },
   {
@@ -4819,7 +5260,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/large_wood_flooring",
     "description": "Floors so nice, you wood not believe it.",
     "duration": "0",
-    "last_seen": "1755724376",
+    "last_seen": "1756223139",
     "type": "cosmetic"
   },
   {
@@ -4831,7 +5272,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/large_wood_table",
     "description": "Gather 'round the stump speech.",
     "duration": "0",
-    "last_seen": "1755230401",
+    "last_seen": "1755948037",
     "type": "cosmetic"
   },
   {
@@ -4843,7 +5284,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/lemonade_stand",
     "description": "Who doesn't like a glass of fresh lemonade",
     "duration": "0",
-    "last_seen": "1755724376",
+    "last_seen": "1756195202",
     "type": "cosmetic"
   },
   {
@@ -4867,7 +5308,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/light_on_ground",
     "description": "Bright ideas start here.",
     "duration": "0",
-    "last_seen": "1755702053",
+    "last_seen": "1756224003",
     "type": "cosmetic"
   },
   {
@@ -4879,7 +5320,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/log",
     "description": "The OG garden decor.",
     "duration": "0",
-    "last_seen": "1755763201",
+    "last_seen": "1756143783",
     "type": "cosmetic"
   },
   {
@@ -4891,7 +5332,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/log_bench",
     "description": "Take a seat and branch out.",
     "duration": "0",
-    "last_seen": "1755755333",
+    "last_seen": "1756175787",
     "type": "cosmetic"
   },
   {
@@ -4915,7 +5356,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/long_stone_table",
     "description": "Dine rock-style.",
     "duration": "0",
-    "last_seen": "1755734401",
+    "last_seen": "1756131086",
     "type": "cosmetic"
   },
   {
@@ -4939,7 +5380,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/market_cart",
     "description": "Always great prices!",
     "duration": "0",
-    "last_seen": "1755648002",
+    "last_seen": "1756036803",
     "type": "cosmetic"
   },
   {
@@ -4963,7 +5404,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/medium_circle_tile",
     "description": "Going in circles never looked so good.",
     "duration": "0",
-    "last_seen": "1755648002",
+    "last_seen": "1756024761",
     "type": "cosmetic"
   },
   {
@@ -4975,7 +5416,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/medium_path_tile",
     "description": "Pave the way to floral fame.",
     "duration": "0",
-    "last_seen": "1755777603",
+    "last_seen": "1756152001",
     "type": "cosmetic"
   },
   {
@@ -4987,7 +5428,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/medium_stone_table",
     "description": "Dine rock-style.",
     "duration": "0",
-    "last_seen": "1755619201",
+    "last_seen": "1756223139",
     "type": "cosmetic"
   },
   {
@@ -4999,7 +5440,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/medium_wood_flooring",
     "description": "Floors so nice, you wood not believe it.",
     "duration": "0",
-    "last_seen": "1755734401",
+    "last_seen": "1756224003",
     "type": "cosmetic"
   },
   {
@@ -5023,7 +5464,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/mini_tv",
     "description": "Binge-watch your plants grow.",
     "duration": "0",
-    "last_seen": "1755777603",
+    "last_seen": "1756068278",
     "type": "cosmetic"
   },
   {
@@ -5071,7 +5512,19 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/mower",
     "description": "Not to be confused with the other Moa",
     "duration": "0",
-    "last_seen": "1755576000",
+    "last_seen": "1756152001",
+    "type": "cosmetic"
+  },
+  {
+    "item_id": "mutation_machine_booster",
+    "display_name": "Mutation Machine Booster",
+    "rarity": "Prismatic",
+    "currency": "Sheckles",
+    "price": "0",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/mutation_machine_booster",
+    "description": "Reduces the time of the pet mutation machine",
+    "duration": "0",
+    "last_seen": "0",
     "type": "cosmetic"
   },
   {
@@ -5119,7 +5572,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/orange_umbrella",
     "description": "Citrusy shade for sunny days.",
     "duration": "0",
-    "last_seen": "1755755333",
+    "last_seen": "1756094402",
     "type": "cosmetic"
   },
   {
@@ -5154,6 +5607,18 @@ const cosmetics =[
     "price": "0",
     "icon": "https://api.joshlei.com/v2/growagarden/image/panda_gnome",
     "description": "You are gnot going to like me when grumpy!",
+    "duration": "0",
+    "last_seen": "0",
+    "type": "cosmetic"
+  },
+  {
+    "item_id": "pet_incubator",
+    "display_name": "Pet Incubator",
+    "rarity": "Prismatic",
+    "currency": "Sheckles",
+    "price": "0",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/pet_incubator",
+    "description": "Increases Pet EXP gain",
     "duration": "0",
     "last_seen": "0",
     "type": "cosmetic"
@@ -5323,7 +5788,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/rake",
     "description": "Tools with cult-ivation.",
     "duration": "0",
-    "last_seen": "1755705601",
+    "last_seen": "1756143783",
     "type": "cosmetic"
   },
   {
@@ -5371,7 +5836,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/red_cooler_chest",
     "description": "Keeps your drinks perfectly chilled for those sunny hangouts with friends!",
     "duration": "0",
-    "last_seen": "1755648002",
+    "last_seen": "1756131086",
     "type": "cosmetic"
   },
   {
@@ -5395,7 +5860,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/red_hammock",
     "description": "A great spot for a nap, now in red!",
     "duration": "0",
-    "last_seen": "1755702053",
+    "last_seen": "1756094402",
     "type": "cosmetic"
   },
   {
@@ -5431,7 +5896,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/red_pottery",
     "description": "Clay-zy for garden decor.",
     "duration": "0",
-    "last_seen": "0",
+    "last_seen": "1756152001",
     "type": "cosmetic"
   },
   {
@@ -5467,7 +5932,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/red_tractor",
     "description": "Crop-tastic cruising.",
     "duration": "0",
-    "last_seen": "1755432001",
+    "last_seen": "1755935498",
     "type": "cosmetic"
   },
   {
@@ -5479,7 +5944,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/red_well",
     "description": "Make a wish—petals crossed!",
     "duration": "0",
-    "last_seen": "0",
+    "last_seen": "1756068278",
     "type": "cosmetic"
   },
   {
@@ -5491,7 +5956,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/ring_walkway",
     "description": "Walk in circles, but make it fashion.",
     "duration": "0",
-    "last_seen": "0",
+    "last_seen": "1755994238",
     "type": "cosmetic"
   },
   {
@@ -5515,7 +5980,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/rock_pile",
     "description": "Rocks with sedimental value.",
     "duration": "0",
-    "last_seen": "1755648002",
+    "last_seen": "1756186978",
     "type": "cosmetic"
   },
   {
@@ -5527,7 +5992,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/round_metal_arbour",
     "description": "Walk this way—blossom that way.",
     "duration": "0",
-    "last_seen": "1755532803",
+    "last_seen": "1755838644",
     "type": "cosmetic"
   },
   {
@@ -5599,7 +6064,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/shovel",
     "description": "Tools with cult-ivation.",
     "duration": "0",
-    "last_seen": "1755518403",
+    "last_seen": "1756143783",
     "type": "cosmetic"
   },
   {
@@ -5611,7 +6076,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/shovel_grave",
     "description": "RIP, dear tool—you dug your last hole.",
     "duration": "0",
-    "last_seen": "1755662401",
+    "last_seen": "1756223139",
     "type": "cosmetic"
   },
   {
@@ -5683,7 +6148,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/small_circle_tile",
     "description": "Going in circles never looked so good.",
     "duration": "0",
-    "last_seen": "1755777603",
+    "last_seen": "1756110378",
     "type": "cosmetic"
   },
   {
@@ -5695,7 +6160,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/small_path_tile",
     "description": "Pave the way to floral fame.",
     "duration": "0",
-    "last_seen": "1755763201",
+    "last_seen": "1756224003",
     "type": "cosmetic"
   },
   {
@@ -5707,7 +6172,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/small_stone_lantern",
     "description": "Glow stoned.",
     "duration": "0",
-    "last_seen": "1755705601",
+    "last_seen": "1756186978",
     "type": "cosmetic"
   },
   {
@@ -5719,7 +6184,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/small_stone_pad",
     "description": "Rock your garden's world.",
     "duration": "0",
-    "last_seen": "1755590401",
+    "last_seen": "1756094402",
     "type": "cosmetic"
   },
   {
@@ -5731,7 +6196,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/small_stone_table",
     "description": "Dine rock-style.",
     "duration": "0",
-    "last_seen": "1755734401",
+    "last_seen": "1755982274",
     "type": "cosmetic"
   },
   {
@@ -5755,7 +6220,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/small_wood_flooring",
     "description": "Floors so nice, you wood not believe it.",
     "duration": "0",
-    "last_seen": "1755702053",
+    "last_seen": "1756175787",
     "type": "cosmetic"
   },
   {
@@ -5767,7 +6232,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/small_wood_table",
     "description": "Gather 'round the stump speech.",
     "duration": "0",
-    "last_seen": "1755425795",
+    "last_seen": "1756131086",
     "type": "cosmetic"
   },
   {
@@ -5843,6 +6308,18 @@ const cosmetics =[
     "type": "cosmetic"
   },
   {
+    "item_id": "steal_a_character_tombstone",
+    "display_name": "Steal a Character Tombstone",
+    "rarity": "Divine",
+    "currency": "Sheckles",
+    "price": "0",
+    "icon": "https://api.joshlei.com/v2/growagarden/image/steal_a_character_tombstone",
+    "description": "Go BIG or go fix feet under",
+    "duration": "0",
+    "last_seen": "0",
+    "type": "cosmetic"
+  },
+  {
     "item_id": "steven_gnome",
     "display_name": "Steven Gnome",
     "rarity": "Rare",
@@ -5887,7 +6364,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/stone_lantern",
     "description": "Glow stoned.",
     "duration": "0",
-    "last_seen": "1755734401",
+    "last_seen": "1756195202",
     "type": "cosmetic"
   },
   {
@@ -6007,7 +6484,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/tiki_bar",
     "description": "The one stop place to get all your cool drinks and refreshments.",
     "duration": "0",
-    "last_seen": "1755777603",
+    "last_seen": "1756143783",
     "type": "cosmetic"
   },
   {
@@ -6019,7 +6496,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/torch",
     "description": "Light up the night—flamingly.",
     "duration": "0",
-    "last_seen": "1755724376",
+    "last_seen": "1756143783",
     "type": "cosmetic"
   },
   {
@@ -6115,7 +6592,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/viney_beam",
     "description": "Nature's way of saying, 'Hang in there.'",
     "duration": "0",
-    "last_seen": "0",
+    "last_seen": "1756223139",
     "type": "cosmetic"
   },
   {
@@ -6127,7 +6604,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/viney_ring_walkway",
     "description": "Step into the vine zone.",
     "duration": "0",
-    "last_seen": "0",
+    "last_seen": "1755994238",
     "type": "cosmetic"
   },
   {
@@ -6151,7 +6628,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/water_trough",
     "description": "Hydration station for your green nation.",
     "duration": "0",
-    "last_seen": "1755633601",
+    "last_seen": "1756068278",
     "type": "cosmetic"
   },
   {
@@ -6163,7 +6640,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/wheelbarrow",
     "description": "Hauling blooms and dad jokes since forever.",
     "duration": "0",
-    "last_seen": "1755172801",
+    "last_seen": "1756224003",
     "type": "cosmetic"
   },
   {
@@ -6187,7 +6664,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/white_bench",
     "description": "Sit, stay, bloom.",
     "duration": "0",
-    "last_seen": "0",
+    "last_seen": "1756186978",
     "type": "cosmetic"
   },
   {
@@ -6199,7 +6676,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/white_pottery",
     "description": "Clay-zy for garden decor.",
     "duration": "0",
-    "last_seen": "0",
+    "last_seen": "1756110378",
     "type": "cosmetic"
   },
   {
@@ -6211,7 +6688,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/wood_fence",
     "description": "Good fences make good gardeners.",
     "duration": "0",
-    "last_seen": "1755705601",
+    "last_seen": "1756223139",
     "type": "cosmetic"
   },
   {
@@ -6223,7 +6700,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/wood_pile",
     "description": "Logging some serious style points.",
     "duration": "0",
-    "last_seen": "1755777603",
+    "last_seen": "1756131086",
     "type": "cosmetic"
   },
   {
@@ -6295,7 +6772,7 @@ const cosmetics =[
     "icon": "https://api.joshlei.com/v2/growagarden/image/yellow_umbrella",
     "description": "Sunshine on a stick.",
     "duration": "0",
-    "last_seen": "1755724376",
+    "last_seen": "1756195202",
     "type": "cosmetic"
   },
   {
@@ -6381,3 +6858,242 @@ export {
     eggs,
     cosmetics
 }
+
+
+const newSeeds = [
+  {
+  "item_id": "calla_lily",
+  "display_name": "Calla Lily",
+  "rarity": "Legendary",
+  "currency": "Sheckles",
+  "price": "100000000000000000",
+  "icon": "https://api.joshlei.com/v2/growagarden/image/calla_lily",
+  "description": "",
+  "duration": "0",
+  "last_seen": "0",
+  "type": "seed"
+},
+{
+  "item_id": "willowberry",
+  "display_name": "Willowberry",
+  "rarity": "Legendary",
+  "currency": "Sheckles",
+  "price": "100000000000000000",
+  "icon": "https://api.joshlei.com/v2/growagarden/image/willowberry",
+  "description": "",
+  "duration": "0",
+  "last_seen": "0",
+  "type": "seed"
+},
+{
+  "item_id": "snaparino_beanarini",
+  "display_name": "Snaparino Beanarini",
+  "rarity": "Divine",
+  "currency": "Sheckles",
+  "price": "10000000",
+  "icon": "https://api.joshlei.com/v2/growagarden/image/snaparino_beanarini",
+  "description": "",
+  "duration": "0",
+  "last_seen": "0",
+  "type": "seed"
+},
+{
+  "item_id": "flare_melon",
+  "display_name": "Flare Melon",
+  "rarity": "Rare",
+  "currency": "Sheckles",
+  "price": "100000000000000000",
+  "icon": "https://api.joshlei.com/v2/growagarden/image/flare_melon",
+  "description": "",
+  "duration": "0",
+  "last_seen": "1756213214",
+  "type": "seed"
+},
+{
+  "item_id": "glowpod",
+  "display_name": "Glowpod",
+  "rarity": "Uncommon",
+  "currency": "Sheckles",
+  "price": "100000000000000000",
+  "icon": "https://api.joshlei.com/v2/growagarden/image/glowpod",
+  "description": "",
+  "duration": "0",
+  "last_seen": "1756224003",
+  "type": "seed"
+},
+{
+  "item_id": "crown_of_thorns",
+  "display_name": "Crown of Thorns",
+  "rarity": "Uncommon",
+  "currency": "Sheckles",
+  "price": "100000000000000000",
+  "icon": "https://api.joshlei.com/v2/growagarden/image/crown_of_thorns",
+  "description": "",
+  "duration": "0",
+  "last_seen": "0",
+  "type": "seed"
+},
+{
+  "item_id": "cyclamen",
+  "display_name": "Cyclamen",
+  "rarity": "Divine",
+  "currency": "Sheckles",
+  "price": "100000000000000000",
+  "icon": "https://api.joshlei.com/v2/growagarden/image/cyclamen",
+  "description": "",
+  "duration": "0",
+  "last_seen": "0",
+  "type": "seed"
+}
+]
+
+const newGears = [
+  {
+  "item_id": "skyroot_chest",
+  "display_name": "Skyroot Chest",
+  "rarity": "",
+  "currency": "Sheckles",
+  "price": "0",
+  "icon": "https://api.joshlei.com/v2/growagarden/image/skyroot_chest",
+  "description": "",
+  "duration": "0",
+  "last_seen": "1756224003",
+  "type": "seedpack"
+},
+{
+  "item_id": "can_of_beans",
+  "display_name": "Can Of Beans",
+  "rarity": "Common",
+  "currency": "Sheckles",
+  "price": "1",
+  "icon": "https://api.joshlei.com/v2/growagarden/image/can_of_beans",
+  "description": "For when you need a little boost in life...",
+  "duration": "0",
+  "last_seen": "1756224003",
+  "type": "gear"
+},
+{
+  "item_id": "cleansing_pet_shard",
+  "display_name": "Cleansing Pet Shard",
+  "rarity": "Divine",
+  "currency": "Sheckles",
+  "price": "30000000",
+  "icon": "https://api.joshlei.com/v2/growagarden/image/cleansing_pet_shard",
+  "description": "Bring your pet back to normal!",
+  "duration": "0",
+  "last_seen": "1756220111",
+  "type": "gear"
+},
+{
+  "item_id": "pet_shard_giantbean",
+  "display_name": "Pet Shard GiantBean",
+  "rarity": "Divine",
+  "currency": "Sheckles",
+  "price": "10000000000000",
+  "icon": "https://api.joshlei.com/v2/growagarden/image/pet_shard_giantbean",
+  "description": "Make your pet turn into a Giant Bean!",
+  "duration": "0",
+  "last_seen": "1756144802",
+  "type": "gear"
+},
+{
+  "item_id": "pet_shard_rainbow",
+  "display_name": "Pet Shard Rainbow",
+  "rarity": "Divine",
+  "currency": "Sheckles",
+  "price": "10000000000000",
+  "icon": "https://api.joshlei.com/v2/growagarden/image/pet_shard_rainbow",
+  "description": "Make your pet shine bright in rainbow light!",
+  "duration": "0",
+  "last_seen": "0",
+  "type": "gear"
+},
+{
+  "item_id": "pet_shard_gold",
+  "display_name": "Pet Shard Gold",
+  "rarity": "Divine",
+  "currency": "Sheckles",
+  "price": "10000000000000",
+  "icon": "https://api.joshlei.com/v2/growagarden/image/pet_shard_gold",
+  "description": "Make your pet shine like the sun!",
+  "duration": "0",
+  "last_seen": "0",
+  "type": "gear"
+},
+{
+  "item_id": "pet_shard_silver",
+  "display_name": "Pet Shard Silver",
+  "rarity": "Divine",
+  "currency": "Sheckles",
+  "price": "10000000000000",
+  "icon": "https://api.joshlei.com/v2/growagarden/image/pet_shard_silver",
+  "description": "Polish up your pet and make it silver!",
+  "duration": "0",
+  "last_seen": "0",
+  "type": "gear"
+},
+{
+  "item_id": "mega_lollipop",
+  "display_name": "Mega Lollipop",
+  "rarity": "Prismatic",
+  "currency": "Sheckles",
+  "price": "10000000000",
+  "icon": "https://api.joshlei.com/v2/growagarden/image/mega_lollipop",
+  "description": "Increases your pet's age by 100!",
+  "duration": "0",
+  "last_seen": "0",
+  "type": "gear"
+},
+{
+  "item_id": "gold_lollipop",
+  "display_name": "Gold Lollipop",
+  "rarity": "Prismatic",
+  "currency": "Sheckles",
+  "price": "10000000000",
+  "icon": "https://api.joshlei.com/v2/growagarden/image/gold_lollipop",
+  "description": "Increases your pet's age by 10",
+  "duration": "0",
+  "last_seen": "0",
+  "type": "gear"
+},
+{
+  "item_id": "silver_lollipop",
+  "display_name": "Silver Lollipop",
+  "rarity": "Prismatic",
+  "currency": "Sheckles",
+  "price": "10000000000",
+  "icon": "https://api.joshlei.com/v2/growagarden/image/silver_lollipop",
+  "description": "Increases your pet's age by 5",
+  "duration": "0",
+  "last_seen": "0",
+  "type": "gear"
+}
+]
+
+const newCosmetics = [
+  {
+  "item_id": "egg_incubator",
+  "display_name": "Egg Incubator",
+  "rarity": "Prismatic",
+  "currency": "Sheckles",
+  "price": "0",
+  "icon": "https://api.joshlei.com/v2/growagarden/image/egg_incubator",
+  "description": "Increases Egg Hatch Time",
+  "duration": "0",
+  "last_seen": "0",
+  "type": "cosmetic"
+},
+{
+  "item_id": "mutation_machine_booster",
+  "display_name": "Mutation Machine Booster",
+  "rarity": "Prismatic",
+  "currency": "Sheckles",
+  "price": "0",
+  "icon": "https://api.joshlei.com/v2/growagarden/image/mutation_machine_booster",
+  "description": "Reduces the time of the pet mutation machine",
+  "duration": "0",
+  "last_seen": "0",
+  "type": "cosmetic"
+},
+
+]

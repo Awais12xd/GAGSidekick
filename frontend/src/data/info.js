@@ -1,5 +1,230 @@
 
-export const items =[
+export const items = [
+   {
+    "petName": "Golden Goose",
+    "slug": "golden-goose",
+    "url": "https://www.game.guide/golden-goose-value-grow-a-garden",
+    "triedUrls": [
+      {
+        "url": "https://www.game.guide/golden-goose-value-in-grow-a-garden",
+        "ok": false,
+        "error": "404 Not Found"
+      },
+      {
+        "url": "https://www.game.guide/golden-goose-value-grow-a-garden",
+        "ok": true
+      }
+    ],
+    "fetchedAt": "2025-08-28T14:23:03.253Z",
+    "title": "Golden Goose Value in Grow a Garden – What’s it worth?",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 7e+21,
+    "demandRating": "6/10",
+    "rarity": "Divine",
+    "lastUpdated": "27 August 2025",
+    "image": "https://api.joshlei.com/v2/growagarden/image/golden_goose",
+    "fetchError": null
+  },
+  {
+    "petName": "mandrake",
+    "slug": "mandrake",
+    "url": "https://www.game.guide/mandrake-value-grow-a-garden",
+    "triedUrls": [
+      {
+        "url": "https://www.game.guide/mandrake-value-in-grow-a-garden",
+        "ok": false,
+        "error": "404 Not Found"
+      },
+      {
+        "url": "https://www.game.guide/mandrake-value-grow-a-garden",
+        "ok": true
+      }
+    ],
+    "fetchedAt": "2025-08-28T14:23:07.060Z",
+    "title": "Mandrake Value – Sell Price in Grow a Garden",
+    "description": "Posted on Last updated: 23 August 2025",
+    "price": 1000000000000000000,
+    "demandRating": null,
+    "rarity": "Rare",
+    "lastUpdated": "23 August 2025",
+    "image": "https://api.joshlei.com/v2/growagarden/image/mandrake",
+    "fetchError": null
+  },
+  {
+    "petName": "elk",
+    "slug": "elk",
+    "url": "https://www.game.guide/elk-value-grow-a-garden",
+    "triedUrls": [
+      {
+        "url": "https://www.game.guide/elk-value-in-grow-a-garden",
+        "ok": false,
+        "error": "404 Not Found"
+      },
+      {
+        "url": "https://www.game.guide/elk-value-grow-a-garden",
+        "ok": true
+      }
+    ],
+    "fetchedAt": "2025-08-28T14:23:10.643Z",
+    "title": "Elk Value in Grow a Garden: What’s it worth?",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 1000000000000000000,
+    "demandRating": "1/10",
+    "rarity": "Uncommon",
+    "lastUpdated": "27 August 2025",
+    "image": "https://api.joshlei.com/v2/growagarden/image/elk",
+    "fetchError": null
+  },
+  {
+    "petName": "Lemon Lion",
+    "slug": "lemon-lion",
+    "url": "https://www.game.guide/lemon-lion-value-grow-a-garden",
+    "triedUrls": [
+      {
+        "url": "https://www.game.guide/lemon-lion-value-in-grow-a-garden",
+        "ok": false,
+        "error": "404 Not Found"
+      },
+      {
+        "url": "https://www.game.guide/lemon-lion-value-grow-a-garden",
+        "ok": true
+      }
+    ],
+    "fetchedAt": "2025-08-28T14:23:14.909Z",
+    "title": "Lemon Lion Value in Grow a Garden: What’s it worth?",
+    "description": "Posted on Last updated: 24 August 2025",
+    "price": 5e+21,
+    "demandRating": "8/10",
+    "rarity": "Mythical",
+    "lastUpdated": "24 August 2025",
+    "image": "https://api.joshlei.com/v2/growagarden/image/lemon_lion",
+    "fetchError": null
+  },
+  {
+    "petName": "Green Bean",
+    "slug": "green-bean",
+    "url": "https://www.game.guide/green-bean-value-grow-a-garden",
+    "triedUrls": [
+      {
+        "url": "https://www.game.guide/green-bean-value-in-grow-a-garden",
+        "ok": false,
+        "error": "404 Not Found"
+      },
+      {
+        "url": "https://www.game.guide/green-bean-value-grow-a-garden",
+        "ok": true
+      }
+    ],
+    "fetchedAt": "2025-08-28T14:23:18.871Z",
+    "title": "Green Bean Value in Grow a Garden: What’s it worth?",
+    "description": "Posted on Last updated: 25 August 2025",
+    "price": 5e+21,
+    "demandRating": "8/10",
+    "rarity": "Divine",
+    "lastUpdated": "25 August 2025",
+    "image": "https://api.joshlei.com/v2/growagarden/image/green_bean",
+    "fetchError": null
+  },
+  {
+    "petName": "Apple Gazelle",
+    "slug": "apple-gazelle",
+    "url": "https://www.game.guide/apple-gazelle-value-grow-a-garden",
+    "triedUrls": [
+      {
+        "url": "https://www.game.guide/apple-gazelle-value-in-grow-a-garden",
+        "ok": false,
+        "error": "404 Not Found"
+      },
+      {
+        "url": "https://www.game.guide/apple-gazelle-value-grow-a-garden",
+        "ok": true
+      }
+    ],
+    "fetchedAt": "2025-08-28T14:23:22.852Z",
+    "title": "Apple Gazelle Value in Grow a Garden: What’s it worth?",
+    "description": "Posted on Last updated: 25 August 2025",
+    "price": 3e+21,
+    "demandRating": "6/10",
+    "rarity": "Mythical",
+    "lastUpdated": "25 August 2025",
+    "image": "https://api.joshlei.com/v2/growagarden/image/apple_gazelle",
+    "fetchError": null
+  },
+  {
+    "petName": "Peach Wasp",
+    "slug": "peach-wasp",
+    "url": "https://www.game.guide/peach-wasp-value-grow-a-garden",
+    "triedUrls": [
+      {
+        "url": "https://www.game.guide/peach-wasp-value-in-grow-a-garden",
+        "ok": false,
+        "error": "404 Not Found"
+      },
+      {
+        "url": "https://www.game.guide/peach-wasp-value-grow-a-garden",
+        "ok": true
+      }
+    ],
+    "fetchedAt": "2025-08-28T14:23:26.665Z",
+    "title": "Peach Wasp Value in Grow a Garden: What’s it worth?",
+    "description": "Posted on Last updated: 25 August 2025",
+    "price": 3e+21,
+    "demandRating": "6/10",
+    "rarity": "Mythical",
+    "lastUpdated": "25 August 2025",
+    "image": "https://api.joshlei.com/v2/growagarden/image/peach_wasp",
+    "fetchError": null
+  },
+  {
+    "petName": "Griffin",
+    "slug": "griffin",
+    "url": "https://www.game.guide/griffin-value-grow-a-garden",
+    "triedUrls": [
+      {
+        "url": "https://www.game.guide/griffin-value-in-grow-a-garden",
+        "ok": false,
+        "error": "404 Not Found"
+      },
+      {
+        "url": "https://www.game.guide/griffin-value-grow-a-garden",
+        "ok": true
+      }
+    ],
+    "fetchedAt": "2025-08-28T14:23:30.593Z",
+    "title": "Griffin Value in Grow a Garden: What’s it worth?",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 7e+21,
+    "demandRating": "6/10",
+    "rarity": "Divine",
+    "lastUpdated": "27 August 2025",
+    "image": "https://api.joshlei.com/v2/growagarden/image/griffin",
+    "fetchError": null
+  },
+  {
+    "petName": "Gnome",
+    "slug": "gnome",
+    "url": "https://www.game.guide/gnome-value-grow-a-garden",
+    "triedUrls": [
+      {
+        "url": "https://www.game.guide/gnome-value-in-grow-a-garden",
+        "ok": false,
+        "error": "404 Not Found"
+      },
+      {
+        "url": "https://www.game.guide/gnome-value-grow-a-garden",
+        "ok": true
+      }
+    ],
+    "fetchedAt": "2025-08-28T14:23:34.583Z",
+    "title": "Gnome Value in Grow a Garden: What’s it worth?",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 1e+21,
+    "demandRating": "5/10",
+    "rarity": "Legendary",
+    "lastUpdated": "27 August 2025",
+    "image": "https://api.joshlei.com/v2/growagarden/image/gnome",
+    "fetchError": null
+  },
   {
     "petName": "Ankylosaurus",
     "slug": "ankylosaurus",
@@ -15,13 +240,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T00:59:48.813Z",
+    "fetchedAt": "2025-08-28T14:08:17.286Z",
     "title": "Ankylosaurus Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 300000000000000000,
     "demandRating": "3/10",
     "rarity": "Mythical",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/ankylosaurus",
     "fetchError": null
   },
@@ -40,13 +265,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T00:59:54.350Z",
+    "fetchedAt": "2025-08-28T14:08:25.379Z",
     "title": "Axolotl Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 400000000000000000,
     "demandRating": "3/10",
     "rarity": "Mythical",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/axolotl",
     "fetchError": null
   },
@@ -65,13 +290,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T00:59:58.201Z",
+    "fetchedAt": "2025-08-28T14:08:39.534Z",
     "title": "Bacon Pig Value in Grow a Garden – What’s it worth?",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 25 August 2025",
     "price": 100000000000000000,
     "demandRating": "2/10",
     "rarity": "Uncommon",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "25 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/bacon_pig",
     "fetchError": null
   },
@@ -90,13 +315,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:00:02.303Z",
+    "fetchedAt": "2025-08-28T14:08:45.190Z",
     "title": "Bagel Bunny Value in Grow a Garden",
-    "description": "Posted on Last updated: 20 August 2025",
-    "price": 1000000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 5000000000000000,
     "demandRating": "1/10",
     "rarity": "Common",
-    "lastUpdated": "20 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/bagel_bunny",
     "fetchError": null
   },
@@ -115,13 +340,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:00:06.260Z",
+    "fetchedAt": "2025-08-28T14:08:53.990Z",
     "title": "Bald Eagle Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 1e+21,
-    "demandRating": "8/10",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 2e+21,
+    "demandRating": "3/10",
     "rarity": "Legendary",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/bald_eagle",
     "fetchError": null
   },
@@ -145,13 +370,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:00:10.178Z",
+    "fetchedAt": "2025-08-28T14:09:06.530Z",
     "title": "Bear Bee in Grow a Garden",
-    "description": "Posted on Last updated: 15 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 500000000000000000,
     "demandRating": "6/10",
     "rarity": "Mythical",
-    "lastUpdated": "15 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/bear_bee",
     "fetchError": null
   },
@@ -170,13 +395,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:00:14.926Z",
+    "fetchedAt": "2025-08-28T14:09:15.206Z",
     "title": "Bee Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 500000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 5000000000000000,
     "demandRating": "2/10",
     "rarity": "Common",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/bee",
     "fetchError": null
   },
@@ -195,13 +420,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:00:19.045Z",
+    "fetchedAt": "2025-08-28T14:09:21.052Z",
     "title": "Black Bunny Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 50000000,
-    "demandRating": "0/10",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 5000000000000000,
+    "demandRating": "1/10",
     "rarity": "Uncommon",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/black_bunny",
     "fetchError": null
   },
@@ -220,13 +445,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:00:22.985Z",
+    "fetchedAt": "2025-08-28T14:09:26.997Z",
     "title": "Blood Hedgehog Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 1e+21,
-    "demandRating": "8/10",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 3e+21,
+    "demandRating": "6/10",
     "rarity": "Legendary",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/blood_hedgehog",
     "fetchError": null
   },
@@ -245,13 +470,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:00:26.957Z",
+    "fetchedAt": "2025-08-28T14:09:37.596Z",
     "title": "Blood Kiwi Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 1e+21,
-    "demandRating": "8/10",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 3e+21,
+    "demandRating": "6/10",
     "rarity": "Legendary",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/blood_kiwi",
     "fetchError": null
   },
@@ -270,13 +495,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:00:30.780Z",
+    "fetchedAt": "2025-08-28T14:09:47.829Z",
     "title": "Blood Owl Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 1e+21,
-    "demandRating": "8/10",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 5e+21,
+    "demandRating": "6/10",
     "rarity": "Divine",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/blood_owl",
     "fetchError": null
   },
@@ -295,13 +520,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:00:34.948Z",
+    "fetchedAt": "2025-08-28T14:09:56.368Z",
     "title": "Brontosaurus Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 3e+21,
-    "demandRating": "8/10",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 1e+22,
+    "demandRating": "7/10",
     "rarity": "Mythical",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/brontosaurus",
     "fetchError": null
   },
@@ -320,13 +545,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:00:38.769Z",
+    "fetchedAt": "2025-08-28T14:10:04.869Z",
     "title": "Brown Mouse Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 500000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 5000000000000000,
     "demandRating": "2/10",
     "rarity": "Mythical",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/brown_mouse",
     "fetchError": null
   },
@@ -345,13 +570,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:00:42.629Z",
+    "fetchedAt": "2025-08-28T14:10:12.136Z",
     "title": "Bunny Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 250000,
-    "demandRating": "0/10",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 500000000000000000,
+    "demandRating": "1/10",
     "rarity": "Common",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/bunny",
     "fetchError": null
   },
@@ -370,13 +595,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:00:46.451Z",
+    "fetchedAt": "2025-08-28T14:10:27.901Z",
     "title": "Butterfly Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 4.5e+22,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 1.5e+23,
     "demandRating": "8/10",
     "rarity": "Mythical",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/butterfly",
     "fetchError": null
   },
@@ -395,13 +620,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:00:50.429Z",
+    "fetchedAt": "2025-08-28T14:10:44.405Z",
     "title": "Capybara Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 250000000000000000,
     "demandRating": "5/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/capybara",
     "fetchError": null
   },
@@ -420,13 +645,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:00:54.279Z",
+    "fetchedAt": "2025-08-28T14:10:53.402Z",
     "title": "Cat Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 50000000,
-    "demandRating": "0/10",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 5000000000000000,
+    "demandRating": "1/10",
     "rarity": "Uncommon",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/cat",
     "fetchError": null
   },
@@ -445,13 +670,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:00:58.158Z",
+    "fetchedAt": "2025-08-28T14:11:01.498Z",
     "title": "Caterpillar Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 2500000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 20000000000000000,
     "demandRating": "3/10",
     "rarity": "Mythical",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/caterpillar",
     "fetchError": null
   },
@@ -470,13 +695,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:01:02.188Z",
+    "fetchedAt": "2025-08-28T14:11:08.183Z",
     "title": "Chicken Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 50000000,
-    "demandRating": "0/10",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 5000000000000000,
+    "demandRating": "1/10",
     "rarity": "Uncommon",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/chicken",
     "fetchError": null
   },
@@ -495,13 +720,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:01:06.056Z",
+    "fetchedAt": "2025-08-28T14:11:24.426Z",
     "title": "Chicken Zombie Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 6e+21,
+    "description": "Posted on Last updated: 25 August 2025",
+    "price": 3e+21,
     "demandRating": "5/10",
     "rarity": "Mythical",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "25 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/chicken_zombie",
     "fetchError": null
   },
@@ -520,13 +745,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:01:09.709Z",
+    "fetchedAt": "2025-08-28T14:11:45.916Z",
     "title": "Cooked Owl Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 1e+21,
-    "demandRating": "8/10",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 2e+21,
+    "demandRating": "5/10",
     "rarity": "Mythical",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/cooked_owl",
     "fetchError": null
   },
@@ -545,13 +770,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:01:13.778Z",
+    "fetchedAt": "2025-08-28T14:11:52.575Z",
     "title": "Corrupted Kitsune Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 5e+21,
+    "description": "Posted on Last updated: 25 August 2025",
+    "price": 1e+22,
     "demandRating": "7/10",
     "rarity": "Prismatic",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "25 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/corrupted_kitsune",
     "fetchError": null
   },
@@ -570,13 +795,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:01:17.823Z",
+    "fetchedAt": "2025-08-28T14:12:04.389Z",
     "title": "Corrupted Kodama Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 300000000000000000,
     "demandRating": "3/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/corrupted_kodama",
     "fetchError": null
   },
@@ -595,13 +820,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:01:22.019Z",
+    "fetchedAt": "2025-08-28T14:12:10.986Z",
     "title": "Cow Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 100000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 10000000000000000,
     "demandRating": "1/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/cow",
     "fetchError": null
   },
@@ -620,13 +845,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:01:25.843Z",
+    "fetchedAt": "2025-08-28T14:12:22.803Z",
     "title": "Crab Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 250000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 5000000000000000,
     "demandRating": "2/10",
     "rarity": "Common",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/crab",
     "fetchError": null
   },
@@ -645,13 +870,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:01:29.637Z",
+    "fetchedAt": "2025-08-28T14:12:29.258Z",
     "title": "Deer Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 50000000,
-    "demandRating": "0/10",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 5000000000000000,
+    "demandRating": "1/10",
     "rarity": "Uncommon",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/deer",
     "fetchError": null
   },
@@ -670,13 +895,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:01:33.872Z",
+    "fetchedAt": "2025-08-28T14:12:41.137Z",
     "title": "Dilophosaurus Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 1e+21,
-    "demandRating": "8/10",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 5e+21,
+    "demandRating": "6/10",
     "rarity": "Mythical",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/dilophosaurus",
     "fetchError": null
   },
@@ -695,13 +920,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:01:37.690Z",
+    "fetchedAt": "2025-08-28T14:12:46.871Z",
     "title": "Disco Bee Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 9e+22,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 3e+23,
     "demandRating": "9/10",
     "rarity": "Divine",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/disco_bee",
     "fetchError": null
   },
@@ -720,13 +945,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:01:41.468Z",
+    "fetchedAt": "2025-08-28T14:12:52.725Z",
     "title": "Dog Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 250000,
-    "demandRating": "0/10",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 500000000000000000,
+    "demandRating": "1/10",
     "rarity": "Common",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/dog",
     "fetchError": null
   },
@@ -740,13 +965,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:01:45.288Z",
+    "fetchedAt": "2025-08-28T14:12:58.509Z",
     "title": "Dragonfly Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 1.5e+22,
+    "description": "Posted on Last updated: 24 August 2025",
+    "price": 5e+22,
     "demandRating": "8/10",
     "rarity": "Divine",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/dragonfly",
     "fetchError": null
   },
@@ -765,13 +990,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:01:48.195Z",
+    "fetchedAt": "2025-08-28T14:13:02.858Z",
     "title": "Echo Frog Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 1e+21,
-    "demandRating": "8/10",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 2e+21,
+    "demandRating": "6/10",
     "rarity": "Mythical",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/echo_frog",
     "fetchError": null
   },
@@ -790,13 +1015,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:01:52.389Z",
+    "fetchedAt": "2025-08-28T14:13:28.383Z",
     "title": "Fennec Fox Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 4.5e+22,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 1.5e+23,
     "demandRating": "6/10",
     "rarity": "Divine",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/fennec_fox",
     "fetchError": null
   },
@@ -815,13 +1040,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:01:56.367Z",
+    "fetchedAt": "2025-08-28T14:13:35.667Z",
     "title": "Flamingo Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 2000000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 10000000000000000,
     "demandRating": "3/10",
     "rarity": "Rare",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/flamingo",
     "fetchError": null
   },
@@ -840,13 +1065,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:02:00.240Z",
+    "fetchedAt": "2025-08-28T14:13:44.554Z",
     "title": "Football Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 250000000000000000,
     "demandRating": "1/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/football",
     "fetchError": null
   },
@@ -865,13 +1090,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:02:04.214Z",
+    "fetchedAt": "2025-08-28T14:13:49.541Z",
     "title": "French Fry Ferret Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 5e+21,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 8e+21,
     "demandRating": "7/10",
     "rarity": "Divine",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/french_fry_ferret",
     "fetchError": null
   },
@@ -890,13 +1115,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:02:08.000Z",
+    "fetchedAt": "2025-08-28T14:13:55.528Z",
     "title": "Frog Value in Grow a Garden",
-    "description": "Posted on Last updated: 15 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 15000000000000000,
     "demandRating": "5/10",
     "rarity": "Legendary",
-    "lastUpdated": "15 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/frog",
     "fetchError": null
   },
@@ -915,51 +1140,57 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:02:11.727Z",
+    "fetchedAt": "2025-08-28T14:14:03.893Z",
     "title": "Giant Ant Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 2500000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 20000000000000000,
     "demandRating": "5/10",
     "rarity": "Mythical",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/giant_ant",
     "fetchError": null
   },
-  // {
-  //   "petName": "Golden Bee",
-  //   "slug": "golden-bee",
-  //   "url": "https://www.game.guide/seedling-value-in-grow-a-garden-whats-it-worth",
-  //   "triedUrls": [
-  //     {
-  //       "url": "https://www.game.guide/golden-bee-value-in-grow-a-garden",
-  //       "ok": false,
-  //       "error": "404 Not Found"
-  //     },
-  //     {
-  //       "url": "https://www.game.guide/golden-bee-value-grow-a-garden",
-  //       "ok": false,
-  //       "error": "404 Not Found"
-  //     },
-  //     {
-  //       "url": "https://www.game.guide/golden-bee-grow-a-garden",
-  //       "ok": false,
-  //       "error": "404 Not Found"
-  //     },
-  //     {
-  //       "url": "https://www.game.guide/seedling-value-in-grow-a-garden-whats-it-worth",
-  //       "ok": true
-  //     }
-  //   ],
-  //   "fetchedAt": "2025-08-22T01:02:15.371Z",
-  //   "title": "Seedling Value in Grow a Garden – What’s it worth?",
-  //   "description": "Posted on Last updated: 18 August 2025",
-  //   "price": 0,
-  //   "demandRating": "0/10",
-  //   "rarity": "Legendary",
-  //   "lastUpdated": "18 August 2025",
-  //   "image": "https://api.joshlei.com/v2/growagarden/image/golden_bee",
-  //   "fetchError": null
-  // },
+  {
+    "petName": "Golden Bee",
+    "slug": "golden-bee",
+    "url": "https://www.game.guide/golden-bee-value-in-grow-a-garden",
+    "triedUrls": [
+      {
+        "url": "https://www.game.guide/golden-bee-value-in-grow-a-garden",
+        "ok": false,
+        "error": "404 Not Found"
+      },
+      {
+        "url": "https://www.game.guide/golden-bee-value-grow-a-garden",
+        "ok": false,
+        "error": "404 Not Found"
+      },
+      {
+        "url": "https://www.game.guide/golden-bee-grow-a-garden",
+        "ok": false,
+        "error": "404 Not Found"
+      },
+      {
+        "url": "https://www.game.guide/golden-bee-value-in-grow-a-garden-whats-it-worth",
+        "ok": false,
+        "error": "404 Not Found"
+      },
+      {
+        "url": "https://www.game.guide/golden-bee-pet-value-grow-a-garden",
+        "ok": false,
+        "error": "404 Not Found"
+      }
+    ],
+    "fetchedAt": "2025-08-28T14:14:09.670Z",
+    "title": null,
+    "description": null,
+    "price": null,
+    "demandRating": null,
+    "rarity": null,
+    "lastUpdated": null,
+    "image": "https://api.joshlei.com/v2/growagarden/image/golden_bee",
+    "fetchError": "Failed to fetch any of the candidate URLs for slug \"golden-bee\"."
+  },
   {
     "petName": "Golden Lab",
     "slug": "golden-lab",
@@ -975,13 +1206,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:02:20.956Z",
+    "fetchedAt": "2025-08-28T14:14:27.731Z",
     "title": "Golden Lab Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 250000,
-    "demandRating": "0/10",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 500000000000000000,
+    "demandRating": "1/10",
     "rarity": "Common",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/golden_lab",
     "fetchError": null
   },
@@ -1000,13 +1231,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:02:24.843Z",
+    "fetchedAt": "2025-08-28T14:14:33.675Z",
     "title": "Gorilla Chef Value in Grow a Garden – What’s it worth",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 25 August 2025",
     "price": 50000000000000000,
     "demandRating": "2/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "25 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/gorilla_chef",
     "fetchError": null
   },
@@ -1025,13 +1256,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:02:28.602Z",
+    "fetchedAt": "2025-08-28T14:14:45.244Z",
     "title": "Grey Mouse Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 500000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 5000000000000000,
     "demandRating": "2/10",
     "rarity": "Mythical",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/grey_mouse",
     "fetchError": null
   },
@@ -1050,13 +1281,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:02:32.400Z",
+    "fetchedAt": "2025-08-28T14:14:52.587Z",
     "title": "Hamster Value in Grow a Garden",
-    "description": "Posted on Last updated: 15 August 2025",
+    "description": "Posted on Last updated: 27 August 2025",
     "price": 700000000000000000,
-    "demandRating": "4/10",
+    "demandRating": "3/10",
     "rarity": "Mythical",
-    "lastUpdated": "15 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/hamster",
     "fetchError": null
   },
@@ -1075,13 +1306,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:02:36.199Z",
+    "fetchedAt": "2025-08-28T14:15:01.552Z",
     "title": "Hedgehog Value in Grow a Garden",
-    "description": "Posted on Last updated: 15 August 2025",
-    "price": 6000000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 10000000000000000,
     "demandRating": "5/10",
     "rarity": "Rare",
-    "lastUpdated": "15 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/hedgehog",
     "fetchError": null
   },
@@ -1100,13 +1331,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:02:40.026Z",
+    "fetchedAt": "2025-08-28T14:15:17.648Z",
     "title": "Honey Bee Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 2500000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 10000000000000000,
     "demandRating": "3/10",
     "rarity": "Rare",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/honey_bee",
     "fetchError": null
   },
@@ -1125,13 +1356,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:02:43.829Z",
+    "fetchedAt": "2025-08-28T14:15:25.015Z",
     "title": "Hotdog Daschund Value in Grow a Garden – What’s it worth?",
-    "description": "Posted on Last updated: 15 August 2025",
+    "description": "Posted on Last updated: 25 August 2025",
     "price": 500000000000000000,
     "demandRating": "5/10",
     "rarity": "Legendary",
-    "lastUpdated": "15 August 2025",
+    "lastUpdated": "25 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/hotdog_daschund",
     "fetchError": null
   },
@@ -1150,13 +1381,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:02:47.666Z",
+    "fetchedAt": "2025-08-28T14:15:36.851Z",
     "title": "Hyacinth Macaw Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 500000000000000000,
     "demandRating": "5/10",
     "rarity": "Mythical",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/hyacinth_macaw",
     "fetchError": null
   },
@@ -1175,13 +1406,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:02:51.559Z",
+    "fetchedAt": "2025-08-28T14:15:59.246Z",
     "title": "Iguanodon Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 30000000000000000,
     "demandRating": "3/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/iguanodon",
     "fetchError": null
   },
@@ -1200,13 +1431,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:02:55.558Z",
+    "fetchedAt": "2025-08-28T14:16:12.596Z",
     "title": "Junkbot Value in Grow a Garden – What’s it worth?",
-    "description": "Posted on Last updated: 15 August 2025",
-    "price": 400000000000000000,
+    "description": "Posted on Last updated: 25 August 2025",
+    "price": 1e+21,
     "demandRating": "2/10",
     "rarity": "Mythical",
-    "lastUpdated": "15 August 2025",
+    "lastUpdated": "25 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/junkbot",
     "fetchError": null
   },
@@ -1220,13 +1451,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:02:59.721Z",
+    "fetchedAt": "2025-08-28T14:16:27.458Z",
     "title": "Kappa Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 300000000000000000,
     "demandRating": "3/10",
     "rarity": "Mythical",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/kappa",
     "fetchError": null
   },
@@ -1245,13 +1476,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:03:02.658Z",
+    "fetchedAt": "2025-08-28T14:16:36.221Z",
     "title": "Kitsune Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 2.65e+23,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 1,
     "demandRating": "10/10",
     "rarity": "Prismatic",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/kitsune",
     "fetchError": null
   },
@@ -1270,13 +1501,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:03:06.445Z",
+    "fetchedAt": "2025-08-28T14:16:44.150Z",
     "title": "Kiwi Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 20000000000000000,
     "demandRating": "5/10",
     "rarity": "Rare",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/kiwi",
     "fetchError": null
   },
@@ -1295,13 +1526,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:03:10.309Z",
+    "fetchedAt": "2025-08-28T14:16:53.415Z",
     "title": "Kodama Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 10000000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 15000000000000000,
     "demandRating": "5/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/kodama",
     "fetchError": null
   },
@@ -1320,13 +1551,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:03:14.429Z",
+    "fetchedAt": "2025-08-28T14:17:04.894Z",
     "title": "Koi Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
+    "description": "Posted on Last updated: 27 August 2025",
     "price": 2e+21,
     "demandRating": "8/10",
     "rarity": "Mythical",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/koi",
     "fetchError": null
   },
@@ -1345,13 +1576,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:03:18.625Z",
+    "fetchedAt": "2025-08-28T14:17:18.101Z",
     "title": "Lobster Thermidor Value in Grow a Garden – What’s it worth?",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 5e+21,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 1e+22,
     "demandRating": "7/10",
     "rarity": "Divine",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/lobster_thermidor",
     "fetchError": null
   },
@@ -1370,13 +1601,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:03:22.462Z",
+    "fetchedAt": "2025-08-28T14:17:25.727Z",
     "title": "Maneki-neko Value in Grow a Garden",
-    "description": "Posted on Last updated: 15 August 2025",
-    "price": 1000000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 5000000000000000,
     "demandRating": "1/10",
     "rarity": "Uncommon",
-    "lastUpdated": "15 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/maneki-neko",
     "fetchError": null
   },
@@ -1395,13 +1626,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:03:26.239Z",
+    "fetchedAt": "2025-08-28T14:17:36.553Z",
     "title": "Meerkat Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 10000000000000000,
     "demandRating": "2/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/meerkat",
     "fetchError": null
   },
@@ -1420,20 +1651,20 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:03:30.043Z",
+    "fetchedAt": "2025-08-28T14:17:49.010Z",
     "title": "Mimic Octopus Value in Grow a Garden",
-    "description": "Posted on Last updated: 16 August 2025",
-    "price": 1e+22,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 4.5e+22,
     "demandRating": "7/10",
     "rarity": "Divine",
-    "lastUpdated": "16 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/mimic_octopus",
     "fetchError": null
   },
   {
     "petName": "Mizuchi",
     "slug": "mizuchi",
-    "url": "https://www.game.guide/seedling-value-in-grow-a-garden-whats-it-worth",
+    "url": "https://www.game.guide/mizuchi-value-grow-a-garden",
     "triedUrls": [
       {
         "url": "https://www.game.guide/mizuchi-value-in-grow-a-garden",
@@ -1442,26 +1673,16 @@ export const items =[
       },
       {
         "url": "https://www.game.guide/mizuchi-value-grow-a-garden",
-        "ok": false,
-        "error": "404 Not Found"
-      },
-      {
-        "url": "https://www.game.guide/mizuchi-grow-a-garden",
-        "ok": false,
-        "error": "404 Not Found"
-      },
-      {
-        "url": "https://www.game.guide/seedling-value-in-grow-a-garden-whats-it-worth",
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:03:33.905Z",
-    "title": "Seedling Value in Grow a Garden – What’s it worth?",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 0,
-    "demandRating": "0/10",
-    "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "fetchedAt": "2025-08-28T14:17:57.458Z",
+    "title": "Game Guide",
+    "description": "Your ultimate source for game codes and value lists",
+    "price": 9333,
+    "demandRating": null,
+    "rarity": "event",
+    "lastUpdated": null,
     "image": "https://api.joshlei.com/v2/growagarden/image/mizuchi",
     "fetchError": null
   },
@@ -1475,13 +1696,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:03:45.306Z",
+    "fetchedAt": "2025-08-28T14:18:06.173Z",
     "title": "Mochi Mouse Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 25 August 2025",
     "price": 100000000000000000,
     "demandRating": "2/10",
     "rarity": "Mythical",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "25 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/mochi_mouse",
     "fetchError": null
   },
@@ -1500,13 +1721,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:03:48.260Z",
+    "fetchedAt": "2025-08-28T14:18:09.933Z",
     "title": "Mole Value in Grow a Garden",
-    "description": "Posted on Last updated: 15 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 200000000000000000,
     "demandRating": "5/10",
     "rarity": "Legendary",
-    "lastUpdated": "15 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/mole",
     "fetchError": null
   },
@@ -1525,13 +1746,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:03:52.168Z",
+    "fetchedAt": "2025-08-28T14:18:15.474Z",
     "title": "Monkey Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 150000000,
-    "demandRating": "0/10",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 10000000000000000,
+    "demandRating": "1/10",
     "rarity": "Rare",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/monkey",
     "fetchError": null
   },
@@ -1550,13 +1771,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:03:56.094Z",
+    "fetchedAt": "2025-08-28T14:18:20.286Z",
     "title": "Moon Cat Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 1e+21,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 2e+21,
     "demandRating": "8/10",
     "rarity": "Legendary",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/moon_cat",
     "fetchError": null
   },
@@ -1575,13 +1796,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:04:00.026Z",
+    "fetchedAt": "2025-08-28T14:18:25.099Z",
     "title": "Moth Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 600000000000000000,
     "demandRating": "3/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/moth",
     "fetchError": null
   },
@@ -1600,13 +1821,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:04:03.946Z",
+    "fetchedAt": "2025-08-28T14:18:30.547Z",
     "title": "Night Owl Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 400000000000000000,
     "demandRating": "5/10",
-    "rarity": "Mythical",
-    "lastUpdated": "18 August 2025",
+    "rarity": "Divine",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/night_owl",
     "fetchError": null
   },
@@ -1625,13 +1846,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:04:07.938Z",
+    "fetchedAt": "2025-08-28T14:18:35.131Z",
     "title": "Nihonzaru Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 1e+21,
+    "description": "Posted on Last updated: 25 August 2025",
+    "price": 100000000000000000,
     "demandRating": "8/10",
     "rarity": "Rare",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "25 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/nihonzaru",
     "fetchError": null
   },
@@ -1650,13 +1871,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:04:12.064Z",
+    "fetchedAt": "2025-08-28T14:18:39.895Z",
     "title": "Orange Tabby Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 10000000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 90000000000000000,
     "demandRating": "5/10",
     "rarity": "Rare",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/orange_tabby",
     "fetchError": null
   },
@@ -1675,13 +1896,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:04:16.173Z",
+    "fetchedAt": "2025-08-28T14:18:44.983Z",
     "title": "Orangutan Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 7000000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 10000000000000000,
     "demandRating": "3/10",
     "rarity": "Rare",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/orangutan",
     "fetchError": null
   },
@@ -1700,13 +1921,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:04:19.974Z",
+    "fetchedAt": "2025-08-28T14:18:49.978Z",
     "title": "Ostrich Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 1e+21,
-    "demandRating": "8/10",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 500000000000000000,
+    "demandRating": "5/10",
     "rarity": "Legendary",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/ostrich",
     "fetchError": null
   },
@@ -1725,13 +1946,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:04:23.974Z",
+    "fetchedAt": "2025-08-28T14:18:54.895Z",
     "title": "Owl Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 25000000000000000,
     "demandRating": "6/10",
     "rarity": "Mythical",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/owl",
     "fetchError": null
   },
@@ -1750,13 +1971,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:04:28.237Z",
+    "fetchedAt": "2025-08-28T14:18:59.667Z",
     "title": "Pachycephalosaurus Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 15000000000000000,
     "demandRating": "1/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/pachycephalosaurus",
     "fetchError": null
   },
@@ -1775,13 +1996,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:04:32.105Z",
+    "fetchedAt": "2025-08-28T14:19:04.567Z",
     "title": "Pack Bee Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 27 August 2025",
     "price": 700000000000000000,
-    "demandRating": "4/10",
+    "demandRating": "5/10",
     "rarity": "Mythical",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/pack_bee",
     "fetchError": null
   },
@@ -1800,13 +2021,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:04:35.889Z",
+    "fetchedAt": "2025-08-28T14:19:09.716Z",
     "title": "Pancake Mole Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 25 August 2025",
     "price": 20000000000000000,
     "demandRating": "2/10",
     "rarity": "Rare",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "25 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/pancake_mole",
     "fetchError": null
   },
@@ -1825,13 +2046,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:04:39.866Z",
+    "fetchedAt": "2025-08-28T14:19:14.863Z",
     "title": "Panda Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 2e+22,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 3e+22,
     "demandRating": "3/10",
     "rarity": "Legendary",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/panda",
     "fetchError": null
   },
@@ -1850,13 +2071,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:04:43.879Z",
+    "fetchedAt": "2025-08-28T14:19:19.898Z",
     "title": "Parasaurolophus Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 15000000000000000,
     "demandRating": "1/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/parasaurolophus",
     "fetchError": null
   },
@@ -1875,13 +2096,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:04:47.718Z",
+    "fetchedAt": "2025-08-28T14:19:24.906Z",
     "title": "Peacock Value in Grow a Garden",
-    "description": "Posted on Last updated: 15 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 15000000000000000,
     "demandRating": "5/10",
     "rarity": "Legendary",
-    "lastUpdated": "15 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/peacock",
     "fetchError": null
   },
@@ -1900,13 +2121,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:04:51.524Z",
+    "fetchedAt": "2025-08-28T14:19:30.096Z",
     "title": "Petal Bee Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 450000000000000000,
     "demandRating": "3/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/petal_bee",
     "fetchError": null
   },
@@ -1925,13 +2146,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:04:55.344Z",
+    "fetchedAt": "2025-08-28T14:19:35.029Z",
     "title": "Pig Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 100000000,
-    "demandRating": "0/10",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 5000000000000000,
+    "demandRating": "1/10",
     "rarity": "Rare",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/pig",
     "fetchError": null
   },
@@ -1950,13 +2171,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:04:59.224Z",
+    "fetchedAt": "2025-08-28T14:19:39.911Z",
     "title": "Polar Bear Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 500000000000000000,
     "demandRating": "4/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/polar_bear",
     "fetchError": null
   },
@@ -1975,13 +2196,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:05:03.418Z",
+    "fetchedAt": "2025-08-28T14:19:44.600Z",
     "title": "Praying Mantis Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 2500000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 100000000000000000,
     "demandRating": "3/10",
     "rarity": "Mythical",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/praying_mantis",
     "fetchError": null
   },
@@ -2000,13 +2221,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:05:07.466Z",
+    "fetchedAt": "2025-08-28T14:19:49.191Z",
     "title": "Pterodactyl Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 50000000000000000,
     "demandRating": "2/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/pterodactyl",
     "fetchError": null
   },
@@ -2025,13 +2246,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:05:11.314Z",
+    "fetchedAt": "2025-08-28T14:19:53.800Z",
     "title": "Queen Bee Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 8e+21,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 3e+22,
     "demandRating": "6/10",
     "rarity": "Divine",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/queen_bee",
     "fetchError": null
   },
@@ -2050,13 +2271,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:05:15.121Z",
+    "fetchedAt": "2025-08-28T14:19:58.948Z",
     "title": "Raccoon Value in Grow a Garden",
-    "description": "Posted on Last updated: 16 August 2025",
-    "price": 1.25e+23,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 4e+23,
     "demandRating": "10/10",
     "rarity": "Divine",
-    "lastUpdated": "16 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/raccoon",
     "fetchError": null
   },
@@ -2075,13 +2296,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:05:18.945Z",
+    "fetchedAt": "2025-08-28T14:20:03.255Z",
     "title": "Raiju Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
+    "description": "Posted on Last updated: 27 August 2025",
     "price": 1e+21,
-    "demandRating": "8/10",
+    "demandRating": "4/10",
     "rarity": "Divine",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/raiju",
     "fetchError": null
   },
@@ -2100,13 +2321,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:05:23.214Z",
+    "fetchedAt": "2025-08-28T14:20:07.692Z",
     "title": "Raptor Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 15000000000000000,
     "demandRating": "3/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/raptor",
     "fetchError": null
   },
@@ -2125,13 +2346,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:05:27.297Z",
+    "fetchedAt": "2025-08-28T14:20:12.088Z",
     "title": "Red Fox Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 1e+21,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 5e+21,
     "demandRating": "8/10",
     "rarity": "Mythical",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/red_fox",
     "fetchError": null
   },
@@ -2150,13 +2371,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:05:31.169Z",
+    "fetchedAt": "2025-08-28T14:20:16.693Z",
     "title": "Red Giant Ant Value in Grow a Garden",
-    "description": "Posted on Last updated: 15 August 2025",
-    "price": 3500000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 50000000000000000,
     "demandRating": "5/10",
     "rarity": "Mythical",
-    "lastUpdated": "15 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/red_giant_ant",
     "fetchError": null
   },
@@ -2175,13 +2396,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:05:35.012Z",
+    "fetchedAt": "2025-08-28T14:20:21.087Z",
     "title": "Rooster Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 150000000,
-    "demandRating": "0/10",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 10000000000000000,
+    "demandRating": "1/10",
     "rarity": "Rare",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/rooster",
     "fetchError": null
   },
@@ -2200,13 +2421,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:05:38.793Z",
+    "fetchedAt": "2025-08-28T14:20:25.470Z",
     "title": "Sand Snake Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 20000000000000000,
     "demandRating": "3/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/sand_snake",
     "fetchError": null
   },
@@ -2225,13 +2446,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:05:42.711Z",
+    "fetchedAt": "2025-08-28T14:20:29.784Z",
     "title": "Scarlet Macaw Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 400000000000000000,
     "demandRating": "4/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/scarlet_macaw",
     "fetchError": null
   },
@@ -2250,13 +2471,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:05:46.743Z",
+    "fetchedAt": "2025-08-28T14:20:34.177Z",
     "title": "Sea Otter Value in Grow a Garden",
-    "description": "Posted on Last updated: 15 August 2025",
-    "price": 1000000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 5000000000000000,
     "demandRating": "3/10",
     "rarity": "Legendary",
-    "lastUpdated": "15 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/sea_otter",
     "fetchError": null
   },
@@ -2275,13 +2496,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:05:50.957Z",
+    "fetchedAt": "2025-08-28T14:20:39.605Z",
     "title": "Sea Turtle Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 100000000000000000,
     "demandRating": "4/10",
     "rarity": "Rare",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/sea_turtle",
     "fetchError": null
   },
@@ -2300,13 +2521,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:05:54.899Z",
+    "fetchedAt": "2025-08-28T14:20:43.981Z",
     "title": "Seagull Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 250000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 5000000000000000,
     "demandRating": "2/10",
     "rarity": "Common",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/seagull",
     "fetchError": null
   },
@@ -2325,13 +2546,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:05:58.718Z",
+    "fetchedAt": "2025-08-28T14:20:48.286Z",
     "title": "Seal Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 2e+21,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 1.5e+21,
     "demandRating": "8/10",
     "rarity": "Rare",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/seal",
     "fetchError": null
   },
@@ -2350,13 +2571,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:06:02.600Z",
+    "fetchedAt": "2025-08-28T14:20:53.047Z",
     "title": "Shiba Inu Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 1000000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 5000000000000000,
     "demandRating": "1/10",
     "rarity": "Uncommon",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/shiba_inu",
     "fetchError": null
   },
@@ -2375,13 +2596,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:06:06.617Z",
+    "fetchedAt": "2025-08-28T14:20:57.436Z",
     "title": "Silver Monkey Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 250000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 5000000000000000,
     "demandRating": "1/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/silver_monkey",
     "fetchError": null
   },
@@ -2400,13 +2621,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:06:10.460Z",
+    "fetchedAt": "2025-08-28T14:21:06.723Z",
     "title": "Snail Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 1500000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 10000000000000000,
     "demandRating": "3/10",
     "rarity": "Mythical",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/snail",
     "fetchError": null
   },
@@ -2425,13 +2646,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:06:14.367Z",
+    "fetchedAt": "2025-08-28T14:21:12.543Z",
     "title": "Spaghetti Sloth Value in Grow a Garden",
-    "description": "Posted on Last updated: 15 August 2025",
+    "description": "Posted on Last updated: 25 August 2025",
     "price": 400000000000000000,
     "demandRating": "6/10",
     "rarity": "Mythical",
-    "lastUpdated": "15 August 2025",
+    "lastUpdated": "25 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/spaghetti_sloth",
     "fetchError": null
   },
@@ -2450,13 +2671,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:06:18.318Z",
+    "fetchedAt": "2025-08-28T14:21:17.706Z",
     "title": "Spinosaurus Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 3e+22,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 1e+23,
     "demandRating": "7/10",
     "rarity": "Divine",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/spinosaurus",
     "fetchError": null
   },
@@ -2475,13 +2696,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:06:22.232Z",
+    "fetchedAt": "2025-08-28T14:21:22.290Z",
     "title": "Spotted Deer Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 100000000,
-    "demandRating": "0/10",
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 5000000000000000,
+    "demandRating": "1/10",
     "rarity": "Rare",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/spotted_deer",
     "fetchError": null
   },
@@ -2500,13 +2721,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:06:26.299Z",
+    "fetchedAt": "2025-08-28T14:21:26.667Z",
     "title": "Squirrel Value in Grow a Garden",
-    "description": "Posted on Last updated: 20 August 2025",
-    "price": 15000000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 20000000000000000,
     "demandRating": "5/10",
     "rarity": "Mythical",
-    "lastUpdated": "20 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/squirrel",
     "fetchError": null
   },
@@ -2525,13 +2746,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:06:30.312Z",
+    "fetchedAt": "2025-08-28T14:21:30.985Z",
     "title": "Starfish Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 250000000000000,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 5000000000000000,
     "demandRating": "3/10",
     "rarity": "Common",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/starfish",
     "fetchError": null
   },
@@ -2550,13 +2771,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:06:34.116Z",
+    "fetchedAt": "2025-08-28T14:21:35.094Z",
     "title": "Stegosaurus Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 30000000000000000,
     "demandRating": "5/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/stegosaurus",
     "fetchError": null
   },
@@ -2575,13 +2796,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:06:38.126Z",
+    "fetchedAt": "2025-08-28T14:21:39.404Z",
     "title": "Sunny-Side Chicken Value in Grow a Garden – What’s it worth?",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 25 August 2025",
     "price": 10000000000000000,
     "demandRating": "1/10",
     "rarity": "Uncommon",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "25 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/sunny-side_chicken",
     "fetchError": null
   },
@@ -2595,13 +2816,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:06:41.993Z",
+    "fetchedAt": "2025-08-28T14:21:43.896Z",
     "title": "Sushi Bear Value in Grow a Garden",
-    "description": "Posted on Last updated: 15 August 2025",
+    "description": "Posted on Last updated: 25 August 2025",
     "price": 300000000000000000,
     "demandRating": "5/10",
     "rarity": "Legendary",
-    "lastUpdated": "15 August 2025",
+    "lastUpdated": "25 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/sushi_bear",
     "fetchError": null
   },
@@ -2620,13 +2841,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:06:44.957Z",
+    "fetchedAt": "2025-08-28T14:21:46.963Z",
     "title": "T-Rex Value in Grow a Garden",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 1.5e+22,
+    "description": "Posted on Last updated: 27 August 2025",
+    "price": 3.5e+22,
     "demandRating": "7/10",
     "rarity": "Divine",
-    "lastUpdated": "21 August 2025",
+    "lastUpdated": "27 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/t-rex",
     "fetchError": null
   },
@@ -2645,13 +2866,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:06:48.821Z",
+    "fetchedAt": "2025-08-28T14:21:51.157Z",
     "title": "Tanchozuru Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 300000000000000000,
     "demandRating": "3/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/tanchozuru",
     "fetchError": null
   },
@@ -2670,13 +2891,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:06:52.629Z",
+    "fetchedAt": "2025-08-28T14:21:55.243Z",
     "title": "Tanuki Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 15000000000000000,
     "demandRating": "2/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/tanuki",
     "fetchError": null
   },
@@ -2695,13 +2916,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:06:56.432Z",
+    "fetchedAt": "2025-08-28T14:21:59.256Z",
     "title": "Tarantula Hawk Value in Grow a Garden",
-    "description": "Posted on Last updated: 15 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 500000000000000000,
     "demandRating": "5/10",
     "rarity": "Legendary",
-    "lastUpdated": "15 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/tarantula_hawk",
     "fetchError": null
   },
@@ -2720,13 +2941,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:07:00.333Z",
+    "fetchedAt": "2025-08-28T14:22:03.407Z",
     "title": "Toucan Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 10000000000000000,
     "demandRating": "4/10",
     "rarity": "Rare",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/toucan",
     "fetchError": null
   },
@@ -2745,20 +2966,20 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:07:04.295Z",
+    "fetchedAt": "2025-08-28T14:22:07.594Z",
     "title": "Triceratops Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 70000000000000000,
     "demandRating": "5/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/triceratops",
     "fetchError": null
   },
   {
     "petName": "Tsuchinoko",
     "slug": "tsuchinoko",
-    "url": "https://www.game.guide/seedling-value-in-grow-a-garden-whats-it-worth",
+    "url": "https://www.game.guide/tsuchinoko-value-grow-a-garden",
     "triedUrls": [
       {
         "url": "https://www.game.guide/tsuchinoko-value-in-grow-a-garden",
@@ -2767,26 +2988,16 @@ export const items =[
       },
       {
         "url": "https://www.game.guide/tsuchinoko-value-grow-a-garden",
-        "ok": false,
-        "error": "404 Not Found"
-      },
-      {
-        "url": "https://www.game.guide/tsuchinoko-grow-a-garden",
-        "ok": false,
-        "error": "404 Not Found"
-      },
-      {
-        "url": "https://www.game.guide/seedling-value-in-grow-a-garden-whats-it-worth",
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:07:08.279Z",
-    "title": "Seedling Value in Grow a Garden – What’s it worth?",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 0,
-    "demandRating": "0/10",
-    "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "fetchedAt": "2025-08-28T14:22:11.764Z",
+    "title": "Game Guide",
+    "description": "Your ultimate source for game codes and value lists",
+    "price": 9333,
+    "demandRating": null,
+    "rarity": "event",
+    "lastUpdated": null,
     "image": "https://api.joshlei.com/v2/growagarden/image/tsuchinoko",
     "fetchError": null
   },
@@ -2805,13 +3016,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:07:14.511Z",
+    "fetchedAt": "2025-08-28T14:22:19.218Z",
     "title": "Turtle Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 500000000000000000,
     "demandRating": "4/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/turtle",
     "fetchError": null
   },
@@ -2825,13 +3036,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:07:18.289Z",
+    "fetchedAt": "2025-08-28T14:22:25.191Z",
     "title": "Wasp Value in Grow a Garden",
-    "description": "Posted on Last updated: 18 August 2025",
+    "description": "Posted on Last updated: 24 August 2025",
     "price": 450000000000000000,
     "demandRating": "3/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/wasp",
     "fetchError": null
   },
@@ -2850,13 +3061,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:07:21.243Z",
+    "fetchedAt": "2025-08-28T14:22:28.891Z",
     "title": "Dairy Cow Value in Grow a Garden – What’s it worth?",
-    "description": "Posted on Last updated: 16 August 2025",
-    "price": 12000000000000000,
-    "demandRating": "0/10",
+    "description": "Posted on Last updated: 25 August 2025",
+    "price": 1000000000000000000,
+    "demandRating": "1/10",
     "rarity": "Common",
-    "lastUpdated": "16 August 2025",
+    "lastUpdated": "25 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/dairy_cow",
     "fetchError": null
   },
@@ -2870,13 +3081,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:07:25.099Z",
+    "fetchedAt": "2025-08-28T14:22:34.682Z",
     "title": "Seedling Value in Grow a Garden – What’s it worth?",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 6.5e19,
-    "demandRating": "1/10",
+    "description": "Posted on Last updated: 24 August 2025",
+    "price": 100000000000000000000,
+    "demandRating": "6/10",
     "rarity": "Legendary",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/seedling",
     "fetchError": null
   },
@@ -2895,13 +3106,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:07:29.504Z",
+    "fetchedAt": "2025-08-28T14:22:47.833Z",
     "title": "Jackalope Value in Grow a Garden – What’s it worth?",
-    "description": "Posted on Last updated: 16 August 2025",
-    "price":500000000000000000 ,
-    "demandRating": "0/10",
+    "description": "Posted on Last updated: 25 August 2025",
+    "price": 10000000000000000000,
+    "demandRating": "3/10",
     "rarity": "Uncommon",
-    "lastUpdated": "16 August 2025",
+    "lastUpdated": "25 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/jackalope",
     "fetchError": null
   },
@@ -2915,13 +3126,13 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:07:33.303Z",
+    "fetchedAt": "2025-08-28T14:22:54.292Z",
     "title": "Spriggan Value in Grow a Garden – What’s it worth?",
-    "description": "Posted on Last updated: 18 August 2025",
-    "price": 60e19,
-    "demandRating": "5/10",
+    "description": "Posted on Last updated: 24 August 2025",
+    "price": 15000000000000000000,
+    "demandRating": "4/10",
     "rarity": "Mythical",
-    "lastUpdated": "18 August 2025",
+    "lastUpdated": "24 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/spriggan",
     "fetchError": null
   },
@@ -2940,42 +3151,20 @@ export const items =[
         "ok": true
       }
     ],
-    "fetchedAt": "2025-08-22T01:07:37.126Z",
+    "fetchedAt": "2025-08-28T14:22:59.463Z",
     "title": "Golem Value in Grow a Garden – What’s it worth?",
-    "description": "Posted on Last updated: 16 August 2025",
-    "price": 40e19,
+    "description": "Posted on Last updated: 25 August 2025",
+    "price": 100000000000000000000,
     "demandRating": "5/10",
     "rarity": "Mythical",
-    "lastUpdated": "16 August 2025",
+    "lastUpdated": "25 August 2025",
     "image": "https://api.joshlei.com/v2/growagarden/image/golem",
     "fetchError": null
   },
-  {
-    "petName": "Golden Goose",
-    "slug": "golden-goose",
-    "url": "https://www.game.guide/golden-goose-value-grow-a-garden",
-    "triedUrls": [
-      {
-        "url": "https://www.game.guide/golden-goose-value-in-grow-a-garden",
-        "ok": false,
-        "error": "404 Not Found"
-      },
-      {
-        "url": "https://www.game.guide/golden-goose-value-grow-a-garden",
-        "ok": true
-      }
-    ],
-    "fetchedAt": "2025-08-22T01:07:40.944Z",
-    "title": "Golden Goose Value in Grow a Garden – What’s it worth?",
-    "description": "Posted on Last updated: 21 August 2025",
-    "price": 7e+21,
-    "demandRating": "7/10",
-    "rarity": "Divine",
-    "lastUpdated": "21 August 2025",
-    "image": "https://api.joshlei.com/v2/growagarden/image/golden_goose",
-    "fetchError": null
-  }
+ 
 ]
+
+
 //  [
 //   {
 //     petName: "Ankylosaurus",

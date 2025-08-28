@@ -221,7 +221,7 @@ export default function Hero() {
   const positions = layout === "desktop" ? desktopLayout : mobileLayout;
 
   return (
-    <section id="home" className="w-full relative bg-[#0a192f] text-text min-h-screen h-[600px] flex items-center justify-center ">
+    <section id="home" className="w-full relative bg-[#0a192f] text-text min-h-screen h-[600px] flex items-center justify-center max-w-[1700px] mx-auto">
       <div className=" relative w-full px-6 flex items-center justify-center bg-[#0a192f]">
         {/* ===== enhanced text block ===== */}
         <div className="z-50 text-center px-6 max-w-2xl hero-text-block bg-[#64ffda] bg-opacity-90">

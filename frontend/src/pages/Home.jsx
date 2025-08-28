@@ -27,6 +27,11 @@ import Header from "../components/Header.jsx";
 import Hero from "../components/hero/Hero.jsx";
 import Heading from "../components/Heading.jsx";
 import Footer from "../components/Footer.jsx";
+import PlantsCategories from "../components/categories/PlantsCategories.jsx";
+import Foods from "../components/categories/Foods.jsx";
+import TestingIdea from "../components/TestingIdea.jsx";
+import Testing2 from "../components/Testing2.jsx";
+import Text from "../components/Text.jsx";
 
 
 /* ---------- Small UI pieces (kept simple / same as your originals) ---------- */

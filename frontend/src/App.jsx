@@ -8,6 +8,7 @@ import Header from "./components/Header.jsx";
 import './App.css';
 import Footer from "./components/Footer.jsx";
 import LoadingWrapper from "./components/LoadingWrapper.jsx";
+import BeanstalkUpdate from "./pages/BeanstalkUpdate.jsx";
  // move your current app content to this
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/trading-calculator" element={<TradingCalculatorPage />} />
+      <Route path="/beanstalk-update-part2" element={<BeanstalkUpdate />} />
     </Routes>
     <Footer />
     </LoadingWrapper>

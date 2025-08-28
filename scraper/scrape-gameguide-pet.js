@@ -216,7 +216,9 @@ const URL_TEMPLATES = [
   (slug) => `https://www.game.guide/${slug}-value-in-grow-a-garden`,
   (slug) => `https://www.game.guide/${slug}-value-grow-a-garden`,
   (slug) => `https://www.game.guide/${slug}-grow-a-garden`,
-  () => `https://www.game.guide/seedling-value-in-grow-a-garden-whats-it-worth`,
+  // https://www.game.guide/mandrake-pet-value-grow-a-garden
+  (slug) => `https://www.game.guide/${slug}-value-in-grow-a-garden-whats-it-worth`,
+  (slug) => `https://www.game.guide/${slug}-pet-value-grow-a-garden`,
 ];
 
 async function scrapePet(petName) {
