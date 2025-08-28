@@ -1,4 +1,5 @@
 
+
 export const items = [
    {
     "petName": "Golden Goose",
@@ -1479,7 +1480,7 @@ export const items = [
     "fetchedAt": "2025-08-28T14:16:36.221Z",
     "title": "Kitsune Value in Grow a Garden",
     "description": "Posted on Last updated: 27 August 2025",
-    "price": 1,
+    "price": 1e+24,
     "demandRating": "10/10",
     "rarity": "Prismatic",
     "lastUpdated": "27 August 2025",
