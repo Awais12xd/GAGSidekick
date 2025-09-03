@@ -11,6 +11,13 @@ import LoadingWrapper from "./components/LoadingWrapper.jsx";
 import BeanstalkUpdate from "./pages/BeanstalkUpdate.jsx";
  // move your current app content to this
 
+
+
+
+
+
+ 
+
 const App = () => {
   return (
    <>

@@ -32,6 +32,7 @@ import Foods from "../components/categories/Foods.jsx";
 import TestingIdea from "../components/TestingIdea.jsx";
 import Testing2 from "../components/Testing2.jsx";
 import Text from "../components/Text.jsx";
+import Notify from "../components/Notify.jsx";
 
 
 /* ---------- Small UI pieces (kept simple / same as your originals) ---------- */
@@ -492,6 +493,9 @@ const Home = () => {
             serverNow={alldata?.timestamp}
           />
         )}
+       </div>
+       <div className="my-10">
+      <Notify vapidPublicKey={"BDfmOToDaOFS0bACI-7pq0pC3LYt41zKHaYY5YxjeEXF5p7IUX2FaHRRi0rMBw0cCFionc2CFt_yJs9JyylP8fg"} />
        </div>
       </main>
     </div>

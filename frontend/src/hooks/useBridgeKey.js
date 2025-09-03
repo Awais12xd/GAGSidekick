@@ -85,6 +85,7 @@ export default function useBridgeKey({
     function onMessage(ev) {
       const raw = ev?.detail ?? ev;
       // Uncomment to debug raw incoming messages
+      console.log(raw);
       console.debug("[useBridgeKey] raw payload:", raw);
 
       // 1) quick guard - sometimes bridge sends simple heartbeat or non-json; handle gracefully
