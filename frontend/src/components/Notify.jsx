@@ -25,7 +25,7 @@ export default function PushSubscribe({ vapidPublicKey }) {
   const [items, setItems] = useState([]);
   const itemInputRef = useRef(null); // uncontrolled input
   const [itemRoute, setItemRoute] = useState("seeds");
-  const [minInterval, setMinInterval] = useState(300); // seconds
+  const [minInterval, setMinInterval] = useState(120); // seconds
 
   // local storage keys
   const LOCAL_KEY_ITEMS = "push_watch_items_v2";
@@ -407,10 +407,10 @@ export default function PushSubscribe({ vapidPublicKey }) {
               </div>
             </div>
 
-            <div>
+            {/* <div>
               <label className="block text-sm font-medium" style={{ color: palette.text }}>Min notify interval (seconds)</label>
               <input type="number" value={minInterval} onChange={(e) => { const n = Number(e.target.value || 0); setMinInterval(n); localStorage.setItem(LOCAL_KEY_MININT, String(n)); }} className="mt-1 block w-full rounded-md p-2" style={{ background: "rgba(255,255,255,0.02)", border: `1px solid ${palette.border}`, color: palette.text }} />
-            </div>
+            </div> */}
 
             <div className="flex gap-2">
               <button type="button" onClick={saveWatchlist} className="px-4 py-2 rounded-lg text-[#071428]" style={{ background: palette.primary }}>Save</button>
