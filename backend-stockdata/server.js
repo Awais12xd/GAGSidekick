@@ -54,6 +54,9 @@ const app = express();
 
 const DEBUG = process.env.DEBUG === "1";
 
+// production-friendly defaults
+const DEFAULT_MIN_NOTIFY_INTERVAL_MS = 300 * 1000; // 300 seconds = 5 minutes
+
 // Allowed routes users may choose for their own watch items
 const USER_ALLOWED_ROUTES = new Set(["seeds", "gear", "eggs"]);
 
@@ -817,11 +820,13 @@ function connectUpstream() {
               getItemName(item) ||
               JSON.stringify(item).slice(0, 50);
             const itemKey = `${item._route}:${String(itemKeyId).slice(0, 100)}`;
-            const last = subEntry.lastNotified[itemKey] || 0;
+            // decide min interval (per-sub criteria fallback to server default)
             const minInterval =
               subEntry.criteria && subEntry.criteria.minNotifyIntervalMs
                 ? Number(subEntry.criteria.minNotifyIntervalMs)
-                : 1000 * 60 * 5;
+                : DEFAULT_MIN_NOTIFY_INTERVAL_MS;
+
+            const last = subEntry.lastNotified[itemKey] || 0;
             const now = Date.now();
             if (now - last < minInterval) {
               if (DEBUG)
@@ -834,37 +839,23 @@ function connectUpstream() {
               continue;
             }
 
-            // --- simplified, minimal notification payload ---
+            // build simplified payload (as you requested earlier)
             const title = `${getItemName(item) || item._route} in stock`;
             const notificationPayload = {
               title,
-              body: "Garden Side", // minimal, brand-only body
+              body: "Garden Side",
               icon:
                 item.icon ||
-                item.icon_url || // optional icon if available
+                item.icon_url ||
                 (latestData.travelingmerchant &&
                   latestData.travelingmerchant.icon) ||
                 undefined,
               timestamp: Date.now(),
-              // clicking the notification should open this URL (service worker uses notification.data.url)
-              data: { url: `https://gardenside.app` },
+              data: { url: `https://gardenside.app/${item._route}` },
             };
-            // send it
-            try {
-              await webpush.sendNotification(
-                subEntry.subscription,
-                JSON.stringify(notificationPayload),
-                { TTL: 60, urgency: "high" }
-              );
-              subEntry.lastNotified[itemKey] = now;
-              console.log(
-                `[WEBPUSH] sent -> sub=${subEntry.id} item=${itemKey}`
-              );
-            } catch (err) {
-              // ... your existing error handling ...
-            }
 
-            if (DEBUG)
+            // Log debug info before sending
+            if (DEBUG) {
               console.log(
                 "[NOTIFY] sending -> sub=",
                 subEntry.id,
@@ -875,7 +866,9 @@ function connectUpstream() {
                 "matchedByServerWatch:",
                 matchedByServerWatch
               );
+            }
 
+            // Single send attempt, with stale-sub cleanup
             try {
               await webpush.sendNotification(
                 subEntry.subscription,

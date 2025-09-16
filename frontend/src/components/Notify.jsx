@@ -6,26 +6,35 @@ function urlBase64ToUint8Array(base64String) {
   const base64 = (base64String + padding).replace(/-/g, "+").replace(/_/g, "/");
   const rawData = atob(base64);
   const outputArray = new Uint8Array(rawData.length);
-  for (let i = 0; i < rawData.length; ++i) outputArray[i] = rawData.charCodeAt(i);
+  for (let i = 0; i < rawData.length; ++i)
+    outputArray[i] = rawData.charCodeAt(i);
   return outputArray;
 }
 
 export default function PushSubscribe({ vapidPublicKey }) {
+  const DEFAULT_MIN_INTERVAL = 300; // seconds
   const API_BASE = import.meta.env.VITE_STOCK_SERVER || "http://localhost:8000";
-  const publicKey = vapidPublicKey || (typeof window !== "undefined" && window.VAPID_PUBLIC_KEY) || "";
+  const publicKey =
+    vapidPublicKey ||
+    (typeof window !== "undefined" && window.VAPID_PUBLIC_KEY) ||
+    "";
 
   const [registration, setRegistration] = useState(null);
   const [subscribed, setSubscribed] = useState(false);
   const [showEditor, setShowEditor] = useState(false);
 
   // permission state: "default" | "granted" | "denied"
-  const [permissionState, setPermissionState] = useState(typeof Notification !== "undefined" ? Notification.permission : "default");
+  const [permissionState, setPermissionState] = useState(
+    typeof Notification !== "undefined" ? Notification.permission : "default"
+  );
 
   // items are objects: { route: 'seeds'|'gear'|'eggs', q: 'carrot' }
   const [items, setItems] = useState([]);
   const itemInputRef = useRef(null); // uncontrolled input
   const [itemRoute, setItemRoute] = useState("seeds");
-  const [minInterval, setMinInterval] = useState(300); // seconds
+  // ... inside component:
+  const [minInterval /* no setMinInterval used */] =
+    useState(DEFAULT_MIN_INTERVAL); // simple default
 
   // local storage keys
   const LOCAL_KEY_ITEMS = "push_watch_items_v2";
@@ -61,22 +70,33 @@ export default function PushSubscribe({ vapidPublicKey }) {
   // Query Permissions API (if supported) to track changes in notification permission
   useEffect(() => {
     if (!("permissions" in navigator) || !("Notification" in window)) {
-      setPermissionState(typeof Notification !== "undefined" ? Notification.permission : "default");
+      setPermissionState(
+        typeof Notification !== "undefined"
+          ? Notification.permission
+          : "default"
+      );
       return;
     }
     let mounted = true;
     (async () => {
       try {
-        const status = await navigator.permissions.query({ name: "notifications" });
+        const status = await navigator.permissions.query({
+          name: "notifications",
+        });
         if (!mounted) return;
         setPermissionState(status.state || Notification.permission);
-        const onChange = () => setPermissionState(status.state || Notification.permission);
-        status.addEventListener ? status.addEventListener("change", onChange) : (status.onchange = onChange);
+        const onChange = () =>
+          setPermissionState(status.state || Notification.permission);
+        status.addEventListener
+          ? status.addEventListener("change", onChange)
+          : (status.onchange = onChange);
       } catch (e) {
         setPermissionState(Notification.permission);
       }
     })();
-    return () => { mounted = false; };
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   // Read saved items and userEnabled flag, then attempt to resync only if userEnabled === "1"
@@ -86,7 +106,9 @@ export default function PushSubscribe({ vapidPublicKey }) {
       if (Array.isArray(saved)) setItems(saved);
       const savedMin = Number(localStorage.getItem(LOCAL_KEY_MININT) || 300);
       if (!Number.isNaN(savedMin)) setMinInterval(savedMin);
-    } catch (e) { /* ignore parse errors */ }
+    } catch (e) {
+      /* ignore parse errors */
+    }
 
     if (typeof window === "undefined") return;
     if (!("serviceWorker" in navigator) || !("PushManager" in window)) return;
@@ -97,14 +119,19 @@ export default function PushSubscribe({ vapidPublicKey }) {
         if (!reg) return;
 
         const sub = await reg.pushManager.getSubscription();
-        const perm = (typeof Notification !== "undefined" && Notification.permission) ? Notification.permission : "default";
+        const perm =
+          typeof Notification !== "undefined" && Notification.permission
+            ? Notification.permission
+            : "default";
         const userEnabled = localStorage.getItem(LOCAL_KEY_USER_ENABLED);
 
         // If user explicitly turned OFF previously, do not auto-resubscribe or show editor
         if (userEnabled === "0") {
           setSubscribed(false);
           setShowEditor(false);
-          console.log("[Push] user disabled notifications previously -> not auto-resubscribing");
+          console.log(
+            "[Push] user disabled notifications previously -> not auto-resubscribing"
+          );
           return;
         }
 
@@ -114,9 +141,21 @@ export default function PushSubscribe({ vapidPublicKey }) {
             // If subscription exists, sync it; otherwise attempt to subscribe (user previously allowed)
             if (sub) {
               try {
+                // const criteria = {};
+                // if (items && items.length)
+                //   criteria.items = items.map((it) => ({
+                //     route: it.route,
+                //     q: it.q,
+                //   }));
+                // if (minInterval)
+                //   criteria.minNotifyIntervalMs = Number(minInterval) * 1000;
                 const criteria = {};
-                if (items && items.length) criteria.items = items.map(it => ({ route: it.route, q: it.q }));
-                if (minInterval) criteria.minNotifyIntervalMs = Number(minInterval) * 1000;
+                if (items && items.length)
+                  criteria.items = items.map((it) => ({
+                    route: it.route,
+                    q: it.q,
+                  }));
+                criteria.minNotifyIntervalMs = DEFAULT_MIN_INTERVAL * 1000;
                 await fetch(`${API_BASE}/subscribe`, {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
@@ -125,37 +164,56 @@ export default function PushSubscribe({ vapidPublicKey }) {
                 setSubscribed(true);
                 setShowEditor(true);
                 setRegistration(reg);
-                console.log("[Push] resynced existing subscription for enabled user");
+                console.log(
+                  "[Push] resynced existing subscription for enabled user"
+                );
                 return;
-              } catch (e) { console.warn("[Push] sync failed", e); }
+              } catch (e) {
+                console.warn("[Push] sync failed", e);
+              }
             } else {
               // attempt to re-subscribe silently because user explicitly enabled previously
-              if (!publicKey) { setSubscribed(false); setShowEditor(false); return; }
+              if (!publicKey) {
+                setSubscribed(false);
+                setShowEditor(false);
+                return;
+              }
               try {
                 const newSub = await reg.pushManager.subscribe({
                   userVisibleOnly: true,
                   applicationServerKey: urlBase64ToUint8Array(publicKey),
                 });
                 const criteria = {};
-                if (items && items.length) criteria.items = items.map(it => ({ route: it.route, q: it.q }));
-                if (minInterval) criteria.minNotifyIntervalMs = Number(minInterval) * 1000;
+                if (items && items.length)
+                  criteria.items = items.map((it) => ({
+                    route: it.route,
+                    q: it.q,
+                  }));
+                if (minInterval)
+                  criteria.minNotifyIntervalMs = Number(minInterval) * 1000;
                 await fetch(`${API_BASE}/subscribe`, {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify({ subscription: newSub, criteria }),
-                }).catch(()=>{});
+                }).catch(() => {});
                 setSubscribed(true);
                 setShowEditor(true);
                 setRegistration(reg);
-                console.log("[Push] re-subscribed silently for previously enabled user");
+                console.log(
+                  "[Push] re-subscribed silently for previously enabled user"
+                );
                 return;
-              } catch (e) { console.warn("[Push] re-subscribe failed", e); }
+              } catch (e) {
+                console.warn("[Push] re-subscribe failed", e);
+              }
             }
           } else {
             // permission not granted -> the user must click Allow to re-enable
             setSubscribed(false);
             setShowEditor(false);
-            console.log("[Push] userEnabled=1 but permission not granted; waiting for user interaction");
+            console.log(
+              "[Push] userEnabled=1 but permission not granted; waiting for user interaction"
+            );
             return;
           }
         }
@@ -193,7 +251,9 @@ export default function PushSubscribe({ vapidPublicKey }) {
     if (permissionState === "denied" || Notification.permission === "denied") {
       // show an in-component message (we render it below) and provide a settings link button
       // Keep console log for debugging:
-      console.log("[Push] permission is denied — browser will not show prompt. Instruct user to enable via browser settings.");
+      console.log(
+        "[Push] permission is denied — browser will not show prompt. Instruct user to enable via browser settings."
+      );
       // we bail here — UI will render the instructions for the user
       return;
     }
@@ -213,9 +273,11 @@ export default function PushSubscribe({ vapidPublicKey }) {
     }
 
     // permission granted — ensure we have a SW reg and subscribe
-    const reg = registration || await ensureServiceWorkerRegistered();
+    const reg = registration || (await ensureServiceWorkerRegistered());
     if (!reg) {
-      console.warn("[Push] could not obtain service worker registration after permission");
+      console.warn(
+        "[Push] could not obtain service worker registration after permission"
+      );
       return;
     }
 
@@ -228,15 +290,19 @@ export default function PushSubscribe({ vapidPublicKey }) {
 
       // build criteria from saved items
       const criteria = {};
-      if (items && items.length) criteria.items = items.map(it => ({ route: it.route, q: it.q }));
-      if (minInterval) criteria.minNotifyIntervalMs = Number(minInterval) * 1000;
+      if (items && items.length)
+        criteria.items = items.map((it) => ({ route: it.route, q: it.q }));
+      if (minInterval)
+        criteria.minNotifyIntervalMs = Number(minInterval) * 1000;
 
       // send to server
       await fetch(`${API_BASE}/subscribe`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ subscription: sub, criteria }),
-      }).catch(()=>{ /* ignore network failures here */ });
+      }).catch(() => {
+        /* ignore network failures here */
+      });
 
       // IMPORTANT: mark that the user explicitly enabled our component UI
       localStorage.setItem(LOCAL_KEY_USER_ENABLED, "1");
@@ -246,7 +312,9 @@ export default function PushSubscribe({ vapidPublicKey }) {
       setSubscribed(true);
       setShowEditor(true);
       setPermissionState("granted");
-      console.log("[Push] subscription successful and userEnabled set -> editor visible");
+      console.log(
+        "[Push] subscription successful and userEnabled set -> editor visible"
+      );
     } catch (e) {
       console.warn("[Push] subscribe error", e);
     }
@@ -254,11 +322,14 @@ export default function PushSubscribe({ vapidPublicKey }) {
 
   // add item uses uncontrolled input ref — prevents re-renders while typing so caret stays
   function addItem() {
-    const v = (itemInputRef.current && itemInputRef.current.value || "").trim();
+    const v = (
+      (itemInputRef.current && itemInputRef.current.value) ||
+      ""
+    ).trim();
     if (!v) return;
     if (!USER_ROUTES.includes(itemRoute)) return;
     const newItem = { route: itemRoute, q: v };
-    setItems(prev => {
+    setItems((prev) => {
       const next = [...prev, newItem];
       localStorage.setItem(LOCAL_KEY_ITEMS, JSON.stringify(next));
       return next;
@@ -270,7 +341,7 @@ export default function PushSubscribe({ vapidPublicKey }) {
   }
 
   function removeItem(idx) {
-    setItems(prev => {
+    setItems((prev) => {
       const next = prev.filter((_, i) => i !== idx);
       localStorage.setItem(LOCAL_KEY_ITEMS, JSON.stringify(next));
       return next;
@@ -280,13 +351,18 @@ export default function PushSubscribe({ vapidPublicKey }) {
   async function saveWatchlist() {
     // attempt to ensure registration if not present
     if (!registration) {
-      try { await ensureServiceWorkerRegistered(); } catch {}
+      try {
+        await ensureServiceWorkerRegistered();
+      } catch {}
     }
-    const sub = registration ? await registration.pushManager.getSubscription() : null;
+    const sub = registration
+      ? await registration.pushManager.getSubscription()
+      : null;
     if (!sub) return; // not subscribed — user should click Enable first
 
     const criteria = {};
-    if (items && items.length) criteria.items = items.map(it => ({ route: it.route, q: it.q }));
+    if (items && items.length)
+      criteria.items = items.map((it) => ({ route: it.route, q: it.q }));
     if (minInterval) criteria.minNotifyIntervalMs = Number(minInterval) * 1000;
 
     localStorage.setItem(LOCAL_KEY_ITEMS, JSON.stringify(items || []));
@@ -296,7 +372,7 @@ export default function PushSubscribe({ vapidPublicKey }) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ subscription: sub, criteria }),
-    }).catch(()=>{});
+    }).catch(() => {});
     console.log("[Push] saved watchlist to server");
   }
 
@@ -306,9 +382,15 @@ export default function PushSubscribe({ vapidPublicKey }) {
       try {
         const sub = await registration.pushManager.getSubscription();
         if (sub) {
-          try { await sub.unsubscribe(); } catch (e) { /* ignore */ }
+          try {
+            await sub.unsubscribe();
+          } catch (e) {
+            /* ignore */
+          }
         }
-      } catch (e) { /* ignore */ }
+      } catch (e) {
+        /* ignore */
+      }
     }
 
     // mark user explicitly disabled — this prevents ANY auto-resubscribe behavior until user clicks Allow again
@@ -320,29 +402,56 @@ export default function PushSubscribe({ vapidPublicKey }) {
     localStorage.removeItem(LOCAL_KEY_ITEMS);
     localStorage.removeItem(LOCAL_KEY_MININT);
 
-    console.log("[Push] user turned off notifications and userEnabled set to 0");
+    console.log(
+      "[Push] user turned off notifications and userEnabled set to 0"
+    );
   }
 
   /* Small presentational helpers */
   const Card = ({ children }) => (
-    <div className="rounded-2xl p-4 shadow-md" style={{ background: palette.card, border: `1px solid ${palette.border}`, color: palette.text }}>
+    <div
+      className="rounded-2xl p-4 shadow-md"
+      style={{
+        background: palette.card,
+        border: `1px solid ${palette.border}`,
+        color: palette.text,
+      }}
+    >
       {children}
     </div>
   );
 
-  const Small = ({ children }) => <div className="text-xs" style={{ color: palette.mutetext }}>{children}</div>;
+  const Small = ({ children }) => (
+    <div className="text-xs" style={{ color: palette.mutetext }}>
+      {children}
+    </div>
+  );
 
   return (
-    <div style={{ background: palette.bg }} className=" mx-auto p-6 rounded-2xl">
+    <div
+      style={{ background: palette.bg }}
+      className=" mx-auto p-6 rounded-2xl"
+    >
       <Card>
         <div className="flex items-center justify-between mb-3">
           <div>
-            <div className="text-base font-semibold" style={{ color: palette.text }}>Notifications</div>
-            <Small>Get alerts for items you care about (Seeds, Gear, Eggs)</Small>
+            <div
+              className="text-base font-semibold"
+              style={{ color: palette.text }}
+            >
+              Notifications
+            </div>
+            <Small>
+              Get alerts for items you care about (Seeds, Gear, Eggs)
+            </Small>
           </div>
           <div>
             {!showEditor ? (
-              <button type="button" onClick={handleAllowClick} className={`px-4 py-2 rounded-lg text-white ${palette.accentBtn}`}>
+              <button
+                type="button"
+                onClick={handleAllowClick}
+                className={`px-4 py-2 rounded-lg text-white ${palette.accentBtn}`}
+              >
                 Enable
               </button>
             ) : (
@@ -354,20 +463,44 @@ export default function PushSubscribe({ vapidPublicKey }) {
         </div>
 
         {/* If browser permission is denied: show instructions instead of attempting to re-request */}
-        { (permissionState === "denied" || Notification.permission === "denied") && (
-          <div className="mb-4 p-3 rounded" style={{ background: "rgba(255,0,0,0.04)", border: `1px solid rgba(255,0,0,0.08)`, color: palette.text }}>
+        {(permissionState === "denied" ||
+          Notification.permission === "denied") && (
+          <div
+            className="mb-4 p-3 rounded"
+            style={{
+              background: "rgba(255,0,0,0.04)",
+              border: `1px solid rgba(255,0,0,0.08)`,
+              color: palette.text,
+            }}
+          >
             <div className="font-semibold">Notifications blocked</div>
             <div className="text-xs" style={{ color: palette.mutetext }}>
-              You previously blocked notifications for this site. Your browser will not show the permission prompt again.
-              To re-enable notifications, change the site permission in your browser settings.
+              You previously blocked notifications for this site. Your browser
+              will not show the permission prompt again. To re-enable
+              notifications, change the site permission in your browser
+              settings.
             </div>
 
             <div className="mt-3 flex gap-2">
-              <button type="button" onClick={openBrowserNotificationSettings} className="px-3 py-2 rounded-md bg-[#64ffda] text-[#071428]">Open Chrome notification settings</button>
-              <button type="button" onClick={() => window.alert(`Steps to re-enable (examples):
+              <button
+                type="button"
+                onClick={openBrowserNotificationSettings}
+                className="px-3 py-2 rounded-md bg-[#64ffda] text-[#071428]"
+              >
+                Open Chrome notification settings
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  window.alert(`Steps to re-enable (examples):
 - Chrome (desktop): Settings → Privacy and security → Site Settings → Notifications → allow for this site
 - Firefox: Preferences → Privacy & Security → Permissions → Notifications → Remove block for this site
-- Safari (mac): Safari → Preferences → Websites → Notifications`)} className="px-3 py-2 rounded-md bg-[#0b74ff] text-white">How to enable</button>
+- Safari (mac): Safari → Preferences → Websites → Notifications`)
+                }
+                className="px-3 py-2 rounded-md bg-[#0b74ff] text-white"
+              >
+                How to enable
+              </button>
             </div>
           </div>
         )}
@@ -375,8 +508,22 @@ export default function PushSubscribe({ vapidPublicKey }) {
         {showEditor && subscribed && (
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium" style={{ color: palette.text }}>Category</label>
-              <select value={itemRoute} onChange={(e) => setItemRoute(e.target.value)} className="mt-1 block w-full rounded-md p-2" style={{ background: "rgba(255,255,255,0.02)", border: `1px solid ${palette.border}`, color: palette.text }}>
+              <label
+                className="block text-sm font-medium"
+                style={{ color: palette.text }}
+              >
+                Category
+              </label>
+              <select
+                value={itemRoute}
+                onChange={(e) => setItemRoute(e.target.value)}
+                className="mt-1 block w-full rounded-md p-2"
+                style={{
+                  background: "rgba(255,255,255,0.02)",
+                  border: `1px solid ${palette.border}`,
+                  color: palette.text,
+                }}
+              >
                 <option value="seeds">Seeds</option>
                 <option value="gear">Gear</option>
                 <option value="eggs">Eggs</option>
@@ -384,37 +531,121 @@ export default function PushSubscribe({ vapidPublicKey }) {
             </div>
 
             <div>
-              <label className="block text-sm font-medium" style={{ color: palette.text }}>Add item name or id</label>
+              <label
+                className="block text-sm font-medium"
+                style={{ color: palette.text }}
+              >
+                Add item name or id
+              </label>
               <div className="mt-2 flex gap-2">
-                <input ref={itemInputRef} defaultValue="" placeholder="e.g. carrot or Carrot" className="flex-1 rounded-md p-2" style={{ background: "rgba(255,255,255,0.02)", border: `1px solid ${palette.border}`, color: palette.text }} onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); addItem(); } }} />
-                <button type="button" onClick={addItem} className="px-3 py-2 rounded-md text-[#071428]" style={{ background: palette.primary }}>Add</button>
+                <input
+                  ref={itemInputRef}
+                  defaultValue=""
+                  placeholder="e.g. carrot or Carrot"
+                  className="flex-1 rounded-md p-2"
+                  style={{
+                    background: "rgba(255,255,255,0.02)",
+                    border: `1px solid ${palette.border}`,
+                    color: palette.text,
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      e.preventDefault();
+                      addItem();
+                    }
+                  }}
+                />
+                <button
+                  type="button"
+                  onClick={addItem}
+                  className="px-3 py-2 rounded-md text-[#071428]"
+                  style={{ background: palette.primary }}
+                >
+                  Add
+                </button>
               </div>
-              <div className="mt-1 text-xs" style={{ color: palette.mutetext }}>You can add multiple items across Seeds, Gear and Eggs.</div>
+              <div className="mt-1 text-xs" style={{ color: palette.mutetext }}>
+                You can add multiple items across Seeds, Gear and Eggs.
+              </div>
             </div>
 
             <div>
               <div className="flex flex-col gap-2">
                 {items.map((it, idx) => (
-                  <div key={idx} className="flex items-center justify-between gap-2 p-2 rounded" style={{ background: "rgba(255,255,255,0.02)", border: `1px solid ${palette.border}` }}>
+                  <div
+                    key={idx}
+                    className="flex items-center justify-between gap-2 p-2 rounded"
+                    style={{
+                      background: "rgba(255,255,255,0.02)",
+                      border: `1px solid ${palette.border}`,
+                    }}
+                  >
                     <div>
                       <strong style={{ color: palette.text }}>{it.q}</strong>
-                      <div className="text-xs" style={{ color: palette.mutetext }}>{it.route}</div>
+                      <div
+                        className="text-xs"
+                        style={{ color: palette.mutetext }}
+                      >
+                        {it.route}
+                      </div>
                     </div>
-                    <button type="button" onClick={() => removeItem(idx)} className="text-xs text-red-400">Remove</button>
+                    <button
+                      type="button"
+                      onClick={() => removeItem(idx)}
+                      className="text-xs text-red-400"
+                    >
+                      Remove
+                    </button>
                   </div>
                 ))}
-                {items.length === 0 && <div className="text-xs" style={{ color: palette.mutetext }}>No custom items yet.</div>}
+                {items.length === 0 && (
+                  <div className="text-xs" style={{ color: palette.mutetext }}>
+                    No custom items yet.
+                  </div>
+                )}
               </div>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium" style={{ color: palette.text }}>Min notify interval (seconds)</label>
-              <input type="number" value={minInterval} onChange={(e) => { const n = Number(e.target.value || 0); setMinInterval(n); localStorage.setItem(LOCAL_KEY_MININT, String(n)); }} className="mt-1 block w-full rounded-md p-2" style={{ background: "rgba(255,255,255,0.02)", border: `1px solid ${palette.border}`, color: palette.text }} />
-            </div>
+            {/* <div>
+              <label
+                className="block text-sm font-medium"
+                style={{ color: palette.text }}
+              >
+                Min notify interval (seconds)
+              </label>
+              <input
+                type="number"
+                value={minInterval}
+                onChange={(e) => {
+                  const n = Number(e.target.value || 0);
+                  setMinInterval(n);
+                  localStorage.setItem(LOCAL_KEY_MININT, String(n));
+                }}
+                className="mt-1 block w-full rounded-md p-2"
+                style={{
+                  background: "rgba(255,255,255,0.02)",
+                  border: `1px solid ${palette.border}`,
+                  color: palette.text,
+                }}
+              />
+            </div> */}
 
             <div className="flex gap-2">
-              <button type="button" onClick={saveWatchlist} className="px-4 py-2 rounded-lg text-[#071428]" style={{ background: palette.primary }}>Save</button>
-              <button type="button" onClick={turnOff} className="px-4 py-2 rounded-lg text-white bg-red-600">Turn Off</button>
+              <button
+                type="button"
+                onClick={saveWatchlist}
+                className="px-4 py-2 rounded-lg text-[#071428]"
+                style={{ background: palette.primary }}
+              >
+                Save
+              </button>
+              <button
+                type="button"
+                onClick={turnOff}
+                className="px-4 py-2 rounded-lg text-white bg-red-600"
+              >
+                Turn Off
+              </button>
             </div>
           </div>
         )}
