@@ -1,4 +1,4 @@
-// PushSubscribe.jsx
+// PushSubscribe.jsx (updated - handles permission "denied" gracefully)
 import React, { useEffect, useRef, useState } from "react";
 
 function urlBase64ToUint8Array(base64String) {
@@ -17,6 +17,9 @@ export default function PushSubscribe({ vapidPublicKey }) {
   const [registration, setRegistration] = useState(null);
   const [subscribed, setSubscribed] = useState(false);
   const [showEditor, setShowEditor] = useState(false);
+
+  // permission state: "default" | "granted" | "denied"
+  const [permissionState, setPermissionState] = useState(typeof Notification !== "undefined" ? Notification.permission : "default");
 
   // items are objects: { route: 'seeds'|'gear'|'eggs', q: 'carrot' }
   const [items, setItems] = useState([]);
@@ -54,6 +57,27 @@ export default function PushSubscribe({ vapidPublicKey }) {
       return null;
     }
   }
+
+  // Query Permissions API (if supported) to track changes in notification permission
+  useEffect(() => {
+    if (!("permissions" in navigator) || !("Notification" in window)) {
+      setPermissionState(typeof Notification !== "undefined" ? Notification.permission : "default");
+      return;
+    }
+    let mounted = true;
+    (async () => {
+      try {
+        const status = await navigator.permissions.query({ name: "notifications" });
+        if (!mounted) return;
+        setPermissionState(status.state || Notification.permission);
+        const onChange = () => setPermissionState(status.state || Notification.permission);
+        status.addEventListener ? status.addEventListener("change", onChange) : (status.onchange = onChange);
+      } catch (e) {
+        setPermissionState(Notification.permission);
+      }
+    })();
+    return () => { mounted = false; };
+  }, []);
 
   // Read saved items and userEnabled flag, then attempt to resync only if userEnabled === "1"
   useEffect(() => {
@@ -146,12 +170,31 @@ export default function PushSubscribe({ vapidPublicKey }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Attempt to open browser settings for notifications. Works in Chrome with chrome:// URL,
+  // won't work in some browsers — still useful for users on Chrome desktop.
+  function openBrowserNotificationSettings() {
+    try {
+      // Chrome desktop
+      window.open("chrome://settings/content/notifications", "_blank");
+    } catch (e) {
+      // ignore
+    }
+  }
 
   // MAIN: called on user click — must open permission popup reliably
-  // Important: do NOT do asynchronous work before calling requestPermission (we keep it first).
   async function handleAllowClick() {
     if (typeof Notification === "undefined") {
       console.warn("[Push] Notifications not supported in this browser");
+      return;
+    }
+
+    // If the permission is explicitly "denied", the browser won't show a prompt.
+    // Show a useful UI instead (we set permissionState earlier so UI can reflect this).
+    if (permissionState === "denied" || Notification.permission === "denied") {
+      // show an in-component message (we render it below) and provide a settings link button
+      // Keep console log for debugging:
+      console.log("[Push] permission is denied — browser will not show prompt. Instruct user to enable via browser settings.");
+      // we bail here — UI will render the instructions for the user
       return;
     }
 
@@ -160,14 +203,12 @@ export default function PushSubscribe({ vapidPublicKey }) {
     try {
       perm = await Notification.requestPermission();
     } catch (e) {
-      // Some older browsers may reject; fallback to reading permission property
       perm = Notification.permission;
     }
 
     // If user denied or dismissed, we respect that and do NOT set the component enabled
     if (perm !== "granted") {
       console.log("[Push] permission result:", perm);
-      // store explicit disabled if denied? we leave userEnabled unset so user can attempt later
       return;
     }
 
@@ -204,6 +245,7 @@ export default function PushSubscribe({ vapidPublicKey }) {
       setRegistration(reg);
       setSubscribed(true);
       setShowEditor(true);
+      setPermissionState("granted");
       console.log("[Push] subscription successful and userEnabled set -> editor visible");
     } catch (e) {
       console.warn("[Push] subscribe error", e);
@@ -278,9 +320,6 @@ export default function PushSubscribe({ vapidPublicKey }) {
     localStorage.removeItem(LOCAL_KEY_ITEMS);
     localStorage.removeItem(LOCAL_KEY_MININT);
 
-    // Optional: call server unsubscribe-by-endpoint (not present by default)
-    // if (sub && sub.endpoint) await fetch(`${API_BASE}/unsubscribe-by-endpoint`, { method: "POST", body: JSON.stringify({ endpoint: sub.endpoint }) });
-
     console.log("[Push] user turned off notifications and userEnabled set to 0");
   }
 
@@ -302,7 +341,6 @@ export default function PushSubscribe({ vapidPublicKey }) {
             <Small>Get alerts for items you care about (Seeds, Gear, Eggs)</Small>
           </div>
           <div>
-            {/* ensure type="button" so this button is always treated as a user gesture and will not submit forms */}
             {!showEditor ? (
               <button type="button" onClick={handleAllowClick} className={`px-4 py-2 rounded-lg text-white ${palette.accentBtn}`}>
                 Enable
@@ -314,6 +352,25 @@ export default function PushSubscribe({ vapidPublicKey }) {
             )}
           </div>
         </div>
+
+        {/* If browser permission is denied: show instructions instead of attempting to re-request */}
+        { (permissionState === "denied" || Notification.permission === "denied") && (
+          <div className="mb-4 p-3 rounded" style={{ background: "rgba(255,0,0,0.04)", border: `1px solid rgba(255,0,0,0.08)`, color: palette.text }}>
+            <div className="font-semibold">Notifications blocked</div>
+            <div className="text-xs" style={{ color: palette.mutetext }}>
+              You previously blocked notifications for this site. Your browser will not show the permission prompt again.
+              To re-enable notifications, change the site permission in your browser settings.
+            </div>
+
+            <div className="mt-3 flex gap-2">
+              <button type="button" onClick={openBrowserNotificationSettings} className="px-3 py-2 rounded-md bg-[#64ffda] text-[#071428]">Open Chrome notification settings</button>
+              <button type="button" onClick={() => window.alert(`Steps to re-enable (examples):
+- Chrome (desktop): Settings → Privacy and security → Site Settings → Notifications → allow for this site
+- Firefox: Preferences → Privacy & Security → Permissions → Notifications → Remove block for this site
+- Safari (mac): Safari → Preferences → Websites → Notifications`)} className="px-3 py-2 rounded-md bg-[#0b74ff] text-white">How to enable</button>
+            </div>
+          </div>
+        )}
 
         {showEditor && subscribed && (
           <div className="space-y-4">

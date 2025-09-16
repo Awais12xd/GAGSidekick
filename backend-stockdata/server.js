@@ -834,58 +834,35 @@ function connectUpstream() {
               continue;
             }
 
-            // build a richer notification payload (image/badge/tag/actions)
-            const title = `Available: ${getItemName(item) || item._route}`;
-            const body = matchedByUser
-              ? subEntry.criteria && subEntry.criteria.keyword
-                ? `Matches “${subEntry.criteria.keyword}”`
-                : subEntry.criteria &&
-                  subEntry.criteria.items &&
-                  subEntry.criteria.items.length
-                ? `Matches your watched items`
-                : `New ${item._route} item in stock`
-              : `Default watch: ${getItemName(item) || item._route}`;
-
-            // attempt to find an appropriate icon/image
-            const icon =
-              item.icon ||
-              item.icon_url ||
-              (latestData.travelingmerchant &&
-                latestData.travelingmerchant.icon) ||
-              undefined;
-            const image = item.image || item.large_image || undefined;
-            // badge can be a small monochrome icon (optional)
-            const badge = item.badge || undefined;
-
-            // create a stable tag to group repeated notifications for same item
-            const tag = `gs:${item._route}:${String(
-              item.item_id || item.id || getItemName(item) || ""
-            ).slice(0, 80)}`;
-
-            // actions (some UAs show them)
-            const actions = [
-              { action: "open", title: "Open", icon: icon || undefined },
-              // you can add more actions here if desired
-            ];
-
+            // --- simplified, minimal notification payload ---
+            const title = `${getItemName(item) || item._route} in stock`;
             const notificationPayload = {
               title,
-              body,
-              icon,
-              image,
-              badge,
-              vibrate: [180, 60, 180],
+              body: "Garden Side", // minimal, brand-only body
+              icon:
+                item.icon ||
+                item.icon_url || // optional icon if available
+                (latestData.travelingmerchant &&
+                  latestData.travelingmerchant.icon) ||
+                undefined,
               timestamp: Date.now(),
-              tag,
-              renotify: matchedByServerWatch, // server watch items are allowed to renotify
-              actions,
-              data: {
-                url: `https://gardenside.app/${item._route}`,
-                item,
-                route: item._route,
-              },
-              requireInteraction: matchedByServerWatch, // keep server-watch notifications sticky until user dismisses (optional)
+              // clicking the notification should open this URL (service worker uses notification.data.url)
+              data: { url: `https://gardenside.app` },
             };
+            // send it
+            try {
+              await webpush.sendNotification(
+                subEntry.subscription,
+                JSON.stringify(notificationPayload),
+                { TTL: 60, urgency: "high" }
+              );
+              subEntry.lastNotified[itemKey] = now;
+              console.log(
+                `[WEBPUSH] sent -> sub=${subEntry.id} item=${itemKey}`
+              );
+            } catch (err) {
+              // ... your existing error handling ...
+            }
 
             if (DEBUG)
               console.log(
