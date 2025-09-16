@@ -25,7 +25,7 @@ export default function PushSubscribe({ vapidPublicKey }) {
   const [items, setItems] = useState([]);
   const itemInputRef = useRef(null); // uncontrolled input
   const [itemRoute, setItemRoute] = useState("seeds");
-  const [minInterval, setMinInterval] = useState(120); // seconds
+  const [minInterval, setMinInterval] = useState(300); // seconds
 
   // local storage keys
   const LOCAL_KEY_ITEMS = "push_watch_items_v2";
