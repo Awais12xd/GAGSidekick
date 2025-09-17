@@ -383,7 +383,7 @@ export default function PushSubscribe({ vapidPublicKey }) {
   );
 
   return (
-    <div style={{ background: palette.bg }} className="mx-auto p-6 rounded-2xl">
+    <div style={{ background: palette.bg }} className="mx-auto py-6 sm:px-6 px-2 rounded-2xl">
       {/* Toast container */}
       <div aria-live="polite" className="fixed top-6 right-6 z-50 flex flex-col gap-2">
         {toasts.map((t) => (
