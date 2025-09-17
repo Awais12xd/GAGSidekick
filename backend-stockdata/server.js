@@ -6,7 +6,6 @@ import WebSocket, { WebSocketServer } from "ws";
 import process from "process";
 import dotenv from "dotenv";
 dotenv.config();
-
 import webpush from "web-push";
 import { v4 as uuidv4 } from "uuid";
 
@@ -48,6 +47,7 @@ const SERVER_WATCHLIST = {
     { item_id: "giant_pinecone", display_name: "Giant Pinecone" },
     { item_id: "elder_strawberry", display_name: "Elder Strawberry" },
     { item_id: "romanesco", display_name: "Romanesco" },
+    { item_id: "carrot", display_name: "Carrot" },
   ],
   gear: [
     { item_id: "master_sprinkler", display_name: "Master Sprinkler" },
