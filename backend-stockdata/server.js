@@ -48,7 +48,6 @@ const SERVER_WATCHLIST = {
     { item_id: "giant_pinecone", display_name: "Giant Pinecone" },
     { item_id: "elder_strawberry", display_name: "Elder Strawberry" },
     { item_id: "romanesco", display_name: "Romanesco" },
-    { item_id: "cocomango", display_name: "Cocomango" },
   ],
   gear: [
     { item_id: "master_sprinkler", display_name: "Master Sprinkler" },
