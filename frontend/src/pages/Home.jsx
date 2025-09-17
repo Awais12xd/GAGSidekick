@@ -34,7 +34,6 @@ import Testing2 from "../components/Testing2.jsx";
 import Text from "../components/Text.jsx";
 import Notify from "../components/Notify.jsx";
 
-
 /* ---------- Small UI pieces (kept simple / same as your originals) ---------- */
 
 // const LoadingSkeleton = ({ rows = 4 }) => (
@@ -98,22 +97,46 @@ function WeatherFallbackSVG({ type = "clear", className = "w-10 h-10" }) {
   if (/rain|drizzle|shower/i.test(type)) {
     return (
       <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
-        <path d="M20 16.6A5 5 0 0016 7h-1" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M8 16v2M12 16v2M16 16v2" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+        <path
+          d="M20 16.6A5 5 0 0016 7h-1"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M8 16v2M12 16v2M16 16v2"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       </svg>
     );
   }
   if (/cloud|overcast/i.test(type)) {
     return (
       <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
-        <path d="M20 17.58A4 4 0 0016 9H7a4 4 0 00-1 7.83" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+        <path
+          d="M20 17.58A4 4 0 0016 9H7a4 4 0 00-1 7.83"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       </svg>
     );
   }
   // sunny / clear default
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden>
-      <path d="M12 3v2M12 19v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+      <path
+        d="M12 3v2M12 19v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
       <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.4" />
     </svg>
   );
@@ -145,9 +168,16 @@ function WeatherCard({ w, now }) {
 
   let progressFraction = null;
   let remainingSec = null;
-  if (w.start_duration_unix && w.end_duration_unix && w.end_duration_unix > w.start_duration_unix) {
+  if (
+    w.start_duration_unix &&
+    w.end_duration_unix &&
+    w.end_duration_unix > w.start_duration_unix
+  ) {
     const total = w.end_duration_unix - w.start_duration_unix;
-    const elapsed = Math.max(0, Math.min(total, nowSec - w.start_duration_unix));
+    const elapsed = Math.max(
+      0,
+      Math.min(total, nowSec - w.start_duration_unix)
+    );
     progressFraction = total > 0 ? elapsed / total : 0;
     remainingSec = Math.max(0, w.end_duration_unix - nowSec);
   } else if (durationSec > 0) {
@@ -159,7 +189,12 @@ function WeatherCard({ w, now }) {
   }
 
   // friendly label using remainingSec if present, else computed from duration
-  const humanRemaining = remainingSec != null ? formatDurationSeconds(remainingSec) : (durationSec > 0 ? formatDurationSeconds(durationSec) : null);
+  const humanRemaining =
+    remainingSec != null
+      ? formatDurationSeconds(remainingSec)
+      : durationSec > 0
+      ? formatDurationSeconds(durationSec)
+      : null;
 
   return (
     <article
@@ -170,12 +205,22 @@ function WeatherCard({ w, now }) {
     >
       <div className="flex items-start gap-4">
         <div className="flex-shrink-0">
-          <div className={`w-14 h-14 rounded-lg flex items-center justify-center bg-gradient-to-br from-[#0b2a33]/40 to-[#07202a]/20 ${active ? "ring-2 ring-[#64ffda]/30 animate-pulse" : ""}`}>
+          <div
+            className={`w-14 h-14 rounded-lg flex items-center justify-center bg-gradient-to-br from-[#0b2a33]/40 to-[#07202a]/20 ${
+              active ? "ring-2 ring-[#64ffda]/30 animate-pulse" : ""
+            }`}
+          >
             {icon ? (
-              <img src={icon} alt={name} className="sm:w-12 sm:h-12 w-8 h-8 object-contain" />
+              <img
+                src={icon}
+                alt={name}
+                className="sm:w-12 sm:h-12 w-8 h-8 object-contain"
+              />
             ) : (
               <div className="text-[#64ffda]">
-                <WeatherFallbackSVG type={w.weather_id || w.weather_name || w.type} />
+                <WeatherFallbackSVG
+                  type={w.weather_id || w.weather_name || w.type}
+                />
               </div>
             )}
           </div>
@@ -184,15 +229,27 @@ function WeatherCard({ w, now }) {
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between gap-2">
             <div className="truncate">
-              <div className="text-sm md:text-base font-semibold text-white truncate">{name}</div>
-              <div className="text-xs text-[#9fb0c8] mt-0.5 truncate">{active ? "Active Weather" : "No active event"}</div>
+              <div className="text-sm md:text-base font-semibold text-white truncate">
+                {name}
+              </div>
+              <div className="text-xs text-[#9fb0c8] mt-0.5 truncate">
+                {active ? "Active Weather" : "No active event"}
+              </div>
             </div>
 
             <div className="text-right">
               {humanRemaining ? (
-                <div className="text-lg md:text-xl font-extrabold text-white">{humanRemaining}</div>
+                <div className="text-lg md:text-xl font-extrabold text-white">
+                  {humanRemaining}
+                </div>
               ) : (
-                <div className={`text-[10px] sm:text-xs font-medium px-2 py-1 rounded-md ${active ? "bg-[#64ffda] text-[#00221f]" : "bg-[#334b61] text-[#cfe5f3]"}`}>
+                <div
+                  className={`text-[10px] sm:text-xs font-medium px-2 py-1 rounded-md ${
+                    active
+                      ? "bg-[#64ffda] text-[#00221f]"
+                      : "bg-[#334b61] text-[#cfe5f3]"
+                  }`}
+                >
                   {active ? "ACTIVE" : "IDLE"}
                 </div>
               )}
@@ -202,17 +259,58 @@ function WeatherCard({ w, now }) {
           {/* meta row */}
           <div className="mt-3 flex items-center gap-3 text-[10px] sm:text-xs text-[#bcd4ea]">
             <div className="flex items-center gap-1">
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M12 2v6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              <span>{w.icon ? (w.weather_name || w.weather_id || w.type) : (w.type || w.weather_name || "—")}</span>
+              <svg
+                className="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden
+              >
+                <path
+                  d="M12 2v6"
+                  stroke="currentColor"
+                  strokeWidth="1.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span>
+                {w.icon
+                  ? w.weather_name || w.weather_id || w.type
+                  : w.type || w.weather_name || "—"}
+              </span>
             </div>
 
             <div className="flex items-center gap-1">
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M12 12v6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              <span>{humanRemaining ? `${humanRemaining} left` : (durationSec ? `${Math.ceil(durationSec / 60)}m` : "—")}</span>
+              <svg
+                className="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden
+              >
+                <path
+                  d="M12 12v6"
+                  stroke="currentColor"
+                  strokeWidth="1.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span>
+                {humanRemaining
+                  ? `${humanRemaining} left`
+                  : durationSec
+                  ? `${Math.ceil(durationSec / 60)}m`
+                  : "—"}
+              </span>
             </div>
 
             <div className="ml-auto text-[9px] sm:text-[11px] text-[#9fb0c8]">
-              {w.start_duration_unix ? new Date(w.start_duration_unix * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ""}
+              {w.start_duration_unix
+                ? new Date(w.start_duration_unix * 1000).toLocaleTimeString(
+                    [],
+                    { hour: "2-digit", minute: "2-digit" }
+                  )
+                : ""}
             </div>
           </div>
 
@@ -221,18 +319,24 @@ function WeatherCard({ w, now }) {
             <div className="mt-3 h-2 w-full rounded-full bg-[#06202b] overflow-hidden">
               <div
                 className="h-full bg-gradient-to-r from-[#64ffda] to-[#9effe0] transition-[width] duration-700 ease-linear"
-                style={{ width: `${Math.min(100, Math.max(0, Math.round(progressFraction * 100)))}%` }}
+                style={{
+                  width: `${Math.min(
+                    100,
+                    Math.max(0, Math.round(progressFraction * 100))
+                  )}%`,
+                }}
                 aria-hidden
               />
             </div>
-          ) : (
-            // indeterminate animated bar for duration-based but no start/end
-            durationSec > 0 ? (
-              <div className="mt-3  h-2 w-full rounded-full bg-[#06202b] overflow-hidden">
-                <div className="h-full w-1/3 bg-gradient-to-r from-[#64ffda] to-[#9effe0] animate-[shine_1.6s_infinite]" style={{ transform: "translateX(-10%)" }} />
-              </div>
-            ) : null
-          )}
+          ) : // indeterminate animated bar for duration-based but no start/end
+          durationSec > 0 ? (
+            <div className="mt-3  h-2 w-full rounded-full bg-[#06202b] overflow-hidden">
+              <div
+                className="h-full w-1/3 bg-gradient-to-r from-[#64ffda] to-[#9effe0] animate-[shine_1.6s_infinite]"
+                style={{ transform: "translateX(-10%)" }}
+              />
+            </div>
+          ) : null}
         </div>
       </div>
     </article>
@@ -240,7 +344,7 @@ function WeatherCard({ w, now }) {
 }
 
 /* Main grid component with a central clock that updates each second */
- function WeatherGrid({ currentWeathers }) {
+function WeatherGrid({ currentWeathers }) {
   const items = useMemo(() => currentWeathers || [], [currentWeathers]);
 
   // central clock (ms). updates every 1 second so cards re-render and their progress updates.
@@ -256,13 +360,18 @@ function WeatherCard({ w, now }) {
       {/* grid */}
       {items.length === 0 ? (
         <div className="bg-[#112240] rounded-xl mt-4 mx-2 p-6 text-center text-gray-300 shadow-sm ">
-          <div className="text-sm sm:text-lg font-semibold mb-1">No active weather right now</div>
-          <div className="text-xs sm:text-sm text-[#9fb0c8] mb-3">Monitoring GAG it show no active events.</div>
-          
+          <div className="text-sm sm:text-lg font-semibold mb-1">
+            No active weather right now
+          </div>
+          <div className="text-xs sm:text-sm text-[#9fb0c8] mb-3">
+            Monitoring GAG it show no active events.
+          </div>
         </div>
       ) : (
         <div className="grid gap-4 px-2 mt-4 grid-cols-1 sm:grid-cols-2 ">
-          {items.map((w, i) => <WeatherCard key={w.weather_id ?? w.icon ?? i} w={w} now={now} />)}
+          {items.map((w, i) => (
+            <WeatherCard key={w.weather_id ?? w.icon ?? i} w={w} now={now} />
+          ))}
         </div>
       )}
     </div>
@@ -281,10 +390,10 @@ const deepEqual = (a, b) => {
 const enrichItems = (items = [], db = []) => {
   if (!Array.isArray(items)) return [];
   return items.map((item) => {
-    const name =  item.item_id ?? item.id;
+    const name = item.item_id ?? item.id;
     const match = db.find((d) => d.item_id === name);
     return match
-      ? { ...item, image: match?.icon, rarity: match?.rarity}
+      ? { ...item, image: match?.icon, rarity: match?.rarity }
       : item;
   });
 };
@@ -384,7 +493,7 @@ const Home = () => {
     const enriched = enrichItems(seeds, DB_FRUITS);
     if (!deepEqual(enriched, seedData)) setSeedData(enriched);
   }, [seeds]); // run only when seeds hook changes
-  
+
   useEffect(() => {
     if (!Array.isArray(eggs)) return;
     const enriched = enrichItems(eggs, DB_EGGS);
@@ -447,56 +556,66 @@ const Home = () => {
   // Main UI
   return (
     <div className="overflow-hidden min-h-screen b w-full  pt-5">
-      <Hero/>
+      <Hero />
       {/* <HeaderCompo
         wsConnected={anyRouteConnected}
         lastUpdated={new Date().toLocaleTimeString()}
       /> */}
 
       <main className="max-w-[1300px] mx-auto px-1 mt-8 sm:px-4 space-y-1 pb-9">
+          <div className="mb-10 ">
+            <div className="mb-6">
+              <Heading headingText={"Notifications"} />
+            </div>
+            <Notify
+              vapidPublicKey={
+                "BDfmOToDaOFS0bACI-7pq0pC3LYt41zKHaYY5YxjeEXF5p7IUX2FaHRRi0rMBw0cCFionc2CFt_yJs9JyylP8fg"
+              }
+            />
+          </div>
         <WeatherGrid currentWeathers={currentWeathers} />
         <div className="mt-12 max-w-[1300px]">
           <Heading headingText={"Live Stock"} />
-           <div id="stock" className="grid gap-y-10 gap-x-2 sm:gap-4 grid-cols-2 sm:items-start mx-auto  md:grid-cols-3 lg:grid-cols-4 mt-6 px-2">
-          <StockCard
-            title="🌱 Seeds Stock"
-            items={seedData}
-            name="seeds"
-            restockTimers={timersData.restockTimers}
-          />
-          <StockCard
-            title="⚙️ Gear Stock"
-            items={gearData}
-            name="gears"
-            restockTimers={timersData.restockTimers}
-          />
-          <StockCard
-            title="🥚 Egg Stock"
-            items={eggData}
-            name="eggs"
-            restockTimers={timersData.restockTimers}
-          />
-          <StockCard
-            title="🎨 Cosmetics Stock"
-            items={cosmeticData}
-            name="cosmetics"
-            restockTimers={timersData.restockTimers}
-          />
+          <div
+            id="stock"
+            className="grid gap-y-10 gap-x-2 sm:gap-4 grid-cols-2 sm:items-start mx-auto  md:grid-cols-3 lg:grid-cols-4 mt-6 px-2"
+          >
+            <StockCard
+              title="🌱 Seeds Stock"
+              items={seedData}
+              name="seeds"
+              restockTimers={timersData.restockTimers}
+            />
+            <StockCard
+              title="⚙️ Gear Stock"
+              items={gearData}
+              name="gears"
+              restockTimers={timersData.restockTimers}
+            />
+            <StockCard
+              title="🥚 Egg Stock"
+              items={eggData}
+              name="eggs"
+              restockTimers={timersData.restockTimers}
+            />
+            <StockCard
+              title="🎨 Cosmetics Stock"
+              items={cosmeticData}
+              name="cosmetics"
+              restockTimers={timersData.restockTimers}
+            />
+          </div>
         </div>
-        </div>
-        
+
         {/* Traveling merchant card (shows merchantName + stock + per-item countdown) */}
-       <div className="mt-12">
-         {travelingMerchant && (
-          <TravelingMerchantCard
-            merchant={travelingMerchant}
-            serverNow={alldata?.timestamp}
-          />
-        )}
-       </div>
-       <div className="my-10">
-      <Notify vapidPublicKey={"BDfmOToDaOFS0bACI-7pq0pC3LYt41zKHaYY5YxjeEXF5p7IUX2FaHRRi0rMBw0cCFionc2CFt_yJs9JyylP8fg"} />
-       </div>
+        <div className="mt-12">
+          {travelingMerchant && (
+            <TravelingMerchantCard
+              merchant={travelingMerchant}
+              serverNow={alldata?.timestamp}
+            />
+          )}
+        </div>
       </main>
     </div>
   );
