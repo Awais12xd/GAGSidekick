@@ -40,9 +40,23 @@ function findSubscriptionIndexByEndpoint(endpoint) {
 
 // --------------------------- EDIT: SERVER WATCHLIST HERE ---------------------------
 const SERVER_WATCHLIST = {
-  seeds: [{ item_id: "strawberry", display_name: "Strawberry" }],
-  gear: [{ item_id: "trading_ticket", display_name: "Trading Ticket" }],
-  eggs: [{ item_id: "common_egg", display_name: "Common Egg" }],
+  seeds: [
+    { item_id: "beanstalk", display_name: "beanstalk" },
+    { item_id: "ember_lily", display_name: "Ember Lily" },
+    { item_id: "sugar_apple", display_name: "Sugar Apple" },
+    { item_id: "burning_bud", display_name: "Burning Bud" },
+    { item_id: "giant_pinecone", display_name: "Giant Pinecone" },
+    { item_id: "elder_strawberry", display_name: "Elder Strawberry" },
+    { item_id: "romanesco", display_name: "Romanesco" },
+  ],
+  gear: [
+    { item_id: "master_sprinkler", display_name: "Master Sprinkler" },
+    { item_id: "grandmaster_sprinkler", display_name: "Grandmaster Sprinkler" },
+    { item_id: "levelup_lollipop", display_name: "Levelup Lollipop" },
+
+  ],
+  eggs: [{ item_id: "bug_egg", display_name: "Bug Egg" }],
+  eggs: [{ item_id: "mythical_egg", display_name: "Mythical Egg" }],
 };
 // ---------------------- END EDIT: SERVER WATCHLIST SECTION -------------------------
 
